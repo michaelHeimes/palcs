@@ -23,18 +23,17 @@
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 			<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'trailhead' ); ?></a>
-		
-			<div class="sticky-container">
-				<header class="site-header" role="banner" data-sticky data-margin-top="0" data-sticky-on="small">
-					<?php get_template_part( 'template-parts/nav', 'offcanvas-topbar' ); ?>
-				</header><!-- #masthead -->
-			</div>
-				
-				<div class="off-canvas-wrapper">
-				
-				<!-- Load off-canvas container. Feel free to remove if not using. -->			
-				<?php get_template_part( 'template-parts/content', 'offcanvas' ); ?>
-				
-					<div class="off-canvas-content" data-off-canvas-content>
-						<div id="page" class="site">
+
+			<div class="off-canvas-wrapper">
+			
+			<!-- Load off-canvas container. Feel free to remove if not using. -->			
+			<?php get_template_part( 'template-parts/content', 'offcanvas' ); ?>
+			
+				<div class="off-canvas-content" data-off-canvas-content>
+					<header class="site-header">
+						<?php get_template_part( 'template-parts/nav', 'offcanvas-topbar' ); ?>
+					</header><!-- #masthead -->
+					
+					<div id="page" class="site">
+
 	

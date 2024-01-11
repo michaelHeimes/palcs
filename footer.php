@@ -12,47 +12,102 @@
 ?>
 
 				<footer id="colophon" class="site-footer">
-					<div class="site-info">
-						<div class="grid-container">
-							<div class="top grid-x grid-padding-x">
-								<div class="cell small-12">
-									<?php 
-									$image = get_field('footer_logo', 'option');
-									if( !empty( $image ) ): ?>
-									<div class="top">
-										<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-									</div>
-									<?php endif; ?>
-									<?php 
-									$link = get_field('parent_company_link', 'option');
-									if( $link ): 
-										$link_url = $link['url'];
-										$link_title = $link['title'];
-										$link_target = $link['target'] ? $link['target'] : '_self';
-										?>
-									<div class="bottom">
-										<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-									</div>
-									<?php endif; ?>	
-									<a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>">
-										<?php
-										/* translators: %s: CMS name, i.e. WordPress. */
-										printf( esc_html__( 'Proudly powered by %s', '_s' ), 'WordPress' );
-										?>
-									</a>
-									<span class="sep"> | </span>
-										<?php
-										/* translators: 1: Theme name, 2: Theme author. */
-										printf( esc_html__( 'Theme: %1$s by %2$s.', '_s' ), '_s', '<a href="https://automattic.com/">Automattic</a>' );
-										?>
-								</div>
+					<div class="grid-container">
+						<div class="top grid-x grid-padding-x align-center align-bottom">
+						<?php 
+						$image = get_field('header_logo', 'option');
+						if( !empty( $image ) ): ?>
+						<div class="left cell small-12 medium-shrink grid-x">
+							<ul class="menu">
+								<li class="logo"><a href="<?php echo home_url(); ?>">
+									<?php if( !empty( get_field('header_logo', 'option') ) ) {
+										$imgID = get_field('header_logo', 'option')['ID'];
+										$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
+										$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
+										echo $img;
+									}?>
+								</a></li>
+							</ul>
+						</div>
+						<?php endif;?>
+							<?php if( wp_get_nav_menu_items(get_nav_menu_locations()['social-links']) ):?>
+							<div class="right cell small-12 medium-shrink xlarge-shrink">
+								<?php trailhead_social_links();?>
 							</div>
+							<?php endif; ?>
+						</div>
+						<div class="bottom grid-x grid-padding-x flex-dir-column-reverse large-flex-dir-row align-center font-size-20">
+							<?php if( !empty(get_field('locations', 'option')) || !empty(get_field('contact_email_address', 'option')) || !empty(get_field('hours', 'option')) ):
+								$locations = get_field('locations', 'option') ?? null;
+							?>
+							<div class="left cell small-12 large-4 xlarge-3">
+								<?php if($locations):?>
+									<div class="locations">
+										<?php foreach($locations as $location):
+											$name = $location['name'] ?? null;
+											$address = $location['address'] ?? null;
+											$directions_url = $location['directions_url'] ?? null;
+											$telephone_number = $location['telephone_number'] ?? null;
+										?>
+										<div class="location font-size-20">
+											<?php if( !empty($name) ):?>
+												<h2 class="h6 font-size-20">
+													<?=$name;?>
+												</h2>
+											<?php endif;?>
+											<?php if( !empty($address) || !empty($directions_url) ):?>
+												<div class="grid-x align-bottom">
+													<?php if( !empty($address) ):?>
+														<div><?=$address;?>
+														<?php if( !empty($directions_url) ):?>-<?php endif;?>
+														</div>
+													<?php endif;?>
+													<?php if( !empty($directions_url) ):?>
+														<div> <a href="<?=$directions_url;?>" target="_blank">directions</a></div>
+													<?php endif;?>
+												</div>
+											<?php endif;?>
+											<?php if( !empty($telephone_number) ):?>
+												<div class="phone-wrap uppercase">
+													Tel: <a href="tel:<?=$telephone_number;?>"><?=$telephone_number;?></a>
+												</div>
+											<?php endif;?>
+										</div>
+										<?php endforeach;?>	
+									</div>
+								<?php endif;?>
+								
+							</div>
+							<?php endif;?>
+							<?php if( wp_get_nav_menu_items(get_nav_menu_locations()['footer-nav']) ):?>
+							<div class="right cell small-12 large-8 xlarge-7">
+								<?php trailhead_footer_nav();?>
+							</div>
+							<?php endif;?>
+						</div>
+					</div>
+					<div class="site-info blue-bg text-center large-text-left">
+						<div class="grid-container fluid">
 							<div class="grid-x grid-padding-x">
-								<div class="left cell small-12 tablet-shrink">
-									
+								<div class="cell small-12 large-auto">
+									<div class="p">&copy;<?= date("Y");?>
+										<?php if( !empty(get_field('footer_copyright', 'option') ) ){
+											the_field('footer_copyright', 'option');	
+										};?>
+										
+										<?php 
+										$link = get_field('footer_privacy_policy_link', 'option');
+										if( $link ): 
+											$link_url = $link['url'];
+											$link_title = $link['title'];
+											$link_target = $link['target'] ? $link['target'] : '_self';
+											?>
+											 | <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+										<?php endif; ?>
+									</div>
 								</div>
-								<div class="right cell small-12 tablt-auto">
-									<?php trailhead_footer_nav();?>
+								<div class="cell small-12 large-shrink">
+									<div class="p">Website by: <a href="https://gopipedream.com/" target="_blank">Pipedream</a></div>
 								</div>
 							</div>
 						</div>

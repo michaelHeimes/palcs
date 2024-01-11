@@ -65,7 +65,7 @@
 //@prepros-prepend vendor/foundation/js/plugins/foundation.smoothScroll.js
 
 // Sticky Elements
-//@*prepros-prepend vendor/foundation/js/plugins/foundation.sticky.js
+//@prepros-prepend vendor/foundation/js/plugins/foundation.sticky.js
 
 // Tabs UI
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.tabs.js
@@ -100,47 +100,81 @@
         
     };
     
-    _app.fixed_nav_hack = function() {
-        $('.off-canvas').on('opened.zf.offCanvas', function() {
-            $('header.site-header').addClass('off-canvas-content is-open-right has-transition-push');		
-            $('header.site-header #top-bar-menu .menu-toggle-wrap a#menu-toggle').addClass('clicked');	
-        });
-        
-        $('.off-canvas').on('close.zf.offCanvas', function() {
-            $('header.site-header').removeClass('off-canvas-content is-open-right has-transition-push');
-            $('header.site-header #top-bar-menu .menu-toggle-wrap a#menu-toggle').removeClass('clicked');
-        });
-        
-        $(window).on('resize', function() {
-            if ($(window).width() > 1023) {
-                $('.off-canvas').foundation('close');
-                $('header.site-header').removeClass('off-canvas-content has-transition-push');
-                $('header.site-header #top-bar-menu .menu-toggle-wrap a#menu-toggle').removeClass('clicked');
-            }
-        });    
-    }
-    
     _app.display_on_load = function() {
         $('.display-on-load').css('visibility', 'visible');
     }
     
+    _app.fade_function = function() {
+        //Fade Function
+        function fadeIn(element, duration) {
+            let opacity = 0;
+            element.style.display = 'block';
+        
+            const interval = 10;
+            const step = 1 / (duration / interval);
+        
+            function updateOpacity() {
+                if (opacity < 1) {
+                    opacity += step;
+                    element.style.opacity = opacity;
+                    setTimeout(updateOpacity, interval);
+                }
+            }
+        
+            updateOpacity();
+        }
+        
+        function fadeOut(element, duration) {
+            let opacity = 1;
+        
+            const interval = 10;
+            const step = 1 / (duration / interval);
+        
+            function updateOpacity() {
+                if (opacity > 0) {
+                    opacity -= step;
+                    element.style.opacity = opacity;
+                    setTimeout(function () {
+                        updateOpacity();
+                        if (opacity <= 0) {
+                            element.style.display = 'none';
+                        }
+                    }, interval);
+                }
+            }
+            updateOpacity();
+        }
+    }
+    
     // Custom Functions
     
+    
     _app.mobile_takover_nav = function() {
-        $(document).on('click', 'a#menu-toggle', function(){
-            
-            if ( $(this).hasClass('clicked') ) {
-                $(this).removeClass('clicked');
-                $('#off-canvas').fadeOut(200);
-            
-            } else {
-            
-                $(this).addClass('clicked');
-                $('#off-canvas').fadeIn(200);
-            
-            }
-            
+        const toggles = document.querySelectorAll('.menu-toggle');
+        
+        toggles.forEach(function (toggle){
+            toggle.addEventListener('click', function (event) {
+                event.preventDefault();
+                
+                
+                
+            });
         });
+        
+        // $(document).on('click', 'a.menu-toggle', function(){
+        //     
+        //     if ( $(this).hasClass('clicked') ) {
+        //         $(this).removeClass('clicked');
+        //         $('#off-canvas').fadeOut(200);
+        //     
+        //     } else {
+        //     
+        //         $(this).addClass('clicked');
+        //         $('#off-canvas').fadeIn(200);
+        //     
+        //     }
+        //     
+        // });
     }
             
     _app.init = function() {
@@ -148,11 +182,11 @@
         // Standard Functions
         _app.foundation_init();
         _app.emptyParentLinks();
-        _app.fixed_nav_hack();
         _app.display_on_load();
+        _app.fade_function();
         
         // Custom Functions
-        //_app.mobile_takover_nav();
+        _app.mobile_takover_nav();
     }
     
     

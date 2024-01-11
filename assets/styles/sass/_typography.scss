@@ -1,0 +1,7 @@
+p,
+.p {
+	color: $black;
+}
+.font-size-20 {
+	font-size: clamp(rem-calc(17), 2vw, rem-calc(20));
+}

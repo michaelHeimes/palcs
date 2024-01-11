@@ -66,10 +66,10 @@
 // ---------
 
 $global-font-size: 100%;
-$global-width: rem-calc(1200);
+$global-width: rem-calc(1646px);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  "primary": #1779ba,
+  "primary": $color-coral,
   "secondary": #767676,
   "success": #3adb76,
   "warning": #ffae00,
@@ -77,12 +77,12 @@ $foundation-palette: (
 );
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
-$dark-gray: #8a8a8a;
-$black: #0a0a0a;
-$white: #fefefe;
+$dark-gray: #525356;
+$black: #272727;
+$white: #fff;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: $font-body;
 $body-safe-padding: false;
 $body-antialiased: true;
 $global-margin: 1rem;
@@ -123,7 +123,7 @@ $breakpoints-hidpi: (
   "hidpi-3": 3
 );
 $print-breakpoint: large;
-$breakpoint-classes: (small medium tablet large);
+$breakpoint-classes: (small medium tablet large xlarge);
 
 // 3. The Grid
 // -----------
@@ -141,7 +141,7 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: $body-font-family;
+$header-font-family: $font-header;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
@@ -295,12 +295,12 @@ $breadcrumbs-item-separator-color: $medium-gray;
 // 11. Button
 // ----------
 
-$button-font-family: inherit;
+$button-font-family: $font-header;
 $button-font-weight: null;
-$button-padding: 0.85em 1em;
-$button-margin: 0 0 $global-margin 0;
+$button-padding: 1.125em;
+$button-margin: 0;
 $button-fill: solid;
-$button-background: $primary-color;
+$button-background: $color-blue;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: $white;
 $button-color-alt: $black;
@@ -383,14 +383,14 @@ $closebutton-color-hover: $black;
 // 16. Drilldown
 // -------------
 
-$drilldown-transition: transform 0.15s linear;
+$drilldown-transition: transform 0.2s linear;
 $drilldown-arrows: true;
 $drilldown-padding: $global-menu-padding;
 $drilldown-nested-margin: 0;
-$drilldown-background: $white;
+$drilldown-background: $color-blue;
 $drilldown-submenu-padding: $drilldown-padding;
-$drilldown-submenu-background: $white;
-$drilldown-arrow-color: $primary-color;
+$drilldown-submenu-background: $color-blue;
+$drilldown-arrow-color: transparent;
 $drilldown-arrow-size: 6px;
 
 // 17. Dropdown
@@ -415,14 +415,14 @@ $dropdownmenu-arrows: false;
 $dropdownmenu-arrow-color: $anchor-color;
 $dropdownmenu-arrow-size: 6px;
 $dropdownmenu-arrow-padding: 1.5rem;
-$dropdownmenu-min-width: 200px;
+$dropdownmenu-min-width: 300px;
 $dropdownmenu-background: null;
-$dropdownmenu-submenu-background: $white;
-$dropdownmenu-padding: $global-menu-padding;
+$dropdownmenu-submenu-background: $color-blue;
+$dropdownmenu-padding: 0;
 $dropdownmenu-nested-margin: 0;
 $dropdownmenu-submenu-padding: $dropdownmenu-padding;
-$dropdownmenu-border: 1px solid $medium-gray;
-$dropdown-menu-item-color-active: get-color(primary);
+$dropdownmenu-border: 0px solid $medium-gray;
+$dropdown-menu-item-color-active: $white;
 $dropdown-menu-item-background-active: transparent;
 
 // 19. Flexbox Utilities
@@ -887,7 +887,7 @@ $xy-grid: true;
 $grid-container: $global-width;
 $grid-columns: 12;
 $grid-margin-gutters: (
-  "small": 20px,
+  "small": 30px,
   "medium": 30px
 );
 $grid-padding-gutters: $grid-margin-gutters;

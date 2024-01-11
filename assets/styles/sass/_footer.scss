@@ -1,31 +1,101 @@
 footer#colophon {
+	.top {
+		padding-bottom: clamp(rem-calc(40), 6vw, rem-calc(89));
+		.left {
+			justify-content: center;
+			margin-bottom: rem-calc(16);
+			@include breakpoint(medium) {
+				margin-bottom: 0;
+				justify-content: flex-end;
+			}
+			.logo {
+				max-width: clamp( rem-calc(320), 32vw, rem-calc(516) );
+			}
+		}
+		.right {
+			ul {
+				display: flex;
+				justify-content: center; 
+				@include breakpoint(medium) {
+					justify-content: flex-start;
+					margin-left: clamp( rem-calc(8), 1vw, rem-calc(22) );
+				}
+				li {
+					margin: clamp( rem-calc(10), 2vw, rem-calc(20) );
+					a {
+						svg {
+							path[fill="#fff"] {
+								fill: $color-blue;
+							}
+							path[fill="#379ff8"] {
+								fill: $white;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.bottom {
+		.left,
+		.right {
+			margin-bottom: clamp( rem-calc(15), 3vw, rem-calc(19) );
+		}
+		a {
+			color: $color-blue;
+		}	
+		.h6,
+		.menu-item-has-children {
+			line-height: 1.15;
+			font-weight: 800;
+			margin-bottom: 0;
+			> a {
+				color: $black;
+				font-weight: 800;
+			}
+			ul li a {
+				font-weight: 600;
+				display: inline-block;
+				margin-bottom: clamp(rem-calc(4), 1vw, rem-calc(6));
+			}
+		}
+		.locations {
+			line-height: 1.15;
+			.location {
+				padding-bottom: clamp( rem-calc(18), 3vw, rem-calc(25));
+				.phone-wrap {
+					padding-top: clamp( rem-calc(18), 3vw, rem-calc(25));
+				}
+			}
+		}
+		#footer-nav {
+			margin-left: -0.9375rem;
+			margin-right: -0.9375rem;
+			list-style: none;
+			columns: 2;
+			@include breakpoint(medium) {
+				columns: 3;
+			}
+			> li {
+				break-inside: avoid-column;
+				padding-left: 0.9375rem;
+				padding-right: 0.9375rem;
+				margin-bottom: clamp( rem-calc(15), 3vw, rem-calc(19) );
+				> a {
+					display: inline-block;
+					margin-bottom: clamp(rem-calc(6), 1vw, rem-calc(9));
+				}
+			}
+		}
+	}
+
 
 	.site-info {
-
-	}
-	
-	.left {
-		.bottom {
-			@include breakpoint(medium down) {
-				padding-bottom: 4.1rem;
-			}
+		padding: rem-calc(16.5) 0 0;
+		.p {
+			margin-bottom: rem-calc(16.5);
 		}
-	}
-		
-	ul#footer-links {
-		@include breakpoint(medium down) {
-			padding-bottom: 4.08rem;
-		}
-		li {
-			a {
-				font-size: rem-calc(14);
-				line-height: rem-calc(19);
-				font-weight: bold;
-				text-transform: uppercase;
-			}
-		}
-	}
-	
+	}	
 	.copyright {
 		margin-bottom: 0;
 		@include breakpoint(medium down) {

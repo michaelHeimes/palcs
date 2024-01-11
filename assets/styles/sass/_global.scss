@@ -15,25 +15,42 @@ svg {
 	height: auto;
 }
 
-.has-bg {
-	position: relative;
-	.bg {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-repeat: no-repeat;
+button,
+.button {
+	cursor: pointer;
+	text-transform: uppercase;
+	&:not(.no-style) {
+		@extend .font-size-20;
+		line-height: 1.35;
+		font-weight: 800;
+		cursor: pointer;
+		border-radius: 4px;
+		min-width: rem-calc(226);
+		position: relative;
+		box-shadow: 4px 4px 0px 0px #5D30BB;
+		&:before {
+			content: '';
+			display: block;
+		}
+		&.white-bg {
+			color: $color-blue;
+			box-shadow: 4px 4px 0px 0px #052457;
+		}
 	}
-}
-
-.relative {
-	position: relative;
 }
 
 /*********************
 POSTS & CONTENT STYLES
 *********************/
+.grid-container.fluid {
+	max-width: rem-calc(1870);
+}
+main {
+	min-height: 150vh;
+}
+.menu  {
+	font-family: $font-header;
+}
 .page-title {
 	
 	// Remove Foundation vcard styling from author page titles

@@ -174,14 +174,21 @@ add_action( 'wp_enqueue_scripts', 'trailhead_scripts' );
  * Enqueue Google Fonts.
  */
 function enqueue_google_fonts() {
-	// Enqueue the Google Fonts stylesheet
-	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Tenor+Sans&display=swapp', array(), null);
-
-	// Preload the Google Fonts stylesheet
-	add_action('wp_head', function () {
-		echo '<link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Tenor+Sans&display=swap" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">';
-	});
-}
+	 // Replace 'Open+Sans' and 'Roboto' with the fonts you want to use
+	 $font_families = 'Nunito+Sans:opsz,wght@6..12,600;6..12,700;6..12,800;6..12,900&family=Poppins:wght@400;600;700';
+ 
+	 // Enqueue Google Fonts with preload
+	 wp_enqueue_style('google-fonts', "https://fonts.googleapis.com/css?family=$font_families&display=swap", array(), null, 'all');
+	 // Add 'preload' attribute to the enqueued style
+	 wp_style_add_data('google-fonts', 'preload', true);
+	 wp_style_add_data('google-fonts', 'integrity', 'sha256-' . base64_encode(file_get_contents("https://fonts.googleapis.com/css?family=$font_families&display=swap")));
+ 
+	 // Optional: Add a stylesheet for custom styles
+	 wp_enqueue_style('custom-style', get_template_directory_uri() . '/style.css', array('google-fonts'), null, 'all');
+ }
+ 
+ // Hook the function to the 'wp_enqueue_scripts' action
+ add_action('wp_enqueue_scripts', 'enqueue_google_fonts');
 
 
 // Disable Tabelpress Stylesheet

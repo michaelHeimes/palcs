@@ -1,0 +1,42 @@
+.gradient-bg {
+	background-image: linear-gradient(-0.59deg, #f6885c 0%, #f91c5d 23.599999999999998%, #96358a 53.2%, #5446ab 71.6%, #379ff8 100%);
+}
+.blue-bg {
+	background-color: $color-blue;
+	color: $white;
+	a,
+	p,
+	.p {
+		color: $white;
+	}
+}
+.white-bg {
+	background-color: $white;
+}
+
+.color-white {
+	color: $white;
+	a,
+	p,
+	.p {
+		color: $white;
+	}
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+.has-bg {
+	position: relative;
+	.bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-repeat: no-repeat;
+	}
+}
+.relative {
+	position: relative;
+}

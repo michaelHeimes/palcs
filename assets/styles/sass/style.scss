@@ -53,9 +53,9 @@
 @include foundation-dropdown-menu;
 
 // Layout components
-@include foundation-off-canvas;
+//@include foundation-off-canvas;
 // @include foundation-reveal;
-// @include foundation-sticky;
+@include foundation-sticky;
 //@include foundation-title-bar;
 // @include foundation-top-bar;
 
@@ -75,9 +75,11 @@
 # Custom Styles
 --------------------------------------------------------------*/
 @import "global";
+@import "helpers";
 @import "typography";
 @import "header";
 @import "footer";
+@import "full-nav";
 
 // @import "_parts/banner";
 
