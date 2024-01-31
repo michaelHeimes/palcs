@@ -1,0 +1,96 @@
+.ctas-video-slider {
+	position: relative;
+	.inner-height-control {
+		min-height: rem-calc(765);
+		min-height: clamp(31.25rem, 27.177rem + 17.377vw, 47.813rem);
+	}
+	.bg.gradient-1 {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		clip-path: path("M-10,0,1031.488.627,774.252,764.266H-10Z");
+		clip-path: polygon(0% 0, 100% 0%, 73% 100%, 0 100%);
+		background-image: linear-gradient(90.59deg, #f6885c 0%, #f91c5d 23.599999999999998%, #96358a 53.2%, #5446ab 71.6%, #379ff8 100%);
+		@include breakpoint(tablet) {
+			width: calc( 70vw + $mediumGutter);
+		}
+		@include breakpoint(xxlarge) {
+			width: calc( 58.333vw + $mediumGutter);
+		}
+		
+		@media (min-width: 1696px) {
+			margin-left: calc( (100vw - 1696px) * -.5 - $mediumGutter);
+		}
+		
+	}
+	.left {
+		position: relative;
+		z-index: 1;
+		h1,
+		h2 {
+			margin-bottom: 1em,
+		}
+		.inner {
+			position: relative;
+			z-index: 1;
+		}
+	}
+	.right {
+		position: relative;
+		z-index: 0;
+		.inner {
+			height: 100%;
+			width: calc( 100% + ($mediumGutter * .5) );
+			.img-wrap {
+				overflow: hidden;
+				height: 100%;
+				position: relative;
+				// @include breakpoint(tablet) {
+				// 	width: calc( 100% + ($mediumGutter * .5) );
+				// }	
+				
+				@media (min-width: 1696px) {
+					margin-left: calc( (100vw - 1696px) * -.5 - $mediumGutter);
+					margin-right: calc( (100vw - 1696px) * -.5 - $mediumGutter);
+				}
+				
+			}
+			img.image {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+				transition: transform .3s ease;
+			}
+			img.play-icon {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			button {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				&:hover {
+					img.image {
+						transform: scale(1.05);
+					}
+				}
+			}
+		}
+		&.sp-wrap {
+			z-index: 2;
+			.inner {
+				position: relative;
+			}
+		}
+	}
+}

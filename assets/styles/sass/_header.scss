@@ -99,6 +99,9 @@ header.site-header {
 			transition: opacity .2s ease, visibility 0s linear .2s;
 		}
 	}
+	.top-bar {
+		background-color: $white;
+	}
 	#top-bar-menu {
 		.grid-x {
 			height: 114px;

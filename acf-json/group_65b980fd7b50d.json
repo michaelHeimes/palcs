@@ -1,0 +1,148 @@
+{
+    "key": "group_65b980fd7b50d",
+    "title": "CTAs and Video Slider",
+    "fields": [
+        {
+            "key": "field_65b982d701183",
+            "label": "Slides",
+            "name": "cta_video_slider_slides",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Slide",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_65b980fd3b894",
+                    "label": "Heading",
+                    "name": "heading",
+                    "aria-label": "",
+                    "type": "wysiwyg",
+                    "instructions": "Use Heading 2",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0,
+                    "parent_repeater": "field_65b982d701183"
+                },
+                {
+                    "key": "field_65b981bd3b895",
+                    "label": "Button 1",
+                    "name": "button_1",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_65b982d701183"
+                },
+                {
+                    "key": "field_65b981ca3b896",
+                    "label": "Button 2",
+                    "name": "button_2",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_65b982d701183"
+                },
+                {
+                    "key": "field_65b981d03b897",
+                    "label": "Video Thumbnail Image",
+                    "name": "video_thumbnail_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_65b982d701183"
+                },
+                {
+                    "key": "field_65b981e13b898",
+                    "label": "Video URL",
+                    "name": "video_url",
+                    "aria-label": "",
+                    "type": "oembed",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "width": "",
+                    "height": "",
+                    "parent_repeater": "field_65b982d701183"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1706663392
+}

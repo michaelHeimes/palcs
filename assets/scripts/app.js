@@ -18,7 +18,7 @@
  //@*prepros-prepend vendor/foundation/js/plugins/foundation.util.imageLoader.min.js
  //@prepros-prepend vendor/foundation/js/plugins/foundation.util.keyboard.min.js
  //@prepros-prepend vendor/foundation/js/plugins/foundation.util.mediaQuery.min.js
- //@*prepros-prepend vendor/foundation/js/plugins/foundation.util.motion.min.js
+ //@prepros-prepend vendor/foundation/js/plugins/foundation.util.motion.min.js
  //@prepros-prepend vendor/foundation/js/plugins/foundation.util.nest.min.js
  //@*prepros-prepend vendor/foundation/js/plugins/foundation.util.timer.min.js
  //@prepros-prepend vendor/foundation/js/plugins/foundation.util.touch.min.js
@@ -56,7 +56,7 @@
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.orbit.js
 
 // Modals
-//@*prepros-prepend vendor/foundation/js/plugins/foundation.reveal.js
+//@prepros-prepend vendor/foundation/js/plugins/foundation.reveal.js
 
 // Form UI element
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.slider.js
@@ -176,6 +176,28 @@
         //     
         // });
     }
+    
+    _app.sliders = function() {
+        const ctaBannerSliders = document.querySelectorAll('.ctas-video-slider-swiper');
+        
+        ctaBannerSliders.forEach(function (ctaBannerSlider) {
+            console.log(ctaBannerSlider);
+            const swiper = new Swiper(ctaBannerSlider, {
+                effect: "fade",
+                crossFade: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                spaceBetween: 50,
+            });
+        });
+        
+    } 
             
     _app.init = function() {
         
@@ -187,6 +209,7 @@
         
         // Custom Functions
         _app.mobile_takover_nav();
+        _app.sliders();
     }
     
     

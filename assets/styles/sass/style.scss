@@ -6,6 +6,11 @@
 --------------------------------------------------------------*/
 
 @import "foundation-settings";
+
+// Spacing Variables
+$smallGutter: map-get($grid-margin-gutters, "small");
+$mediumGutter: map-get($grid-margin-gutters, "medium");
+
 @import "mixins";
 @import "vendor/foundation/vendor/normalize";
 @import "vendor/foundation/foundation";
@@ -42,7 +47,7 @@
 // @include foundation-accordion;
 //@include foundation-media-object;
 //@include foundation-orbit;
-// @include foundation-responsive-embed;
+@include foundation-responsive-embed;
 //@include foundation-tabs;
 //@include foundation-thumbnail;
 // Menu-based containers
@@ -54,7 +59,7 @@
 
 // Layout components
 //@include foundation-off-canvas;
-// @include foundation-reveal;
+@include foundation-reveal;
 @include foundation-sticky;
 //@include foundation-title-bar;
 // @include foundation-top-bar;
@@ -84,5 +89,7 @@
 // @import "_parts/banner";
 
 // @import "_modules/page-modules";
+
+@import "_sections/ctas-video-slider";
 
 @import "_pages/home";

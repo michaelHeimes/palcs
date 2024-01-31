@@ -5,3 +5,46 @@ p,
 .font-size-20 {
 	font-size: clamp(rem-calc(17), 2vw, rem-calc(20));
 }
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	font-weight: 900;
+	color: $color-blue;
+	&.white-color {
+		color: $white;
+	}
+}
+
+.white-color {
+	h1,
+	.h1,
+	h2,
+	.h2,
+	h3,
+	.h3,
+	h4,
+	.h4,
+	h5,
+	.h5,
+	h6,
+	.h6 {
+		color: $white;
+	}
+}
+
+h1,
+.h1,
+.ctas-video-slider h2 {
+	font-size: clamp(2.975rem, 2.661rem + 1.338vw, 4.25rem);
+	line-height: 1.132;
+}
