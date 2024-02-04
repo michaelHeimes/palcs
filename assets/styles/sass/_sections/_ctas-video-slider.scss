@@ -8,12 +8,12 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 100%;
+		width: calc(100% + $mediumGutter);
 		height: 100%;
-		clip-path: path("M-10,0,1031.488.627,774.252,764.266H-10Z");
-		clip-path: polygon(0% 0, 100% 0%, 73% 100%, 0 100%);
 		background-image: linear-gradient(90.59deg, #f6885c 0%, #f91c5d 23.599999999999998%, #96358a 53.2%, #5446ab 71.6%, #379ff8 100%);
 		@include breakpoint(tablet) {
+			width: 100%;
+			clip-path: polygon(0% 0, 100% 0%, 73% 100%, 0 100%);
 			width: calc( 70vw + $mediumGutter);
 		}
 		@include breakpoint(xxlarge) {
@@ -35,14 +35,22 @@
 		.inner {
 			position: relative;
 			z-index: 1;
+			padding: $mediumGutter 0;
 		}
 	}
 	.right {
 		position: relative;
 		z-index: 0;
+		@include breakpoint(tablet) {
+			padding-left: 0;
+		}
 		.inner {
 			height: 100%;
 			width: calc( 100% + ($mediumGutter * .5) );
+			@include breakpoint(medium down) {
+				width: calc( 100% + $mediumGutter );
+				margin-left: -($mediumGutter * .5) ;
+			}
 			.img-wrap {
 				overflow: hidden;
 				height: 100%;
@@ -90,6 +98,19 @@
 			z-index: 2;
 			.inner {
 				position: relative;
+			}
+		}
+	}
+	.swiper-slide {
+		overflow: hidden;
+		.grid-container {
+			box-sizing: border-box;
+			.right {
+				.inner {
+					@include breakpoint(medium down) {
+						min-height: 65vw;
+					}
+				}
 			}
 		}
 	}

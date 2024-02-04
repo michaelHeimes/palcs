@@ -13,16 +13,31 @@
 .white-bg {
 	background-color: $white;
 }
-
 .color-white {
 	color: $white;
 	a,
 	p,
-	.p {
+	.p,
+	.h3 {
 		color: $white;
 	}
 }
-
+.color-dark-gray {
+	color: $dark-gray;
+	a,
+	p,
+	.p {
+		color: $dark-gray;
+	}
+}
+.color-orange {
+	color: $color-orange;
+	a,
+	p,
+	.p {
+		color: $color-orange;
+	}
+}
 .uppercase {
 	text-transform: uppercase;
 }

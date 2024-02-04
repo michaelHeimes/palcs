@@ -22,6 +22,9 @@ $fields = get_fields();
 					</header><!-- .entry-header -->
 				
 						<?php get_template_part('template-parts/section', 'ctas-video-slider');?>
+						
+						<?php get_template_part('template-parts/section', 'copy-select-dropdown-links');?>
+						
 							
 					<footer class="article-footer">
 						 <?php wp_link_pages(); ?>

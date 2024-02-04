@@ -78,7 +78,7 @@
 									$link_target = $link['target'] ? $link['target'] : '_self';
 								?>
 								<div class="cell small-6">
-									<a class="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+									<a class="button purple-ds" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 								</div>
 							<?php endif;?>
 							<?php if( !empty($enroll_cta) ):?>
@@ -89,7 +89,7 @@
 									$link_target = $link['target'] ? $link['target'] : '_self';
 								?>
 								<div class="cell small-6">
-									<a class="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+									<a class="button purple-ds" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 								</div>
 							<?php endif;?>
 						</div>

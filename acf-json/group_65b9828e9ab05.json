@@ -3,6 +3,24 @@
     "title": "Home Page",
     "fields": [
         {
+            "key": "field_65bec5b85ba08",
+            "label": "CTAs and Video Slider",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
             "key": "field_65b9828ef1d00",
             "label": "CTAs and Video Slider",
             "name": "flex-ctas_and_video_slider",
@@ -18,6 +36,46 @@
             },
             "clone": [
                 "group_65b980fd7b50d"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_65bec5e05ba09",
+            "label": "Copy and Select Dropdown w\/Links",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_65bec4c549bad",
+            "label": "Copy and Select Dropdown w\/Links",
+            "name": "flex-copy_and_select_dropdown_wlinks_",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_65bec2b3435fe"
             ],
             "display": "seamless",
             "layout": "block",
@@ -43,5 +101,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1706656441
+    "modified": 1707001325
 }

@@ -1,9 +1,11 @@
+.font-size-20 {
+	font-size: clamp(rem-calc(17), 2vw, rem-calc(20));
+}
+
 p,
 .p {
 	color: $black;
-}
-.font-size-20 {
-	font-size: clamp(rem-calc(17), 2vw, rem-calc(20));
+	@extend .font-size-20;
 }
 
 h1,
@@ -47,4 +49,21 @@ h1,
 .ctas-video-slider h2 {
 	font-size: clamp(2.975rem, 2.661rem + 1.338vw, 4.25rem);
 	line-height: 1.132;
+}
+
+h2,
+.h2 {
+	font-size: clamp(2.188rem, 1.957rem + 0.984vw, 3.125rem);
+	line-height: 1.08;
+	text-transform: uppercase;
+}
+
+h3,
+.h3 {
+	font-size: clamp(1.356rem, 1.213rem + 0.61vw, 1.938rem);
+	line-height: 1.419;
+}
+
+.weight-black {
+	font-weight: 900;
 }

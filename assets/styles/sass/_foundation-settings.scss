@@ -75,8 +75,8 @@ $foundation-palette: (
   "warning": #ffae00,
   "alert": #cc4b37,
 );
-$light-gray: #e6e6e6;
-$medium-gray: #cacaca;
+$light-gray: #EFEFEF;
+$medium-gray: #E0E0E0;
 $dark-gray: #525356;
 $black: #272727;
 $white: #fff;
@@ -297,7 +297,7 @@ $breadcrumbs-item-separator-color: $medium-gray;
 
 $button-font-family: $font-header;
 $button-font-weight: null;
-$button-padding: 1.125em 1em;
+$button-padding: 1.125em 1.68em;
 $button-margin: 0;
 $button-fill: solid;
 $button-background: $color-blue;
@@ -398,7 +398,7 @@ $drilldown-arrow-size: 6px;
 
 $dropdown-padding: 1rem;
 $dropdown-background: $body-background;
-$dropdown-border: 1px solid $medium-gray;
+$dropdown-border: 1px solid #A2A2A2;
 $dropdown-font-size: 1rem;
 $dropdown-width: 300px;
 $dropdown-radius: $global-radius;

@@ -18,22 +18,21 @@ svg {
 button,
 .button {
 	cursor: pointer;
-	text-transform: uppercase;
 	&:not(.no-style) {
+		text-transform: uppercase;
 		@extend .font-size-20;
+		color: $white;
 		line-height: 1.35;
 		font-weight: 800;
 		cursor: pointer;
 		border-radius: 4px;
 		min-width: rem-calc(226);
 		position: relative;
-		box-shadow: 4px 4px 0px 0px #5D30BB;
-		&:before {
-			content: '';
-			display: block;
-		}
 		&.black-ds {
 			box-shadow: 4px 4px 0px 0px #000;
+		}
+		&.purple-ds {
+			box-shadow: 4px 4px 0px 0px #5D30BB;
 		}
 		&.white-bg {
 			color: $color-blue;
@@ -90,6 +89,11 @@ button,
 			background: $color-blue;
 		}
 	}
+}
+
+.gradient-border {
+	height: 6px;
+	background-image: linear-gradient(90deg, #f4a85c 0%, #f8635b 14.299999999999999%, #ff1b59 35%, #f51e5f 56.2%, #993488 67.5%, #6940a2 81.3%, #3e4db7 94.1%, #025bd3 100%);	
 }
 
 /*********************
