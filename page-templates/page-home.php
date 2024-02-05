@@ -25,6 +25,11 @@ $fields = get_fields();
 						
 						<?php get_template_part('template-parts/section', 'copy-select-dropdown-links');?>
 						
+						<?php get_template_part('template-parts/section', 'dual-sliders-quote-image-video-icon-text-rows');?>
+						
+						<?php get_template_part('template-parts/section', 'latest-posts');?>
+						
+						<?php get_template_part('template-parts/section', 'cta-centered-heading-two-buttons');?>
 							
 					<footer class="article-footer">
 						 <?php wp_link_pages(); ?>

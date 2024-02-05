@@ -86,11 +86,14 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 @import "footer";
 @import "full-nav";
 
-// @import "_parts/banner";
+@import "_parts/part-header-button-link-cta";
 
 // @import "_modules/page-modules";
 
 @import "_sections/ctas-video-slider";
 @import "_sections/copy-select-dropdown-links";
+@import "_sections/dual-sliders-quote-image-video-icon-text-rows";
+@import "_sections/latest-posts";
+@import "_sections/cta-centered-heading-two-buttons";
 
 @import "_pages/home";

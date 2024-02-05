@@ -1,4 +1,6 @@
 header.site-header {
+	position: relative;
+	z-index: 99999;
 	.pre-header-nav {
 		padding-top: 18px;
 		padding-bottom: 18px;

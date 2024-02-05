@@ -1,44 +1,23 @@
 <?php
-/**
- * The template part for displaying a grid of posts
- *
- * For more info: https://jointswp.com/docs/grid-archive/
- */
-
-// Adjust the amount of rows in the grid
-$grid_columns = 4; ?>
-
-<?php if( 0 === ( $wp_query->current_post  )  % $grid_columns ): ?>
-
-    <div class="grid-x grid-margin-x grid-padding-x archive-grid" data-equalizer> <!--Begin Grid--> 
-
-<?php endif; ?> 
-
-		<!--Item: -->
-		<div class="small-6 medium-3 large-3 cell panel" data-equalizer-watch>
-		
-			<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?> role="article">
-			
-				<section class="featured-image" itemprop="text">
-					<?php the_post_thumbnail('full'); ?>
-				</section> <!-- end article section -->
-			
-				<header class="article-header">
-					<h3 class="title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>	
-					<?php get_template_part( 'template-parts/content', 'byline' ); ?>				
-				</header> <!-- end article header -->	
-								
-				<section class="entry-content" itemprop="text">
-					<?php the_content('<button class="tiny">' . __( 'Read more...', 'trailhead' ) . '</button>'); ?> 
-				</section> <!-- end article section -->
-								    							
-			</article> <!-- end article -->
-			
-		</div>
-
-<?php if( 0 === ( $wp_query->current_post + 1 )  % $grid_columns ||  ( $wp_query->current_post + 1 ) ===  $wp_query->post_count ): ?>
-
-   </div>  <!--End Grid --> 
-
-<?php endif; ?>
+	$thumb_id = get_post_thumbnail_id();
+	$categories = get_the_category();
+	$first_category = '';
+	if ($categories) {
+		$first_category = $categories[0];
+	}
+?>
+<article id="post-<?php the_ID(); ?>" <?php post_class('post-card cell small-12 medium-6 tablet-4'); ?>>
+	<div class="inner relative">
+		<?php if( !empty( $thumb_id ) ) {
+			$imgID = $thumb_id;
+			$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
+			$img = wp_get_attachment_image( $imgID, 'post-card', false, [ "class" => "", "alt"=>$img_alt] );
+			echo '<div class="thumbnail-wrap">';
+			echo $img;
+			echo '<a class="color-dark-gray permalink grid-x align-bottom" href="' . get_the_permalink() . '"><span>' . get_the_title() . '</span></a>';
+			echo '</div>';
+		}?>
+		<a class="cat-link text-center" href="<?=esc_url(get_category_link($first_category->term_id));?>"><?=esc_html($first_category->name);?></a>
+	</div>
+</article>
 

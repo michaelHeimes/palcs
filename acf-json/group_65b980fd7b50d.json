@@ -81,7 +81,7 @@
                 },
                 {
                     "key": "field_65b981d03b897",
-                    "label": "Video Thumbnail Image",
+                    "label": "Image",
                     "name": "video_thumbnail_image",
                     "aria-label": "",
                     "type": "image",
@@ -144,5 +144,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1706663392
+    "modified": 1707062142
 }

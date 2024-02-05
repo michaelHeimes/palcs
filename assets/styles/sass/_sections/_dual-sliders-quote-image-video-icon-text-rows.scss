@@ -1,0 +1,68 @@
+.dual-sliders-quote-image-video-icon-text-rows {
+	padding-top: 6.35rem;
+	padding-bottom: 5.15rem;
+	.grid-container {
+		z-index: 1;
+	}
+	h2 {
+		margin-bottom: 1.66em;
+	}
+	.swiper-wrapper {
+		height: auto;
+	}
+	.left {
+		@include breakpoint(medium down) {
+			margin-bottom: 5rem;
+		}
+		.swiper-slide {
+			.img-wrap {
+				margin-bottom: 0.85rem;
+				img.play-icon {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					max-width: 18.44%;
+				}
+				button {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					&:hover {
+						img.image {
+							transform: scale(1.05);
+						}
+					}
+				}
+			}
+			.caption {
+				line-height: 2.2;
+			}
+			.quote-text {
+				font-size: clamp(1.181rem, 1.057rem + 0.531vw, 1.688rem);
+			}
+			cite {
+				padding-top: 0.15rem;
+				font-size: clamp(1.181rem, 1.057rem + 0.531vw, 1.688rem);
+				font-style: normal;
+			}
+		}
+	}
+	.right {
+		.swiper-slide {
+			.icon-wrap {
+				padding-right: 0;
+				max-width: 66px;
+			}
+		}
+	}
+	.part-header-button-link-cta {
+		margin-top: 5.6rem;
+	}
+	.swiper-pagination {
+		flex: 1;
+	}
+	
+}

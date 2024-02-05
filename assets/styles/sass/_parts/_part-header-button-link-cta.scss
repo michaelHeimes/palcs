@@ -1,0 +1,46 @@
+.part-header-button-link-cta {
+	.bg.gradient-bg {
+		position: absolute;
+		top: 0;
+		left: calc($smallGutter * .5);
+		right: calc($smallGutter * .5);
+		width: calc(100% - $smallGutter);
+		height: 100%;
+		@include breakpoint(medium) {
+			left: calc($mediumGutter * .5);
+			right: calc($mediumGutter * .5);
+			width: calc(100% - $mediumGutter);
+		}
+		@include breakpoint(tablet) {
+			clip-path: polygon(0% 0, 100% 0%, 94% 100%, 0 100%);
+		}
+	}
+	.inner {
+		max-width: 990px;
+		margin: auto;
+		border: 3px solid $color-orange;
+		h3 {
+			margin: 0;
+			padding: 6.5% 6.8%;
+			font-size: clamp(1.837rem, 1.644rem + 0.826vw, 2.625rem);
+			line-height: 1.0238;
+		}
+	}
+	.cta-left {
+		padding-right: 5%;
+		.grid-x {
+			@include breakpoint(medium) {
+				min-height: 222px;
+				height: 100%;
+			}
+		}
+	}
+	.cta-right {
+		a.button {
+			margin: 7%;
+			@include breakpoint(medium) {
+				margin: 14%;
+			}
+		}
+	}
+}

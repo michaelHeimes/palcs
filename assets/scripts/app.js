@@ -178,25 +178,64 @@
     }
     
     _app.sliders = function() {
-        const ctaBannerSliders = document.querySelectorAll('.ctas-video-slider-swiper');
         
-        ctaBannerSliders.forEach(function (ctaBannerSlider) {
-            console.log(ctaBannerSlider);
-            const swiper = new Swiper(ctaBannerSlider, {
-                effect: "fade",
-                crossFade: true,
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false,
-                },
+        const imagePaginationSliders = document.querySelectorAll('.img-pagination-slider');
+        let autoPlayDelay = '';
+        let crossFade = false;
+        imagePaginationSliders.forEach(function (slider) {
+            autoPlayDelay = slider.getAttribute('data-autoplaydelay');
+            crossFade = slider.getAttribute('data-crossfade');
+            if(autoPlayDelay) {
+                const swiper = new Swiper(slider, {
+                    effect: "fade",
+                    crossFade: true,
+                    fadeEffect: { crossFade: crossFade },
+                    autoplay: {
+                        delay: autoPlayDelay,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    spaceBetween: 50,
+                });
+            } else {
+                const swiper = new Swiper(slider, {
+                    effect: "fade",
+                    crossFade: true,
+                    fadeEffect: { crossFade: crossFade },
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    spaceBetween: 50,
+                });
+            }            
+        });
+        
+        const groupedTwoColThreeRows = document.querySelectorAll('.grouped-2-col-3-row');
+        groupedTwoColThreeRows.forEach(function (slider) {
+            const swiper = new Swiper(slider, {
                 pagination: {
                     el: ".swiper-pagination",
                     clickable: true,
                 },
-                spaceBetween: 50,
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                spaceBetween: 25,
+                breakpoints: {
+                    1440: {
+                        slidesPerView: 2,
+                        slidesPerGroup: 2,
+                        pagination: {
+                            el: ".swiper-pagination",
+                            clickable: true,
+                        },
+                    },
+                },
             });
         });
-        
     } 
             
     _app.init = function() {

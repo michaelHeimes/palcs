@@ -5,7 +5,7 @@
         {
             "key": "field_65bec2b3c5886",
             "label": "Heading",
-            "name": "heading",
+            "name": "csdl_heading",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -25,7 +25,7 @@
         {
             "key": "field_65bec2f0c5887",
             "label": "Subheading",
-            "name": "subheading",
+            "name": "csdl_subheading",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -45,7 +45,7 @@
         {
             "key": "field_65bec2fdc5888",
             "label": "Copy",
-            "name": "copy",
+            "name": "csdl_copy",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -65,7 +65,7 @@
         {
             "key": "field_65bec310c5889",
             "label": "Dropdown Title",
-            "name": "dropdown_title",
+            "name": "csdl_dropdown_title",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -85,7 +85,7 @@
         {
             "key": "field_65bed63321025",
             "label": "Dropdown Button Text",
-            "name": "dropdown_button_text",
+            "name": "csdl_dropdown_button_text",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -105,7 +105,7 @@
         {
             "key": "field_65bec371c588a",
             "label": "Dropdown Links",
-            "name": "dropdown_links",
+            "name": "csdl_dropdown_links",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -162,5 +162,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1707005513
+    "modified": 1707057811
 }

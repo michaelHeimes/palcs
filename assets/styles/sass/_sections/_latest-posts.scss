@@ -1,0 +1,65 @@
+.latest-posts {
+	position: relative;
+	padding-top: 4rem;
+	padding-bottom: 7rem;
+	@include breakpoint(medium) {
+		padding-top: 7rem;
+		padding-bottom: 15rem;
+	}
+	h2 {
+		margin-bottom: 1.65em;
+	}
+	.mask {
+		background-color: #0151D4;
+		mix-blend-mode: multiply;	
+	}
+	.post-card {
+		margin: calc($smallGutter * .5) 0; 
+		@include breakpoint(medium) {
+			margin: calc($mediumGutter * .5) 0;
+		}
+		.inner {
+			border: 9px solid $white;
+			.permalink {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				height: 100%;
+				width: 100%;
+				span {
+					font-size: rem-calc(17);
+					line-height: 1.235;
+					font-weight: 600;
+					background-color: rgba(255,255,255,.8);
+					padding: .85rem .7rem 1.1rem;
+					transition: background-color .25s ease;
+				}
+				&:hover {
+					span {
+						background-color: rgba(255,255,255,1);
+					}
+				}
+			}
+			.cat-link {
+				display: inline-block;
+				position: absolute;
+				top: -9px;
+				right: -9px;
+				min-width: calc(50% + 9px);
+				background-color: $color-orange;
+				color: $white;
+				text-transform: uppercase;
+				font-weight: 600;
+				font-size: 1rem;	
+				padding: 0.75rem;
+				transition: background-color .25s ease;
+				&:hover {
+					background-color: scale-color($color-orange, $lightness: -20%);
+				}
+			}			
+		}
+	}
+	.part-header-button-link-cta {
+		margin-top: 8.35rem;
+	}
+}
