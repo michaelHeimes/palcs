@@ -1,0 +1,70 @@
+.copy-left-cta-right {
+	h3 {
+		font-size: rem-calc(25);
+	}
+	.left {
+		max-width: 620px;
+		img.bg-img {
+
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			@include breakpoint(medium) {
+				right: 0.9375rem;
+				width: calc(100% - 0.9375rem);
+			}
+		}
+		.inner {
+			padding: 2.92rem .9rem 2.5rem;
+			@include breakpoint(medium) {
+				padding: 2.92rem 1.8375rem 2.5rem .9rem;
+			}
+		}
+		h1,
+		.h1,
+		h2,
+		.h2,
+		h3,
+		.h3,
+		h4,
+		.h4 {
+			color: $white;	
+		}
+		p {
+			color: #BCBCBC;
+			font-size: rem-calc(18);
+		}
+	}
+	.right {
+		position: relative;
+		border-width: 0px 1px 1px 1px;
+		border-style: solid;
+		padding-top: 2.92rem;
+		padding-bottom: 2.5rem;
+		@include breakpoint(medium) {
+			border-width: 0 1px 0 0;
+			&:before,
+			&:after {
+				content: '';
+				position: absolute;
+				height: 1px;
+				width: calc(100% + 0.9375rem);
+				left: -0.9375rem;
+			}
+			&:before {
+				top: 0;
+			}
+			&:after {
+				bottom: 0;
+			}
+		}
+		h2 {
+			color: #505050;
+			margin-bottom: 0.53em;
+		}
+	}
+}

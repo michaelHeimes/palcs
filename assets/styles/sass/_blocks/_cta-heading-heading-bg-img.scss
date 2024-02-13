@@ -1,0 +1,25 @@
+.cta-heading-heading-bg-img {
+	position: relative;
+	overflow: hidden;
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	.inner {
+		padding-top: rem-calc(100);
+		padding-bottom: rem-calc(100);
+		min-height: 505px;
+		h2 {
+			line-height: 1.117;
+			margin-bottom: 1.6em;
+		}
+		a.button {
+			font-size: rem-calc(18);
+			padding: 1em 3.2405em;
+		}
+	}
+}

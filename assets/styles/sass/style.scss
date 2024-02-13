@@ -48,7 +48,7 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 //@include foundation-media-object;
 //@include foundation-orbit;
 @include foundation-responsive-embed;
-//@include foundation-tabs;
+@include foundation-tabs;
 //@include foundation-thumbnail;
 // Menu-based containers
 @include foundation-menu;
@@ -95,5 +95,10 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 @import "_sections/dual-sliders-quote-image-video-icon-text-rows";
 @import "_sections/latest-posts";
 @import "_sections/cta-centered-heading-two-buttons";
+
+@import "_blocks/cta-heading-heading-bg-img";
+@import "_blocks/accordion";
+@import "_blocks/button-group";
+@import "_blocks/copy-left-cta-right";
 
 @import "_pages/home";

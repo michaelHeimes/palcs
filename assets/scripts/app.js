@@ -68,7 +68,7 @@
 //@prepros-prepend vendor/foundation/js/plugins/foundation.sticky.js
 
 // Tabs UI
-//@*prepros-prepend vendor/foundation/js/plugins/foundation.tabs.js
+//@prepros-prepend vendor/foundation/js/plugins/foundation.tabs.js
 
 // On/Off UI Switching
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.toggler.js
