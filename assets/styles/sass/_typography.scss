@@ -3,7 +3,9 @@
 }
 
 p,
-.p {
+.p,
+ul:not(.menu),
+ol {
 	color: $black;
 	@extend .font-size-20;
 }
@@ -50,6 +52,11 @@ h1,
 	font-size: clamp(2.975rem, 2.661rem + 1.338vw, 4.25rem);
 	line-height: 1.132;
 }
+.page-template-default h1
+h1.wp-block-heading {
+	font-size: clamp(1.881rem, 1.683rem + 0.846vw, 2.688rem);
+	line-height: 1.093;
+}
 
 h2,
 .h2 {
@@ -57,11 +64,32 @@ h2,
 	line-height: 1.08;
 	text-transform: uppercase;
 }
+.page-template-default h2,
+h2.wp-block-heading {
+	color: $dark-gray;
+	text-transform: none;
+	font-size: clamp(1.663rem, 1.487rem + 0.748vw, 2.375rem);
+	line-height: 1.2368;
+}
 
 h3,
 .h3 {
 	font-size: clamp(1.356rem, 1.213rem + 0.61vw, 1.938rem);
 	line-height: 1.419;
+	&.wp-block-heading {
+		color: $dark-gray;
+		font-size: clamp(1.4rem, 1.252rem + 0.63vw, 2rem);
+		line-height: 1.34375;
+	}
+}
+
+h4,
+.h4 {
+	&.wp-block-heading {
+		color: $dark-gray;
+		font-size: clamp(1.225rem, 1.096rem + 0.551vw, 1.75rem);
+		line-height: 1.2875;
+	}
 }
 
 .weight-black {

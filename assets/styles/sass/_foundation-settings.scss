@@ -241,12 +241,12 @@ $accordion-background: $white;
 $accordion-plusminus: true;
 $accordion-plus-content: '\002B';
 $accordion-minus-content: '\2013';
-$accordion-title-font-size: rem-calc(12);
-$accordion-item-color: $primary-color;
-$accordion-item-background-hover: $light-gray;
+$accordion-title-font-size: rem-calc(28);
+$accordion-item-color: $color-sky-blue;
+$accordion-item-background-hover: $white;
 $accordion-item-padding: 1.25rem 1rem;
 $accordion-content-background: $white;
-$accordion-content-border: 1px solid $light-gray;
+$accordion-content-border: 1px solid $color-sky-blue;
 $accordion-content-color: $body-font-color;
 $accordion-content-padding: 1rem;
 
@@ -823,14 +823,14 @@ $table-stack-breakpoint: medium;
 
 $tab-margin: 0;
 $tab-background: $white;
-$tab-color: $primary-color;
-$tab-background-active: $light-gray;
-$tab-active-color: $primary-color;
-$tab-item-font-size: rem-calc(12);
+$tab-color: $color-blue;
+$tab-background-active: $color-blue;
+$tab-active-color: $white;
+$tab-item-font-size: rem-calc(25);
 $tab-item-background-hover: $white;
 $tab-item-padding: 1.25rem 1.5rem;
 $tab-content-background: $white;
-$tab-content-border: $light-gray;
+$tab-content-border:  $color-blue;
 $tab-content-color: $body-font-color;
 $tab-content-padding: 1rem;
 

@@ -1,0 +1,49 @@
+figure.wp-block-image {
+	margin-bottom: 2rem;
+}
+[class^="wp-block-"],
+.module.block {
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+	@include breakpoint(tablet) {
+		margin-top: 4.5rem;
+		margin-bottom: 4.5rem;
+	}
+	&.wp-block-heading {
+		margin-bottom: .7rem;
+	}
+	&.button-group {
+		margin-bottom: 0;
+	}
+	&.wp-block-image {
+		margin-top: 0;
+	}
+	&.is-layout-flow {
+		.wp-block-heading {
+			margin-top: 0;
+		}
+	}
+}
+body.page-template-default {
+	p,
+	ul,
+	ol  {
+		line-height: 2.05;
+	}
+	ul,
+	ol {
+		li:not(.accordion-item):not(.tabs-title) {
+			margin-bottom: 0.75rem;
+		}
+	}
+	.wp-block-gallery.has-nested-images {
+		margin-left: -30px;
+		margin-right: -30px;
+		figure {
+			padding: 15px;
+		}
+	}
+	:where(.wp-block-columns.is-layout-flex) {
+		gap: 60px;
+	}
+}

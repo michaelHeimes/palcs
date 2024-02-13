@@ -13,8 +13,8 @@
 		
 	<div class="entry-content">
         <div class="grid-container">
-            <div class="grid-x grid-padding-x">
-                <div class="cell small-12">
+            <div class="grid-x grid-padding-x align-center">
+                <div class="cell small-12 large-11 xlarge-10">
                     <?php the_content();?>
                 </div>
             </div>
