@@ -176,6 +176,7 @@ add_action( 'wp_enqueue_scripts', 'trailhead_scripts' );
 function enqueue_google_fonts() {
 	 // Replace 'Open+Sans' and 'Roboto' with the fonts you want to use
 	 $font_families = 'Nunito+Sans:opsz,wght@6..12,600;6..12,700;6..12,800;6..12,900&family=Poppins:wght@400;600;700';
+	 
  
 	 // Enqueue Google Fonts with preload
 	 wp_enqueue_style('google-fonts', "https://fonts.googleapis.com/css?family=$font_families&display=swap", array(), null, 'all');

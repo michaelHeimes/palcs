@@ -85,7 +85,7 @@ $ctahb_button_link = get_field('ctahb_button_link') ?? get_sub_field('ctahb_butt
 										<?php if( !empty($heading) || !empty($text) ):?>
 											<div class="text-wrap cell auto">
 												<?php if( !empty($heading) ):?>
-													<h3 class="h4"><?=$heading;?></h3>
+													<h3 class="h4 font-poppins weight-medium color-blue"><?=$heading;?></h3>
 												<?php endif;?>
 												<?php if( !empty($text) ):?>
 													<p><?=$text;?></p>

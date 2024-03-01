@@ -1,0 +1,22 @@
+.blog,
+.archive {
+	article {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		a {
+			color: $black;
+		}
+		h2 {
+			text-transform: none;
+			line-height: 1.3478;
+			a {
+				color: $dark-gray;
+			}
+		}
+		p {
+			line-height: 2.125;
+		}
+	}
+}

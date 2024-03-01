@@ -10,6 +10,15 @@ ol {
 	@extend .font-size-20;
 }
 
+a {
+	transition: color .25s ease;
+	&.color-sky-blue {
+		&:hover {
+			color: $color-blue;
+		}
+	}
+}
+
 h1,
 .h1,
 h2,
@@ -23,10 +32,25 @@ h5,
 h6,
 .h6 {
 	font-weight: 900;
-	color: $color-blue;
+	color: $dark-gray;
 	&.white-color {
 		color: $white;
 	}
+	&.color-blue {
+		color: $color-blue;
+	}
+}
+
+h4,
+.h4 {
+	margin-bottom: 0;
+}
+
+h1,
+.h1,
+h2,
+.h2 {
+	color: $color-blue;
 }
 
 .white-color {
@@ -85,9 +109,21 @@ h3,
 
 h4,
 .h4 {
+	font-size: clamp(1.225rem, 1.096rem + 0.551vw, 1.75rem);
 	&.wp-block-heading {
-		color: $dark-gray;
 		font-size: clamp(1.225rem, 1.096rem + 0.551vw, 1.75rem);
+		color: $dark-gray;
+		line-height: 1.2875;
+		margin-bottom: 0;
+	}
+}
+
+h5,
+.h5 {
+	font-size: clamp(1.063rem, 0.956rem + 0.453vw, 1.5rem);
+	&.wp-block-heading {
+		font-size: clamp(1.063rem, 0.956rem + 0.453vw, 1.5rem);
+		color: $dark-gray;
 		line-height: 1.2875;
 	}
 }

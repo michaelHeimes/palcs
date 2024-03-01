@@ -38,7 +38,7 @@ get_header();
 			
 						endwhile;
 			
-						the_posts_navigation();
+						trailhead_page_navi();
 			
 					else :
 			

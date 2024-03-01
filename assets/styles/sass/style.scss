@@ -96,6 +96,7 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 @import "_sections/dual-sliders-quote-image-video-icon-text-rows";
 @import "_sections/latest-posts";
 @import "_sections/cta-centered-heading-two-buttons";
+@import "_sections/post-footer-nav";
 
 @import "_blocks/cta-heading-heading-bg-img";
 @import "_blocks/accordion";
@@ -103,3 +104,5 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 @import "_blocks/copy-left-cta-right";
 
 @import "_pages/home";
+
+@import "_posts";

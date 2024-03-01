@@ -66,9 +66,9 @@ function trailhead_gallery_style($css) {
 
 // This removes the annoying […] to a Read More link
 function trailhead_excerpt_more($more) {
-	global $post;
-	// edit here if you like
-return '<a class="excerpt-read-more" href="'. get_permalink($post->ID) . '" title="'. __('Read', 'trailhead') . get_the_title($post->ID).'">'. __('... Read more &raquo;', 'trailhead') .'</a>';
+// 	global $post;
+// 	// edit here if you like
+// return '<a class="excerpt-read-more" href="'. get_permalink($post->ID) . '" title="'. __('Read', 'trailhead') . get_the_title($post->ID).'">'. __('... Read more &raquo;', 'trailhead') .'</a>';
 }
 
 //  Stop WordPress from using the sticky class (which conflicts with Foundation), and style WordPress sticky posts using the .wp-sticky class instead

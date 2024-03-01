@@ -10,8 +10,9 @@
 			'total' => $wp_query->max_num_pages,
 			'mid_size' => 5,
 			'prev_next' => true,
-		    'prev_text' => __( '&laquo;', 'trailhead' ),
-		    'next_text' => __( '&raquo;', 'trailhead' ),
+		    'prev_text' => __( '<svg xmlns="http://www.w3.org/2000/svg" width="9.609" height="15.561" viewBox="0 0 9.609 15.561"><path id="prev" d="M16.371,6,18.2,7.828,12.26,13.781,18.2,19.733l-1.828,1.828L8.59,13.781Z" transform="translate(-8.59 -6)" fill="#0150d4"/></svg>
+ Prev', 'trailhead' ),
+		    'next_text' => __( 'Next <svg xmlns="http://www.w3.org/2000/svg" width="9.609" height="15.561" viewBox="0 0 9.609 15.561"><path id="prev" d="M10.419,6,8.59,7.828l5.939,5.952L8.59,19.733l1.829,1.828L18.2,13.781Z" transform="translate(-8.59 -6)" fill="#0150d4"/></svg>', 'trailhead' ),
 			'type' => 'list',
 		) );
 		$paginate_links = str_replace( "<ul class='page-numbers'>", "<ul class='pagination'>", $paginate_links );

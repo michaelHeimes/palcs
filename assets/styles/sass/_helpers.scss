@@ -29,8 +29,18 @@
 	a,
 	p,
 	.p,
-	.h3 {
+	.h3,
+	.h4 {
 		color: $color-blue;
+	}
+}
+.color-sky-blue {
+	color: $color-sky-blue;
+	a,
+	p,
+	.p,
+	.h3 {
+		color: $color-sky-blue;
 	}
 }
 .color-dark-gray {
@@ -52,8 +62,11 @@
 .uppercase {
 	text-transform: uppercase;
 }
+.font-poppins {
+	font-family: $font-body !important;
+}
 .weight-medium {
-	font-weight: 500;
+	font-weight: 500 !important;
 }
 .has-bg {
 	position: relative;

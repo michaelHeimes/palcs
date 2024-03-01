@@ -2,12 +2,13 @@ figure.wp-block-image {
 	margin-bottom: 2rem;
 }
 [class^="wp-block-"],
-.module.block {
-	margin-top: 3rem;
-	margin-bottom: 3rem;
+.module.block,
+blockquote {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
 	@include breakpoint(tablet) {
-		margin-top: 4.5rem;
-		margin-bottom: 4.5rem;
+		margin-top: 2.5rem;
+		margin-bottom: 2.5rem;
 	}
 	&.wp-block-heading {
 		margin-bottom: .7rem;
@@ -16,7 +17,7 @@ figure.wp-block-image {
 		margin-bottom: 0;
 	}
 	&.wp-block-image {
-		margin-top: 0;
+		margin-top: 1.75rem;
 	}
 	&.is-layout-flow {
 		.wp-block-heading {
@@ -46,4 +47,45 @@ body.page-template-default {
 	:where(.wp-block-columns.is-layout-flex) {
 		gap: 60px;
 	}
+	blockquote.wp-block-quote.is-style-default {
+		border: 0;
+		position: relative;
+		max-width: 880px;
+		padding: 5.35rem 4.85rem;
+		margin-left: auto;
+		margin-right: auto;
+		@extend .gradient-bg;
+		color: $white;
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			
+			// width: 157px;
+			// height: 117px;
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='156.984' height='116.437' viewBox='0 0 156.984 116.437'%3E%3Cpath id='Path_472' data-name='Path 472' d='M18.228-152.148v-38.316a99.187,99.187,0,0,1,7.44-38.874q7.44-17.67,26.04-36.27l21.948,17.856q-18.6,18.6-22.692,35.712H78.492v59.892Zm123.5,2.976-21.948-17.112q18.6-18.972,22.692-36.456H114.948v-59.52h60.264v38.316a99.187,99.187,0,0,1-7.44,38.874Q160.332-167.4,141.732-149.172Z' transform='translate(-18.228 265.608)' fill='%23fff' opacity='0.151'/%3E%3C/svg%3E");
+			background-size: 157px;
+			background-repeat: no-repeat;
+			background-position: center; 
+		}
+		.wp-block-heading {
+			color: $white !important;
+		}
+		p {
+			color: $white;
+			font-weight: 800;
+		}
+		cite {
+			color: $white;
+			font-weight: 700;
+			font-style: normal;
+			padding-top: 2.05rem;
+		}
+	}
 }
+
+
