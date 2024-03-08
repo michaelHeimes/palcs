@@ -195,12 +195,12 @@
         }
         
         window.almComplete = function(alm){
-            const filterNav = document.querySelector('.alm-filter-nav');
-            if(filterNav.classList.contains('init') ) {
+            const teachersStaff = document.querySelector('.teachers-staff');
+            if(teachersStaff.classList.contains('init') ) {
                 const allbtn = document.querySelector('.alm-filter-nav button.all');
-                filterNav.classList.remove('init');
+                allbtn.click();
+                teachersStaff.classList.remove('init');
             }   
-            allbtn.click();
             const filterButtons = document.querySelectorAll('.alm-filter-nav button:not(.all)');
             const postsShown = document.querySelectorAll('.ajax-load-more-wrap article');
             let activeTerms = [];
@@ -219,15 +219,14 @@
                 const hasMatchingTerm = btnTerms.some(term => activeTerms.includes(term));
             
                 if (!hasMatchingTerm) {
-                    btn.style.display = 'none';
+                    const wrapper = btn.parentElement;
+                    if( !wrapper.classList.contains('top-level') ) {
+                        btn.parentElement.style.display = 'none';
+                    }
                 } else {
-                    btn.style.display = 'block';
+                    btn.parentElement.style.display = 'block';
                 }
             });
-
-
-
-
             
         };
         

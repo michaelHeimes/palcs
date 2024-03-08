@@ -10245,14 +10245,36 @@ body.page-template-default blockquote.wp-block-quote.is-style-default cite {
   padding-top: 2.05rem;
 }
 
-button.filter-btn {
+.alm-filtered .alm-filter-nav {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.alm-filtered .alm-filter-nav .grid-x {
+  margin-left: -rem-calc(10);
+  margin-right: -rem-calc(10);
+}
+.alm-filtered .alm-filter-nav .grid-x > .cell {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+}
+.alm-filtered .alm-filter-nav button {
+  color: #6C1CAF;
   border-style: solid;
   border-width: 1px;
-}
-button.filter-btn.top-level {
-  color: #6C1CAF;
   border-color: #6C1CAF;
   border-radius: 26px;
+  font-weight: 800;
+  font-family: "Nunito Sans", sans-serif;
+  padding: 0.525em 1.04885em;
+  margin: 0.5625rem 0;
+}
+.alm-filtered .alm-filter-nav .other-terms button {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #379ff8;
+  border-color: #379ff8;
+  padding: 0.542em 1.5655em;
 }
 
 .part-header-button-link-cta .bg.gradient-bg, .part-header-button-link-cta body.page-template-default blockquote.bg.wp-block-quote.is-style-default, body.page-template-default .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default {

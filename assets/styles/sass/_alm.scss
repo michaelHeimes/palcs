@@ -1,0 +1,35 @@
+.alm-filtered {
+	.alm-filter-nav {
+		padding-left: 1rem;
+		padding-right: 1rem;
+		.grid-x {
+			margin-left: -rem-calc(10);
+			margin-right: -rem-calc(10);
+			> .cell {
+				padding-left: rem-calc(10);
+				padding-right: rem-calc(10);
+			}
+		}
+		button {
+			color: $color-purple;
+			border-style: solid;
+			border-width: 1px;
+			border-color: $color-purple;
+			border-radius: 26px;
+			font-weight: 800;
+			font-family: $font-header;
+			padding: 0.525em 1.04885em;
+			margin: rem-calc(9) 0;
+		}
+		.other-terms {
+			button {
+				font-family: $font-body;
+				font-size: rem-calc(12);
+				font-weight: 500;
+				color: $color-sky-blue;
+				border-color: $color-sky-blue;
+				padding: 0.542em 1.5655em;
+			}
+		}
+	}
+}
