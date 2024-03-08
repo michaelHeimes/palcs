@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('cell small-12 medium-6 tablet-4'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('post-card cell small-12 medium-6 tablet-4'); ?>>
 	
 	<a href="<?=esc_url( get_permalink() );?>" rel="bookmark">
 		<?php the_post_thumbnail('post-card'); ?>

@@ -1,0 +1,13 @@
+button {
+	
+	&.filter-btn {
+		border-style: solid;
+		border-width: 1px;
+		&.top-level {
+			color: $color-purple;
+			border-color: $color-purple;
+			border-radius: 26px;
+		}
+	}
+	
+}

@@ -9657,7 +9657,7 @@ h5.wp-block-heading,
 
 header.site-header {
   position: relative;
-  z-index: 99999;
+  z-index: 9;
 }
 header.site-header .pre-header-nav {
   padding-top: 18px;
@@ -10245,6 +10245,16 @@ body.page-template-default blockquote.wp-block-quote.is-style-default cite {
   padding-top: 2.05rem;
 }
 
+button.filter-btn {
+  border-style: solid;
+  border-width: 1px;
+}
+button.filter-btn.top-level {
+  color: #6C1CAF;
+  border-color: #6C1CAF;
+  border-radius: 26px;
+}
+
 .part-header-button-link-cta .bg.gradient-bg, .part-header-button-link-cta body.page-template-default blockquote.bg.wp-block-quote.is-style-default, body.page-template-default .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default {
   position: absolute;
   top: 0;
@@ -10481,11 +10491,19 @@ body.page-template-default blockquote.wp-block-quote.is-style-default cite {
 .copy-select-dropdown-links .left h3 {
   margin-bottom: 1.32rem;
 }
+@media print, screen and (min-width: 40em) {
+  .copy-select-dropdown-links .right {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+}
 .copy-select-dropdown-links .right .inner {
   background-color: #EFEFEF;
   border-radius: 6px;
   border: 6px solid #E0E0E0;
   padding: 5.2% 6.6% 8.4%;
+  max-width: 560px;
 }
 @media print, screen and (min-width: 40em) {
   .copy-select-dropdown-links .right .inner {
@@ -10627,25 +10645,25 @@ body.page-template-default blockquote.wp-block-quote.is-style-default cite {
   background-color: #0151D4;
   mix-blend-mode: multiply;
 }
-.latest-posts .post-card {
+.latest-posts article {
   margin: 16px 0;
 }
 @media print, screen and (min-width: 40em) {
-  .latest-posts .post-card {
+  .latest-posts article {
     margin: 25px 0;
   }
 }
-.latest-posts .post-card .inner {
+.latest-posts article .inner {
   border: 9px solid #fff;
 }
-.latest-posts .post-card .inner .permalink {
+.latest-posts article .inner .permalink {
   position: absolute;
   top: 0;
   bottom: 0;
   height: 100%;
   width: 100%;
 }
-.latest-posts .post-card .inner .permalink span {
+.latest-posts article .inner .permalink span {
   font-size: 1.0625rem;
   line-height: 1.235;
   font-weight: 600;
@@ -10654,10 +10672,10 @@ body.page-template-default blockquote.wp-block-quote.is-style-default cite {
   -webkit-transition: background-color 0.25s ease;
   transition: background-color 0.25s ease;
 }
-.latest-posts .post-card .inner .permalink:hover span {
+.latest-posts article .inner .permalink:hover span {
   background-color: rgb(255, 255, 255);
 }
-.latest-posts .post-card .inner .cat-link {
+.latest-posts article .inner .cat-link {
   display: inline-block;
   position: absolute;
   top: -9px;
@@ -10672,7 +10690,7 @@ body.page-template-default blockquote.wp-block-quote.is-style-default cite {
   -webkit-transition: background-color 0.25s ease;
   transition: background-color 0.25s ease;
 }
-.latest-posts .post-card .inner .cat-link:hover {
+.latest-posts article .inner .cat-link:hover {
   background-color: #f0861e;
 }
 .latest-posts .part-header-button-link-cta {

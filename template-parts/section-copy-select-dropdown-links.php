@@ -10,7 +10,7 @@ $dropdown_links = get_field('csdl_dropdown_links') ?? get_sub_field('csdl_dropdo
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x align-middle align-center">
 			<?php if( !empty($heading) || !empty($subheading) || !empty($heading) ):?>
-				<div class="left cell small-12 tablet-6 large-6 xlarge-5 xlarge-offset-1">
+				<div class="left cell small-12 tablet-6 large-6 xlarge-5">
 					<?php if( !empty($heading) ):?>
 						<h2><?=$heading;?></h2>
 					<?php endif;?>
@@ -23,7 +23,7 @@ $dropdown_links = get_field('csdl_dropdown_links') ?? get_sub_field('csdl_dropdo
 				</div>
 			<?php endif;?>
 			<?php if( !empty($dropdown_title) || !empty($dropdown_button_text) || !is_empty($dropdown_links) ):?>
-				<div class="right cell small-12 medium-8 tablet-6 large-6 xlarge-5 xlarge-offset-1">
+				<div class="right cell small-12 medium-8 tablet-6 large-6 xlarge-5 grid-x">
 					<div class="inner text-center">
 						<?php if( !empty($dropdown_title) ):?>
 							<h3 class="color-dark-gray"><?=$dropdown_title;?></h3>

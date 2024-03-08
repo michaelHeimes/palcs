@@ -31,11 +31,15 @@
 		}
 	}
 	.right {
+		@include breakpoint(medium) {
+			justify-content: flex-end;
+		}
 		.inner {
 			background-color: $light-gray;
 			border-radius: 6px;
 			border: 6px solid $medium-gray;
 			padding: 5.2% 6.6% 8.4%;
+			max-width: 560px;
 			@include breakpoint(medium) {
 				padding: 11.2% 12.6% 17.4%;
 			}

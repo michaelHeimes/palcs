@@ -1,6 +1,6 @@
 header.site-header {
 	position: relative;
-	z-index: 99999;
+	z-index: 9;
 	.pre-header-nav {
 		padding-top: 18px;
 		padding-bottom: 18px;
@@ -80,11 +80,11 @@ header.site-header {
 				a {
 					color: $white;
 					&:hover {
-						background-color: #6C1CAF;
+						background-color: $color-purple;
 					}
 				}
 				&.current-menu-item > a {
-					background-color: #6C1CAF;
+					background-color: $color-purple;
 				}
 			}
 		}

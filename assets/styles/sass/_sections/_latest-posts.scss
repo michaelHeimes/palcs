@@ -13,7 +13,7 @@
 		background-color: #0151D4;
 		mix-blend-mode: multiply;	
 	}
-	.post-card {
+	article {
 		margin: calc($smallGutter * .5) 0; 
 		@include breakpoint(medium) {
 			margin: calc($mediumGutter * .5) 0;
