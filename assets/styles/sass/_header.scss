@@ -1,6 +1,7 @@
 header.site-header {
 	position: relative;
 	z-index: 9;
+	border-bottom: 1px solid #E3E3E3;
 	.pre-header-nav {
 		padding-top: 18px;
 		padding-bottom: 18px;
@@ -133,6 +134,17 @@ header.site-header {
 			border: 1px solid $black;
 			border-radius: 4px;
 			padding: rem-calc(12.4) rem-calc(10);
+			transition: .25s ease;
+			svg path {
+				transition: .25s ease;
+			}
+			&:hover {
+				color: $color-blue;
+				border-color: $color-blue;
+				svg path {
+					fill: $color-blue;
+				}
+			}
 			span {
 				display: inline-block;
 				margin-right: rem-calc(5);
@@ -148,7 +160,6 @@ header.site-header {
 			    width: 36px;
 			    height: 36px;
 			    position: relative;
-			    
 			    span {
 				    position: absolute;
 				    left: 0;

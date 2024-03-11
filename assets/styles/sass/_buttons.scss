@@ -1,5 +1,110 @@
-button {
-	
+body .alm-btn-wrap button.alm-load-more-btn {
+	padding: 1.125em 1.68em;
+	background-color: $color-blue;
+	&:before {
+		top: 50%;
+		transform: translate(calc(-100% - 10px), -50%);
+	}
+	&:hover,
+	&.loading {
+		background-color: $color-blue;
+	}
+	&.done {
+		display: none;
+	}
+}
 
-	
+.alm-btn-wrap button,
+button,
+.button {
+	cursor: pointer;
+	&:not(.no-style) {
+		height: auto;
+		text-transform: uppercase;
+		@extend .font-size-20;
+		color: $white;
+		line-height: 1.35;
+		font-weight: 800;
+		cursor: pointer;
+		border-radius: 4px;
+		min-width: rem-calc(226);
+		position: relative;
+		transition: background-color .3s ease, box-shadow .3s ease;
+		&.black-ds {
+			box-shadow: 4px 4px 0px 0px #000;
+			&:hover {
+				box-shadow: -4px -4px 0px 0px #000;
+			}
+		}
+		&.alm-load-more-btn,
+		&.purple-ds {
+			box-shadow: 4px 4px 0px 0px #5D30BB;
+			&:hover {
+				box-shadow: -4px -4px 0px 0px #5D30BB;
+			}
+		}
+		&.blue-ds {
+			box-shadow: 4px 4px 0px 0px $color-blue;
+			&:hover {
+				box-shadow: -4px -4px 0px 0px $color-blue;
+			}
+		}
+		&.white-bg {
+			color: $color-sky-blue;
+		}
+	}
+}
+
+.button-group {
+	box-sizing: border-box;
+	button,
+	.button {
+		width: 100%;
+		margin-bottom: $smallGutter;
+		min-width: 0;
+		@include breakpoint(medium) {
+			margin-bottom: $mediumGutter;
+		}
+	}
+}
+
+.tax-menu,
+.alm-filtered .alm-filter-nav {
+	button,
+	.button {
+		background-color: transparent;
+		color: $color-purple;
+		border-style: solid;
+		border-width: 1px;
+		border-color: $color-purple;
+		border-radius: 26px;
+		font-weight: 800;
+		font-family: $font-header;
+		padding: 0.525em 1.04885em;
+		transition: color .2s ease, background-color .2s ease;
+		&:is(span),
+		&.active,
+		&:hover {
+			color: $white;
+			background-color: $color-purple;
+		}
+	}
+	span.button {
+		cursor: default;
+	}
+}
+
+.tax-menu li:not(.top-level) a.button,
+.alm-filtered .alm-filter-nav .other-terms button {
+	font-family: $font-body;
+	font-size: rem-calc(12);
+	font-weight: 500;
+	color: $color-sky-blue;
+	border-color: $color-sky-blue;
+	padding: 0.542em 1.5655em;
+	&.active,
+	&:hover {
+		color: $white;
+		background-color: $color-sky-blue;
+	}
 }

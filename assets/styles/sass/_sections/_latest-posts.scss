@@ -19,14 +19,14 @@
 			margin: calc($mediumGutter * .5) 0;
 		}
 		.inner {
-			border: 9px solid $white;
+			border: 10px solid $white;
 			.permalink {
 				position: absolute;
 				top: 0;
 				bottom: 0;
 				height: 100%;
 				width: 100%;
-				span {
+				h3 {
 					font-size: rem-calc(17);
 					line-height: 1.235;
 					font-weight: 600;
@@ -35,7 +35,8 @@
 					transition: background-color .25s ease;
 				}
 				&:hover {
-					span {
+					h3 {
+						color: $color-coral;
 						background-color: rgba(255,255,255,1);
 					}
 				}
@@ -43,9 +44,9 @@
 			.cat-link {
 				display: inline-block;
 				position: absolute;
-				top: -9px;
-				right: -9px;
-				min-width: calc(50% + 9px);
+				top: -10px;
+				right: -10px;
+				min-width: calc(50% + 10px);
 				background-color: $color-orange;
 				color: $white;
 				text-transform: uppercase;

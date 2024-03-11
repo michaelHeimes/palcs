@@ -270,7 +270,7 @@ require_once(get_template_directory().'/inc/acf-blocks.php');
 // require_once(get_template_directory().'/inc/login.php'); 
 
 // Customize the WordPress admin
-// require_once(get_template_directory().'/inc/admin.php'); 
+require_once(get_template_directory().'/inc/admin.php'); 
 
 // Sitemap Removal
 // require_once(get_template_directory().'/inc/sitemap-removal.php');
@@ -280,22 +280,3 @@ require_once(get_template_directory().'/inc/acf-blocks.php');
 
 // Image Sizes
 require_once(get_template_directory().'/inc/image-sizes.php');
-
-
-
-
-// Add custom column header
-function custom_teacher_staff_columns($columns) {
-	$columns['featured_image'] = 'Featured Image';
-	return $columns;
-}
-add_filter('manage_edit-teacher-staff_columns', 'custom_teacher_staff_columns');
-
-// Display featured image in the custom column
-function custom_teacher_staff_column_content($column, $post_id) {
-	if ($column == 'featured_image') {
-		$thumbnail = get_the_post_thumbnail($post_id, array(50, 50)); // Adjust the size as needed
-		echo $thumbnail ? $thumbnail : 'N/A';
-	}
-}
-add_action('manage_teacher-staff_posts_custom_column', 'custom_teacher_staff_column_content', 10, 2);

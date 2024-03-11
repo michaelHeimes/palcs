@@ -19,26 +19,50 @@ $latest_posts_cta_button_link = get_field('latest_posts_cta_button_link') ?? get
 					<h2 class="text-center color-white"><?=$latest_posts_heading;?></h2>
 				</div>
 			<?php endif;?>
-			<?php			
-			$args = array(  
-				'post_type' => 'post',
-				'post_status' => 'publish',
-				'posts_per_page' => 6,
-			);
 			
-			$loop = new WP_Query( $args ); 
+			<?php
+			$categories = get_categories();
 			
-			if ( $loop->have_posts() ) : 
-				
-				while ( $loop->have_posts() ) : $loop->the_post();
-				
-					get_template_part('template-parts/loop', 'latest-post');	
-				
-				endwhile;
+			foreach ($categories as $category) {
+				$args = array(
+					'post_type' => 'post',
+					'post_status' => 'publish',
+					'posts_per_page' => 1,
+					'cat' => $category->cat_ID,
+					'orderby' => 'date',
+					'order' => 'DESC',
+				);
 			
-			endif;
-			wp_reset_postdata(); 
+				$loop = new WP_Query($args);
+			
+				$sticky_args = array(
+					'post_type' => 'post',
+					'post_status' => 'publish',
+					'posts_per_page' => 1,
+					'cat' => $category->cat_ID,
+					'ignore_sticky_posts' => 1, // Ignore regular posts in the sticky posts loop
+					'orderby' => 'date',
+					'order' => 'DESC',
+					'post__in' => get_option( 'sticky_posts' ),
+				);
+			
+				$sticky_loop = new WP_Query($sticky_args);
+			
+				// Check if there's a sticky post, if not, fall back to regular posts
+				if ($sticky_loop->have_posts()) :
+					while ($sticky_loop->have_posts()) : $sticky_loop->the_post();
+						get_template_part('template-parts/loop', 'latest-post');
+					endwhile;
+				elseif ($loop->have_posts()) :
+					while ($loop->have_posts()) : $loop->the_post();
+						get_template_part('template-parts/loop', 'latest-post');
+					endwhile;
+				endif;
+			
+				wp_reset_postdata();
+			}
 			?>
+
 
 		</div>
 		

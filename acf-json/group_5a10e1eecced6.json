@@ -3,6 +3,28 @@
     "title": "Footer Settings",
     "fields": [
         {
+            "key": "field_65ee1c5948724",
+            "label": "Centered Heading w\/Two Buttons",
+            "name": "centered_heading_wtwo_buttons",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_65c047b992398"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
             "key": "field_5a81c5dd04896",
             "label": "Footer Copyright",
             "name": "footer_copyright",
@@ -202,5 +224,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704852150
+    "modified": 1710103703
 }

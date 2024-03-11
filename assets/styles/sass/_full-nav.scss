@@ -1,3 +1,7 @@
+.js-off-canvas-overlay.is-visible {
+	position: fixed;
+	height: 100vh;
+}
 .off-canvas {
 	position: fixed;
 	z-index: 9999;

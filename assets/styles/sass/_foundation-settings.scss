@@ -301,7 +301,7 @@ $button-padding: 1.125em 1.68em;
 $button-margin: 0;
 $button-fill: solid;
 $button-background: $color-blue;
-$button-background-hover: scale-color($button-background, $lightness: -15%);
+$button-background-hover: $button-background;
 $button-color: $white;
 $button-color-alt: $black;
 $button-radius: $global-radius;

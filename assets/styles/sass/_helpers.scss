@@ -59,10 +59,21 @@
 		color: $color-orange;
 	}
 }
+.color-purple {
+	color: $color-purple;
+	a,
+	p,
+	.p {
+		color: $color-purple;
+	}
+}
 .uppercase {
 	text-transform: uppercase;
 }
-.font-poppins {
+.font-header {
+	font-family: $font-header !important;
+}
+.font-body {
 	font-family: $font-body !important;
 }
 .weight-medium {

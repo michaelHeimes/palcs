@@ -14,7 +14,7 @@
 			$img = wp_get_attachment_image( $imgID, 'post-card', false, [ "class" => "", "alt"=>$img_alt] );
 			echo '<div class="thumbnail-wrap">';
 			echo $img;
-			echo '<a class="color-dark-gray permalink grid-x align-bottom" href="' . get_the_permalink() . '"><span>' . get_the_title() . '</span></a>';
+			echo '<a class="color-dark-gray permalink grid-x align-bottom" href="' . get_the_permalink() . '"><h3 class="font-body">' . get_the_title() . '</h3></a>';
 			echo '</div>';
 		}?>
 		<a class="cat-link text-center" href="<?=esc_url(get_category_link($first_category->term_id));?>"><?=esc_html($first_category->name);?></a>

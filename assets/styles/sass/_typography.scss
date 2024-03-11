@@ -31,7 +31,7 @@ h5,
 .h5,
 h6,
 .h6 {
-	font-weight: 900;
+	font-weight: 800;
 	color: $dark-gray;
 	&.white-color {
 		color: $white;
@@ -72,23 +72,13 @@ h2,
 
 h1,
 .h1,
-.ctas-video-slider h2 {
-	font-size: clamp(2.975rem, 2.661rem + 1.338vw, 4.25rem);
-	line-height: 1.132;
-}
-.page-template-default h1
 h1.wp-block-heading {
 	font-size: clamp(1.881rem, 1.683rem + 0.846vw, 2.688rem);
 	line-height: 1.093;
 }
 
 h2,
-.h2 {
-	font-size: clamp(2.188rem, 1.957rem + 0.984vw, 3.125rem);
-	line-height: 1.08;
-	text-transform: uppercase;
-}
-.page-template-default h2,
+.h2,
 h2.wp-block-heading {
 	color: $dark-gray;
 	text-transform: none;
@@ -97,34 +87,56 @@ h2.wp-block-heading {
 }
 
 h3,
-.h3 {
-	font-size: clamp(1.356rem, 1.213rem + 0.61vw, 1.938rem);
-	line-height: 1.419;
-	&.wp-block-heading {
-		color: $dark-gray;
-		font-size: clamp(1.4rem, 1.252rem + 0.63vw, 2rem);
-		line-height: 1.34375;
-	}
+.h3,
+h3.wp-block-heading {
+	color: $dark-gray;
+	font-size: clamp(1.4rem, 1.252rem + 0.63vw, 2rem);
+	line-height: 1.34375;
 }
 
 h4,
-.h4 {
+.h4,
+h4.wp-block-heading {
 	font-size: clamp(1.225rem, 1.096rem + 0.551vw, 1.75rem);
-	&.wp-block-heading {
-		font-size: clamp(1.225rem, 1.096rem + 0.551vw, 1.75rem);
-		color: $dark-gray;
-		line-height: 1.2875;
-		margin-bottom: 0;
-	}
+	color: $dark-gray;
+	line-height: 1.2875;
+	margin-bottom: 0;
 }
 
 h5,
-.h5 {
+.h5,
+h5.wp-block-heading {
 	font-size: clamp(1.063rem, 0.956rem + 0.453vw, 1.5rem);
-	&.wp-block-heading {
-		font-size: clamp(1.063rem, 0.956rem + 0.453vw, 1.5rem);
-		color: $dark-gray;
-		line-height: 1.2875;
+	color: $dark-gray;
+	line-height: 1.2875;
+}
+
+h6,
+.h6,
+h6.wp-block-heading {
+	font-weight: bold;
+	font-size: clamp(1rem, 0.894rem + 0.453vw, 1.438rem);
+	color: $dark-gray;
+	line-height: 1.0869;
+}
+
+.home {
+	h1,
+	.h1,
+	.ctas-video-slider h2 {
+		font-size: clamp(2.975rem, 2.661rem + 1.338vw, 4.25rem);
+		line-height: 1.132;
+	}
+	h2,
+	.h2 {
+		font-size: clamp(2.188rem, 1.957rem + 0.984vw, 3.125rem);
+		line-height: 1.08;
+		text-transform: uppercase;
+	}
+	h3,
+	.h3 {
+		font-size: clamp(1.356rem, 1.213rem + 0.61vw, 1.938rem);
+		line-height: 1.419;
 	}
 }
 

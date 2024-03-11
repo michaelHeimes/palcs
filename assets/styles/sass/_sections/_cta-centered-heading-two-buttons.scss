@@ -17,6 +17,9 @@
 	}
 	a.button {
 		margin-bottom: $smallGutter; 
+		&:hover {
+			background-color: $white;
+		}
 		@include breakpoint(medium) {
 			margin-bottom: $mediumGutter;
 		}

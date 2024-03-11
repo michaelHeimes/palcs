@@ -1,15 +1,15 @@
 {
-    "key": "group_65ea685e6b4ef",
-    "title": "CPT: Teachers &amp; Staff",
+    "key": "group_65edc5ec86ccc",
+    "title": "Grid Intro",
     "fields": [
         {
-            "key": "field_65ea68dde7b5a",
-            "label": "Last Name",
-            "name": "last_name",
+            "key": "field_65edc5ed73800",
+            "label": "Intro Text",
+            "name": "intro_text",
             "aria-label": "",
-            "type": "text",
-            "instructions": "This is used for alphabetical ordering.",
-            "required": 1,
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -17,23 +17,23 @@
                 "id": ""
             },
             "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         }
     ],
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "page_template",
                 "operator": "==",
-                "value": "teacher-staff"
+                "value": "page-templates\/page-teachers-staff.php"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "side",
+    "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -41,5 +41,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1710037121
+    "modified": 1710082001
 }

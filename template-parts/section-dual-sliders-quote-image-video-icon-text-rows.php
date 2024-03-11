@@ -17,7 +17,7 @@ $ctahb_button_link = get_field('ctahb_button_link') ?? get_sub_field('ctahb_butt
 		<?php if( !empty($heading) ):?>
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12 text-center">
-					<h2><?=$heading;?></h2>
+					<h2 class="color-blue"><?=$heading;?></h2>
 				</div>
 			</div>
 		<?php endif;?>
@@ -85,7 +85,7 @@ $ctahb_button_link = get_field('ctahb_button_link') ?? get_sub_field('ctahb_butt
 										<?php if( !empty($heading) || !empty($text) ):?>
 											<div class="text-wrap cell auto">
 												<?php if( !empty($heading) ):?>
-													<h3 class="h4 font-poppins weight-medium color-blue"><?=$heading;?></h3>
+													<h3 class="h4 font-body weight-medium color-blue"><?=$heading;?></h3>
 												<?php endif;?>
 												<?php if( !empty($text) ):?>
 													<p><?=$text;?></p>

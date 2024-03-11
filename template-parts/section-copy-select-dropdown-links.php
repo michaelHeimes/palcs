@@ -12,7 +12,7 @@ $dropdown_links = get_field('csdl_dropdown_links') ?? get_sub_field('csdl_dropdo
 			<?php if( !empty($heading) || !empty($subheading) || !empty($heading) ):?>
 				<div class="left cell small-12 tablet-6 large-6 xlarge-5">
 					<?php if( !empty($heading) ):?>
-						<h2><?=$heading;?></h2>
+						<h2 class="color-blue"><?=$heading;?></h2>
 					<?php endif;?>
 					<?php if( !empty($subheading) ):?>
 						<h3 class="color-orange"><?=$subheading;?></h3>

@@ -8,7 +8,7 @@ function trailhead_custom_admin_footer() {
 }
 
 // adding it to the admin area
-add_filter('admin_footer_text', 'trailhead_custom_admin_footer');
+//add_filter('admin_footer_text', 'trailhead_custom_admin_footer');
 
 /* WP Editor
  */
@@ -25,7 +25,7 @@ add_filter('admin_footer_text', 'trailhead_custom_admin_footer');
 	        $in['block_formats'] = "Paragraph=p; Heading 2=h2; Heading 3=h3; Heading 4=h4; Heading 5=h5; Heading 6=h6;Preformatted=pre";
 	    return $in;
 	}
-	add_filter( 'tiny_mce_before_init', 'dg_tiny_mce_remove_h1' );
+	//add_filter( 'tiny_mce_before_init', 'dg_tiny_mce_remove_h1' );
 
 
 /**
@@ -47,7 +47,7 @@ add_filter('admin_footer_text', 'trailhead_custom_admin_footer');
 		array_unshift($buttons, 'styleselect');
 		return $buttons;
 	}
-	add_filter('mce_buttons_2', 'add_styleselect');
+	//add_filter('mce_buttons_2', 'add_styleselect');
 
 
 	// add default styles to styleselect
@@ -67,14 +67,14 @@ add_filter('admin_footer_text', 'trailhead_custom_admin_footer');
 		
 		return $init_array;  
 	} 
-	add_filter( 'tiny_mce_before_init', 'add_styleselect_classes' ); 
+	//add_filter( 'tiny_mce_before_init', 'add_styleselect_classes' ); 
 
 
 	// add editor-style.css
 	function theme_editor_style() {
 		add_editor_style( get_template_directory_uri() . '/assets/styles/style.min.css' );
 	}
-	add_action('init', 'theme_editor_style');
+	//add_action('init', 'theme_editor_style');
 
 
 	// remove revisions meta box and recreate on right side for all post types
@@ -99,4 +99,35 @@ add_filter('admin_footer_text', 'trailhead_custom_admin_footer');
 		add_meta_box('revisionssidediv2', __('Revisions'), 'post_revisions_meta_box', 'post', 'side', 'low');
 		
 	}
-	add_action('do_meta_boxes','relocate_revisions_metabox', 30);
+	//add_action('do_meta_boxes','relocate_revisions_metabox', 30);
+	
+	
+	// Add custom column header
+// Add custom column header
+	function custom_sticky_column($columns) {
+		$columns['is_sticky'] = 'Sticky';
+		return $columns;
+	}
+	add_filter('manage_posts_columns', 'custom_sticky_column');
+	
+	// Display sticky status in the custom column
+	function custom_sticky_column_content($column, $post_id) {
+		if ($column == 'is_sticky') {
+			$is_sticky = is_sticky($post_id);
+			echo $is_sticky ? 'Yes' : 'No';
+		}
+	}
+	//add_action('manage_posts_custom_column', 'custom_sticky_column_content', 10, 2);
+
+	
+	// Display featured image in the custom column
+	function custom_teacher_staff_column_content($column, $post_id) {
+		if ($column == 'featured_image') {
+			$thumbnail = get_the_post_thumbnail($post_id, array(50, 50)); // Adjust the size as needed
+			echo $thumbnail ? $thumbnail : 'N/A';
+		} elseif ($column == 'last_name') {
+			$last_name = get_post_meta($post_id, 'last_name', true); // Replace 'last_name' with your actual custom field name
+			echo $last_name ? esc_html($last_name) : 'N/A';
+		}
+	}
+	add_action('manage_teacher-staff_posts_custom_column', 'custom_teacher_staff_column_content', 10, 2);

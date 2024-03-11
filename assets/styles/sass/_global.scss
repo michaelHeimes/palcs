@@ -28,47 +28,6 @@ svg {
 	}
 }
 
-button,
-.button {
-	cursor: pointer;
-	&:not(.no-style) {
-		text-transform: uppercase;
-		@extend .font-size-20;
-		color: $white;
-		line-height: 1.35;
-		font-weight: 800;
-		cursor: pointer;
-		border-radius: 4px;
-		min-width: rem-calc(226);
-		position: relative;
-		&.black-ds {
-			box-shadow: 4px 4px 0px 0px #000;
-		}
-		&.purple-ds {
-			box-shadow: 4px 4px 0px 0px #5D30BB;
-		}
-		&.blue-ds {
-			box-shadow: 4px 4px 0px 0px $color-blue;
-		}
-		&.white-bg {
-			color: $color-sky-blue;
-		}
-	}
-}
-
-.button-group {
-	box-sizing: border-box;
-	button,
-	.button {
-		width: 100%;
-		margin-bottom: $smallGutter;
-		min-width: 0;
-		@include breakpoint(medium) {
-			margin-bottom: $mediumGutter;
-		}
-	}
-}
-
 ul.pagination {
 	padding: 0;
 	margin: 0;
@@ -82,7 +41,6 @@ ul.pagination {
 		margin: .2rem 1rem;
 		text-transform: uppercase;
 		font-weight: 700;
-		font-size: clamp(1rem, 0.909rem + 0.388vw, 1.375rem);
 		a {
 			font-family: $font-header;
 			color: $color-sky-blue;
@@ -106,6 +64,12 @@ ul.pagination {
 			}
 		}
 	}
+}
+
+.single-teacher-staff .entry-footer .tax-label,
+ul.pagination li,
+ul.teacher-terms-list li {
+	font-size: clamp(1rem, 0.909rem + 0.388vw, 1.375rem);
 }
 
 .overflow-hidden {
@@ -204,9 +168,6 @@ POSTS & CONTENT STYLES
 *********************/
 .grid-container.fluid {
 	max-width: rem-calc(1870);
-}
-main {
-	min-height: 150vh;
 }
 .menu  {
 	font-family: $font-header;

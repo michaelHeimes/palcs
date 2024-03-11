@@ -10,7 +10,7 @@
  */
 
 ?>
-
+				<?php get_template_part('template-parts/section', 'cta-centered-heading-two-buttons');?>
 				<footer id="colophon" class="site-footer">
 					<div class="grid-container">
 						<div class="top grid-x grid-padding-x align-center align-bottom">
