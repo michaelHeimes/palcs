@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		
+    <?php get_template_part('template-parts/banner', 'full-width-image');?>
 	<div class="entry-content">
         <div class="grid-container">
             <div class="grid-x grid-padding-x align-center">

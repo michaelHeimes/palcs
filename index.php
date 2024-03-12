@@ -20,27 +20,13 @@ $posts_page_link = get_permalink($posts_page_id);
 ?>
 
 	<main id="primary" class="site-main">
+		<?php get_template_part('template-parts/banner', 'full-width-image');?>
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x align-center">
 				<div class="cell small-12 large-10">
 	
 						<?php
 						if ( have_posts() ) :
-				
-							if ( is_home() && ! is_front_page() ) :
-								$current_page_id = get_queried_object_id();
-								$intro_copy = get_field('intro_copy', $current_page_id);
-								?>
-								<header class="grid-intro-text">
-									<?php if(!empty($intro_copy)):?>
-										<?=$intro_copy;?>
-									<?php else:?>
-										<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-									<?php endif;?>
-								</header>
-								
-								<?php
-							endif;
 							
 							$post_categories = get_categories();
 							

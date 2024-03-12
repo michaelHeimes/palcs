@@ -8731,6 +8731,11 @@ svg {
      object-position: center;
 }
 
+.full-width-banner {
+  max-width: 1900px;
+  margin: auto;
+}
+
 ul.pagination {
   padding: 0;
   margin: 0;
@@ -9453,6 +9458,13 @@ body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
   background-repeat: no-repeat;
 }
 
+.has-object-cover img.object-cover {
+  width: 100%;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .relative {
   position: relative;
 }
@@ -9704,6 +9716,9 @@ header.site-header #header-nav .submenu li a:hover {
 }
 header.site-header #header-nav .submenu li.current-menu-item > a {
   background-color: #6C1CAF;
+}
+header.site-header .sticky-nav.is-stuck {
+  border-bottom: 1px solid #E3E3E3;
 }
 header.site-header .sticky-nav.is-stuck .sticky-logo {
   visibility: visible !important;
@@ -11129,23 +11144,33 @@ button:not(.no-style).white-bg,
 }
 
 .blog .grid-intro-text,
+.archive .grid-intro-text,
 .page-template-page-teachers-staff .grid-intro-text {
   padding-bottom: 1.7rem;
 }
 .blog .alm-filtered .alm-filter-nav,
+.archive .alm-filtered .alm-filter-nav,
 .page-template-page-teachers-staff .alm-filtered .alm-filter-nav {
   padding-bottom: 1.3rem;
 }
+.blog .ajax-load-more-wrap,
+.archive .ajax-load-more-wrap,
+.page-template-page-teachers-staff .ajax-load-more-wrap {
+  width: 100%;
+}
 .blog article,
+.archive article,
 .page-template-page-teachers-staff article {
   margin-bottom: 3.42rem;
 }
 .blog article h3,
+.archive article h3,
 .page-template-page-teachers-staff article h3 {
   font-weight: 800;
   margin-bottom: 0;
 }
 .blog article h4,
+.archive article h4,
 .page-template-page-teachers-staff article h4 {
   color: #525356;
   font-family: "Nunito Sans", sans-serif;

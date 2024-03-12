@@ -49,12 +49,16 @@
 }
 
 .blog,
+.archive,
 .page-template-page-teachers-staff {
 	.grid-intro-text {
 		padding-bottom: 1.7rem;
 	}
 	.alm-filtered .alm-filter-nav {
 		padding-bottom: 1.3rem;
+	}
+	.ajax-load-more-wrap {
+		width: 100%;
 	}
 	article {
 		margin-bottom: 3.42rem;
