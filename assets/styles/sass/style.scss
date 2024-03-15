@@ -100,6 +100,8 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 @import "_sections/cta-centered-heading-two-buttons";
 @import "_sections/post-footer-nav";
 
+@import "_parts/banner-full-width-image";
+
 @import "_blocks/cta-heading-heading-bg-img";
 @import "_blocks/accordion";
 @import "_blocks/button-group";

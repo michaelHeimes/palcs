@@ -14,15 +14,17 @@ if ( is_home() ) {
 }
 ?>
 
-<header class="entry-header full-width-banner text-center">
+<header class="entry-header banner-full-width-image text-center">
 	<?php 
 	if( !empty( $full_width_banner_image ) ) {
 		$imgID = $full_width_banner_image['ID'];
 		$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
 		$img = wp_get_attachment_image( $imgID, 'full-width-banner-image', false, [ "class" => "object-cover", "alt"=>$img_alt] );
+		echo '<div class="img-wrap text-center">';
 		echo $img;
+		echo '<div class="gradient-border"></div>';
+		echo '</div>';
 	}?>
-	<div class="gradient-border"></div>
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x align-center">
 			<div class="cell small-12 large-10 text-left">

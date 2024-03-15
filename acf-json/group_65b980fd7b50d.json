@@ -1,7 +1,30 @@
 {
     "key": "group_65b980fd7b50d",
-    "title": "CTAs and Video Slider",
+    "title": "Copy, CTAs and Image\/Video Slider",
     "fields": [
+        {
+            "key": "field_65f441280c1ad",
+            "label": "Layout: Image Type",
+            "name": "image_type",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "right-half": "Right Half",
+                "background": "Background"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
         {
             "key": "field_65b982d701183",
             "label": "Slides",
@@ -26,11 +49,11 @@
             "sub_fields": [
                 {
                     "key": "field_65b980fd3b894",
-                    "label": "Heading",
-                    "name": "heading",
+                    "label": "Text",
+                    "name": "text",
                     "aria-label": "",
                     "type": "wysiwyg",
-                    "instructions": "Use Heading 2",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -144,5 +167,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1707062142
+    "modified": 1710509328
 }

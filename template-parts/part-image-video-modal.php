@@ -1,17 +1,24 @@
 <?php
+$image_type = $args['image_type'] ?? null;
 $modal_id = $args['modal_id'] ?? null;
 $video_thumbnail_image = $args['video_thumbnail_image'] ?? null;
 $video_url = $args['video_url'] ?? null;
 $caption = $args['caption'] ?? null;
 ?>
 <div class="inner">
-	<?php if( !empty( $video_thumbnail_image ) ) {
-		$imgID = $video_thumbnail_image['ID'];
-		$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
-		$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "image", "alt"=>$img_alt] );
+	<?php if( !empty( $video_thumbnail_image ) || !empty( $video_url ) || !empty( $caption ) ) {
+		
+		if( !empty( $video_thumbnail_image) && $image_type == 'right-half' ) {
+			$imgID = $video_thumbnail_image['ID'];
+			$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
+			$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "image", "alt"=>$img_alt] );
+		}
 		
 		echo '<div class="img-wrap relative">';
-		echo $img;
+		
+		if( !empty( $video_thumbnail_image) && $image_type == 'right-half' ) {
+			echo $img;
+		}
 		
 		if( !empty($video_url) ) {
 			echo '<button type="button" class="no-style" data-open="' . sanitize_title($modal_id) . '-video-modal"><img class="play-icon" src="' . get_template_directory_uri() . '/assets/images/play-icon.svg"></button>';

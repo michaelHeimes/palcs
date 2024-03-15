@@ -1,5 +1,11 @@
 .blog,
 .archive {
+	.ajax-load-more-wrap {
+		padding-bottom: 13.85rem;
+		.alm-btn-wrap{
+			padding-top: 2.9rem;
+		}
+	}
 	article {
 		margin: calc($smallGutter * .5) 0; 
 		@include breakpoint(medium) {
@@ -46,6 +52,7 @@
 			}			
 		}
 	}
+	
 }
 
 .blog,

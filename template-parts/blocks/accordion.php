@@ -49,6 +49,7 @@ $accordions = get_field('accordion');
             <li class="accordion-item<?php if( $i == 1 && $all_closed_by_default != true) { echo ' is-active';}?>" data-accordion-item>
                 <a href="#" class="accordion-title weight-medium font-sans">
                     <?= esc_attr($title);?>
+                    <span class="marker"></span>
                 </a>
                 <div class="accordion-content" data-tab-content>
                     <?= $content;?>

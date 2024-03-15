@@ -28,11 +28,6 @@ svg {
 	}
 }
 
-.full-width-banner {
-	max-width: 1900px;
-	margin: auto;
-}
-
 ul.pagination {
 	padding: 0;
 	margin: 0;
@@ -104,29 +99,52 @@ body .accordion {
 		a.accordion-title {
 			font-weight: 700;
 			transition: color .25s ease;
-			&:before {
-				content: '';
+			.marker {
 				display: block;
+				position: absolute;
+				top: 1.25rem;
+				right: 1.4rem;
 				width: 24px;
 				height: 24px;
-				transform: rotate(0deg) translate(0px, 0px);
-				transform-origin: center;
-				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath id='ic_arrow_forward_24px' d='M16,4,13.885,6.115l8.37,8.385H4v3H22.255l-8.37,8.385L16,28,28,16Z' transform='translate(-4 -4)' fill='%23379ff8'/%3E%3C/svg%3E");
-				transition: all .3s ease;
+				&:before,
+				&:after {
+					content: '';
+					display: block;
+					width: 24px;
+					height: 4px;
+					transform-origin: center;
+					background-color: $color-sky-blue;
+					transition: all .3s ease;
+				}
+				&:before {
+					transform: rotate(0deg) translate(0px, 10px);
+				}
+				&:after {
+					position: absolute;
+					top: 0;
+					transform: rotate(90deg) translate(10px, 0px);
+					transform-origin: center;
+				}
 			}
 			&:hover {
 				color: $color-blue;
-				&:before {
-					background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath id='ic_arrow_forward_24px' d='M16,4,13.885,6.115l8.37,8.385H4v3H22.255l-8.37,8.385L16,28,28,16Z' transform='translate(-4 -4)' fill='%230052d4'/%3E%3C/svg%3E");
+				.marker {
+					&:before,
+					&:after {
+						background-color: $color-blue;
+					}
 				}
 			}
 		}
 		&.is-active {
 			a.accordion-title {
 				color: $color-blue;	
-				&:before {
-					transform: rotate(90deg) translate(-6px, 0px);
-					background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath id='ic_arrow_forward_24px' d='M16,4,13.885,6.115l8.37,8.385H4v3H22.255l-8.37,8.385L16,28,28,16Z' transform='translate(-4 -4)' fill='%230052d4'/%3E%3C/svg%3E");
+				.marker {
+					&:before {
+					}
+					&:after {
+						transform: rotate(180deg) translate(0px, -10px);
+					}
 				}
 			}
 		}

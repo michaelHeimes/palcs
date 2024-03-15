@@ -204,7 +204,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "page-templates\/page-home.php"
+                "value": "page-templates\/page-secondary-home.php"
             }
         ]
     ],
@@ -217,5 +217,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1710104494
+    "modified": 1710508283
 }

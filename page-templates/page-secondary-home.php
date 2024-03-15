@@ -1,6 +1,6 @@
 <?php
 /**
- * Template name: Secondary Home Page
+ * Template name: Home Page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -22,6 +22,12 @@ $fields = get_fields();
 					</header><!-- .entry-header -->
 				
 						<?php get_template_part('template-parts/section', 'ctas-video-slider');?>
+						
+						<?php get_template_part('template-parts/section', 'copy-select-dropdown-links');?>
+						
+						<?php get_template_part('template-parts/section', 'dual-sliders-quote-image-video-icon-text-rows');?>
+						
+						<?php get_template_part('template-parts/section', 'latest-posts');?>
 							
 					<footer class="article-footer">
 						 <?php wp_link_pages(); ?>

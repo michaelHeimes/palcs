@@ -1,28 +1,35 @@
 <?php
+$image_type = get_field('image_type') ?? get_sub_field('image_type') ?? null;
 $cta_video_slider_slides = get_field('cta_video_slider_slides') ?? get_sub_field('cta_video_slider_slides') ?? null;
 ?>
-<section class="ctas-video-slider overflow-hidden" itemprop="text">
+<section class="ctas-video-slider overflow-hidden img-type-<?=$image_type;?>" itemprop="text">
 
 	<?php if( !empty($cta_video_slider_slides) ):?>
 		<div class="ctas-video-slider-swiper img-pagination-slider" data-autoplaydelay="5000">
 			<div class="swiper-wrapper">
 				<?php $i = 0; foreach($cta_video_slider_slides as $cta_video_slider_slide):
-					$heading = $cta_video_slider_slide['heading'] ?? null;
+					$text = $cta_video_slider_slide['text'] ?? null;
 					$button_1 = $cta_video_slider_slide['button_1'] ?? null;
 					$button_2 = $cta_video_slider_slide['button_2'] ?? null;
 					$video_thumbnail_image = $cta_video_slider_slide['video_thumbnail_image'] ?? null;
 					$video_url = $cta_video_slider_slide['video_url'] ?? null;
 				?>
 					<div class="swiper-slide">
+						<?php if( $image_type == 'background' && $video_thumbnail_image ) {
+								$imgID = $video_thumbnail_image['ID'];
+								$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
+								$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "bg-img", "alt"=>$img_alt] );
+								echo $img;
+						}?>
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x inner-height-control">
-								<?php if( !empty($heading) || !empty($button_1) || !empty($button_2) ):?>
+								<?php if( !empty($text) || !empty($button_1) || !empty($button_2) ):?>
 									<div class="left cell small-12 tablet-6 xxlarge-5 grid-x align-middle">
 										<div class="bg gradient-1 vw-flush-left"></div>
 										<div class="inner grid-x grid-padding-x">
-											<?php if( !empty($heading) ):?>
-												<div class="cell heading-wrap white-color">
-													<?=$heading;?>
+											<?php if( !empty($text) ):?>
+												<div class="cell text-wrap white-color">
+													<?=$text;?>
 												</div>
 												<?php if( !empty($button_1) || !empty($button_2) ):?>
 													<div class="cell button-group grid-x grid-padding-x">
@@ -54,13 +61,17 @@ $cta_video_slider_slides = get_field('cta_video_slider_slides') ?? get_sub_field
 										</div>
 									</div>
 								<?php endif;?>
-								<?php if( !empty($video_thumbnail_image) || !empty($video_url) ):?>
+								<?php if( !empty($video_thumbnail_image) || !empty($video_url) ):
+									$words = implode(' ', array_slice(explode(' ', strip_tags($text)), 0, 7));
+									$sanitized_words = filter_var($words, FILTER_SANITIZE_STRING);
+								?>
 									<div class="right cell small-12 tablet-6 xxlarge-7">
 										<?php get_template_part('template-parts/part', 'image-video-modal', 
 											array(
 												'video_thumbnail_image' => $video_thumbnail_image,
 												'video_url' => $video_url,
-												'modal_id' => $heading,
+												'modal_id' => $sanitized_words,
+												'image_type' => $image_type,
 											),
 										);?>
 									</div>

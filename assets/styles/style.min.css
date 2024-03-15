@@ -6015,16 +6015,6 @@ table.hover:not(.unstriped) tr:nth-of-type(even):hover {
 .accordion-title:hover, .accordion-title:focus {
   background-color: #fff;
 }
-.accordion-title::before {
-  position: absolute;
-  top: 50%;
-  right: 1rem;
-  margin-top: -0.5rem;
-  content: "+";
-}
-.is-active > .accordion-title::before {
-  content: "–";
-}
 
 .accordion-content {
   display: none;
@@ -8731,11 +8721,6 @@ svg {
      object-position: center;
 }
 
-.full-width-banner {
-  max-width: 1900px;
-  margin: auto;
-}
-
 ul.pagination {
   padding: 0;
   margin: 0;
@@ -8814,32 +8799,49 @@ body .accordion li.accordion-item a.accordion-title {
   -webkit-transition: color 0.25s ease;
   transition: color 0.25s ease;
 }
-body .accordion li.accordion-item a.accordion-title:before {
+body .accordion li.accordion-item a.accordion-title .marker {
+  display: block;
+  position: absolute;
+  top: 1.25rem;
+  right: 1.4rem;
+  width: 24px;
+  height: 24px;
+}
+body .accordion li.accordion-item a.accordion-title .marker:before, body .accordion li.accordion-item a.accordion-title .marker:after {
   content: "";
   display: block;
   width: 24px;
-  height: 24px;
-  -webkit-transform: rotate(0deg) translate(0px, 0px);
-          transform: rotate(0deg) translate(0px, 0px);
+  height: 4px;
   -webkit-transform-origin: center;
           transform-origin: center;
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath id='ic_arrow_forward_24px' d='M16,4,13.885,6.115l8.37,8.385H4v3H22.255l-8.37,8.385L16,28,28,16Z' transform='translate(-4 -4)' fill='%23379ff8'/%3E%3C/svg%3E");
+  background-color: #379ff8;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+}
+body .accordion li.accordion-item a.accordion-title .marker:before {
+  -webkit-transform: rotate(0deg) translate(0px, 10px);
+          transform: rotate(0deg) translate(0px, 10px);
+}
+body .accordion li.accordion-item a.accordion-title .marker:after {
+  position: absolute;
+  top: 0;
+  -webkit-transform: rotate(90deg) translate(10px, 0px);
+          transform: rotate(90deg) translate(10px, 0px);
+  -webkit-transform-origin: center;
+          transform-origin: center;
 }
 body .accordion li.accordion-item a.accordion-title:hover {
   color: #0052d4;
 }
-body .accordion li.accordion-item a.accordion-title:hover:before {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath id='ic_arrow_forward_24px' d='M16,4,13.885,6.115l8.37,8.385H4v3H22.255l-8.37,8.385L16,28,28,16Z' transform='translate(-4 -4)' fill='%230052d4'/%3E%3C/svg%3E");
+body .accordion li.accordion-item a.accordion-title:hover .marker:before, body .accordion li.accordion-item a.accordion-title:hover .marker:after {
+  background-color: #0052d4;
 }
 body .accordion li.accordion-item.is-active a.accordion-title {
   color: #0052d4;
 }
-body .accordion li.accordion-item.is-active a.accordion-title:before {
-  -webkit-transform: rotate(90deg) translate(-6px, 0px);
-          transform: rotate(90deg) translate(-6px, 0px);
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath id='ic_arrow_forward_24px' d='M16,4,13.885,6.115l8.37,8.385H4v3H22.255l-8.37,8.385L16,28,28,16Z' transform='translate(-4 -4)' fill='%230052d4'/%3E%3C/svg%3E");
+body .accordion li.accordion-item.is-active a.accordion-title .marker:after {
+  -webkit-transform: rotate(180deg) translate(0px, -10px);
+          transform: rotate(180deg) translate(0px, -10px);
 }
 body .accordion li.accordion-item:first-child a {
   border-radius: 3px 3px 0 0;
@@ -9560,7 +9562,9 @@ h2,
 .white-color h5,
 .white-color .h5,
 .white-color h6,
-.white-color .h6 {
+.white-color .h6,
+.white-color p,
+.white-color .p {
   color: #fff;
 }
 
@@ -10623,6 +10627,20 @@ button:not(.no-style).white-bg,
 .ctas-video-slider .swiper-pagination-bullets.swiper-pagination-horizontal span.swiper-pagination-bullet-active {
   background: #0052d4;
 }
+.ctas-video-slider.img-type-background .bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.ctas-video-slider.img-type-background .bg.gradient-1 {
+  opacity: 0.83;
+}
 
 .copy-select-dropdown-links {
   padding-top: 2.5rem;
@@ -10953,6 +10971,14 @@ button:not(.no-style).white-bg,
   }
 }
 
+.banner-full-width-image {
+  max-width: 1900px;
+  margin: auto;
+}
+.banner-full-width-image .img-wrap {
+  margin: 0 auto 5.55rem;
+}
+
 .cta-heading-heading-bg-img {
   position: relative;
   overflow: hidden;
@@ -11089,6 +11115,14 @@ button:not(.no-style).white-bg,
   margin-bottom: 0.53em;
 }
 
+.blog .ajax-load-more-wrap,
+.archive .ajax-load-more-wrap {
+  padding-bottom: 13.85rem;
+}
+.blog .ajax-load-more-wrap .alm-btn-wrap,
+.archive .ajax-load-more-wrap .alm-btn-wrap {
+  padding-top: 2.9rem;
+}
 .blog article,
 .archive article {
   margin: 16px 0;
