@@ -19,7 +19,20 @@ $fields = get_fields();
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				
 					<header class="entry-header home-banner text-center">
-
+						
+						<?php
+							if( !empty( $fields['parent_link'] ) || !empty( $fields['onpage_links'] ) ) {
+								$parent_link = $fields['parent_link'] ?? null;
+								$onpage_links = $fields['onpage_links'] ?? null;
+								get_template_part('template-parts/section', 'onpage-links',
+									array(
+										'parent_link' => $parent_link,
+										'onpage_links' => $onpage_links,
+									),
+								);
+							}
+						?>
+						
 					</header><!-- .entry-header -->
 				
 						<?php 
@@ -29,17 +42,23 @@ $fields = get_fields();
 						?>
 						
 						<?php 
-							if( !empty( $fields['intro_copy'] ) || !empty( $fields['intro_image'] ) ) {
-								$image = $fields['intro_image'] ?? null;
-								$copy = $fields['intro_copy'] ?? null;
-								get_template_part('template-parts/part', 'image-copy-row',
-									array(
-										'is_intro' => true,
-										'layout' => 'image-right',
-										'image' => $image,
-										'copy' => $copy,
-									),
-								);
+							if( !empty( $fields['page_intro_layout'] ) ) {
+								$layout = $fields['page_intro_layout'] ?? null;
+								
+								if( $layout == 'copy-image' ) {
+									$copy_image = $fields['copy_image'] ?? null;
+									$image = $copy_image['image'] ?? null;
+									$copy = $copy_image['copy'] ?? null;
+									get_template_part('template-parts/part', 'image-copy-row',
+										array(
+											'is_intro' => true,
+											'layout' => 'image-right',
+											'image' => $image,
+											'copy' => $copy,
+										),
+									);
+								}
+								
 							}
 							echo '<div class="gradient-border"></div>';
 						?>

@@ -3,8 +3,8 @@
     "title": "Secondary Home Page",
     "fields": [
         {
-            "key": "field_65f5e809fa7ad",
-            "label": "Intro",
+            "key": "field_65f65487ab935",
+            "label": "Page Intro",
             "name": "",
             "aria-label": "",
             "type": "accordion",
@@ -21,49 +21,26 @@
             "endpoint": 0
         },
         {
-            "key": "field_65f5e814fa7ae",
-            "label": "Copy",
-            "name": "intro_copy",
+            "key": "field_65f654a4ab936",
+            "label": "Page Intro",
+            "name": "clone-page_intro",
             "aria-label": "",
-            "type": "wysiwyg",
+            "type": "clone",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "75",
+                "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
-            "key": "field_65f5e849fa7af",
-            "label": "Image",
-            "name": "intro_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "thumbnail"
+            "clone": [
+                "group_65f6531142234"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         },
         {
             "key": "field_65f448187a5c4",
@@ -204,5 +181,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1710636359
+    "modified": 1710642654
 }

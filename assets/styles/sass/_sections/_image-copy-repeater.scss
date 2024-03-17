@@ -36,61 +36,9 @@
 		}
 	}
 	&:not(.layout-image-right) {
-		.img-wrap {
-			margin-left: -#{($smallGutter * .5)};
-			@include breakpoint(medium) {
-				margin-left: -#{($mediumGutter * .5)};
-			}
-			@media (min-width: 1696px) {
-				margin-left: calc( (100vw - $global-width) * -.5 - ($mediumGutter * .5) );
-			}
-			@media (min-width: 1920px) {
-				margin-left: -162px;
-			}
-		}
-		.swiper-slide {
-			.img-wrap {
-				margin-left: -#{($smallGutter * .5)};
-				@include breakpoint(medium) {
-					margin-left: -#{($mediumGutter * .5)};
-				}
-				@media (min-width: 1696px) {
-					margin-left: calc( (100vw - $global-width) * -.5);
-				}
-				@media (min-width: 1920px) {
-					margin-left: -162px;
-				}
-			}
-		}
+
 	}
 	&.layout-image-right {
-		.img-wrap {
-			margin-right: -#{($smallGutter * .5)};
-			@include breakpoint(medium) {
-				margin-right: -#{($mediumGutter * .5)};
-			}
-			@media (min-width: 1696px) {
-				margin-right: calc( (100vw - $global-width) * -.5 - ($mediumGutter * .5) );
-			}
-			@media (min-width: 1920px) {
-				margin-right: -137px;
-			}
-		}
-		.swiper-slide {
-			.img-wrap {
-				margin-right: -#{($smallGutter * .5)};
-				@include breakpoint(medium) {
-					margin-right: -#{($mediumGutter * .5)};
-					margin-right: -$mediumGutter;
-				}
-				@media (min-width: 1696px) {
-					margin-right: calc( (100vw - $global-width) * -.5 );
-				}
-				@media (min-width: 1920px) {
-					margin-right: -137px;
-				}
-			}
-		}
 		.swiper-pagination-bullets.swiper-pagination-horizontal {
 			margin-left: -1.8rem;
 		}

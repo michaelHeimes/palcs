@@ -1,8 +1,73 @@
 .icr-row {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		color: $color-blue;
+	}
 	.grid-x {
 		&.image-right {
 			@include breakpoint(tablet) {
 				flex-direction: row-reverse;
+			}
+		}
+		&:not(*-flex-dir-row-reverse) {
+			.img-wrap {
+				margin-left: -#{($smallGutter * .5)};
+				@include breakpoint(medium) {
+					margin-left: -#{($mediumGutter * .5)};
+				}
+				@media (min-width: 1696px) {
+					margin-left: calc( (100vw - $global-width) * -.5 - ($mediumGutter * .5) );
+				}
+				@media (min-width: 1920px) {
+					margin-left: -162px;
+				}
+			}
+			.swiper-slide {
+				.img-wrap {
+					margin-left: -#{($smallGutter * .5)};
+					@include breakpoint(medium) {
+						margin-left: -#{($mediumGutter * .5)};
+					}
+					@media (min-width: 1696px) {
+						margin-left: calc( (100vw - $global-width) * -.5);
+					}
+					@media (min-width: 1920px) {
+						margin-left: -162px;
+					}
+				}
+			}
+		}
+		&.image-right,
+		&[class$="-flex-dir-row-reverse"] {
+			.img-wrap {
+				margin-right: -#{($smallGutter * .5)};
+				@include breakpoint(medium) {
+					margin-right: -#{($mediumGutter * .5)};
+				}
+				@media (min-width: 1696px) {
+					margin-right: calc( (100vw - $global-width) * -.5 - ($mediumGutter * .5) );
+				}
+				@media (min-width: 1920px) {
+					margin-right: -137px;
+				}
+			}
+			.swiper-slide {
+				.img-wrap {
+					margin-right: -#{($smallGutter * .5)};
+					@include breakpoint(medium) {
+						margin-right: -#{($mediumGutter * .5)};
+						margin-right: -$mediumGutter;
+					}
+					@media (min-width: 1696px) {
+						margin-right: calc( (100vw - $global-width) * -.5 );
+					}
+					@media (min-width: 1920px) {
+						margin-right: -137px;
+					}
+				}
 			}
 		}
 	}
