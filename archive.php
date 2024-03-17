@@ -26,7 +26,6 @@ $current_category_id = get_queried_object_id();
 						$intro_copy = get_field('intro_copy', $current_page_id);
 						?>
 						<header class="grid-intro-text">
-							hiii
 							<?php if(!empty($intro_copy)):?>
 								<?=$intro_copy;?>
 							<?php else:?>
@@ -64,7 +63,7 @@ $current_category_id = get_queried_object_id();
 
 						<div class="grid-x grid-padding-x">
 							
-							<?=do_shortcode( '[ajax_load_more archive="true" post_type="post" posts_per_page="9" css_classes="grid-x grid-padding-x"]' );?>
+							<?=do_shortcode( '[ajax_load_more archive="true" post_type="post" posts_per_page="9" css_classes="grid-x grid-padding-x small-up-1 medium-up-2 tablet-up-3"]' );?>
 							<?php 
 							/* Start the Loop */
 							while ( have_posts() ) :?>

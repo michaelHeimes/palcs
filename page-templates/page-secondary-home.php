@@ -21,12 +21,12 @@ $fields = get_fields();
 					<header class="entry-header home-banner text-center">
 						
 						<?php
-							if( !empty( $fields['parent_link'] ) || !empty( $fields['onpage_links'] ) ) {
-								$parent_link = $fields['parent_link'] ?? null;
+							if( !empty( $fields['parent_title'] ) || !empty( $fields['onpage_links'] ) ) {
+								$parent_title = $fields['parent_title'] ?? null;
 								$onpage_links = $fields['onpage_links'] ?? null;
 								get_template_part('template-parts/section', 'onpage-links',
 									array(
-										'parent_link' => $parent_link,
+										'parent_title' => $parent_title,
 										'onpage_links' => $onpage_links,
 									),
 								);
@@ -58,14 +58,60 @@ $fields = get_fields();
 										),
 									);
 								}
+								if( $layout == '50-50' ) {
+									$wywiwygs_50_50 = $fields['wywiwygs_50_50'];
+									if( !empty($wywiwygs_50_50 ) ) {
+										get_template_part('template-parts/part', 'wywiwygs-50-50', 
+											array(
+												'wywiwygs_50_50' => $wywiwygs_50_50,
+											) 
+										);
+									}
+								}
 								
 							}
 							echo '<div class="gradient-border"></div>';
 						?>
 						
+						<?php the_content();?>
+						
 						<?php
 							if( !empty( $fields['image_copy_repeater'] ) ) {
 								get_template_part('template-parts/section', 'image-copy-repeater');
+							}
+						?>
+						
+						<?php
+							if( !empty( $fields['latest_category_posts_category'] ) ) {
+								$lcp_cat = $fields['latest_category_posts_category'] ?? null;
+								$lcp_bg_img = $fields['latest_category_posts_background_image'] ?? null;
+								$lcp_heading = $fields['latest_category_posts_heading'] ?? null;
+								$lcp_link = $fields['latest_category_posts_cta_button_link'] ?? null;
+								get_template_part('template-parts/section', 'latest-posts-category',
+									array(
+										'lcp_cat' => $lcp_cat,
+										'lcp_bg_img' => $lcp_bg_img,
+										'lcp_heading' => $lcp_heading,
+										'lcp_link' => $lcp_link,
+									),
+								);
+							}
+						?>
+						
+						<?php
+							if( !empty( $fields['cta_teachers_background_image'] ) || !empty( $fields['cta_teachers_heading'] ) || !empty( $fields['cta_teachers_background_image'] ) || !empty( $fields['cta_teachers_background_image'] ) ) {
+								$teachers_cta_bg = $fields['cta_teachers_background_image'] ?? null;
+								$cta_teachers_heading = $ields['cta_teachers_heading'] ?? null;
+								$cta_teachers_text = $fields['cta_teachers_text'] ?? null;
+								$cta_teachers_button_link = $fields['cta_teachers_button_link'] ?? null;
+								get_template_part('template-parts/section', 'cta-teachers',
+									array(
+										'teachers_cta_bg' => $teachers_cta_bg,
+										'cta_teachers_heading' => $cta_teachers_heading,
+										'cta_teachers_text' => $cta_teachers_text,
+										'cta_teachers_button_link' => $cta_teachers_button_link,
+									),
+								);
 							}
 						?>
 						

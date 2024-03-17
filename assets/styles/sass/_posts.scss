@@ -5,54 +5,7 @@
 		.alm-btn-wrap{
 			padding-top: 2.9rem;
 		}
-	}
-	article {
-		margin: calc($smallGutter * .5) 0; 
-		@include breakpoint(medium) {
-			margin: calc($mediumGutter * .5) 0;
-		}
-		.inner {
-			.permalink {
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				height: 100%;
-				width: 100%;
-				h3 {
-					font-size: clamp(1rem, 0.894rem + 0.453vw, 1.438rem);
-					line-height: 1.0869;
-					font-weight: 700;
-					background-color: rgba(255,255,255,.8);
-					padding: 1.35rem 1.25rem 1.05rem;
-					transition: background-color .25s ease;
-				}
-				&:hover {
-					h3 {
-						color: $color-coral;
-						background-color: rgba(255,255,255,1);
-					}
-				}
-			}
-			.cat-link {
-				display: inline-block;
-				position: absolute;
-				top: -9px;
-				right: -9px;
-				min-width: calc(50% + 9px);
-				background-color: $color-orange;
-				color: $white;
-				text-transform: uppercase;
-				font-weight: 600;
-				font-size: 1rem;	
-				padding: 0.75rem;
-				transition: background-color .25s ease;
-				&:hover {
-					background-color: scale-color($color-orange, $lightness: -20%);
-				}
-			}			
-		}
-	}
-	
+	}	
 }
 
 .blog,
@@ -69,10 +22,6 @@
 	}
 	article {
 		margin-bottom: 3.42rem;
-		h3 {
-			font-weight: 800;
-			margin-bottom: 0;
-		}
 		h4 {
 			color: $dark-gray;
 			font-family: $font-header;
@@ -80,6 +29,57 @@
 			font-size: clamp(1rem, 0.97rem + 0.129vw, 1.125rem);
 			line-height: 1.1666;
 		}
+	}
+}
+
+article.post-card {
+	margin: calc($smallGutter * .5) 0; 
+	@include breakpoint(medium) {
+		margin: calc($mediumGutter * .5) 0;
+	}
+	.inner {
+		.permalink {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			height: 100%;
+			width: 100%;
+			h3 {
+				font-weight: 800;
+				margin-bottom: 0;
+				margin: 0;
+				width: 100%;
+				font-size: clamp(1rem, 0.894rem + 0.453vw, 1.438rem);
+				line-height: 1.0869;
+				font-weight: 700;
+				background-color: rgba(255,255,255,.8);
+				padding: 1.35rem 1.25rem 1.05rem;
+				transition: background-color .25s ease;
+			}
+			&:hover {
+				h3 {
+					color: $color-coral;
+					background-color: rgba(255,255,255,1);
+				}
+			}
+		}
+		.cat-link {
+			display: inline-block;
+			position: absolute;
+			top: -9px;
+			right: -9px;
+			min-width: calc(50% + 9px);
+			background-color: $color-orange;
+			color: $white;
+			text-transform: uppercase;
+			font-weight: 600;
+			font-size: 1rem;	
+			padding: 0.75rem;
+			transition: background-color .25s ease;
+			&:hover {
+				background-color: scale-color($color-orange, $lightness: -20%);
+			}
+		}			
 	}
 }
 

@@ -1,5 +1,5 @@
 <?php
-$image_type = $args['image_type'] ?? null;
+$image_type = $args['image_type'] ?? null; // used for background or right-half images
 $modal_id = $args['modal_id'] ?? null;
 $video_thumbnail_image = $args['video_thumbnail_image'] ?? null;
 $video_url = $args['video_url'] ?? null;
@@ -8,7 +8,7 @@ $caption = $args['caption'] ?? null;
 <div class="inner">
 	<?php if( !empty( $video_thumbnail_image ) || !empty( $video_url ) || !empty( $caption ) ) {
 		
-		if( !empty( $video_thumbnail_image) && $image_type == 'right-half' ) {
+		if( !empty( $video_thumbnail_image) && $image_type != 'background' ) {
 			$imgID = $video_thumbnail_image['ID'];
 			$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
 			$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "image", "alt"=>$img_alt] );
@@ -16,7 +16,7 @@ $caption = $args['caption'] ?? null;
 		
 		echo '<div class="img-wrap relative">';
 		
-		if( !empty( $video_thumbnail_image) && $image_type == 'right-half' ) {
+		if( !empty( $video_thumbnail_image) && $image_type != 'background' ) {
 			echo $img;
 		}
 		

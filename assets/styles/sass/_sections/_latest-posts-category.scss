@@ -1,0 +1,40 @@
+.latest-posts-category {
+	padding-top: calc(.7 * 8.5rem);
+	padding-bottom: calc(.7 * 9.85rem);
+	@include breakpoint(medium) {
+		padding-top: 8.5rem;
+		padding-bottom: 9.85rem;
+	}
+	.bg-img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+	.mask {
+		background-color: #0151D4;
+		mix-blend-mode: multiply;
+	}
+	h2 {
+		font-size: clamp(2.275rem, 2.038rem + 1.01vw, 3.25rem);
+		line-height: 1.038;
+		margin-bottom: 2.3em;
+	}
+	article.post-card {
+		.inner .permalink h3 {
+			font-size: clamp(1rem, 0.97rem + 0.129vw, 1.125rem);
+			color: #4F5053;
+			font-weight: 800;
+		}
+	}
+	.btn-wrap {
+		padding-top: 4.1rem;
+		a:hover {
+			background-color: $white;
+			color: $color-coral;
+		}
+	}
+}

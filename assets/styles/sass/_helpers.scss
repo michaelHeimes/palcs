@@ -1,14 +1,20 @@
 .gradient-bg {
 	background-image: linear-gradient(90.59deg, #f6885c 0%, #f91c5d 23.599999999999998%, #96358a 53.2%, #5446ab 71.6%, #379ff8 100%);
 }
-.blue-bg {
-	background-color: $color-blue;
+.blue-bg,
+.purple-bg {
 	color: $white;
 	a,
 	p,
 	.p {
 		color: $white;
 	}
+}
+.blue-bg {
+	background-color: $color-blue;
+}
+.purple-bg {
+	background-color: $color-purple;
 }
 .white-bg {
 	background-color: $white;

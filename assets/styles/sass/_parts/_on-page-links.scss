@@ -1,0 +1,19 @@
+.onpage-links {
+	padding-top: rem-calc(20);
+	padding-bottom: rem-calc(4);
+	font-family: $font-header;
+	font-size: clamp(1rem, 0.954rem + 0.194vw, 1.188rem);
+	font-weight: 700;
+	.cell {
+		margin-bottom: 1rem;
+	}
+	.parent-title {
+		border-right: 2px solid $white;	
+	}
+	a {
+		display: inline-block;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

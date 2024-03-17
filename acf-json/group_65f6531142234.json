@@ -28,7 +28,7 @@
         {
             "key": "field_65f653dde2e66",
             "label": "50\/50 WYWIWYGs",
-            "name": "50_50_wywiwygs",
+            "name": "wywiwygs_50_50",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -178,8 +178,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": true,
+    "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1710642653
+    "modified": 1710687626
 }

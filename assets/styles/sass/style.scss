@@ -101,9 +101,12 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 @import "_sections/post-footer-nav";
 @import "_sections/image-copy-repeater";
 @import "_sections/explore-cards";
+@import "_sections/latest-posts-category";
 
 @import "_parts/banner-full-width-image";
 @import "_parts/image-copy-row";
+@import "_parts/wysiwyg-50-50";
+@import "_parts/on-page-links";
 
 @import "_blocks/cta-heading-heading-bg-img";
 @import "_blocks/accordion";

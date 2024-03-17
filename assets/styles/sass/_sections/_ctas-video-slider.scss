@@ -80,6 +80,10 @@
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%);
+				max-width: 80px;
+				@include breakpoint(medium) {
+					max-width: 100%;
+				}
 			}
 			button {
 				position: absolute;
@@ -103,6 +107,8 @@
 	}
 	.swiper-slide {
 		overflow: hidden;
+		display: flex;
+		height: auto;
 		.grid-container {
 			box-sizing: border-box;
 			.right {

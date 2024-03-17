@@ -50,7 +50,7 @@ $posts_page_link = get_permalink($posts_page_id);
 							}?>
 
 							<div class="grid-x grid-padding-x">
-								<?=do_shortcode( '[ajax_load_more archive="true" scroll="false" post_type="post" posts_per_page="9" css_classes="grid-x grid-padding-x"]' );?>
+								<?=do_shortcode( '[ajax_load_more archive="true" scroll="false" post_type="post" posts_per_page="9" css_classes="grid-x grid-padding-x small-up-1 medium-up-2 tablet-up-3"]' );?>
 							</div>
 							
 							<div class="">

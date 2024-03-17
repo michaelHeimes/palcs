@@ -32,12 +32,9 @@ h5,
 h6,
 .h6 {
 	font-weight: 800;
-	color: $dark-gray;
+	color: $color-blue;
 	&.white-color {
 		color: $white;
-	}
-	&.color-blue {
-		color: $color-blue;
 	}
 }
 
@@ -80,29 +77,32 @@ h1.wp-block-heading {
 }
 
 h2,
-.h2,
-h2.wp-block-heading {
-	color: $dark-gray;
+.h2 {
 	text-transform: none;
 	font-size: clamp(1.663rem, 1.487rem + 0.748vw, 2.375rem);
 	line-height: 1.2368;
+	&.wp-block-heading {
+		color: $dark-gray;
+	}
 }
 
 h3,
-.h3,
-h3.wp-block-heading {
-	color: $dark-gray;
+.h3 {
 	font-size: clamp(1.4rem, 1.252rem + 0.63vw, 2rem);
 	line-height: 1.34375;
+	&.wp-block-heading {
+		color: $dark-gray;
+	}
 }
 
 h4,
-.h4,
-h4.wp-block-heading {
+.h4 {
 	font-size: clamp(1.225rem, 1.096rem + 0.551vw, 1.75rem);
-	color: $dark-gray;
 	line-height: 1.2875;
 	margin-bottom: 0;
+	&.wp-block-heading {
+		color: $dark-gray;	
+	}
 }
 
 h5,

@@ -1,7 +1,11 @@
 .image-copy-repeater {
 	background-color: #F7F7F7;
-	padding-top: rem-calc(55);
-	padding-bottom: rem-calc(115);
+	padding-top: rem-calc(38.5);
+	padding-bottom: rem-calc(80.5);
+	@include breakpoint(medium) {
+		padding-top: rem-calc(55);
+		padding-bottom: rem-calc(115);
+	}
 	&.type-slider {
 		.ics-slider {
 			.grid-x {
@@ -11,10 +15,6 @@
 				padding-bottom: 3rem;
 				.inner {
 					max-width: 620px;
-					h1,
-					h2 {
-						color: $color-blue;
-					}
 				}
 			}
 		}
@@ -28,8 +28,10 @@
 			position: relative;
 			z-index: 1;
 			display: flex;
-			margin-top: -3rem;
 			margin-left: -.75rem;
+			@include breakpoint(tablet) {
+				margin-top: -2.5rem;
+			}
 			span {
 				border-color: $color-coral;
 			}
