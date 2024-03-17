@@ -163,9 +163,11 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content"
+    ],
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1710509328
+    "modified": 1710612791
 }

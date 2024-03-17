@@ -1,0 +1,9 @@
+.icr-row {
+	.grid-x {
+		&.image-right {
+			@include breakpoint(tablet) {
+				flex-direction: row-reverse;
+			}
+		}
+	}
+}

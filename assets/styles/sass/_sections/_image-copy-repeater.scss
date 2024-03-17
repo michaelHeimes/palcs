@@ -1,0 +1,101 @@
+.image-copy-repeater {
+	background-color: #F7F7F7;
+	padding-top: rem-calc(55);
+	padding-bottom: rem-calc(115);
+	&.type-slider {
+		.ics-slider {
+			.grid-x {
+				box-sizing: border-box;
+			}
+			.copy-wrap {
+				padding-bottom: 3rem;
+				.inner {
+					max-width: 620px;
+					h1,
+					h2 {
+						color: $color-blue;
+					}
+				}
+			}
+		}
+		.swiper-slide {
+			background: #F7F7F7;
+		}
+		.pagination-wrap {
+			max-width: 620px;
+		}
+		.swiper-pagination-bullets.swiper-pagination-horizontal {
+			position: relative;
+			z-index: 1;
+			display: flex;
+			margin-top: -3rem;
+			margin-left: -.75rem;
+			span {
+				border-color: $color-coral;
+			}
+		}
+	}
+	&:not(.layout-image-right) {
+		.img-wrap {
+			margin-left: -#{($smallGutter * .5)};
+			@include breakpoint(medium) {
+				margin-left: -#{($mediumGutter * .5)};
+			}
+			@media (min-width: 1696px) {
+				margin-left: calc( (100vw - $global-width) * -.5 - ($mediumGutter * .5) );
+			}
+			@media (min-width: 1920px) {
+				margin-left: -162px;
+			}
+		}
+		.swiper-slide {
+			.img-wrap {
+				margin-left: -#{($smallGutter * .5)};
+				@include breakpoint(medium) {
+					margin-left: -#{($mediumGutter * .5)};
+				}
+				@media (min-width: 1696px) {
+					margin-left: calc( (100vw - $global-width) * -.5);
+				}
+				@media (min-width: 1920px) {
+					margin-left: -162px;
+				}
+			}
+		}
+	}
+	&.layout-image-right {
+		.img-wrap {
+			margin-right: -#{($smallGutter * .5)};
+			@include breakpoint(medium) {
+				margin-right: -#{($mediumGutter * .5)};
+			}
+			@media (min-width: 1696px) {
+				margin-right: calc( (100vw - $global-width) * -.5 - ($mediumGutter * .5) );
+			}
+			@media (min-width: 1920px) {
+				margin-right: -137px;
+			}
+		}
+		.swiper-slide {
+			.img-wrap {
+				margin-right: -#{($smallGutter * .5)};
+				@include breakpoint(medium) {
+					margin-right: -#{($mediumGutter * .5)};
+					margin-right: -$mediumGutter;
+				}
+				@media (min-width: 1696px) {
+					margin-right: calc( (100vw - $global-width) * -.5 );
+				}
+				@media (min-width: 1920px) {
+					margin-right: -137px;
+				}
+			}
+		}
+		.swiper-pagination-bullets.swiper-pagination-horizontal {
+			margin-left: -1.8rem;
+		}
+	}
+	&.border-white {
+		border-bottom: 12px solid $white;
+	}
+}

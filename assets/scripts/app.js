@@ -333,6 +333,7 @@
         let autoPlayDelay = '';
         let crossFade = false;
         imagePaginationSliders.forEach(function (slider) {
+            const pagination = slider.querySelector('.swiper-pagination');
             autoPlayDelay = slider.getAttribute('data-autoplaydelay');
             crossFade = slider.getAttribute('data-crossfade');
             if(autoPlayDelay) {
@@ -345,7 +346,7 @@
                         disableOnInteraction: false,
                     },
                     pagination: {
-                        el: ".swiper-pagination",
+                        el: pagination,
                         clickable: true,
                     },
                     spaceBetween: 50,
@@ -356,10 +357,10 @@
                     crossFade: true,
                     fadeEffect: { crossFade: crossFade },
                     pagination: {
-                        el: ".swiper-pagination",
+                        el: pagination,
                         clickable: true,
                     },
-                    spaceBetween: 50,
+                    spaceBetween: 0,
                 });
             }            
         });
@@ -386,6 +387,21 @@
                 },
             });
         });
+        
+        // const imageContentSliders = document.querySelectorAll('.ics-slider');
+        // imageContentSliders.forEach(function (slider) {
+        //     const pagination = slider.querySelector('.swiper-pagination');
+        //     const swiper = new Swiper(slider, {
+        //         pagination: {
+        //             el: ".swiper-pagination",
+        //             clickable: true,
+        //         },
+        //         slidesPerView: 1,
+        //         slidesPerGroup: 1,
+        //         spaceBetween: 25,
+        //     });
+        // });
+        
     } 
             
     _app.init = function() {
