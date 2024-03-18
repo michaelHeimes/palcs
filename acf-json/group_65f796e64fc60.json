@@ -1,0 +1,47 @@
+{
+    "key": "group_65f796e64fc60",
+    "title": "Teachers and Staff",
+    "fields": [
+        {
+            "key": "field_65f796e6feb81",
+            "label": "Copy, CTAs and Image\/Video Slider",
+            "name": "copy_ctas_and_imagevideo_slider",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_65b980fd7b50d"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates\/page-teachers-staff.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1710724975
+}

@@ -15,7 +15,7 @@ $cards = $args['cards'] ?? null;
 		<?php if( !empty($heading) ):?>
 			<div class="grid-x grid-padding-x text-center align-center">
 				<div class="cell small-12">
-					<h2 class="color-white"><?=esc_attr( $heading );?></h2>
+					<h2 class="cta-heading color-white uppercase"><?=esc_attr( $heading );?></h2>
 				</div>
 			</div>
 		<?php endif;?>

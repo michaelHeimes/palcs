@@ -18,7 +18,7 @@ $link = $args['lcp_link'] ?? null;
 		<?php if( !empty($heading) ):?>
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12 text-center">
-					<h2 class="color-white"><?=esc_attr( $heading );?></h2>
+					<h2 class="cta-heading color-white"><?=esc_attr( $heading );?></h2>
 				</div>
 			</div>
 		<?php endif;?>

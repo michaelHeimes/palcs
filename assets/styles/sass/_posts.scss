@@ -10,7 +10,8 @@
 
 .blog,
 .archive,
-.page-template-page-teachers-staff {
+.page-template-page-teachers-staff,
+.teachers-cta {
 	.grid-intro-text {
 		padding-bottom: 1.7rem;
 	}
@@ -22,6 +23,10 @@
 	}
 	article {
 		margin-bottom: 3.42rem;
+		margin-bottom: $smallGutter; 
+		@include breakpoint(medium) {
+			margin-bottom: $mediumGutter;
+		}
 		h4 {
 			color: $dark-gray;
 			font-family: $font-header;
@@ -88,6 +93,28 @@ article.post-card {
 	overflow: hidden;
 	border: 6px solid $color-blue;
 	margin-bottom: 0.95rem;
+	position: relative;
+	padding-bottom: calc(100% - 12px);
+	transition: border-color .25s ease;
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: top;
+	}
+}
+
+article.teacher-card {
+	a {
+		&:hover {
+			.circle-thumb-wrap {
+				border-color: $color-coral;
+			}
+		}
+	}
 }
 
 .single-teacher-staff {

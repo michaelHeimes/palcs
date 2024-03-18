@@ -46,6 +46,7 @@ $intro_text = get_field('intro_text') ?? null;
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				
 					<header class="entry-header">
+						<?php get_template_part('template-parts/section', 'ctas-video-slider');?>
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x align-center">
 								<div class="cell small-12 xlarge-10">

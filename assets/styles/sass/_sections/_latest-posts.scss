@@ -1,7 +1,7 @@
 .latest-posts {
 	position: relative;
-	padding-top: 4rem;
-	padding-bottom: 7rem;
+	padding-top: calc(.7 * 7rem);
+	padding-bottom: calc(.7 * 15rem);
 	@include breakpoint(medium) {
 		padding-top: 7rem;
 		padding-bottom: 15rem;

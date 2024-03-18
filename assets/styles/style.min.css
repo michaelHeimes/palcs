@@ -9582,6 +9582,11 @@ h2.wp-block-heading,
 .h2.wp-block-heading {
   color: #525356;
 }
+h2.cta-heading,
+.h2.cta-heading {
+  font-size: clamp(2.275rem, 2.038rem + 1.01vw, 3.25rem);
+  line-height: 1.038;
+}
 
 h3,
 .h3 {
@@ -10613,6 +10618,7 @@ button:not(.no-style).white-bg,
   height: auto;
 }
 .ctas-video-slider .swiper-slide .grid-container {
+  width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -10832,8 +10838,8 @@ button:not(.no-style).white-bg,
 
 .latest-posts {
   position: relative;
-  padding-top: 4rem;
-  padding-bottom: 7rem;
+  padding-top: 4.9rem;
+  padding-bottom: 10.5rem;
 }
 @media print, screen and (min-width: 40em) {
   .latest-posts {
@@ -11055,9 +11061,6 @@ button:not(.no-style).white-bg,
   mix-blend-mode: multiply;
 }
 .explore-cards h2 {
-  font-size: clamp(2.275rem, 2.038rem + 1.01vw, 3.25rem);
-  text-transform: uppercase;
-  line-height: 1.038;
   margin-bottom: 1.9em;
 }
 .explore-cards .inner {
@@ -11140,8 +11143,6 @@ button:not(.no-style).white-bg,
   mix-blend-mode: multiply;
 }
 .latest-posts-category h2 {
-  font-size: clamp(2.275rem, 2.038rem + 1.01vw, 3.25rem);
-  line-height: 1.038;
   margin-bottom: 2.3em;
 }
 .latest-posts-category article.post-card .inner .permalink h3 {
@@ -11155,6 +11156,86 @@ button:not(.no-style).white-bg,
 .latest-posts-category .btn-wrap a:hover {
   background-color: #fff;
   color: #ff1b85;
+}
+
+.teachers-cta {
+  padding-top: 4.515rem;
+  padding-bottom: 6.195rem;
+}
+@media print, screen and (min-width: 40em) {
+  .teachers-cta {
+    padding-top: 6.45rem;
+    padding-bottom: 8.85rem;
+  }
+}
+.teachers-cta .bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.teachers-cta .mask {
+  background-color: rgba(255, 255, 255, 0.21);
+  mix-blend-mode: multiply;
+}
+.teachers-cta article.teacher-card {
+  text-align: center;
+}
+.teachers-cta article.teacher-card a {
+  display: inline-block;
+  width: 100%;
+  max-width: 293px;
+  margin: auto;
+}
+.teachers-cta article.teacher-card .circle-thumb-wrap {
+  margin-bottom: 2.15rem;
+}
+.teachers-cta article.teacher-card h2 {
+  margin-bottom: 0.56em;
+}
+.teachers-cta article.teacher-card p {
+  margin-bottom: 5em;
+}
+.teachers-cta article.teacher-card h3.h6,
+.teachers-cta article.teacher-card h4 {
+  font-family: "Poppins", sans-serif;
+  color: #0052d4;
+}
+.teachers-cta article.teacher-card h3.h6 {
+  font-weight: 800;
+  font-size: clamp(1.313rem, 1.176rem + 0.583vw, 1.875rem);
+}
+.teachers-cta article.teacher-card h4 {
+  font-weight: 600;
+  font-size: clamp(1.094rem, 0.98rem + 0.485vw, 1.563rem);
+}
+.teachers-cta .btn-wrap {
+  padding-top: 0.65rem;
+}
+
+.on-page-nav {
+  padding-top: 1.25rem;
+  padding-bottom: 0.25rem;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: clamp(1rem, 0.954rem + 0.194vw, 1.188rem);
+  font-weight: 700;
+}
+.on-page-nav .cell {
+  margin-bottom: 1rem;
+}
+.on-page-nav .parent-title {
+  border-right: 2px solid #fff;
+}
+.on-page-nav a {
+  display: inline-block;
+}
+.on-page-nav a:hover {
+  text-decoration: underline;
 }
 
 .banner-full-width-image {
@@ -11261,26 +11342,6 @@ button:not(.no-style).white-bg,
 
 .wywiwygs-50-50 {
   padding-top: 9.65rem;
-}
-
-.onpage-links {
-  padding-top: 1.25rem;
-  padding-bottom: 0.25rem;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: clamp(1rem, 0.954rem + 0.194vw, 1.188rem);
-  font-weight: 700;
-}
-.onpage-links .cell {
-  margin-bottom: 1rem;
-}
-.onpage-links .parent-title {
-  border-right: 2px solid #fff;
-}
-.onpage-links a {
-  display: inline-block;
-}
-.onpage-links a:hover {
-  text-decoration: underline;
 }
 
 .cta-heading-heading-bg-img {
@@ -11420,8 +11481,39 @@ button:not(.no-style).white-bg,
 }
 
 .page-template-page-secondary-home .intro {
-  padding-top: 8.9375rem;
-  padding-bottom: 8.3125rem;
+  padding-top: 6.25625rem;
+  padding-bottom: 5.81875rem;
+}
+@media print, screen and (min-width: 40em) {
+  .page-template-page-secondary-home .intro {
+    padding-top: 8.9375rem;
+    padding-bottom: 8.3125rem;
+  }
+}
+.page-template-page-secondary-home .intro:has(+ .blocks) {
+  padding-bottom: 2rem;
+}
+.page-template-page-secondary-home .blocks {
+  padding-bottom: 3.0625rem;
+}
+@media print, screen and (min-width: 40em) {
+  .page-template-page-secondary-home .blocks {
+    padding-bottom: 6.25rem;
+  }
+}
+
+.page-template-page-teachers-staff .ctas-video-slider {
+  position: relative;
+  margin-bottom: 5.55rem;
+}
+.page-template-page-teachers-staff .ctas-video-slider .inner-height-control {
+  min-height: 34.25rem;
+  min-height: clamp(23.975rem, 21.481rem + 10.641vw, 34.25rem);
+}
+@media print, screen and (max-width: 56.24875em) {
+  .page-template-page-teachers-staff .ctas-video-slider .swiper-slide .grid-container .right .inner {
+    min-height: 40vw;
+  }
 }
 
 .blog .ajax-load-more-wrap,
@@ -11435,27 +11527,41 @@ button:not(.no-style).white-bg,
 
 .blog .grid-intro-text,
 .archive .grid-intro-text,
-.page-template-page-teachers-staff .grid-intro-text {
+.page-template-page-teachers-staff .grid-intro-text,
+.teachers-cta .grid-intro-text {
   padding-bottom: 1.7rem;
 }
 .blog .alm-filtered .alm-filter-nav,
 .archive .alm-filtered .alm-filter-nav,
-.page-template-page-teachers-staff .alm-filtered .alm-filter-nav {
+.page-template-page-teachers-staff .alm-filtered .alm-filter-nav,
+.teachers-cta .alm-filtered .alm-filter-nav {
   padding-bottom: 1.3rem;
 }
 .blog .ajax-load-more-wrap,
 .archive .ajax-load-more-wrap,
-.page-template-page-teachers-staff .ajax-load-more-wrap {
+.page-template-page-teachers-staff .ajax-load-more-wrap,
+.teachers-cta .ajax-load-more-wrap {
   width: 100%;
 }
 .blog article,
 .archive article,
-.page-template-page-teachers-staff article {
+.page-template-page-teachers-staff article,
+.teachers-cta article {
   margin-bottom: 3.42rem;
+  margin-bottom: 32px;
+}
+@media print, screen and (min-width: 40em) {
+  .blog article,
+  .archive article,
+  .page-template-page-teachers-staff article,
+  .teachers-cta article {
+    margin-bottom: 50px;
+  }
 }
 .blog article h4,
 .archive article h4,
-.page-template-page-teachers-staff article h4 {
+.page-template-page-teachers-staff article h4,
+.teachers-cta article h4 {
   color: #525356;
   font-family: "Nunito Sans", sans-serif;
   font-weight: 700;
@@ -11519,6 +11625,25 @@ article.post-card .inner .cat-link:hover {
   overflow: hidden;
   border: 6px solid #0052d4;
   margin-bottom: 0.95rem;
+  position: relative;
+  padding-bottom: calc(100% - 12px);
+  -webkit-transition: border-color 0.25s ease;
+  transition: border-color 0.25s ease;
+}
+.circle-thumb-wrap img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+
+article.teacher-card a:hover .circle-thumb-wrap {
+  border-color: #ff1b85;
 }
 
 .single-teacher-staff main {

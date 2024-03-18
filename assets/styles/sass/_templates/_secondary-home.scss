@@ -1,6 +1,19 @@
 .page-template-page-secondary-home {
 	.intro {
-		padding-top: rem-calc(143);
-		padding-bottom: rem-calc(133);
+		padding-top: calc(.7 * rem-calc(143));
+		padding-bottom: calc(.7 * rem-calc(133));
+		@include breakpoint(medium) {
+			padding-top: rem-calc(143);
+			padding-bottom: rem-calc(133);
+		}
+	}
+	.intro:has(+ .blocks) {
+		padding-bottom: rem-calc(32);
+	}
+	.blocks {
+		padding-bottom: calc(.7 * rem-calc(70));
+		@include breakpoint(medium) {
+			padding-bottom: rem-calc(100);
+		}
 	}
 }

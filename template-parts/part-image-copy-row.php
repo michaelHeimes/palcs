@@ -1,8 +1,8 @@
 <?php
 $is_intro = $args['is_intro'] ?? null;
-$layout = $args['layout'];
-$image = $args['image'];
-$copy = $args['copy'];
+$layout = $args['layout'] ?? null;
+$image = $args['image'] ?? null;
+$copy = $args['copy'] ?? null;
 ?>
 <div class="icr-row grid-container<?php if( $is_intro == true ):?> intro<?php endif;?>">
 	<div class="grid-x grid-padding-x align-middle <?=$layout;?>">

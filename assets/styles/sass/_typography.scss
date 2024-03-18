@@ -84,6 +84,10 @@ h2,
 	&.wp-block-heading {
 		color: $dark-gray;
 	}
+	&.cta-heading {
+		font-size: clamp(2.275rem, 2.038rem + 1.01vw, 3.25rem);
+		line-height: 1.038;
+	}
 }
 
 h3,

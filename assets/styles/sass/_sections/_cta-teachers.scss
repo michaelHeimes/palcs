@@ -1,0 +1,55 @@
+.teachers-cta {
+	padding-top: calc(.7 * 6.45rem);
+	padding-bottom: calc(.7 * 8.85rem);
+	@include breakpoint(medium) {
+		padding-top: 6.45rem;
+		padding-bottom: 8.85rem;
+	}
+	.bg-img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+	.mask {
+		background-color: rgba($white, .21);
+		mix-blend-mode: multiply;
+	}
+	article.teacher-card {
+		text-align: center;
+		a {
+			display: inline-block;
+			width: 100%;
+			max-width: 293px;
+			margin: auto;
+		}
+		.circle-thumb-wrap {
+			margin-bottom: 2.15rem;
+		}
+		h2 {
+			margin-bottom: 0.56em;
+		}
+		p {
+			margin-bottom: 5em;
+		}
+		h3.h6,
+		h4 {
+			font-family: $font-body;
+			color: $color-blue;
+		}
+		h3.h6 {
+			font-weight: 800;
+			font-size: clamp(1.313rem, 1.176rem + 0.583vw, 1.875rem);
+		}
+		h4 {
+			font-weight: 600;
+			font-size: clamp(1.094rem, 0.98rem + 0.485vw, 1.563rem);
+		}
+
+	}	.btn-wrap {
+		padding-top: .65rem;
+	}
+}

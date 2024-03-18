@@ -24,7 +24,7 @@ $fields = get_fields();
 							if( !empty( $fields['parent_title'] ) || !empty( $fields['onpage_links'] ) ) {
 								$parent_title = $fields['parent_title'] ?? null;
 								$onpage_links = $fields['onpage_links'] ?? null;
-								get_template_part('template-parts/section', 'onpage-links',
+								get_template_part('template-parts/section', 'onpage-nav',
 									array(
 										'parent_title' => $parent_title,
 										'onpage_links' => $onpage_links,
@@ -44,7 +44,7 @@ $fields = get_fields();
 						<?php 
 							if( !empty( $fields['page_intro_layout'] ) ) {
 								$layout = $fields['page_intro_layout'] ?? null;
-								
+								$bottom_border_style = $fields['bottom_border_style'] ?? null;
 								if( $layout == 'copy-image' ) {
 									$copy_image = $fields['copy_image'] ?? null;
 									$image = $copy_image['image'] ?? null;
@@ -55,6 +55,7 @@ $fields = get_fields();
 											'layout' => 'image-right',
 											'image' => $image,
 											'copy' => $copy,
+											'bottom_border_style' => $bottom_border_style,
 										),
 									);
 								}
@@ -70,10 +71,20 @@ $fields = get_fields();
 								}
 								
 							}
-							echo '<div class="gradient-border"></div>';
+							if( $bottom_border_style != 'none' ) {
+								echo '<div class="gradient-border"></div>';
+							}
 						?>
 						
-						<?php the_content();?>
+						<?php if (has_blocks()):?>
+							<div class="blocks grid-container">
+								<div class="grid-x grid-padding-x align-center">
+									<div class="cell small-12 large-11 xlarge-10">
+										<?php the_content();?>
+									</div>
+								</div>
+							</div>
+						<?php endif;?>
 						
 						<?php
 							if( !empty( $fields['image_copy_repeater'] ) ) {
@@ -101,7 +112,7 @@ $fields = get_fields();
 						<?php
 							if( !empty( $fields['cta_teachers_background_image'] ) || !empty( $fields['cta_teachers_heading'] ) || !empty( $fields['cta_teachers_background_image'] ) || !empty( $fields['cta_teachers_background_image'] ) ) {
 								$teachers_cta_bg = $fields['cta_teachers_background_image'] ?? null;
-								$cta_teachers_heading = $ields['cta_teachers_heading'] ?? null;
+								$cta_teachers_heading = $fields['cta_teachers_heading'] ?? null;
 								$cta_teachers_text = $fields['cta_teachers_text'] ?? null;
 								$cta_teachers_button_link = $fields['cta_teachers_button_link'] ?? null;
 								get_template_part('template-parts/section', 'cta-teachers',

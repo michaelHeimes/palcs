@@ -25,7 +25,7 @@ if (!empty($term_slugs)) {
 
 // Output or use the combined terms as needed
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class('cell small-12 medium-6 tablet-4 large-3 text-center'); ?> data-terms="<?= esc_attr($combined_terms); ?>">
+<article id="post-<?php the_ID(); ?>" <?php post_class('teacher-card cell small-12 medium-6 tablet-4 large-3 text-center'); ?> data-terms="<?= esc_attr($combined_terms); ?>">
 	<a href="<?= esc_url(get_permalink()); ?>" rel="bookmark">
 		<?php
 
