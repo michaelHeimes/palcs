@@ -11481,24 +11481,34 @@ button:not(.no-style).white-bg,
   margin-bottom: 0.53em;
 }
 
-.page-template-page-secondary-home .intro {
+.page-template-page-secondary-hp-kitchen-sink .page-template-page-secondary-hp-w-nav .intro,
+.page-template-page-secondary-hp-wo-nav .intro,
+.page-template-page-academics-interior .intro {
   padding-top: 6.25625rem;
   padding-bottom: 5.81875rem;
 }
 @media print, screen and (min-width: 40em) {
-  .page-template-page-secondary-home .intro {
+  .page-template-page-secondary-hp-kitchen-sink .page-template-page-secondary-hp-w-nav .intro,
+  .page-template-page-secondary-hp-wo-nav .intro,
+  .page-template-page-academics-interior .intro {
     padding-top: 8.9375rem;
     padding-bottom: 8.3125rem;
   }
 }
-.page-template-page-secondary-home .intro:has(+ .blocks) {
+.page-template-page-secondary-hp-kitchen-sink .page-template-page-secondary-hp-w-nav .intro:has(+ .blocks),
+.page-template-page-secondary-hp-wo-nav .intro:has(+ .blocks),
+.page-template-page-academics-interior .intro:has(+ .blocks) {
   padding-bottom: 2rem;
 }
-.page-template-page-secondary-home .blocks {
+.page-template-page-secondary-hp-kitchen-sink .page-template-page-secondary-hp-w-nav .blocks,
+.page-template-page-secondary-hp-wo-nav .blocks,
+.page-template-page-academics-interior .blocks {
   padding-bottom: 3.0625rem;
 }
 @media print, screen and (min-width: 40em) {
-  .page-template-page-secondary-home .blocks {
+  .page-template-page-secondary-hp-kitchen-sink .page-template-page-secondary-hp-w-nav .blocks,
+  .page-template-page-secondary-hp-wo-nav .blocks,
+  .page-template-page-academics-interior .blocks {
     padding-bottom: 6.25rem;
   }
 }
