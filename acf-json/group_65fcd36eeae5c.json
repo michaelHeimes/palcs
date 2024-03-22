@@ -1,49 +1,9 @@
 {
-    "key": "group_65f447d3d401b",
-    "title": "Secondary HP: Kitchen Sink",
+    "key": "group_65fcd36eeae5c",
+    "title": "Secondary HP: w\/o Nav",
     "fields": [
         {
-            "key": "field_65f70ddbfd39e",
-            "label": "On-page Links",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
-            "key": "field_65f70de3fd39f",
-            "label": "On-page Links",
-            "name": "on-page_links",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_65f64dd10dda2"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
-            "key": "field_65f448187a5c4",
+            "key": "field_65fcd36eeebd1",
             "label": "Copy, CTAs and Image\/Video Slider",
             "name": "",
             "aria-label": "",
@@ -61,7 +21,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_65f447d47a5c3",
+            "key": "field_65fcd36eeebd4",
             "label": "Copy, CTAs and Image\/Video Slider",
             "name": "clone_copy_ctas_and_image_video_slider",
             "aria-label": "",
@@ -83,7 +43,7 @@
             "prefix_name": 0
         },
         {
-            "key": "field_65f65487ab935",
+            "key": "field_65fcd36eeebd7",
             "label": "Page Intro",
             "name": "",
             "aria-label": "",
@@ -101,7 +61,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_65f654a4ab936",
+            "key": "field_65fcd36eeebd9",
             "label": "Page Intro",
             "name": "clone-page_intro",
             "aria-label": "",
@@ -123,7 +83,7 @@
             "prefix_name": 0
         },
         {
-            "key": "field_65f5aba100892",
+            "key": "field_65fcd36eeebdc",
             "label": "Image and Copy Repeater",
             "name": "",
             "aria-label": "",
@@ -141,7 +101,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_65f5ad2d430ec",
+            "key": "field_65fcd36eeebdf",
             "label": "Image and Copy Repeater",
             "name": "flex-image_and_copy_repeater",
             "aria-label": "",
@@ -163,87 +123,7 @@
             "prefix_name": 0
         },
         {
-            "key": "field_65f721a1cf6ee",
-            "label": "Latest Posts By Category",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
-            "key": "field_65f721bfcf6ef",
-            "label": "Latest Posts By Category",
-            "name": "clone-latest_posts_by_category",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_65f72137d8fe9"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
-            "key": "field_65f73c7eb6cb6",
-            "label": "CTA: Teachers",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
-            "key": "field_65f73cb7b6cb7",
-            "label": "CTA: Teachers",
-            "name": "clone-cta_teachers",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_65f7389a86cda"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
-            "key": "field_65f63ca04f36e",
+            "key": "field_65fcd36eeebee",
             "label": "CTA: Explore Cards",
             "name": "",
             "aria-label": "",
@@ -261,7 +141,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_65f63cc64f36f",
+            "key": "field_65fcd36eeebf1",
             "label": "CTA: Explore Cards",
             "name": "clone-cta_explore_cards",
             "aria-label": "",
@@ -288,7 +168,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "page-templates\/page-secondary-kitchen-sink.php"
+                "value": "page-templates\/page-secondary-hp-wo-nav.php"
             }
         ]
     ],
@@ -301,5 +181,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1711068006
+    "modified": 1711068096
 }

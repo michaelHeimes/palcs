@@ -1,6 +1,6 @@
 <?php
 /**
- * Template name: Secondary Home Page
+ * Template name: Secondary HP: Kitchen Sink
 
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/

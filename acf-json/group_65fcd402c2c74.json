@@ -1,9 +1,9 @@
 {
-    "key": "group_65f447d3d401b",
-    "title": "Secondary HP: Kitchen Sink",
+    "key": "group_65fcd402c2c74",
+    "title": "Academics Interior",
     "fields": [
         {
-            "key": "field_65f70ddbfd39e",
+            "key": "field_65fcd402c60aa",
             "label": "On-page Links",
             "name": "",
             "aria-label": "",
@@ -21,7 +21,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_65f70de3fd39f",
+            "key": "field_65fcd402c60af",
             "label": "On-page Links",
             "name": "on-page_links",
             "aria-label": "",
@@ -43,47 +43,7 @@
             "prefix_name": 0
         },
         {
-            "key": "field_65f448187a5c4",
-            "label": "Copy, CTAs and Image\/Video Slider",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
-            "key": "field_65f447d47a5c3",
-            "label": "Copy, CTAs and Image\/Video Slider",
-            "name": "clone_copy_ctas_and_image_video_slider",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_65b980fd7b50d"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
-            "key": "field_65f65487ab935",
+            "key": "field_65fcd402c60ba",
             "label": "Page Intro",
             "name": "",
             "aria-label": "",
@@ -101,7 +61,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_65f654a4ab936",
+            "key": "field_65fcd402c60bd",
             "label": "Page Intro",
             "name": "clone-page_intro",
             "aria-label": "",
@@ -123,7 +83,7 @@
             "prefix_name": 0
         },
         {
-            "key": "field_65f5aba100892",
+            "key": "field_65fcd402c60c1",
             "label": "Image and Copy Repeater",
             "name": "",
             "aria-label": "",
@@ -141,7 +101,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_65f5ad2d430ec",
+            "key": "field_65fcd402c60c4",
             "label": "Image and Copy Repeater",
             "name": "flex-image_and_copy_repeater",
             "aria-label": "",
@@ -163,7 +123,7 @@
             "prefix_name": 0
         },
         {
-            "key": "field_65f721a1cf6ee",
+            "key": "field_65fcd402c60c7",
             "label": "Latest Posts By Category",
             "name": "",
             "aria-label": "",
@@ -181,7 +141,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_65f721bfcf6ef",
+            "key": "field_65fcd402c60c9",
             "label": "Latest Posts By Category",
             "name": "clone-latest_posts_by_category",
             "aria-label": "",
@@ -203,7 +163,7 @@
             "prefix_name": 0
         },
         {
-            "key": "field_65f73c7eb6cb6",
+            "key": "field_65fcd402c60cc",
             "label": "CTA: Teachers",
             "name": "",
             "aria-label": "",
@@ -221,7 +181,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_65f73cb7b6cb7",
+            "key": "field_65fcd402c60d0",
             "label": "CTA: Teachers",
             "name": "clone-cta_teachers",
             "aria-label": "",
@@ -241,46 +201,6 @@
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 0
-        },
-        {
-            "key": "field_65f63ca04f36e",
-            "label": "CTA: Explore Cards",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
-            "key": "field_65f63cc64f36f",
-            "label": "CTA: Explore Cards",
-            "name": "clone-cta_explore_cards",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_65f63c2071df9"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
         }
     ],
     "location": [
@@ -288,7 +208,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "page-templates\/page-secondary-kitchen-sink.php"
+                "value": "page-templates\/page-academics-interior.php"
             }
         ]
     ],
@@ -301,5 +221,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1711068006
+    "modified": 1711068285
 }
