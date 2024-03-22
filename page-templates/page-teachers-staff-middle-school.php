@@ -18,7 +18,7 @@ $args = array(
 		array(
 			'taxonomy' => 'stage',
 			'field'    => 'slug',
-			'terms'    => 'high-school',
+			'terms'    => 'middle-school',
 		),
 	),
 );
@@ -131,7 +131,7 @@ $intro_text = get_field('intro_text') ?? null;
 												</a>
 											</div>
 											<div class="cell shrink top-level">
-												<span class="button filter-btn no-style active" href="/about/teachers-staff/high-school/">
+												<span class="button filter-btn no-style active" href="/about/teachers-staff/middle-school/">
 													High School
 												</span>
 											</div>
@@ -173,7 +173,7 @@ $intro_text = get_field('intro_text') ?? null;
 										</div>
 									</div>
 
-									<?=do_shortcode( '[ajax_load_more id="alm_8413842141" post_type="teacher-staff" taxonomy="stage" taxonomy_terms="high-school" taxonomy_operator="IN" order="ASC" orderby="meta_value" sort_key="last_name" posts_per_page="12" scroll="false" css_classes="grid-x grid-padding-x"]' );?>
+									<?=do_shortcode( '[ajax_load_more id="alm_8413842141" post_type="teacher-staff" taxonomy="stage" taxonomy_terms="middle-school" taxonomy_operator="IN" order="ASC" orderby="meta_value" sort_key="last_name" posts_per_page="12" scroll="false" css_classes="grid-x grid-padding-x"]' );?>
 	
 								</div>
 							</div>
