@@ -23,6 +23,26 @@
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 0
+        },
+        {
+            "key": "field_65fc9fb17ca9d",
+            "label": "Intro Text",
+            "name": "intro_text",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         }
     ],
     "location": [
@@ -31,6 +51,13 @@
                 "param": "page_template",
                 "operator": "==",
                 "value": "page-templates\/page-teachers-staff.php"
+            }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates\/page-teachers-staff-high-school.php"
             }
         ]
     ],
@@ -43,5 +70,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1710724975
+    "modified": 1711054777
 }

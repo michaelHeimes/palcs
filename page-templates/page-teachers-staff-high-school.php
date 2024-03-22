@@ -1,6 +1,6 @@
 <?php
 /**
- * Template name: Teachers & Staff Page
+ * Template name: Teachers & Staff Page: High School
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -62,7 +62,7 @@ $intro_text = get_field('intro_text') ?? null;
 						</div>
 					</header><!-- .entry-header -->
 					
-					<div class="alm-filtered teachers-staff alm-filtered-grid init unfiltered">
+					<div class="alm-filtered teachers-staff alm-filtered-grid init">
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x align-center">
 								<div class="cell small-12 xlarge-10">
@@ -80,12 +80,14 @@ $intro_text = get_field('intro_text') ?? null;
 												</a>
 											</div>
 											<div class="cell shrink top-level">
-												<a class="button filter-btn no-style" href="/about/teachers-staff/high-school/">
+												<span class="button filter-btn no-style active" href="/about/teachers-staff/high-school/">
 													High School
-												</a>
+												</span>
 											</div>
 											<div class="cell shrink top-level">
-												<button type="button" class="filter-btn no-style all" data-post-type="teacher-staff" data-taxonomy="" data-taxonomy-terms="" data-posts-per-page="12" data-scroll="false" data-button-label="Load More">All</button>
+												<a class="button filter-btn no-style" href="/about/teachers-staff/">
+													All
+												</a>
 											</div>
 										</div>
 										<div class="other-terms tax-menu grid-x grid-padding-x">
@@ -112,7 +114,8 @@ $intro_text = get_field('intro_text') ?? null;
 										</div>
 									</div>
 
-									<?=do_shortcode( '[ajax_load_more id="alm_8413842141" post_type="teacher-staff" order="ASC" orderby="meta_value" sort_key="last_name" posts_per_page="12" scroll="false" css_classes="grid-x grid-padding-x"]' );?>
+									<?=do_shortcode( '[ajax_load_more id="alm_8413842141" post_type="teacher-staff" taxonomy="stage" taxonomy_terms="high-school" taxonomy_operator="IN" order="ASC" orderby="meta_value" sort_key="last_name" posts_per_page="12" scroll="false" css_classes="grid-x grid-padding-x"]' );?>
+	
 								</div>
 							</div>
 						</div>

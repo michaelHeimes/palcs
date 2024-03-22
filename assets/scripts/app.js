@@ -154,8 +154,6 @@
             window.almOnLoad = function(alm){
                 const almFilteredGrid = document.querySelector('.alm-filtered-grid');
                 if(almFilteredGrid.classList.contains('init') ) {
-                    const allbtn = document.querySelector('.alm-filter-nav button.all');
-                    allbtn.click();
                     almFilteredGrid.classList.remove('init');
                 }  
             };
@@ -173,6 +171,10 @@
                  if (this.classList.contains('active')) {
                      return;
                  }
+                 
+                // Only allow faceting when filtered and NOT on initial page load.
+                const almFilteredGrid = document.querySelector('.teachers-staff');
+                almFilteredGrid.classList.remove('unfiltered');
              
                  // Get .active element.
                  var activeEl = document.querySelector('.alm-filter-nav button.active');
@@ -251,33 +253,40 @@
              
             window.almComplete = function (alm) {
                 const almFilteredGrid = document.querySelector('.teachers-staff');
-                const filterButtons = document.querySelectorAll('.alm-filter-nav button:not(.all)');
-                const postsShown = document.querySelectorAll('.ajax-load-more-wrap article');
-                let activeTerms = [];
-            
-                postsShown.forEach(function (postShown) {
-                    const terms = postShown.getAttribute('data-terms');
-                    activeTerms.push(terms.split(' '));
-                });
-            
-                // Flatten the array of arrays into a single array
-                activeTerms = activeTerms.flat();
-            
-                filterButtons.forEach(function (btn) {
-                    const btnTerms = btn.getAttribute('data-taxonomy-terms').split(' ');
-            
-                    const hasMatchingTerm = btnTerms.some(term => activeTerms.includes(term));
-            
-                    if (!hasMatchingTerm) {
-                        const wrapper = btn.parentElement;
-                        if (!wrapper.classList.contains('top-level')) {
-                            wrapper.style.display = 'none';
+                if( !almFilteredGrid.classList.contains('unfiltered') ) {
+                    const filterButtons = document.querySelectorAll('.alm-filter-nav button:not(.all)');
+                    const postsShown = document.querySelectorAll('.ajax-load-more-wrap article');
+                    let activeTerms = [];
+                    
+                    postsShown.forEach(function (postShown) {
+                        const terms = postShown.getAttribute('data-terms');
+                        activeTerms.push(terms.split(' '));
+                    });
+                    
+                    // Flatten the array of arrays into a single array
+                    activeTerms = activeTerms.flat();
+                    
+                    filterButtons.forEach(function (btn) {
+                        const btnTerms = btn.getAttribute('data-taxonomy-terms').split(' ');
+                    
+                        const hasMatchingTerm = btnTerms.some(term => activeTerms.includes(term));
+                        console.log(hasMatchingTerm);
+                        if (!hasMatchingTerm) {
+                            const wrapper = btn.parentElement;
+                            if (!wrapper.classList.contains('top-level')) {
+                                wrapper.style.display = 'none';
+                            }
+                        } else {
+                            btn.parentElement.style.display = 'block';
                         }
-                    } else {
-                        btn.parentElement.style.display = 'block';
-                    }
-                });
+                    });
+                }
+                
             };
+            
+            window.almFilterComplete = function(){
+
+            }
             
             
             // Get all filter buttons for filtering.

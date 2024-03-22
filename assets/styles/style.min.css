@@ -10435,8 +10435,9 @@ button:not(.no-style).white-bg,
 .tax-menu-wrap button,
 .tax-menu-wrap .button {
   display: inline-block;
-  min-width: none;
+  min-width: 0;
   margin: 0.5625rem 0;
+  font-size: 100%;
 }
 
 .part-header-button-link-cta .bg.gradient-bg, .part-header-button-link-cta body.page-template-default blockquote.bg.wp-block-quote.is-style-default, body.page-template-default .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default {
@@ -11502,16 +11503,25 @@ button:not(.no-style).white-bg,
   }
 }
 
-.page-template-page-teachers-staff .ctas-video-slider {
+.page-template-page-teachers-staff .ctas-video-slider,
+.page-template-page-teachers-staff-elementary-school .ctas-video-slider,
+.page-template-page-teachers-staff-middle-school .ctas-video-slider,
+.page-template-page-teachers-staff-high-school .ctas-video-slider {
   position: relative;
   margin-bottom: 5.55rem;
 }
-.page-template-page-teachers-staff .ctas-video-slider .inner-height-control {
+.page-template-page-teachers-staff .ctas-video-slider .inner-height-control,
+.page-template-page-teachers-staff-elementary-school .ctas-video-slider .inner-height-control,
+.page-template-page-teachers-staff-middle-school .ctas-video-slider .inner-height-control,
+.page-template-page-teachers-staff-high-school .ctas-video-slider .inner-height-control {
   min-height: 34.25rem;
   min-height: clamp(23.975rem, 21.481rem + 10.641vw, 34.25rem);
 }
 @media print, screen and (max-width: 56.24875em) {
-  .page-template-page-teachers-staff .ctas-video-slider .swiper-slide .grid-container .right .inner {
+  .page-template-page-teachers-staff .ctas-video-slider .swiper-slide .grid-container .right .inner,
+  .page-template-page-teachers-staff-elementary-school .ctas-video-slider .swiper-slide .grid-container .right .inner,
+  .page-template-page-teachers-staff-middle-school .ctas-video-slider .swiper-slide .grid-container .right .inner,
+  .page-template-page-teachers-staff-high-school .ctas-video-slider .swiper-slide .grid-container .right .inner {
     min-height: 40vw;
   }
 }
@@ -11528,24 +11538,36 @@ button:not(.no-style).white-bg,
 .blog .grid-intro-text,
 .archive .grid-intro-text,
 .page-template-page-teachers-staff .grid-intro-text,
+.page-template-page-teachers-staff-elementary-school .grid-intro-text,
+.page-template-page-teachers-staff-middle-school .grid-intro-text,
+.page-template-page-teachers-staff-high-school .grid-intro-text,
 .teachers-cta .grid-intro-text {
   padding-bottom: 1.7rem;
 }
 .blog .alm-filtered .alm-filter-nav,
 .archive .alm-filtered .alm-filter-nav,
 .page-template-page-teachers-staff .alm-filtered .alm-filter-nav,
+.page-template-page-teachers-staff-elementary-school .alm-filtered .alm-filter-nav,
+.page-template-page-teachers-staff-middle-school .alm-filtered .alm-filter-nav,
+.page-template-page-teachers-staff-high-school .alm-filtered .alm-filter-nav,
 .teachers-cta .alm-filtered .alm-filter-nav {
   padding-bottom: 1.3rem;
 }
 .blog .ajax-load-more-wrap,
 .archive .ajax-load-more-wrap,
 .page-template-page-teachers-staff .ajax-load-more-wrap,
+.page-template-page-teachers-staff-elementary-school .ajax-load-more-wrap,
+.page-template-page-teachers-staff-middle-school .ajax-load-more-wrap,
+.page-template-page-teachers-staff-high-school .ajax-load-more-wrap,
 .teachers-cta .ajax-load-more-wrap {
   width: 100%;
 }
 .blog article,
 .archive article,
 .page-template-page-teachers-staff article,
+.page-template-page-teachers-staff-elementary-school article,
+.page-template-page-teachers-staff-middle-school article,
+.page-template-page-teachers-staff-high-school article,
 .teachers-cta article {
   margin-bottom: 3.42rem;
   margin-bottom: 32px;
@@ -11554,6 +11576,9 @@ button:not(.no-style).white-bg,
   .blog article,
   .archive article,
   .page-template-page-teachers-staff article,
+  .page-template-page-teachers-staff-elementary-school article,
+  .page-template-page-teachers-staff-middle-school article,
+  .page-template-page-teachers-staff-high-school article,
   .teachers-cta article {
     margin-bottom: 50px;
   }
@@ -11561,6 +11586,9 @@ button:not(.no-style).white-bg,
 .blog article h4,
 .archive article h4,
 .page-template-page-teachers-staff article h4,
+.page-template-page-teachers-staff-elementary-school article h4,
+.page-template-page-teachers-staff-middle-school article h4,
+.page-template-page-teachers-staff-high-school article h4,
 .teachers-cta article h4 {
   color: #525356;
   font-family: "Nunito Sans", sans-serif;
