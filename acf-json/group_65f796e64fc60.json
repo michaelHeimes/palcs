@@ -57,6 +57,20 @@
             {
                 "param": "page_template",
                 "operator": "==",
+                "value": "page-templates\/page-teachers-staff-elementary-school.php"
+            }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates\/page-teachers-staff-middle-school.php"
+            }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
                 "value": "page-templates\/page-teachers-staff-high-school.php"
             }
         ]
@@ -70,5 +84,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1711054777
+    "modified": 1711480772
 }

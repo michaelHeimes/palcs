@@ -51,7 +51,7 @@ $article_classes = 'teacher-card cell small-12 medium-6 tablet-4 large-3 text-ce
 				$imgID = get_field('post_fallback_thumbnail','option')['ID'];
 				$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
 				$img = wp_get_attachment_image( $imgID, 'staff-grid', false, [ "class" => "", "alt"=>$img_alt] );
-				echo '<div class="circle-thumb-wrap">' . $img . '</div>';
+				echo '<div class="circle-thumb-wrap fallback-img">' . $img . '</div>';
 			}
 		?>
 		<h3 class="h6 color-blue"><?php the_title(); ?></h3>

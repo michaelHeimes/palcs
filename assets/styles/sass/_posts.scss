@@ -18,13 +18,20 @@
 	.grid-intro-text {
 		padding-bottom: 1.7rem;
 	}
-	.alm-filtered .alm-filter-nav {
+	#options {
 		padding-bottom: 1.3rem;
 	}
-	.ajax-load-more-wrap {
+	.load-more-wrap {
 		width: 100%;
+		padding-top: 4.35rem;
 	}
-	article {
+	article.page {
+		padding-bottom: 5rem;
+		@include breakpoint(medium) {
+			padding-bottom: 18rem;
+		}
+	}
+	article.teacher-card {
 		margin-bottom: 3.42rem;
 		margin-bottom: $smallGutter; 
 		transition: opacity .3s ease .3s;
@@ -117,6 +124,11 @@ article.post-card {
 		object-fit: cover;
 		object-position: top;
 	}
+	&.fallback-img {
+		img {
+			object-position: center;
+		}
+	}
 }
 
 article.teacher-card {
@@ -129,7 +141,8 @@ article.teacher-card {
 	}
 }
 
-.single-teacher-staff {
+.single-teacher-staff,
+.single-enrichment-course {
 	main {
 		padding-top: 7.125rem;
 		padding-bottom: 7.5rem;

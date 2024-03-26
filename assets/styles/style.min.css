@@ -11607,67 +11607,88 @@ button:not(.no-style).white-bg,
 .teachers-cta .grid-intro-text {
   padding-bottom: 1.7rem;
 }
-.blog .alm-filtered .alm-filter-nav,
-.archive .alm-filtered .alm-filter-nav,
-.page-template-page-teachers-staff .alm-filtered .alm-filter-nav,
-.page-template-page-teachers-staff-elementary-school .alm-filtered .alm-filter-nav,
-.page-template-page-teachers-staff-middle-school .alm-filtered .alm-filter-nav,
-.page-template-page-teachers-staff-high-school .alm-filtered .alm-filter-nav,
-.teachers-cta .alm-filtered .alm-filter-nav {
+.blog #options,
+.archive #options,
+.page-template-page-teachers-staff #options,
+.page-template-page-teachers-staff-elementary-school #options,
+.page-template-page-teachers-staff-middle-school #options,
+.page-template-page-teachers-staff-high-school #options,
+.teachers-cta #options {
   padding-bottom: 1.3rem;
 }
-.blog .ajax-load-more-wrap,
-.archive .ajax-load-more-wrap,
-.page-template-page-teachers-staff .ajax-load-more-wrap,
-.page-template-page-teachers-staff-elementary-school .ajax-load-more-wrap,
-.page-template-page-teachers-staff-middle-school .ajax-load-more-wrap,
-.page-template-page-teachers-staff-high-school .ajax-load-more-wrap,
-.teachers-cta .ajax-load-more-wrap {
+.blog .load-more-wrap,
+.archive .load-more-wrap,
+.page-template-page-teachers-staff .load-more-wrap,
+.page-template-page-teachers-staff-elementary-school .load-more-wrap,
+.page-template-page-teachers-staff-middle-school .load-more-wrap,
+.page-template-page-teachers-staff-high-school .load-more-wrap,
+.teachers-cta .load-more-wrap {
   width: 100%;
+  padding-top: 4.35rem;
 }
-.blog article,
-.archive article,
-.page-template-page-teachers-staff article,
-.page-template-page-teachers-staff-elementary-school article,
-.page-template-page-teachers-staff-middle-school article,
-.page-template-page-teachers-staff-high-school article,
-.teachers-cta article {
+.blog article.page,
+.archive article.page,
+.page-template-page-teachers-staff article.page,
+.page-template-page-teachers-staff-elementary-school article.page,
+.page-template-page-teachers-staff-middle-school article.page,
+.page-template-page-teachers-staff-high-school article.page,
+.teachers-cta article.page {
+  padding-bottom: 5rem;
+}
+@media print, screen and (min-width: 40em) {
+  .blog article.page,
+  .archive article.page,
+  .page-template-page-teachers-staff article.page,
+  .page-template-page-teachers-staff-elementary-school article.page,
+  .page-template-page-teachers-staff-middle-school article.page,
+  .page-template-page-teachers-staff-high-school article.page,
+  .teachers-cta article.page {
+    padding-bottom: 18rem;
+  }
+}
+.blog article.teacher-card,
+.archive article.teacher-card,
+.page-template-page-teachers-staff article.teacher-card,
+.page-template-page-teachers-staff-elementary-school article.teacher-card,
+.page-template-page-teachers-staff-middle-school article.teacher-card,
+.page-template-page-teachers-staff-high-school article.teacher-card,
+.teachers-cta article.teacher-card {
   margin-bottom: 3.42rem;
   margin-bottom: 32px;
   -webkit-transition: opacity 0.3s ease 0.3s;
   transition: opacity 0.3s ease 0.3s;
 }
 @media print, screen and (min-width: 40em) {
-  .blog article,
-  .archive article,
-  .page-template-page-teachers-staff article,
-  .page-template-page-teachers-staff-elementary-school article,
-  .page-template-page-teachers-staff-middle-school article,
-  .page-template-page-teachers-staff-high-school article,
-  .teachers-cta article {
+  .blog article.teacher-card,
+  .archive article.teacher-card,
+  .page-template-page-teachers-staff article.teacher-card,
+  .page-template-page-teachers-staff-elementary-school article.teacher-card,
+  .page-template-page-teachers-staff-middle-school article.teacher-card,
+  .page-template-page-teachers-staff-high-school article.teacher-card,
+  .teachers-cta article.teacher-card {
     margin-bottom: 50px;
   }
 }
-.blog article h4,
-.archive article h4,
-.page-template-page-teachers-staff article h4,
-.page-template-page-teachers-staff-elementary-school article h4,
-.page-template-page-teachers-staff-middle-school article h4,
-.page-template-page-teachers-staff-high-school article h4,
-.teachers-cta article h4 {
+.blog article.teacher-card h4,
+.archive article.teacher-card h4,
+.page-template-page-teachers-staff article.teacher-card h4,
+.page-template-page-teachers-staff-elementary-school article.teacher-card h4,
+.page-template-page-teachers-staff-middle-school article.teacher-card h4,
+.page-template-page-teachers-staff-high-school article.teacher-card h4,
+.teachers-cta article.teacher-card h4 {
   color: #525356;
   font-family: "Nunito Sans", sans-serif;
   font-weight: 700;
   font-size: clamp(1rem, 0.97rem + 0.129vw, 1.125rem);
   line-height: 1.1666;
 }
-.blog article.hidden,
-.archive article.hidden,
-.page-template-page-teachers-staff article.hidden,
-.page-template-page-teachers-staff-elementary-school article.hidden,
-.page-template-page-teachers-staff-middle-school article.hidden,
-.page-template-page-teachers-staff-high-school article.hidden,
-.teachers-cta article.hidden {
+.blog article.teacher-card.hidden,
+.archive article.teacher-card.hidden,
+.page-template-page-teachers-staff article.teacher-card.hidden,
+.page-template-page-teachers-staff-elementary-school article.teacher-card.hidden,
+.page-template-page-teachers-staff-middle-school article.teacher-card.hidden,
+.page-template-page-teachers-staff-high-school article.teacher-card.hidden,
+.teachers-cta article.teacher-card.hidden {
   visibility: hidden;
   width: 0px !important;
   height: 0px !important;
@@ -11748,31 +11769,43 @@ article.post-card .inner .cat-link:hover {
   -o-object-position: top;
      object-position: top;
 }
+.circle-thumb-wrap.fallback-img img {
+  -o-object-position: center;
+     object-position: center;
+}
 
 article.teacher-card a:hover .circle-thumb-wrap {
   border-color: #ff1b85;
 }
 
-.single-teacher-staff main {
+.single-teacher-staff main,
+.single-enrichment-course main {
   padding-top: 7.125rem;
   padding-bottom: 7.5rem;
 }
 .single-teacher-staff .entry-footer li,
 .single-teacher-staff .entry-footer .tax-label,
 .single-teacher-staff ul.teacher-terms-list li,
-.single-teacher-staff ul.teacher-terms-list .tax-label {
+.single-teacher-staff ul.teacher-terms-list .tax-label,
+.single-enrichment-course .entry-footer li,
+.single-enrichment-course .entry-footer .tax-label,
+.single-enrichment-course ul.teacher-terms-list li,
+.single-enrichment-course ul.teacher-terms-list .tax-label {
   font-weight: 800;
 }
-.single-teacher-staff .entry-footer {
+.single-teacher-staff .entry-footer,
+.single-enrichment-course .entry-footer {
   padding-top: 2.865rem;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
-.single-teacher-staff .entry-footer .grid-x > .cell {
+.single-teacher-staff .entry-footer .grid-x > .cell,
+.single-enrichment-course .entry-footer .grid-x > .cell {
   padding-left: 0.3125rem;
   padding-right: 0.3125rem;
 }
-.single-teacher-staff .entry-footer button {
+.single-teacher-staff .entry-footer button,
+.single-enrichment-course .entry-footer button {
   margin: 0.3125rem 0;
 }
 /*# sourceMappingURL=style.min.css.map */

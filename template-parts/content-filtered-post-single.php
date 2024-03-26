@@ -1,36 +1,9 @@
 <?php
-/**
- * Template part for displaying posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package trailhead
- */
-
-$post_id = get_the_ID();
-$term_slugs = [];
-$taxonomies = array('stage', 'grade', 'enrichment', 'department-1', 'department-2');
-
-// Loop through each taxonomy
-foreach ($taxonomies as $taxonomy) {
- 	// Get the terms assigned to the post for the current taxonomy
- 	$terms = get_the_terms($post_id, $taxonomy);
-
-	// Check if there are any terms
-	if ($terms && !is_wp_error($terms)) {
-		// Loop through each term and add its slug to the array
-		foreach ($terms as $term) {
-			$term_slugs[] = $term->slug;
-		}
-	}
-}
-
-// Combine term slugs into a single string separated by spaces
-if (!empty($term_slugs)) {
- $combined_terms = implode(' ', $term_slugs);
-}
-
-// Output or use the combined terms as needed
+	$post_id = $args['post_id'] ?? null;
+	$categories = $args['categories'] ?? null;
+	$taxonomies = $args['taxonomies'] ?? null;
+	$combined_terms = $args['combined_terms'] ?? null;
+	$slug_front = $args['slug_front'] ?? null;
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="grid-container">
@@ -69,6 +42,24 @@ if (!empty($term_slugs)) {
 						
 						if($taxonomies) {
 							echo '<ul class="teacher-terms-list no-bullet font-header">';
+							
+							// Loop through each category
+							if($categories) {
+								foreach ($categories as $category) {
+									// Get the terms assigned to the post for the current taxonomy
+									$terms = get_the_terms($post_id, $category);
+								
+									// Check if there are any terms
+									if ($terms && !is_wp_error($terms)) {
+										// Loop through each term and add its slug to the array
+										foreach ($terms as $term) {
+											echo '<li class="color-purple">' . $term->name . '</li>';
+										}
+									}
+								}
+							}
+							
+							
 							// Loop through each taxonomy
 							foreach ($taxonomies as $taxonomy) {
 								// Get the terms assigned to the post for the current taxonomy
@@ -116,23 +107,46 @@ if (!empty($term_slugs)) {
 				
 				<footer class="entry-footer grid-x">
 					<?php
-					if($taxonomies) {
+					if( $categories || $taxonomies) {
 						echo '<ul class="tax-menu no-bullet grid-x grid-padding-x font-header">';
 						echo '<li class="tax-label cell shrink color-purple">See All</li>';
-						// Loop through each taxonomy
-						foreach ($taxonomies as $taxonomy) {
-							// Get the terms assigned to the post for the current taxonomy
-							$terms = get_the_terms($post_id, $taxonomy);
 						
-							// Check if there are any terms
-							if ($terms && !is_wp_error($terms)) {
-								// Loop through each term and add its slug to the array
-								foreach ($terms as $term) {
-									echo '<li class="color-purple cell shrink">';
-									echo '<a class="button no-style" href="/about/teachers-staff/?' . $term->slug . '">';
-									echo $term->name;
-									echo '</a>';
-									echo '</li>';
+						// Loop through each category
+						if($categories) {
+							foreach ($categories as $category) {
+								// Get the terms assigned to the post for the current taxonomy
+								$terms = get_the_terms($post_id, $category);
+							
+								// Check if there are any terms
+								if ($terms && !is_wp_error($terms)) {
+									// Loop through each term and add its slug to the array
+									foreach ($terms as $term) {
+										echo '<li class="color-purple cell shrink">';
+										echo '<a class="button no-style" href="' . $slug_front . '' . $term->slug . '">';
+										echo $term->name;
+										echo '</a>';
+										echo '</li>';
+									}
+								}
+							}
+						}
+						
+						// Loop through each taxonomy
+						if($taxonomies) {
+							foreach ($taxonomies as $taxonomy) {
+								// Get the terms assigned to the post for the current taxonomy
+								$terms = get_the_terms($post_id, $taxonomy);
+							
+								// Check if there are any terms
+								if ($terms && !is_wp_error($terms)) {
+									// Loop through each term and add its slug to the array
+									foreach ($terms as $term) {
+										echo '<li class="color-purple cell shrink">';
+										echo '<a class="button no-style" href="/' . $slug_front . '/?' . $term->slug . '">';
+										echo $term->name;
+										echo '</a>';
+										echo '</li>';
+									}
 								}
 							}
 						}
