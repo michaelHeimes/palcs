@@ -144,37 +144,45 @@ $intro_text = get_field('intro_text') ?? null;
 												</a>
 											</div>
 										</div>
-										<div class="filter-group other-terms tax-menu grid-x grid-padding-x" data-group="taxonomy-terms">
-											<?php foreach($grade_terms as $term):
-													if( in_array($term, $grade_terms_check) ):
-												?>
-												<div class="cell shrink option-set" data-group="grades">
-													<div class="button">
-														<?='<input type="checkbox" id="' . $term->slug . '" value=".' . $term->slug . '" data-taxonomy-terms="' . $term->slug . '"/><label for="' . $term->slug . '"/>' . $term->name . '</label>';?>
+										<div class="filter-group">
+											<div class="option-set other-terms tax-menu grid-x grid-padding-x" data-group="taxonomy-terms">
+												<?php foreach($grade_terms as $term):
+														if( in_array($term, $grade_terms_check) ):
+													?>
+													<div class="cell shrink" data-group="grades">
+														<div class="button input-wrap">
+															<?='<input type="checkbox" id="' . $term->slug . '" value=".' . $term->slug . '" data-taxonomy-terms="' . $term->slug . '"/><label for="' . $term->slug . '"/>' . $term->name . '</label>';?>
+														</div>
 													</div>
-												</div>
-											<?php endif; endforeach;?>
-											<?php foreach($enrichment_terms as $term):
-													if( in_array($term, $enrichment_terms_check) ):
-												?>
-												<div class="cell shrink">
-													<button type="button" class="filter-btn top-level no-style" data-post-type="teacher-staff" data-taxonomy="enrichment" data-taxonomy-terms="<?=$term->slug;?>" data-posts-per-page="12" data-scroll="false" data-button-label="Load More "><?=$term->name;?></button>
-												</div>
-											<?php endif; endforeach;?>
-											<?php foreach($department_1s as $term):
-													if( in_array($term, $department_1s_check) ):
-												?>
-												<div class="cell shrink">
-													<button type="button" class="filter-btn top-level no-style" data-post-type="teacher-staff" data-taxonomy="department-1" data-taxonomy-terms="<?=$term->slug;?>" data-posts-per-page="12" data-scroll="false" data-button-label="Load More "><?=$term->name;?></button>
-												</div>
-											<?php endif; endforeach;?>
-											<?php foreach($department_2s as $term):
-													if( in_array($term, $department_2s_check) ):
-												?>
-												<div class="cell shrink">
-													<button type="button" class="filter-btn top-level no-style" data-post-type="teacher-staff" data-taxonomy="department-2" data-taxonomy-terms="<?=$term->slug;?>" data-posts-per-page="12" data-scroll="false" data-button-label="Load More "><?=$term->name;?></button>
-												</div>
-											<?php endif; endforeach;?>
+												<?php endif; endforeach;?>
+												<?php foreach($enrichment_terms as $term):
+														if( in_array($term, $enrichment_terms_check) ):
+													?>
+													<div class="cell shrink" data-group="enrichments">
+														<div class="button input-wrap">
+															<?='<input type="checkbox" id="' . $term->slug . '" value=".' . $term->slug . '" data-taxonomy-terms="' . $term->slug . '"/><label for="' . $term->slug . '"/>' . $term->name . '</label>';?>
+														</div>
+													</div>
+												<?php endif; endforeach;?>
+												<?php foreach($department_1s as $term):
+														if( in_array($term, $department_1s_check) ):
+													?>
+													<div class="cell shrink" data-group="department-1">
+														<div class="button input-wrap">
+															<?='<input type="checkbox" id="' . $term->slug . '" value=".' . $term->slug . '" data-taxonomy-terms="' . $term->slug . '"/><label for="' . $term->slug . '"/>' . $term->name . '</label>';?>
+														</div>
+													</div>
+												<?php endif; endforeach;?>
+												<?php foreach($department_2s as $term):
+														if( in_array($term, $department_2s_check) ):
+													?>
+													<div class="cell shrink" data-group="department-2">
+														<div class="button input-wrap">
+															<?='<input type="checkbox" id="' . $term->slug . '" value=".' . $term->slug . '" data-taxonomy-terms="' . $term->slug . '"/><label for="' . $term->slug . '"/>' . $term->name . '</label>';?>
+														</div>
+													</div>
+												<?php endif; endforeach;?>
+											</div>
 										</div>
 									</div>
 									

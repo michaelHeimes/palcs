@@ -9484,7 +9484,7 @@ body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
 
 .font-size-20, .alm-btn-wrap button:not(.no-style),
 button:not(.no-style),
-.button:not(.no-style), header.site-header #header-nav li a, p,
+.button:not(.input-wrap):not(.no-style), header.site-header #header-nav li a, p,
 .p,
 ul:not(.menu),
 ol {
@@ -10278,12 +10278,12 @@ body .alm-btn-wrap button.alm-load-more-btn.done {
 
 .alm-btn-wrap button,
 button,
-.button {
+.button:not(.input-wrap) {
   cursor: pointer;
 }
 .alm-btn-wrap button:not(.no-style),
 button:not(.no-style),
-.button:not(.no-style) {
+.button:not(.input-wrap):not(.no-style) {
   height: auto;
   text-transform: uppercase;
   color: #fff;
@@ -10300,47 +10300,47 @@ button:not(.no-style),
 }
 .alm-btn-wrap button:not(.no-style).black-ds,
 button:not(.no-style).black-ds,
-.button:not(.no-style).black-ds {
+.button:not(.input-wrap):not(.no-style).black-ds {
   -webkit-box-shadow: 4px 4px 0px 0px #000;
           box-shadow: 4px 4px 0px 0px #000;
 }
 .alm-btn-wrap button:not(.no-style).black-ds:hover,
 button:not(.no-style).black-ds:hover,
-.button:not(.no-style).black-ds:hover {
+.button:not(.input-wrap):not(.no-style).black-ds:hover {
   -webkit-box-shadow: -4px -4px 0px 0px #000;
           box-shadow: -4px -4px 0px 0px #000;
 }
 .alm-btn-wrap button:not(.no-style).alm-load-more-btn, .alm-btn-wrap button:not(.no-style).purple-ds,
 button:not(.no-style).alm-load-more-btn,
 button:not(.no-style).purple-ds,
-.button:not(.no-style).alm-load-more-btn,
-.button:not(.no-style).purple-ds {
+.button:not(.input-wrap):not(.no-style).alm-load-more-btn,
+.button:not(.input-wrap):not(.no-style).purple-ds {
   -webkit-box-shadow: 4px 4px 0px 0px #5D30BB;
           box-shadow: 4px 4px 0px 0px #5D30BB;
 }
 .alm-btn-wrap button:not(.no-style).alm-load-more-btn:hover, .alm-btn-wrap button:not(.no-style).purple-ds:hover,
 button:not(.no-style).alm-load-more-btn:hover,
 button:not(.no-style).purple-ds:hover,
-.button:not(.no-style).alm-load-more-btn:hover,
-.button:not(.no-style).purple-ds:hover {
+.button:not(.input-wrap):not(.no-style).alm-load-more-btn:hover,
+.button:not(.input-wrap):not(.no-style).purple-ds:hover {
   -webkit-box-shadow: -4px -4px 0px 0px #5D30BB;
           box-shadow: -4px -4px 0px 0px #5D30BB;
 }
 .alm-btn-wrap button:not(.no-style).blue-ds,
 button:not(.no-style).blue-ds,
-.button:not(.no-style).blue-ds {
+.button:not(.input-wrap):not(.no-style).blue-ds {
   -webkit-box-shadow: 4px 4px 0px 0px #0052d4;
           box-shadow: 4px 4px 0px 0px #0052d4;
 }
 .alm-btn-wrap button:not(.no-style).blue-ds:hover,
 button:not(.no-style).blue-ds:hover,
-.button:not(.no-style).blue-ds:hover {
+.button:not(.input-wrap):not(.no-style).blue-ds:hover {
   -webkit-box-shadow: -4px -4px 0px 0px #0052d4;
           box-shadow: -4px -4px 0px 0px #0052d4;
 }
 .alm-btn-wrap button:not(.no-style).white-bg,
 button:not(.no-style).white-bg,
-.button:not(.no-style).white-bg {
+.button:not(.input-wrap):not(.no-style).white-bg {
   color: #379ff8;
 }
 
@@ -10362,9 +10362,11 @@ button:not(.no-style).white-bg,
 }
 
 .tax-menu button,
-.tax-menu .button,
+.tax-menu .button:not(.input-wrap),
+.tax-menu .button.input-wrap label,
 .alm-filtered .alm-filter-nav button,
-.alm-filtered .alm-filter-nav .button {
+.alm-filtered .alm-filter-nav .button:not(.input-wrap),
+.alm-filtered .alm-filter-nav .button.input-wrap label {
   background-color: transparent;
   color: #6C1CAF;
   border-style: solid;
@@ -10378,15 +10380,21 @@ button:not(.no-style).white-bg,
   transition: color 0.2s ease, background-color 0.2s ease;
 }
 .tax-menu button:is(span), .tax-menu button.active, .tax-menu button:hover,
-.tax-menu .button:is(span),
-.tax-menu .button.active,
-.tax-menu .button:hover,
+.tax-menu .button:not(.input-wrap):is(span),
+.tax-menu .button:not(.input-wrap).active,
+.tax-menu .button:not(.input-wrap):hover,
+.tax-menu .button.input-wrap label:is(span),
+.tax-menu .button.input-wrap label.active,
+.tax-menu .button.input-wrap label:hover,
 .alm-filtered .alm-filter-nav button:is(span),
 .alm-filtered .alm-filter-nav button.active,
 .alm-filtered .alm-filter-nav button:hover,
-.alm-filtered .alm-filter-nav .button:is(span),
-.alm-filtered .alm-filter-nav .button.active,
-.alm-filtered .alm-filter-nav .button:hover {
+.alm-filtered .alm-filter-nav .button:not(.input-wrap):is(span),
+.alm-filtered .alm-filter-nav .button:not(.input-wrap).active,
+.alm-filtered .alm-filter-nav .button:not(.input-wrap):hover,
+.alm-filtered .alm-filter-nav .button.input-wrap label:is(span),
+.alm-filtered .alm-filter-nav .button.input-wrap label.active,
+.alm-filtered .alm-filter-nav .button.input-wrap label:hover {
   color: #fff;
   background-color: #6C1CAF;
 }
@@ -10396,7 +10404,8 @@ button:not(.no-style).white-bg,
 }
 
 .tax-menu li:not(.top-level) a.button,
-.alm-filtered .alm-filter-nav .other-terms button {
+.alm-filtered .alm-filter-nav .other-terms button,
+#options.tax-menu-wrap .button [type=checkbox] + label {
   font-family: "Poppins", sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
@@ -10406,7 +10415,51 @@ button:not(.no-style).white-bg,
 }
 .tax-menu li:not(.top-level) a.button.active, .tax-menu li:not(.top-level) a.button:hover,
 .alm-filtered .alm-filter-nav .other-terms button.active,
-.alm-filtered .alm-filter-nav .other-terms button:hover {
+.alm-filtered .alm-filter-nav .other-terms button:hover,
+#options.tax-menu-wrap .button [type=checkbox] + label.active,
+#options.tax-menu-wrap .button [type=checkbox] + label:hover {
+  color: #fff;
+  background-color: #379ff8;
+}
+
+.button.input-wrap {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+#options.tax-menu-wrap .option-set.tax-menu.grid-x {
+  margin-left: -rem-calc(10);
+  margin-right: -rem-calc(10);
+}
+#options.tax-menu-wrap .option-set.tax-menu.grid-x > .cell {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+#options.tax-menu-wrap .option-set.tax-menu.grid-x > .cell.hide-btn {
+  padding: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+#options.tax-menu-wrap .button {
+  display: inline-block;
+  min-width: 0;
+  font-size: 100%;
+  margin: 0.5625rem 0;
+}
+#options.tax-menu-wrap .button label {
+  margin: 0;
+  line-height: 1;
+  display: block;
+}
+#options.tax-menu-wrap .button [type=checkbox] {
+  opacity: 0;
+  position: absolute;
+}
+#options.tax-menu-wrap .button [type=checkbox]:checked + label {
   color: #fff;
   background-color: #379ff8;
 }

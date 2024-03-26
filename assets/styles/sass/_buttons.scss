@@ -16,7 +16,7 @@ body .alm-btn-wrap button.alm-load-more-btn {
 
 .alm-btn-wrap button,
 button,
-.button {
+.button:not(.input-wrap) {
 	cursor: pointer;
 	&:not(.no-style) {
 		height: auto;
@@ -68,10 +68,12 @@ button,
 	}
 }
 
+
 .tax-menu,
 .alm-filtered .alm-filter-nav {
 	button,
-	.button {
+	.button:not(.input-wrap),
+	.button.input-wrap label {
 		background-color: transparent;
 		color: $color-purple;
 		border-style: solid;
@@ -95,7 +97,8 @@ button,
 }
 
 .tax-menu li:not(.top-level) a.button,
-.alm-filtered .alm-filter-nav .other-terms button {
+.alm-filtered .alm-filter-nav .other-terms button,
+#options.tax-menu-wrap .button [type=checkbox] + label {
 	font-family: $font-body;
 	font-size: rem-calc(12);
 	font-weight: 500;
@@ -106,5 +109,50 @@ button,
 	&:hover {
 		color: $white;
 		background-color: $color-sky-blue;
+	}
+}
+
+.button.input-wrap {
+	background: transparent;
+	padding: 0;
+	margin: 0;
+}
+
+
+#options.tax-menu-wrap {
+	.option-set.tax-menu.grid-x {
+		margin-left: -rem-calc(10);
+		margin-right: -rem-calc(10);
+		> .cell {
+			padding-left: rem-calc(10);
+			padding-right: rem-calc(10);
+			transition: all .2s ease;
+			&.hide-btn {
+				padding: 0;
+				width: 0;
+				height: 0;
+				overflow: hidden;
+				
+			}
+		}
+	}
+	.button {
+		display: inline-block;
+		min-width: 0;
+		font-size: 100%;
+		margin: rem-calc(9) 0;
+		label {
+			margin: 0;
+			line-height: 1;
+			display: block;
+		}
+		[type=checkbox] {
+			opacity: 0;
+			position: absolute;
+			&:checked + label {
+				color: $white;
+				background-color: $color-sky-blue;
+			}
+		}
 	}
 }
