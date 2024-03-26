@@ -1,6 +1,6 @@
 <?php
 /**
- * Template name: Teachers & Staff Page: High School
+ * Template name: Teachers & Staff Page: Elementary School
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -121,7 +121,7 @@ $intro_text = get_field('intro_text') ?? null;
 									<div class="alm-filter-nav tax-menu-wrap">
 										<div class="stages tax-menu grid-x grid-padding-x font-size-20">
 											<div class="cell shrink top-level">
-												<a class="button filter-btn no-style" href="/about/teachers-staff/elementary-school/">
+												<a class="button filter-btn no-style active" href="/about/teachers-staff/elementary-school/">
 													Elementary School
 												</a>
 											</div>
@@ -131,9 +131,9 @@ $intro_text = get_field('intro_text') ?? null;
 												</a>
 											</div>
 											<div class="cell shrink top-level">
-												<span class="button filter-btn no-style active" href="/about/teachers-staff/elementary-school/">
+												<a class="button filter-btn no-style" href="/about/teachers-staff/high-school/">
 													High School
-												</span>
+												</a>
 											</div>
 											<div class="cell shrink top-level">
 												<a class="button filter-btn no-style" href="/about/teachers-staff/">

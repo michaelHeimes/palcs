@@ -14,6 +14,9 @@ $args = array(
 	'post_type' => 'teacher-staff',
 	'post_status' => 'publish',
 	'posts_per_page' => -1,
+	'meta_key'  => 'last_name',
+	'orderby' => 'meta_value',
+	'order' => 'ASC',
 	'tax_query' => array(
 		array(
 			'taxonomy' => 'stage',
@@ -113,6 +116,84 @@ $intro_text = get_field('intro_text') ?? null;
 						</div>
 					</header><!-- .entry-header -->
 					
+					<section class="isotope-filter-loadmore">
+						<div class="grid-container">
+							<div class="grid-x grid-padding-x align-center">
+								<div class="cell small-12 xlarge-10">
+									
+									<div id="options" class="alm-filter-nav tax-menu-wrap">
+										<div class="stages tax-menu grid-x grid-padding-x font-size-20">
+											<div class="cell shrink top-level">
+												<a class="button filter-btn no-style" href="/about/teachers-staff/elementary-school/">
+													Elementary School
+												</a>
+											</div>
+											<div class="cell shrink top-level">
+												<a class="button filter-btn no-style" href="/about/teachers-staff/middle-school/">
+													Middle School
+												</a>
+											</div>
+											<div class="cell shrink top-level">
+												<a class="button filter-btn no-style active" href="/about/teachers-staff/high-school/">
+													High School
+												</a>
+											</div>
+											<div class="cell shrink top-level">
+												<a class="button filter-btn no-style" href="/about/teachers-staff/">
+													All
+												</a>
+											</div>
+										</div>
+										<div class="filter-group other-terms tax-menu grid-x grid-padding-x" data-group="taxonomy-terms">
+											<?php foreach($grade_terms as $term):
+													if( in_array($term, $grade_terms_check) ):
+												?>
+												<div class="cell shrink option-set" data-group="grades">
+													<div class="button">
+														<?='<input type="checkbox" id="' . $term->slug . '" value=".' . $term->slug . '" data-taxonomy-terms="' . $term->slug . '"/><label for="' . $term->slug . '"/>' . $term->name . '</label>';?>
+													</div>
+												</div>
+											<?php endif; endforeach;?>
+											<?php foreach($enrichment_terms as $term):
+													if( in_array($term, $enrichment_terms_check) ):
+												?>
+												<div class="cell shrink">
+													<button type="button" class="filter-btn top-level no-style" data-post-type="teacher-staff" data-taxonomy="enrichment" data-taxonomy-terms="<?=$term->slug;?>" data-posts-per-page="12" data-scroll="false" data-button-label="Load More "><?=$term->name;?></button>
+												</div>
+											<?php endif; endforeach;?>
+											<?php foreach($department_1s as $term):
+													if( in_array($term, $department_1s_check) ):
+												?>
+												<div class="cell shrink">
+													<button type="button" class="filter-btn top-level no-style" data-post-type="teacher-staff" data-taxonomy="department-1" data-taxonomy-terms="<?=$term->slug;?>" data-posts-per-page="12" data-scroll="false" data-button-label="Load More "><?=$term->name;?></button>
+												</div>
+											<?php endif; endforeach;?>
+											<?php foreach($department_2s as $term):
+													if( in_array($term, $department_2s_check) ):
+												?>
+												<div class="cell shrink">
+													<button type="button" class="filter-btn top-level no-style" data-post-type="teacher-staff" data-taxonomy="department-2" data-taxonomy-terms="<?=$term->slug;?>" data-posts-per-page="12" data-scroll="false" data-button-label="Load More "><?=$term->name;?></button>
+												</div>
+											<?php endif; endforeach;?>
+										</div>
+									</div>
+									
+									<div class="filter-grid grid-x grid-padding-x">
+										<?php foreach( $posts as $post ){
+											get_template_part('template-parts/loop', 'teacher-staff', 
+												array(
+												),
+											);
+										}?>
+									</div>
+									<div class="text-center load-more-wrap">
+										<button class="button" id="load-more">Load More</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					
 					<div class="alm-filtered teachers-staff alm-filtered-grid init unfiltered">
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x align-center">
@@ -131,9 +212,9 @@ $intro_text = get_field('intro_text') ?? null;
 												</a>
 											</div>
 											<div class="cell shrink top-level">
-												<span class="button filter-btn no-style active" href="/about/teachers-staff/high-school/">
+												<a class="button filter-btn no-style active" href="/about/teachers-staff/high-school/">
 													High School
-												</span>
+												</a>
 											</div>
 											<div class="cell shrink top-level">
 												<a class="button filter-btn no-style" href="/about/teachers-staff/">

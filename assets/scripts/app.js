@@ -82,6 +82,12 @@
 // Swiper
 //@prepros-prepend vendor/swiper-bundle.js
 
+// Images Loaded
+//@prepros-prepend vendor/imagesloaded.pkgd.js
+
+// Isotope
+//@prepros-prepend vendor/isotope.pkgd.js
+
 // DOM Ready
 (function($) {
 	'use strict';
@@ -147,6 +153,152 @@
     }
     
     // Custom Functions
+    _app.isotope_filtering = function() {
+
+        if( document.querySelector('.isotope-filter-loadmore') ) {
+            
+            $('.isotope-filter-loadmore').imagesLoaded(function() {
+                
+                const $container = $('.isotope-filter-loadmore .filter-grid');
+                                
+                $($container).isotope({
+                    itemSelector: '.filter-grid article',
+                    layoutMode: 'fitRows',
+                });
+                
+                $container.addClass('init');
+                
+                
+                var filters = {};
+                var comboFilter = "";
+                $('#options').on( 'change', function( event ) {
+                    $(".no-items").fadeOut(0);
+                    var checkbox = event.target;
+                    var $checkbox = $( checkbox );
+                    var group = $checkbox.parents('.filter-group').attr('data-group');
+                    
+                    $('#options .filter-group').each(function(){
+                        const $checks = $(this).find('input');
+                        
+                        if( $(this).find('input:checked').length ) {
+                            $(this).addClass('active');
+                        } else {
+                            $(this).removeClass('active');
+                        }
+                        
+                    });
+                
+                    // create array for filter group, if not there yet
+                    var filterGroup = filters[ group ];
+                    if ( !filterGroup ) {
+                        filterGroup = filters[ group ] = [];
+                    }
+                    // add/remove filter
+                    if ( checkbox.checked ) {
+                        // add filter
+                        filterGroup.push( checkbox.value );
+                    } else {
+                        // remove filter
+                        var index = filterGroup.indexOf( checkbox.value );
+                        filterGroup.splice( index, 1 );
+                    }
+                
+                    var comboFilter = getComboFilter();
+                    $container.isotope({ 
+                        filter: comboFilter,
+                        itemSelector: '.filter-grid article',
+                        layoutMode: 'fitRows',
+                    });
+                    
+                });
+                
+                function getComboFilter() {
+                    var combo = [];
+                    for ( var prop in filters ) {
+                        var group = filters[ prop ];
+                        if ( !group.length ) {
+                        // no filters in group, carry on
+                            continue;
+                        }
+                        // add first group
+                        if ( !combo.length ) {
+                            combo = group.slice(0);
+                            continue;
+                        }
+                        // add additional groups
+                        var nextCombo = [];
+                        // split group into combo: [ A, B ] & [ 1, 2 ] => [ A1, A2, B1, B2 ]
+                        for ( var i=0; i < combo.length; i++ ) {
+                            for ( var j=0; j < group.length; j++ ) {
+                                var item = combo[i] + group[j];
+                                nextCombo.push( item );
+                            }
+                        }
+                        combo = nextCombo;
+                    }
+                    var comboFilter = combo.join(', ');
+                        return comboFilter;
+                }
+
+                
+                $container.on( 'arrangeComplete', function( event, filteredItems ) {
+                if(filteredItems.length == 0){
+                    $(".no-items").fadeIn(200);
+                } else {
+                    $(".no-items").fadeOut(200);
+                }
+                });
+                
+                //****************************
+                  // Isotope Load more button
+                  //****************************
+                  var initShow = 12; //number of items loaded on init & onclick load more button
+                  var counter = initShow; //counter for load more button
+                  var iso = $container.data('isotope'); // get Isotope instance
+                
+                  loadMore(initShow); //execute function onload
+                
+                  function loadMore(toShow) {
+                    $container.find(".hidden").removeClass("hidden");
+                
+                    var hiddenElems = iso.filteredItems.slice(toShow, iso.filteredItems.length).map(function(item) {
+                      return item.element;
+                    });
+                    $(hiddenElems).addClass('hidden');
+                    $container.isotope('layout');
+                
+                    //when no more to load, hide show more button
+                    if (hiddenElems.length == 0) {
+                      jQuery("#load-more").hide();
+                    } else {
+                      jQuery("#load-more").show();
+                    };
+                
+                  }
+                                
+                  //when load more button clicked
+                  $("#load-more").click(function() {
+                    if ($('#filters').data('clicked')) {
+                      //when filter button clicked, set initial value for counter
+                      counter = initShow;
+                      $('#filters').data('clicked', false);
+                    } else {
+                      counter = counter;
+                    };
+                
+                    counter = counter + initShow;
+                
+                    loadMore(counter);
+                  });
+                
+                  //when filter button clicked
+                  $('#options').on( 'change', function( event ) {
+                      loadMore(initShow);
+                  });
+                  
+            });
+        }
+    }
     
     _app.alm_filtering = function() {
         if( document.querySelector('.alm-filter-nav') ) {
@@ -422,7 +574,8 @@
         _app.fade_function();
         
         // Custom Functions
-        _app.alm_filtering();
+        _app.isotope_filtering();
+        //_app.alm_filtering();
         _app.mobile_takover_nav();
         _app.sliders();
     }

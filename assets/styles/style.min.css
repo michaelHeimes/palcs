@@ -11581,6 +11581,8 @@ button:not(.no-style).white-bg,
 .teachers-cta article {
   margin-bottom: 3.42rem;
   margin-bottom: 32px;
+  -webkit-transition: opacity 0.3s ease 0.3s;
+  transition: opacity 0.3s ease 0.3s;
 }
 @media print, screen and (min-width: 40em) {
   .blog article,
@@ -11605,6 +11607,20 @@ button:not(.no-style).white-bg,
   font-weight: 700;
   font-size: clamp(1rem, 0.97rem + 0.129vw, 1.125rem);
   line-height: 1.1666;
+}
+.blog article.hidden,
+.archive article.hidden,
+.page-template-page-teachers-staff article.hidden,
+.page-template-page-teachers-staff-elementary-school article.hidden,
+.page-template-page-teachers-staff-middle-school article.hidden,
+.page-template-page-teachers-staff-high-school article.hidden,
+.teachers-cta article.hidden {
+  visibility: hidden;
+  width: 0px !important;
+  height: 0px !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  opacity: 0;
 }
 
 article.post-card {
