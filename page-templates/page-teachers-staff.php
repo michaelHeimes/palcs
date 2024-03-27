@@ -21,7 +21,7 @@ $args = array(
 $posts = get_posts($args);
 ?>
 
-<div class="content">
+<div class="content posts-page">
 	<div class="inner-content">
 	
 		<main id="primary" class="site-main">

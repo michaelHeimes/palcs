@@ -9375,6 +9375,10 @@ body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
   background-color: #0052d4;
 }
 
+.sky-blue-bg {
+  background-color: #379ff8;
+}
+
 .purple-bg {
   background-color: #6C1CAF;
 }
@@ -11600,81 +11604,77 @@ button:not(.no-style).white-bg,
 
 .blog .grid-intro-text,
 .archive .grid-intro-text,
-.page-template-page-teachers-staff .grid-intro-text,
-.page-template-page-teachers-staff-elementary-school .grid-intro-text,
-.page-template-page-teachers-staff-middle-school .grid-intro-text,
-.page-template-page-teachers-staff-high-school .grid-intro-text,
+.posts-page .grid-intro-text,
 .teachers-cta .grid-intro-text {
   padding-bottom: 1.7rem;
 }
 .blog #options,
 .archive #options,
-.page-template-page-teachers-staff #options,
-.page-template-page-teachers-staff-elementary-school #options,
-.page-template-page-teachers-staff-middle-school #options,
-.page-template-page-teachers-staff-high-school #options,
+.posts-page #options,
 .teachers-cta #options {
   padding-bottom: 1.3rem;
 }
 .blog .load-more-wrap,
 .archive .load-more-wrap,
-.page-template-page-teachers-staff .load-more-wrap,
-.page-template-page-teachers-staff-elementary-school .load-more-wrap,
-.page-template-page-teachers-staff-middle-school .load-more-wrap,
-.page-template-page-teachers-staff-high-school .load-more-wrap,
+.posts-page .load-more-wrap,
 .teachers-cta .load-more-wrap {
   width: 100%;
   padding-top: 4.35rem;
 }
 .blog article.page,
 .archive article.page,
-.page-template-page-teachers-staff article.page,
-.page-template-page-teachers-staff-elementary-school article.page,
-.page-template-page-teachers-staff-middle-school article.page,
-.page-template-page-teachers-staff-high-school article.page,
+.posts-page article.page,
 .teachers-cta article.page {
   padding-bottom: 5rem;
 }
 @media print, screen and (min-width: 40em) {
   .blog article.page,
   .archive article.page,
-  .page-template-page-teachers-staff article.page,
-  .page-template-page-teachers-staff-elementary-school article.page,
-  .page-template-page-teachers-staff-middle-school article.page,
-  .page-template-page-teachers-staff-high-school article.page,
+  .posts-page article.page,
   .teachers-cta article.page {
     padding-bottom: 18rem;
   }
 }
 .blog article.teacher-card,
+.blog article.enrichment-card,
 .archive article.teacher-card,
-.page-template-page-teachers-staff article.teacher-card,
-.page-template-page-teachers-staff-elementary-school article.teacher-card,
-.page-template-page-teachers-staff-middle-school article.teacher-card,
-.page-template-page-teachers-staff-high-school article.teacher-card,
+.archive article.enrichment-card,
+.posts-page article.teacher-card,
+.posts-page article.enrichment-card,
+.teachers-cta article.teacher-card,
+.teachers-cta article.enrichment-card {
+  -webkit-transition: opacity 0.3s ease 0.3s;
+  transition: opacity 0.3s ease 0.3s;
+}
+.blog article.teacher-card.hidden,
+.blog article.enrichment-card.hidden,
+.archive article.teacher-card.hidden,
+.archive article.enrichment-card.hidden,
+.posts-page article.teacher-card.hidden,
+.posts-page article.enrichment-card.hidden,
+.teachers-cta article.teacher-card.hidden,
+.teachers-cta article.enrichment-card.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+.blog article.teacher-card,
+.archive article.teacher-card,
+.posts-page article.teacher-card,
 .teachers-cta article.teacher-card {
   margin-bottom: 3.42rem;
   margin-bottom: 32px;
-  -webkit-transition: opacity 0.3s ease 0.3s;
-  transition: opacity 0.3s ease 0.3s;
 }
 @media print, screen and (min-width: 40em) {
   .blog article.teacher-card,
   .archive article.teacher-card,
-  .page-template-page-teachers-staff article.teacher-card,
-  .page-template-page-teachers-staff-elementary-school article.teacher-card,
-  .page-template-page-teachers-staff-middle-school article.teacher-card,
-  .page-template-page-teachers-staff-high-school article.teacher-card,
+  .posts-page article.teacher-card,
   .teachers-cta article.teacher-card {
     margin-bottom: 50px;
   }
 }
 .blog article.teacher-card h4,
 .archive article.teacher-card h4,
-.page-template-page-teachers-staff article.teacher-card h4,
-.page-template-page-teachers-staff-elementary-school article.teacher-card h4,
-.page-template-page-teachers-staff-middle-school article.teacher-card h4,
-.page-template-page-teachers-staff-high-school article.teacher-card h4,
+.posts-page article.teacher-card h4,
 .teachers-cta article.teacher-card h4 {
   color: #525356;
   font-family: "Nunito Sans", sans-serif;
@@ -11682,19 +11682,59 @@ button:not(.no-style).white-bg,
   font-size: clamp(1rem, 0.97rem + 0.129vw, 1.125rem);
   line-height: 1.1666;
 }
-.blog article.teacher-card.hidden,
-.archive article.teacher-card.hidden,
-.page-template-page-teachers-staff article.teacher-card.hidden,
-.page-template-page-teachers-staff-elementary-school article.teacher-card.hidden,
-.page-template-page-teachers-staff-middle-school article.teacher-card.hidden,
-.page-template-page-teachers-staff-high-school article.teacher-card.hidden,
-.teachers-cta article.teacher-card.hidden {
-  visibility: hidden;
-  width: 0px !important;
-  height: 0px !important;
-  margin: 0px !important;
-  padding: 0px !important;
-  opacity: 0;
+.blog article.enrichment-card,
+.archive article.enrichment-card,
+.posts-page article.enrichment-card,
+.teachers-cta article.enrichment-card {
+  margin-bottom: 26px;
+}
+.blog article.enrichment-card a,
+.archive article.enrichment-card a,
+.posts-page article.enrichment-card a,
+.teachers-cta article.enrichment-card a {
+  height: 100%;
+  position: relative;
+  padding: 8px 0;
+}
+.blog article.enrichment-card a:before,
+.archive article.enrichment-card a:before,
+.posts-page article.enrichment-card a:before,
+.teachers-cta article.enrichment-card a:before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 24px;
+  height: 100%;
+  width: calc(100% - 24px);
+  background-color: #379ff8;
+  border-radius: 15px;
+}
+.blog article.enrichment-card .icon-wrap .purple-bg,
+.archive article.enrichment-card .icon-wrap .purple-bg,
+.posts-page article.enrichment-card .icon-wrap .purple-bg,
+.teachers-cta article.enrichment-card .icon-wrap .purple-bg {
+  width: 84px;
+  height: 84px;
+  border: 1px solid #707070;
+  border-radius: 100%;
+  padding: 1rem;
+}
+.blog article.enrichment-card .icon-wrap .purple-bg img,
+.archive article.enrichment-card .icon-wrap .purple-bg img,
+.posts-page article.enrichment-card .icon-wrap .purple-bg img,
+.teachers-cta article.enrichment-card .icon-wrap .purple-bg img {
+  max-height: 100%;
+}
+.blog article.enrichment-card h3,
+.archive article.enrichment-card h3,
+.posts-page article.enrichment-card h3,
+.teachers-cta article.enrichment-card h3 {
+  height: 100%;
+  font-weight: 800;
+  margin: 0;
+  padding: 0.65rem 1.05rem;
 }
 
 article.post-card {

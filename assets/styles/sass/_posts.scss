@@ -10,10 +10,7 @@
 
 .blog,
 .archive,
-.page-template-page-teachers-staff,
-.page-template-page-teachers-staff-elementary-school,
-.page-template-page-teachers-staff-middle-school,
-.page-template-page-teachers-staff-high-school,
+.posts-page,
 .teachers-cta {
 	.grid-intro-text {
 		padding-bottom: 1.7rem;
@@ -31,10 +28,19 @@
 			padding-bottom: 18rem;
 		}
 	}
+	article.teacher-card,
+	article.enrichment-card {
+		transition: opacity .3s ease .3s;
+		a {}
+		&.hidden {
+			visibility: hidden;
+
+			opacity: 0;
+		}
+	}
 	article.teacher-card {
 		margin-bottom: 3.42rem;
 		margin-bottom: $smallGutter; 
-		transition: opacity .3s ease .3s;
 		@include breakpoint(medium) {
 			margin-bottom: $mediumGutter;
 		}
@@ -45,13 +51,44 @@
 			font-size: clamp(1rem, 0.97rem + 0.129vw, 1.125rem);
 			line-height: 1.1666;
 		}
-		&.hidden {
-			visibility: hidden;
-			width: 0px !important;
-			height: 0px !important;
-			margin: 0px !important;
-			padding: 0px !important;
-			opacity: 0;
+
+	}
+	article.enrichment-card {
+		margin-bottom: 26px;
+		a {
+			height: 100%;
+			position: relative;
+			padding: 8px 0;
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				z-index: -1;
+				top: 0;
+				left: 24px;
+				height: 100%;
+				width: calc(100% - 24px);
+				background-color: $color-sky-blue;
+				border-radius: 15px;
+			}
+		}
+		.icon-wrap {
+			.purple-bg {
+				width: 84px;
+				height: 84px;
+				border: 1px solid #707070;
+				border-radius: 100%;
+				padding: 1rem;
+				img {
+					max-height: 100%;
+				}
+			}
+		}
+		h3 {
+			height: 100%;
+			font-weight: 800;
+			margin: 0;
+			padding: .65rem 1.05rem;
 		}
 	}
 }

@@ -1,6 +1,7 @@
 <?php
 $intro_text = $args['intro_text'] ?? null;
 $posts = $args['posts'];
+
 // Initialize an array to store term objects
 $grade_terms_check = array();
 // Loop through each post to retrieve associated terms
@@ -69,13 +70,12 @@ $department_2s = get_terms( array(
 
 ?>
 
-				
-<section class="isotope-filter-loadmore">
+<section class="isotope-filter-loadmore" data-postsper="12">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x align-center">
 			<div class="cell small-12 xlarge-10">
 				
-				<div id="options" class="alm-filter-nav tax-menu-wrap">
+				<div id="options" class="tax-menu-wrap">
 					<div class="stages tax-menu grid-x grid-padding-x font-size-20">
 						<?php if($stage_terms) : foreach($stage_terms as $term):?>
 						<div class="cell shrink top-level">
