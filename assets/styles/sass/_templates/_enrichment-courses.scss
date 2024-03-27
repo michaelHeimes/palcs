@@ -1,0 +1,8 @@
+.page-template-page-enrichment-courses {
+	main {
+		padding-top: 4.76rem;
+		@include breakpoint(medium) {
+			padding-top: 6.8rem;
+		}
+	}
+}

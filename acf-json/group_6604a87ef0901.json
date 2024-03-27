@@ -1,0 +1,50 @@
+{
+    "key": "group_6604a87ef0901",
+    "title": "Enrichment Courses",
+    "fields": [
+        {
+            "key": "field_6604a87f3df2c",
+            "label": "Enrichment",
+            "name": "enrichment",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "This selects the Enrichment (University Scholars, Professional Studies, etc.). If left blank, it will show all.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "enrichment",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "radio",
+            "allow_null": 1,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates\/page-enrichment-courses.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1711581700
+}

@@ -11570,26 +11570,26 @@ button:not(.no-style).white-bg,
   }
 }
 
-.page-template-page-teachers-staff .ctas-video-slider,
-.page-template-page-teachers-staff-elementary-school .ctas-video-slider,
-.page-template-page-teachers-staff-middle-school .ctas-video-slider,
-.page-template-page-teachers-staff-high-school .ctas-video-slider {
+.page-template-page-templates .ctas-video-slider {
   position: relative;
   margin-bottom: 5.55rem;
 }
-.page-template-page-teachers-staff .ctas-video-slider .inner-height-control,
-.page-template-page-teachers-staff-elementary-school .ctas-video-slider .inner-height-control,
-.page-template-page-teachers-staff-middle-school .ctas-video-slider .inner-height-control,
-.page-template-page-teachers-staff-high-school .ctas-video-slider .inner-height-control {
+.page-template-page-templates .ctas-video-slider .inner-height-control {
   min-height: 34.25rem;
   min-height: clamp(23.975rem, 21.481rem + 10.641vw, 34.25rem);
 }
 @media print, screen and (max-width: 56.24875em) {
-  .page-template-page-teachers-staff .ctas-video-slider .swiper-slide .grid-container .right .inner,
-  .page-template-page-teachers-staff-elementary-school .ctas-video-slider .swiper-slide .grid-container .right .inner,
-  .page-template-page-teachers-staff-middle-school .ctas-video-slider .swiper-slide .grid-container .right .inner,
-  .page-template-page-teachers-staff-high-school .ctas-video-slider .swiper-slide .grid-container .right .inner {
+  .page-template-page-templates .ctas-video-slider .swiper-slide .grid-container .right .inner {
     min-height: 40vw;
+  }
+}
+
+.page-template-page-enrichment-courses main {
+  padding-top: 4.76rem;
+}
+@media print, screen and (min-width: 40em) {
+  .page-template-page-enrichment-courses main {
+    padding-top: 6.8rem;
   }
 }
 

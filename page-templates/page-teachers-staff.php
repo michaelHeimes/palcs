@@ -1,6 +1,6 @@
 <?php
 /**
- * Template name: Teachers & Staff Page
+ * Template name: Teachers & Staff
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,18 +10,42 @@
 get_header();
 $fields = get_fields();
 
-$args = array(  
-	'post_type' => 'teacher-staff',
-	'post_status' => 'publish',
-	'posts_per_page' => -1,
-	'meta_key'  => 'last_name',
-	'orderby' => 'meta_value',
-	'order' => 'ASC',
-);
+$stage = $fields['stage'] ?? null;
+
+if( !empty($stage) ) {
+	$args = array(  
+		'post_type' => 'teacher-staff',
+		'post_status' => 'publish',
+		'posts_per_page' => -1,
+		'meta_key'  => 'last_name',
+		'orderby' => 'meta_value',
+		'order' => 'ASC',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'stage',
+				'field'    => 'term_id',
+				'terms'    => $stage,
+			),
+		),
+	);
+} else {
+	$args = array(  
+		'post_type' => 'teacher-staff',
+		'post_status' => 'publish',
+		'posts_per_page' => -1,
+		'meta_key'  => 'last_name',
+		'orderby' => 'meta_value',
+		'order' => 'ASC',
+	);
+}
+
 $posts = get_posts($args);
+
+$intro_text = $fields['intro_text'];
+
 ?>
 
-<div class="content posts-page">
+<div class="content posts-page teachers-staff-posts">
 	<div class="inner-content">
 	
 		<main id="primary" class="site-main">
