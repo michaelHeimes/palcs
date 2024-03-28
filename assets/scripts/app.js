@@ -153,290 +153,152 @@
     }
     
     // Custom Functions
-    _app.isotope_filtering = function() {
-
-        if( $('.isotope-filter-loadmore') ) {
-            
-//             $(window).on("load resize", function() {	
-//                 console.log('foo');
-//                 // Get an array of all element heights
-//                 var elementHeights = $('.filter-grid article a').map(function() {
-//                     return $(this).height();
-//                 }).get();
-//                 console.log(elementHeights);
-// 
-//                 
-//                 // Math.max takes a variable number of arguments
-//                 // `apply` is equivalent to passing each height as an argument
-//                 var maxHeight = Math.max.apply(null, elementHeights);
-//                 
-//                 // Set each height to the max height
-//                 $('.filter-grid article').height(maxHeight);
-//             });
-            
-            
-            // function matchHeights() {
-            //     var articles = document.querySelectorAll('.filter-grid article a');
-            //     var maxHeight = 0;
-            //   
-            //     // Find the tallest article
-            //     articles.forEach(function(article) {
-            //         var height = article.offsetHeight;
-            //         if (height > maxHeight) {
-            //             maxHeight = height;
-            //         }
-            //     });
-            //   
-            //     // Set the height of all articles to match the tallest one
-            //     articles.forEach(function(article) {
-            //         article.style.height = maxHeight + 'px';
-            //     });
-            // }
-            // 
-            // // Initial call to match heights
-            // matchHeights();
-            // 
-            // // Recalculate heights on screen resize
-            // window.addEventListener('resize', function() {
-            //     // Clear previously set heights
-            //     var articles = document.querySelectorAll('.filter-grid article a');
-            //     articles.forEach(function(article) {
-            //         article.style.height = 'auto';
-            //     });
-            //     
-            //     // Call the matchHeights function again after a short delay to prevent excessive recalculation
-            //     matchHeights();
-            // });
-
-
-            
-            
-            
-            var $isotopeFilterLoadMore = $('.isotope-filter-loadmore');
-            var $container = '';
-            var $postsPer = $isotopeFilterLoadMore.data('postsper');
-            var filters = {};
-            // Function to initialize Isotope and set equal row heights
-            function initializeIsotope() {
-                                
-                $(function() {
-                    $container = $('.isotope-filter-loadmore .filter-grid');
-                    
-                    // Function to set equal heights for each row
-                    const setEqualRowHeights = function() {
-                        var rows = $('.filter-grid').children(); // Assuming each row is a direct child of .filter-grid
-                        var maxRowHeight = 0;
-                    
-                        rows.each(function() {
-                            var rowHeight = $(this).height();
-                            maxRowHeight = Math.max(maxRowHeight, rowHeight);
-                        });
-                    
-                        rows.css('height', maxRowHeight + 'px');
-                    }
-                    
-                    // Call the function after Isotope arranges the items
-                    $container.on('arrangeComplete', function() {
-                        setEqualRowHeights();
-                    });
-                    
-
-                
-                    $container.isotope({
-                        itemSelector: '.filter-grid article',
-                        layoutMode: 'fitRows',
-                        fitRows: {
-                            equalheight: true
-                        }
-                    });
-                    
-                    setEqualRowHeights();
-                    
-                    // Recalculate heights on window resize
-                    $(window).on('resize', function() {
-                        setEqualRowHeights();
-                    });
-                                        
-                    // do stuff when checkbox change
-                    $('#options').on('change', function(jQEvent) {
-                        var $checkbox = $(jQEvent.target);
-                        manageCheckbox($checkbox);
-                
-                        var comboFilter = getComboFilter(filters);
-                
-                        $container.isotope({ filter: comboFilter });
-                        // Since the Isotope arrangement might change after filtering,
-                        // it's better to handle the 'arrangeComplete' event here
-                        $container.one('arrangeComplete', function(event, filteredItems) {
-                            console.log('arrangeComplete after filter with ' + filteredItems.length + ' items');
-                            
-                            //console.log(filteredItems);
-                            
-                            const filterButtons = document.querySelectorAll('#options input');
-                            const postsShown = filteredItems;
-                            let activeTerms = [];
-                            
-                            postsShown.forEach(function (postShown) {
-                                if(postShown) {
-                                    const post = Object.values(postShown);
-                                    const terms = post[0].getAttribute('data-terms');
-                                    activeTerms.push(terms.split(' '));
-                                }
-                            });
-                            
-                            // Flatten the array of arrays into a single array
-                            activeTerms = activeTerms.flat();
-
-                            filterButtons.forEach(function (btn) {
-                                const btnTerms = btn.getAttribute('data-taxonomy-terms').split(' ');
-                            
-                                const hasMatchingTerm = btnTerms.some(term => activeTerms.includes(term));
-                                const wrapper = btn.parentElement.parentElement;
-                                if (!hasMatchingTerm) {
-                                    if (!wrapper.classList.contains('top-level')) {
-                                        wrapper.classList.add('hide-btn');
-                                    }
-                                } else {
-                                    wrapper.classList.remove('hide-btn');
-                                }
-                            });
-                            
-                        });
-                        loadMore(initShow);
-                    });
-                    
-                    
-                    
-                    
-                    //****************************
-                    // Isotope Load more button
-                    //****************************
-                    var initShow = $postsPer; // number of items loaded on init & onclick load more button
-                    var counter = initShow; // counter for load more button
-                    var iso = $container.data('isotope'); // get Isotope instance
-                    
-                      loadMore(initShow); //execute function onload
-                    
-                      function loadMore(toShow) {
-                        $container.find(".hidden").removeClass("hidden");
-                    
-                        var hiddenElems = iso.filteredItems.slice(toShow, iso.filteredItems.length).map(function(item) {
-                          return item.element;
-                        });
-                        $(hiddenElems).addClass('hidden');
-                        $container.isotope('layout');
-                        
-                        console.log( hiddenElems.length );
-                    
-                        // Hide/show load more button based on remaining hidden items
-                        if ( hiddenElems.length == 0) {
-                            $("#load-more").hide();
-                        } else {
-                            $("#load-more").show();
-                        }
-                    }
-                    
-                    // when load more button clicked
-                    $("#load-more").click(function() {
-                        if ($('#options input').is(':checked')) {
-                            // when filter button clicked, set initial value for counter
-                            counter = initShow;
-                        } else {
-                            counter += initShow;
-                        }
-                        loadMore(counter);
-                    });
-                    
-                
+   _app.isotope_filtering = function() {
     
+        if( document.querySelector('.isotope-filter-loadmore') ) {
+            
+            $('.isotope-filter-loadmore').imagesLoaded(function() {
+                
+                const $container = $('.isotope-filter-loadmore .filter-grid');
+                                
+                $($container).isotope({
+                    itemSelector: '.filter-grid article',
+                    layoutMode: 'fitRows',
                 });
-
-
-                function getComboFilter( filters ) {
-                    var i = 0;
-                    var comboFilters = [];
-                    var message = [];
+                
+                $container.addClass('init');
+                
+                
+                var filters = {};
+                var comboFilter = "";
+                $('#options').on( 'change', function( event ) {
+                    $(".no-items").fadeOut(0);
+                    var checkbox = event.target;
+                    var $checkbox = $( checkbox );
+                    var group = $checkbox.parents('.filter-group').attr('data-group');
                     
-                    for ( var prop in filters ) {
-                        message.push( filters[ prop ].join(' ') );
-                        var filterGroup = filters[ prop ];
-                        // skip to next filter group if it doesn't have any values
-                        if ( !filterGroup.length ) {
-                            continue;
-                        }
-                        if ( i === 0 ) {
-                            // copy to new array
-                            comboFilters = filterGroup.slice(0);
+                    $('#options .filter-group').each(function(){
+                        const $checks = $(this).find('input');
+                        
+                        if( $(this).find('input:checked').length ) {
+                            $(this).addClass('active');
                         } else {
-                            var filterSelectors = [];
-                            // copy to fresh array
-                            var groupCombo = comboFilters.slice(0); // [ A, B ]
-                            // merge filter Groups
-                            for (var k=0, len3 = filterGroup.length; k < len3; k++) {
-                                for (var j=0, len2 = groupCombo.length; j < len2; j++) {
-                                    filterSelectors.push( groupCombo[j] + filterGroup[k] ); // [ 1, 2 ]
-                                }
-                            }
-                            // apply filter selectors to combo filters for next group
-                            comboFilters = filterSelectors;
+                            $(this).removeClass('active');
                         }
-                        i++;
-                    }
-                    
-                    var comboFilter = comboFilters.join(', ');
-                        return comboFilter;
-                }
-                    
-                function manageCheckbox( $checkbox ) {
-                    var checkbox = $checkbox[0];
-                    
-                    var group = $checkbox.parents('.option-set').attr('data-group');
+                        
+                    });
+                
                     // create array for filter group, if not there yet
                     var filterGroup = filters[ group ];
                     if ( !filterGroup ) {
                         filterGroup = filters[ group ] = [];
                     }
-                    
-                    var isAll = $checkbox.hasClass('all');
-                    // reset filter group if the all box was checked
-                    if ( isAll ) {
-                        delete filters[ group ];
-                        if ( !checkbox.checked ) {
-                            checkbox.checked = 'checked';
-                        }
-                    }
-                    // index of
-                    var index = $.inArray( checkbox.value, filterGroup );
-                    
+                    // add/remove filter
                     if ( checkbox.checked ) {
-                        var selector = isAll ? 'input' : 'input.all';
-                        $checkbox.siblings( selector ).removeAttr('checked');
-                        
-                        
-                        if ( !isAll && index === -1 ) {
-                            // add filter to group
-                            filters[ group ].push( checkbox.value );
-                        }
-                    
-                    } else if ( !isAll ) {
-                        // remove filter from group
-                        filters[ group ].splice( index, 1 );
-                        // if unchecked the last box, check the all
-                        if ( !$checkbox.siblings('[checked]').length ) {
-                            $checkbox.siblings('input.all').attr('checked', 'checked');
-                        }
+                        // add filter
+                        filterGroup.push( checkbox.value );
+                    } else {
+                        // remove filter
+                        var index = filterGroup.indexOf( checkbox.value );
+                        filterGroup.splice( index, 1 );
                     }
+                
+                    var comboFilter = getComboFilter();
+                    $container.isotope({ 
+                        filter: comboFilter,
+                        itemSelector: '.filter-grid article',
+                        layoutMode: 'fitRows',
+                    });
+                    
+                });
+                
+                function getComboFilter() {
+                    var combo = [];
+                    for ( var prop in filters ) {
+                        var group = filters[ prop ];
+                        if ( !group.length ) {
+                        // no filters in group, carry on
+                            continue;
+                        }
+                        // add first group
+                        if ( !combo.length ) {
+                            combo = group.slice(0);
+                            continue;
+                        }
+                        // add additional groups
+                        var nextCombo = [];
+                        // split group into combo: [ A, B ] & [ 1, 2 ] => [ A1, A2, B1, B2 ]
+                        for ( var i=0; i < combo.length; i++ ) {
+                            for ( var j=0; j < group.length; j++ ) {
+                                var item = combo[i] + group[j];
+                                nextCombo.push( item );
+                            }
+                        }
+                        combo = nextCombo;
+                    }
+                    var comboFilter = combo.join(', ');
+                        return comboFilter;
                 }
-
-            };
-            
-            // Call initializeIsotope function when all images are loaded
-            $isotopeFilterLoadMore.imagesLoaded(function() {
-                initializeIsotope();
+    
+                
+                $container.on( 'arrangeComplete', function( event, filteredItems ) {
+                if(filteredItems.length == 0){
+                    $(".no-items").fadeIn(200);
+                } else {
+                    $(".no-items").fadeOut(200);
+                }
+                });
+                
+                //****************************
+                  // Isotope Load more button
+                  //****************************
+                  var initShow = 12; //number of items loaded on init & onclick load more button
+                  var counter = initShow; //counter for load more button
+                  var iso = $container.data('isotope'); // get Isotope instance
+                
+                  loadMore(initShow); //execute function onload
+                
+                  function loadMore(toShow) {
+                    $container.find(".hidden").removeClass("hidden");
+                
+                    var hiddenElems = iso.filteredItems.slice(toShow, iso.filteredItems.length).map(function(item) {
+                      return item.element;
+                    });
+                    $(hiddenElems).addClass('hidden');
+                    $container.isotope('layout');
+                
+                    //when no more to load, hide show more button
+                    if (hiddenElems.length == 0) {
+                      jQuery("#load-more").hide();
+                    } else {
+                      jQuery("#load-more").show();
+                    };
+                
+                  }
+                                
+                  //when load more button clicked
+                  $("#load-more").click(function() {
+                    if ($('#filters').data('clicked')) {
+                      //when filter button clicked, set initial value for counter
+                      counter = initShow;
+                      $('#filters').data('clicked', false);
+                    } else {
+                      counter = counter;
+                    };
+                
+                    counter = counter + initShow;
+                
+                    loadMore(counter);
+                  });
+                
+                  //when filter button clicked
+                  $('#options').on( 'change', function( event ) {
+                      loadMore(initShow);
+                  });
+                  
             });
-            
         }
-    }    
+    }
     
     _app.mobile_takover_nav = function() {
         const toggles = document.querySelectorAll('.menu-toggle');

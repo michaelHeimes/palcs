@@ -23,8 +23,8 @@ if( !empty($stage) ) {
 		'tax_query' => array(
 			array(
 				'taxonomy' => 'stage',
-				'field'    => 'term_id',
-				'terms'    => $stage,
+				'field'    => 'slug',
+				'terms'    => $stage->slug,
 			),
 		),
 	);
@@ -45,7 +45,7 @@ $intro_text = $fields['intro_text'];
 
 ?>
 
-<div class="content posts-page teachers-staff-posts">
+<div class="content posts-page teachers-staff-posts <?php if( !empty($stage) ) { echo $stage->slug; } else { echo 'all'; };?>">
 	<div class="inner-content">
 	
 		<main id="primary" class="site-main">
@@ -71,6 +71,7 @@ $intro_text = $fields['intro_text'];
 				
 				<?php get_template_part('template-parts/content', 'teachers-staff-filter-grid', 
 					array(
+						'stage' => $stage,
 						'posts' => $posts,
 					),
 				);?>

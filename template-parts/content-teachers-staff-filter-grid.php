@@ -1,5 +1,6 @@
 <?php
 $intro_text = $args['intro_text'] ?? null;
+$stage = $args['stage'] ?? null;
 $posts = $args['posts'];
 
 // Initialize an array to store term objects
@@ -66,33 +67,31 @@ $department_2s = get_terms( array(
 'hide_empty' => true,
 ) );
 
-
-
 ?>
 
-<section class="isotope-filter-loadmore" data-postsper="12">
+<section class="isotope-filter-loadmore loading" data-postsper="12">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x align-center">
 			<div class="cell small-12 xlarge-10">
 				
 				<div id="options" class="tax-menu-wrap">
 					<div class="stages tax-menu grid-x grid-padding-x font-size-20">
-						<?php if($stage_terms) : foreach($stage_terms as $term):?>
+						<?php if($stage_terms && !is_wp_error($stage_terms)) : foreach($stage_terms as $term):?>
 						<div class="cell shrink top-level">
-							<a class="button filter-btn no-style" href="/about/teachers-staff/<?=esc_attr( $term->slug );?>/">
+							<a class="button filter-btn no-style<?php if( !empty($stage) && $term->slug == $stage->slug) { echo ' active'; };?>" href="/about/teachers-staff/<?=esc_attr( $term->slug );?>/">
 								<?=esc_html( $term->name );?>
 							</a>
 						</div>
 						<?php endforeach; endif;?>
 						<div class="cell shrink top-level">
-							<a class="button filter-btn no-style" href="/about/teachers-staff/">
+							<a class="button filter-btn no-style all" href="/about/teachers-staff/">
 								All
 							</a>
 						</div>
 					</div>
 					<div class="filter-group">
 						<div class="option-set other-terms tax-menu grid-x grid-padding-x" data-group="taxonomy-terms">
-							<?php if($grade_terms) : foreach($grade_terms as $term):
+							<?php if($grade_terms && !is_wp_error($grade_terms)) : foreach($grade_terms as $term):
 									if( in_array($term, $grade_terms_check) ):
 								?>
 								<div class="cell shrink" data-group="grades">
@@ -101,7 +100,7 @@ $department_2s = get_terms( array(
 									</div>
 								</div>
 							<?php endif; endforeach; endif;?>
-							<?php if($enrichment_terms): foreach($enrichment_terms as $term):
+							<?php if($enrichment_terms && !is_wp_error($enrichment_terms)): foreach($enrichment_terms as $term):
 									if( in_array($term, $enrichment_terms_check) ):
 								?>
 								<div class="cell shrink" data-group="enrichments">
@@ -110,7 +109,7 @@ $department_2s = get_terms( array(
 									</div>
 								</div>
 							<?php endif; endforeach; endif;?>
-							<?php if($department_1s): foreach($department_1s as $term):
+							<?php if($department_1s && !is_wp_error($department_1s)): foreach($department_1s as $term):
 									if( in_array($term, $department_1s_check) ):
 								?>
 								<div class="cell shrink" data-group="department-1">
@@ -119,7 +118,7 @@ $department_2s = get_terms( array(
 									</div>
 								</div>
 							<?php endif; endforeach; endif;?>
-							<?php if($department_2s): foreach($department_2s as $term):
+							<?php if($department_2s && !is_wp_error($department_2s)): foreach($department_2s as $term):
 									if( in_array($term, $department_2s_check) ):
 								?>
 								<div class="cell shrink" data-group="department-2">

@@ -20,7 +20,7 @@
             "add_term": 1,
             "save_terms": 0,
             "load_terms": 0,
-            "return_format": "id",
+            "return_format": "object",
             "field_type": "radio",
             "allow_null": 1,
             "bidirectional": 0,
@@ -46,5 +46,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1711581700
+    "modified": 1711638321
 }

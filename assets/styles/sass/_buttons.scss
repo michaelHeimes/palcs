@@ -96,6 +96,11 @@ button,
 	}
 }
 
+.content.posts-page.all a.button.all {
+	color: $white;
+	background-color: $color-purple;
+}
+
 .tax-menu li:not(.top-level) a.button,
 .alm-filtered .alm-filter-nav .other-terms button,
 #options.tax-menu-wrap .button [type=checkbox] + label {
@@ -117,6 +122,14 @@ button,
 	padding: 0;
 	margin: 0;
 }
+
+// .posts-page {
+// 	.content {
+// 		&.all {
+// 			
+// 		}
+// 	}
+// }
 
 
 #options.tax-menu-wrap {

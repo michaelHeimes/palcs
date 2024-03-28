@@ -62,7 +62,7 @@
             "add_term": 0,
             "save_terms": 0,
             "load_terms": 0,
-            "return_format": "id",
+            "return_format": "object",
             "field_type": "radio",
             "allow_null": 1,
             "bidirectional": 0,
@@ -82,21 +82,21 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "page-templates\/page-teachers-staff-elementary-school.php"
+                "value": "default"
             }
         ],
         [
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "page-templates\/page-teachers-staff-middle-school.php"
+                "value": "default"
             }
         ],
         [
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "page-templates\/page-teachers-staff-high-school.php"
+                "value": "default"
             }
         ]
     ],
@@ -109,5 +109,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1711579884
+    "modified": 1711637999
 }

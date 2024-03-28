@@ -23,8 +23,8 @@
 		'tax_query' => array(
 			 array(
 				 'taxonomy' => 'enrichment',
-				 'field'    => 'term_id',
-				 'terms'    =>  $enrichment,
+				 'field'    => 'slug',
+				 'terms'    =>  $enrichment->slug,
 			 ),
 		 ),
 	);
@@ -42,7 +42,7 @@
  
  $posts = get_posts($args);?>
  
-<div class="content posts-page enrichment-course-posts">
+<div class="content posts-page enrichment-course-posts <?php if( !empty( $enrichment) ) { echo  $enrichment->slug; } else { echo 'all'; };?>">
 	<div class="inner-content">
 	 
 		<main id="primary" class="site-main">
@@ -51,6 +51,7 @@
 				 
 				<?php get_template_part('template-parts/content', 'enrichment-filter-grid', 
 					array(
+						'enrichment' => $enrichment,
 						'posts' => $posts,
 					),
 				);?>

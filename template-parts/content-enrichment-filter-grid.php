@@ -1,4 +1,5 @@
 <?php
+$enrichment = $args['enrichment'] ?? null;
 $posts = $args['posts'];
 // Initialize an array to store term objects
 
@@ -54,22 +55,22 @@ $specialty_terms = get_terms( array(
 				
 				<div id="options" class="tax-menu-wrap">
 					<div class="stages tax-menu grid-x grid-padding-x font-size-20">
-						<?php if($enrichment_terms) : foreach($enrichment_terms as $term):?>
+						<?php if($enrichment_terms && !is_wp_error($enrichment_terms)) : foreach($enrichment_terms as $term):?>
 						<div class="cell shrink top-level">
-							<a class="button filter-btn no-style" href="/enrichment-courses/<?=esc_attr( $term->slug );?>/">
+							<a class="button filter-btn no-style<?php if( !empty($enrichment) && $term->slug == $enrichment->slug) { echo ' active'; };?>" href="/enrichment-courses/<?=esc_attr( $term->slug );?>/">
 								<?=esc_html( $term->name );?>
 							</a>
 						</div>
 						<?php endforeach; endif;?>
 						<div class="cell shrink top-level">
-							<a class="button filter-btn no-style" href="/enrichment-courses/">
+							<a class="button filter-btn no-style all" href="/enrichment-courses/">
 								All
 							</a>
 						</div>
 					</div>
 					<div class="filter-group">
 						<div class="option-set other-terms tax-menu grid-x grid-padding-x" data-group="taxonomy-terms">
-							<?php if($stage_terms) : foreach($stage_terms as $term):
+							<?php if($stage_terms && !is_wp_error($stage_terms)) : foreach($stage_terms as $term):
 									if( in_array($term, $stage_terms_check) ):
 								?>
 								<div class="cell shrink" data-group="grades">
@@ -78,7 +79,7 @@ $specialty_terms = get_terms( array(
 									</div>
 								</div>
 							<?php endif; endforeach; endif;?>
-							<?php if($specialty_terms): foreach($specialty_terms as $term):
+							<?php if($specialty_terms && !is_wp_error($specialty_terms)): foreach($specialty_terms as $term):
 									if( in_array($term, $specialty_terms_check) ):
 								?>
 								<div class="cell shrink" data-group="enrichments">
