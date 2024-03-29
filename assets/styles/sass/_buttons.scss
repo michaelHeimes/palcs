@@ -137,15 +137,15 @@ button,
 		margin-left: -rem-calc(10);
 		margin-right: -rem-calc(10);
 		> .cell {
+			opacity: 1;
 			padding-left: rem-calc(10);
 			padding-right: rem-calc(10);
 			transition: all .2s ease;
 			&.hide-btn {
+				opacity: 0;
 				padding: 0;
 				width: 0;
 				height: 0;
-				overflow: hidden;
-				
 			}
 		}
 	}

@@ -10442,16 +10442,17 @@ button:not(.no-style).white-bg,
   margin-right: -rem-calc(10);
 }
 #options.tax-menu-wrap .option-set.tax-menu.grid-x > .cell {
+  opacity: 1;
   padding-left: 0.625rem;
   padding-right: 0.625rem;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 #options.tax-menu-wrap .option-set.tax-menu.grid-x > .cell.hide-btn {
+  opacity: 0;
   padding: 0;
   width: 0;
   height: 0;
-  overflow: hidden;
 }
 #options.tax-menu-wrap .button {
   display: inline-block;

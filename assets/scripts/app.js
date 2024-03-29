@@ -154,12 +154,28 @@
     
     // Custom Functions
    _app.isotope_filtering = function() {
+      
+         var $isotopeFilterLoadMore = document.querySelector('.isotope-filter-loadmore');
     
-        if( document.querySelector('.isotope-filter-loadmore') ) {
+        if( $isotopeFilterLoadMore ) {
+           
+             // Function to set equal heights for each row
+             const setEqualRowHeights = function() {
+                 var rows = $('.filter-grid').children(); // Assuming each row is a direct child of .filter-grid
+                 var maxRowHeight = 0;
+             
+                 rows.each(function() {
+                     var rowHeight = $(this).height();
+                     maxRowHeight = Math.max(maxRowHeight, rowHeight);
+                 });
+             
+                 rows.css('height', maxRowHeight + 'px');
+             }
             
             $('.isotope-filter-loadmore').imagesLoaded(function() {
                 
                const $container = $('.isotope-filter-loadmore .filter-grid');
+               var $postsPer = $isotopeFilterLoadMore.getAttribute('data-postsper');
                                 
                 $($container).isotope({
                     itemSelector: '.filter-grid article',
@@ -167,10 +183,22 @@
                });
                 
                $container.addClass('init');
+               
+               
+               
+
+               
 
                 
                $container.on( 'layoutComplete', function( event, filteredItems ) {
                   console.log('arrangeComplete after filter with ' + filteredItems.length + ' items');
+                  
+                  
+                  
+
+
+
+                  
                   
                   const filterButtons = document.querySelectorAll('#options input');
                    const postsShown = filteredItems;
@@ -192,13 +220,14 @@
                    
                        const hasMatchingTerm = btnTerms.some(term => activeTerms.includes(term));
                        const wrapper = btn.parentElement.parentElement;
-                       console.log( wrapper);
                        if (!hasMatchingTerm) {
                            if (!wrapper.classList.contains('top-level')) {
-                               wrapper.classList.add('hide-btn');
+                              wrapper.classList.add('hide-btn');
+                              //$(wrapper).hide(100);
                            }
                        } else {
                            wrapper.classList.remove('hide-btn');
+                           //$(wrapper).show(100);
                        }
                    });
                   
@@ -207,6 +236,7 @@
                   } else {
                         $(".no-items").fadeOut(200);
                   }
+                  
                });
                 
                 
@@ -229,6 +259,28 @@
                      }
                         
                   });
+                  
+                  
+                  // Initialize an empty array to store input values
+                   var queryParams = [];
+                  
+                   // Iterate over each checked input within #options
+                   $('#options input:checked').each(function() {
+                       // Get the name and value of each checked input
+                       var name = $(this).attr('name');
+                       var value = $(this).val();
+                  
+                       // Construct query parameter string and push to array
+                       queryParams.push(encodeURIComponent(name) + '=' + encodeURIComponent(value));
+                   });
+                  
+                   // Construct the full query string by joining all query parameters with '&'
+                   var queryString = queryParams.join('&');
+                  
+                   // Update the URL with the new query string
+                   window.history.replaceState({}, '', window.location.pathname + '?' + queryString);
+                   
+                   
                 
                   // create array for filter group, if not there yet
                   var filterGroup = filters[ group ];
@@ -253,6 +305,54 @@
                   });
                     
                 });
+                
+                
+                
+               //Click matching button if query string match
+               // Parse the query string
+                var queryString = window.location.search.substring(1);
+                var queryParams = queryString.split('&');
+                var params = {};
+                queryParams.forEach(function(param) {
+                    var pair = param.split('=');
+                    var name = pair[0];
+                    var value = decodeURIComponent(pair[1]);
+               
+                    // If the parameter name is already in the params object, push the value to an array
+                    if (params[name]) {
+                        if (!Array.isArray(params[name])) {
+                            params[name] = [params[name]];
+                        }
+                        params[name].push(value);
+                    } else {
+                        params[name] = value;
+                    }
+                });
+               
+                // Check inputs based on query parameters
+                for (var key in params) {
+                    var values = params[key];
+                    if (Array.isArray(values)) {
+                        // If the value is an array, iterate over each value and check the corresponding inputs
+                        values.forEach(function(value) {
+                            checkInput(key, value);
+                        });
+                    } else {
+                        // If the value is not an array, check the corresponding input
+                        checkInput(key, values);
+                    }
+                }
+               
+                function checkInput(name, value) {
+                    var $inputs = $('#options').find('input[name="' + name + '"][value="' + value + '"]');
+                    if ($inputs.length > 0) {
+                        //$inputs.prop('checked', true);
+                        $inputs.click();
+                    }
+                }
+                
+                
+                
                 
                function getComboFilter() {
                     var combo = [];
@@ -286,7 +386,7 @@
                 //****************************
                   // Isotope Load more button
                   //****************************
-                  var initShow = 12; //number of items loaded on init & onclick load more button
+                  var initShow = $postsPer; //number of items loaded on init & onclick load more button
                   var counter = initShow; //counter for load more button
                   var iso = $container.data('isotope'); // get Isotope instance
                 
@@ -294,6 +394,8 @@
                 
                   function loadMore(toShow) {
                     $container.find(".hidden").removeClass("hidden");
+                    
+                    setEqualRowHeights();
                 
                     var hiddenElems = iso.filteredItems.slice(toShow, iso.filteredItems.length).map(function(item) {
                       return item.element;

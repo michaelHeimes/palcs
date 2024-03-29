@@ -75,7 +75,7 @@ $specialty_terms = get_terms( array(
 								?>
 								<div class="cell shrink" data-group="grades">
 									<div class="button input-wrap">
-										<?='<input type="checkbox" id="' . $term->slug . '" value=".' . $term->slug . '" data-taxonomy-terms="' . $term->slug . '"/><label for="' . $term->slug . '"/>' . $term->name . '</label>';?>
+										<?='<input type="checkbox" name="stage" id="' . $term->slug . '" value=".' . $term->slug . '" data-taxonomy-terms="' . $term->slug . '"/><label for="' . $term->slug . '"/>' . $term->name . '</label>';?>
 									</div>
 								</div>
 							<?php endif; endforeach; endif;?>
@@ -84,7 +84,7 @@ $specialty_terms = get_terms( array(
 								?>
 								<div class="cell shrink" data-group="enrichments">
 									<div class="button input-wrap">
-										<?='<input type="checkbox" id="' . $term->slug . '" value=".' . $term->slug . '" data-taxonomy-terms="' . $term->slug . '"/><label for="' . $term->slug . '"/>' . $term->name . '</label>';?>
+										<?='<input type="checkbox" name="specialty" id="' . $term->slug . '" value=".' . $term->slug . '" data-taxonomy-terms="' . $term->slug . '"/><label for="' . $term->slug . '"/>' . $term->name . '</label>';?>
 									</div>
 								</div>
 							<?php endif; endforeach; endif;?>
