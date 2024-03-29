@@ -159,60 +159,102 @@
             
             $('.isotope-filter-loadmore').imagesLoaded(function() {
                 
-                const $container = $('.isotope-filter-loadmore .filter-grid');
+               const $container = $('.isotope-filter-loadmore .filter-grid');
                                 
                 $($container).isotope({
                     itemSelector: '.filter-grid article',
                     layoutMode: 'fitRows',
+               });
+                
+               $container.addClass('init');
+
+                
+               $container.on( 'layoutComplete', function( event, filteredItems ) {
+                  console.log('arrangeComplete after filter with ' + filteredItems.length + ' items');
+                  
+                  const filterButtons = document.querySelectorAll('#options input');
+                   const postsShown = filteredItems;
+                   let activeTerms = [];
+                   
+                   postsShown.forEach(function (postShown) {
+                       if(postShown) {
+                           const post = Object.values(postShown);
+                           const terms = post[0].getAttribute('data-terms');
+                           activeTerms.push(terms.split(' '));
+                       }
+                   });
+                   
+                   // Flatten the array of arrays into a single array
+                   activeTerms = activeTerms.flat();
+                  
+                   filterButtons.forEach(function (btn) {
+                       const btnTerms = btn.getAttribute('data-taxonomy-terms').split(' ');
+                   
+                       const hasMatchingTerm = btnTerms.some(term => activeTerms.includes(term));
+                       const wrapper = btn.parentElement.parentElement;
+                       console.log( wrapper);
+                       if (!hasMatchingTerm) {
+                           if (!wrapper.classList.contains('top-level')) {
+                               wrapper.classList.add('hide-btn');
+                           }
+                       } else {
+                           wrapper.classList.remove('hide-btn');
+                       }
+                   });
+                  
+                  if(filteredItems.length == 0){
+                        $(".no-items").fadeIn(200);
+                  } else {
+                        $(".no-items").fadeOut(200);
+                  }
+               });
+                
+                
+                
+               var filters = {};
+               var comboFilter = "";
+               $('#options').on( 'change', function( event ) {
+                  $(".no-items").fadeOut(0);
+                  var checkbox = event.target;
+                  var $checkbox = $( checkbox );
+                  var group = $checkbox.parents('.filter-group').attr('data-group');
+                    
+                  $('#options .filter-group').each(function(){
+                     const $checks = $(this).find('input');
+                        
+                     if( $(this).find('input:checked').length ) {
+                        $(this).addClass('active');
+                     } else {
+                        $(this).removeClass('active');
+                     }
+                        
+                  });
+                
+                  // create array for filter group, if not there yet
+                  var filterGroup = filters[ group ];
+                  if ( !filterGroup ) {
+                     filterGroup = filters[ group ] = [];
+                  }
+                  // add/remove filter
+                  if ( checkbox.checked ) {
+                     // add filter
+                     filterGroup.push( checkbox.value );
+                  } else {
+                     // remove filter
+                  var index = filterGroup.indexOf( checkbox.value );
+                     filterGroup.splice( index, 1 );
+                  }
+                
+                  var comboFilter = getComboFilter();
+                  $container.isotope({ 
+                     filter: comboFilter,
+                     itemSelector: '.filter-grid article',
+                     layoutMode: 'fitRows',
+                  });
+                    
                 });
                 
-                $container.addClass('init');
-                
-                
-                var filters = {};
-                var comboFilter = "";
-                $('#options').on( 'change', function( event ) {
-                    $(".no-items").fadeOut(0);
-                    var checkbox = event.target;
-                    var $checkbox = $( checkbox );
-                    var group = $checkbox.parents('.filter-group').attr('data-group');
-                    
-                    $('#options .filter-group').each(function(){
-                        const $checks = $(this).find('input');
-                        
-                        if( $(this).find('input:checked').length ) {
-                            $(this).addClass('active');
-                        } else {
-                            $(this).removeClass('active');
-                        }
-                        
-                    });
-                
-                    // create array for filter group, if not there yet
-                    var filterGroup = filters[ group ];
-                    if ( !filterGroup ) {
-                        filterGroup = filters[ group ] = [];
-                    }
-                    // add/remove filter
-                    if ( checkbox.checked ) {
-                        // add filter
-                        filterGroup.push( checkbox.value );
-                    } else {
-                        // remove filter
-                        var index = filterGroup.indexOf( checkbox.value );
-                        filterGroup.splice( index, 1 );
-                    }
-                
-                    var comboFilter = getComboFilter();
-                    $container.isotope({ 
-                        filter: comboFilter,
-                        itemSelector: '.filter-grid article',
-                        layoutMode: 'fitRows',
-                    });
-                    
-                });
-                
-                function getComboFilter() {
+               function getComboFilter() {
                     var combo = [];
                     for ( var prop in filters ) {
                         var group = filters[ prop ];
@@ -240,14 +282,6 @@
                         return comboFilter;
                 }
     
-                
-                $container.on( 'arrangeComplete', function( event, filteredItems ) {
-                if(filteredItems.length == 0){
-                    $(".no-items").fadeIn(200);
-                } else {
-                    $(".no-items").fadeOut(200);
-                }
-                });
                 
                 //****************************
                   // Isotope Load more button
