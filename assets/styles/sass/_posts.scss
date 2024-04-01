@@ -96,6 +96,20 @@
 	}
 }
 
+.filter-grid {
+	&.equal-heights {
+		article {
+			display: flex;
+			width: 100%;
+			a {
+				display: flex;
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+}
+
 article.post-card {
 	margin: calc($smallGutter * .5) 0; 
 	@include breakpoint(medium) {
@@ -171,6 +185,24 @@ article.post-card {
 	}
 }
 
+.single .icon-wrap {
+	border-radius: 100%;
+	padding-bottom: 360px;
+	max-width: 360px;
+	margin: auto;
+	@include breakpoint(xlarge) {
+		padding-bottom: 100%;
+	}
+	img {
+		position: absolute;
+		top: 15%;
+		left: 15%;
+		width: 70%;
+		height: 70%;
+		object-fit: contain;
+	}	
+}
+
 article.teacher-card {
 	a {
 		&:hover {
@@ -181,14 +213,25 @@ article.teacher-card {
 	}
 }
 
-.single-teacher-staff,
-.single-enrichment-course {
-	main {
-		padding-top: 7.125rem;
-		padding-bottom: 7.5rem;
+article.single-img-sidebar {
+	padding-top: 7.125rem;
+	padding-bottom: 7.5rem;
+	.inner {
+		@include breakpoint(tablet) {
+			justify-content: center;
+		}
+	}
+	.left {
+		max-width: calc(360px + calc($smallGutter * 2) ) ; 
+		@include breakpoint(medium) {
+			max-width: calc(360px + calc($mediumGutter * 2) ) ;
+		}
+		> div {
+			margin-bottom: 0.95rem;
+		}
 	}
 	.entry-footer,
-	ul.teacher-terms-list {
+	ul.terms-list {
 		li,
 		.tax-label {
 			font-weight: 800;

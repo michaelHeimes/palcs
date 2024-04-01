@@ -54,7 +54,7 @@
 				<?php 
 				$image = get_field('header_logo', 'option');
 				if( !empty( $image ) ): ?>
-				<div class="left cell small-12 tablet-auto">
+				<div class="left cell small-12 large-auto">
 					<ul class="menu">
 						<li class="logo"><a href="<?= home_url(); ?>">
 							<?php if( !empty( get_field('header_logo', 'option') ) ) {
@@ -68,7 +68,7 @@
 				</div>
 				<?php endif;?>
 				<?php if( !empty($learn_more_cta) || !empty($learn_more_cta) ):?>
-					<div class="right cell small-12 tablet-shrink">
+					<div class="right cell small-12 large-shrink">
 						<div class="grid-x grid-padding-x">
 							<?php if( !empty($learn_more_cta) ):?>
 								<?php
@@ -107,7 +107,7 @@
 					<div class="grid-container">
 						<div class="grid-x grid-padding-x">
 							<?php if( wp_get_nav_menu_items(get_nav_menu_locations()['header-secondary-nav']) ):?>
-							<div class="top-bar-left cell small-12 tablet-auto relative grid-x align-middle show-for-tablet">
+							<div class="top-bar-left cell small-12 large-auto relative grid-x align-middle show-for-tablet">
 								<?php if( !empty( get_field('header_logo', 'option') ) ) {
 									$imgID = get_field('header_logo', 'option')['ID'];
 									$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
@@ -120,7 +120,7 @@
 							</div>
 							<?php endif;?>
 							<?php if( wp_get_nav_menu_items(get_nav_menu_locations()['offcanvas-nav']) ):?>
-							<div class="top-bar-right cell small-12 tablet-shrink">
+							<div class="top-bar-right cell small-12 large-shrink">
 								<div class="grid-x align-right grid-x align-middle">
 									<ul class="menu">
 										<!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->

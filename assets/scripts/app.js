@@ -159,19 +159,7 @@
     
         if( $isotopeFilterLoadMore ) {
            
-             // Function to set equal heights for each row
-             const setEqualRowHeights = function() {
-                 var rows = $('.filter-grid').children(); // Assuming each row is a direct child of .filter-grid
-                 var maxRowHeight = 0;
-             
-                 rows.each(function() {
-                     var rowHeight = $(this).height();
-                     maxRowHeight = Math.max(maxRowHeight, rowHeight);
-                 });
-             
-                 rows.css('height', maxRowHeight + 'px');
-             }
-            
+
             $('.isotope-filter-loadmore').imagesLoaded(function() {
                 
                const $container = $('.isotope-filter-loadmore .filter-grid');
@@ -181,24 +169,30 @@
                     itemSelector: '.filter-grid article',
                     layoutMode: 'fitRows',
                });
+               
+               // Function to set equal heights for each row
+               const setEqualRowHeights = function() {
+                  const rows =$isotopeFilterLoadMore.querySelectorAll('.filter-grid.equal-heights > *'); // Assuming each row is a direct child of .filter-grid
+                  let maxRowHeight = 0;
+               
+                  rows.forEach(function(row) {
+                      const rowHeight = row.getBoundingClientRect().height;
+                      maxRowHeight = Math.max(maxRowHeight, rowHeight);
+                  });
+               
+                  rows.forEach(function(row) {
+                      row.style.minHeight = maxRowHeight + 'px';
+                  });
+                  $container.isotope('layout');
+               };
+               // Attach the event listener to the window object
+               window.addEventListener('resize', setEqualRowHeights);
                 
                $container.addClass('init');
-               
-               
-               
-
-               
 
                 
                $container.on( 'layoutComplete', function( event, filteredItems ) {
                   console.log('arrangeComplete after filter with ' + filteredItems.length + ' items');
-                  
-                  
-                  
-
-
-
-                  
                   
                   const filterButtons = document.querySelectorAll('#options input');
                    const postsShown = filteredItems;

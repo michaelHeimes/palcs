@@ -41,7 +41,7 @@ $fields = get_fields();
 								get_template_part('template-parts/part', 'image-copy-row',
 									array(
 										'is_intro' => true,
-										'layout' => 'image-right',
+										'layout' => 'image-right intro-img',
 										'image' => $image,
 										'copy' => $copy,
 										'bottom_border_style' => $bottom_border_style,

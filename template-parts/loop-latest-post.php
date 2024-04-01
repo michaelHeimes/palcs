@@ -17,7 +17,7 @@
 			echo '</div>';
 		}?>
 		<a class="color-dark-gray permalink grid-x align-bottom" href="<?= esc_url(get_the_permalink());?>">
-			<h3 class="font-body"><?= esc_attr( get_the_title() );?> </h3>
+			<h3><?= esc_attr( get_the_title() );?> </h3>
 		</a>
 		<a class="cat-link text-center" href="<?=esc_url(get_category_link($first_category->term_id));?>"><?=esc_attr($first_category->name);?></a>
 	</div>

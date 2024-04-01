@@ -1,4 +1,5 @@
 <?php
+$sidebar_image = get_field('sidebar_image') ?? null;
 $enrichment = $args['enrichment'] ?? null;
 $posts = $args['posts'];
 // Initialize an array to store term objects
@@ -6,19 +7,18 @@ $posts = $args['posts'];
 $stage_terms_check = array();
 // Loop through each post to retrieve associated terms
 foreach ($posts as $post) {
-$post_terms = wp_get_post_terms($post->ID, 'stage'); // Replace 'your_taxonomy' with your actual taxonomy name
-// Merge the term arrays
-$stage_terms_check = array_merge($stage_terms_check, $post_terms);
+	$post_terms = wp_get_post_terms($post->ID, 'stage'); // Replace 'your_taxonomy' with your actual taxonomy name
+	// Merge the term arrays
+	$stage_terms_check = array_merge($stage_terms_check, $post_terms);
 }
-
 
 // Initialize an array to store term objects
 $enrichment_terms_check = array();
 // Loop through each post to retrieve associated terms
 foreach ($posts as $post) {
-$post_terms = wp_get_post_terms($post->ID, 'enrichment'); // Replace 'your_taxonomy' with your actual taxonomy name
-// Merge the term arrays
-$enrichment_terms_check = array_merge($enrichment_terms_check, $post_terms);
+	$post_terms = wp_get_post_terms($post->ID, 'enrichment'); // Replace 'your_taxonomy' with your actual taxonomy name
+	// Merge the term arrays
+	$enrichment_terms_check = array_merge($enrichment_terms_check, $post_terms);
 }
 
 
@@ -26,9 +26,9 @@ $enrichment_terms_check = array_merge($enrichment_terms_check, $post_terms);
 $specialty_terms_check = array();
 // Loop through each post to retrieve associated terms
 foreach ($posts as $post) {
-$post_terms = wp_get_post_terms($post->ID, 'specialty'); // Replace 'your_taxonomy' with your actual taxonomy name
-// Merge the term arrays
-$specialty_terms_check = array_merge($specialty_terms_check, $post_terms);
+	$post_terms = wp_get_post_terms($post->ID, 'specialty'); // Replace 'your_taxonomy' with your actual taxonomy name
+	// Merge the term arrays
+	$specialty_terms_check = array_merge($specialty_terms_check, $post_terms);
 }
 
 $enrichment_terms = get_terms( array(
@@ -51,7 +51,7 @@ $specialty_terms = get_terms( array(
 <section class="isotope-filter-loadmore" data-postsper="10">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x align-center">
-			<div class="cell small-12 tablet-10 xlarge-8">
+			<div class="cell small-12 xlarge-10 xxlarge-8">
 				
 				<div id="options" class="tax-menu-wrap">
 					<div class="stages tax-menu grid-x grid-padding-x font-size-20">
@@ -91,19 +91,30 @@ $specialty_terms = get_terms( array(
 						</div>
 					</div>
 				</div>
-				
-				<div class="filter-grid grid-x grid-padding-x" data-equalizer data-equalize-on="small">
-					<?php foreach( $posts as $post ){
-						get_template_part('template-parts/loop', 'enrichment-course', 
-							array(
-							),
-						);
-					}?>
-				</div>
-				<div class="text-center load-more-wrap">
-					<button class="button purple-ds" id="load-more">Load More</button>
-				</div>
 			</div>
 		</div>
+	</div>
+	<div class="grid-x grid-padding-x align-center">
+		<div class="cell small-12 medium-7 tablet-8 xlarge-7 xxlarge-5">
+			<div class="filter-grid equal-heights grid-x grid-padding-x" data-equalizer data-equalize-on="small">
+				<?php foreach( $posts as $post ){
+					get_template_part('template-parts/loop', 'enrichment-course', 
+						array(
+						),
+					);
+				}?>
+			</div>
+			<div class="text-center load-more-wrap">
+				<button class="button purple-ds" id="load-more">Load More</button>
+			</div>
+		</div>
+		<?php if( !empty( $sidebar_image ) ) {
+			$imgID = $sidebar_image['ID'];
+			$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
+			$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
+			echo '<div class="img-wrap cell small-12 medium-5 xlarge-3 tablet-4 xxlarge-3">';
+			echo $img;
+			echo '</div>';
+		}?>
 	</div>
 </section>

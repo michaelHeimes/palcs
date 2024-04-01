@@ -1,14 +1,15 @@
 <?php
-	$post_id = $args['post_id'] ?? null;
-	$categories = $args['categories'] ?? null;
-	$taxonomies = $args['taxonomies'] ?? null;
-	$combined_terms = $args['combined_terms'] ?? null;
-	$slug_front = $args['slug_front'] ?? null;
+$post_type = get_post_type();
+$post_id = $args['post_id'] ?? null;
+$categories = $args['categories'] ?? null;
+$taxonomies = $args['taxonomies'] ?? null;
+$combined_terms = $args['combined_terms'] ?? null;
+$slug_front = $args['slug_front'] ?? null;
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('single-img-sidebar'); ?>>
 	<div class="grid-container">
-		<div class="grid-x grid-padding-x align-center">
-			<div class="left cell small-12 xlarge-3">
+		<div class="inner grid-x grid-padding-x">
+			<div class="left cell small-12 tablet-4 xlarge-3">
 				<?php
 					$image_id = get_post_thumbnail_id($post_id);
 					$image_data = wp_get_attachment_image_src($image_id, 'staff-grid') ?? null;
@@ -26,6 +27,13 @@
 						// Output the image with alt text and title
 						echo '<div class="circle-thumb-wrap"><img width="724" height="724" src="' . esc_url($thumbnail_url) . '" alt="' . esc_attr($alt_text) . '" title="' . esc_attr($title) . '" decoding="async" loading="lazy"></div>';
 						
+					} elseif( $post_type == 'enrichment-course' && !empty( get_field('icon') ) ) {
+							$imgID = get_field('icon')['ID'];
+							$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
+							$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
+							echo '<div class="icon-wrap relative purple-bg grid-x align-middle align-center">';
+							echo $img;
+							echo '</div>';
 					} elseif( !empty( get_field('post_fallback_thumbnail','option') ) ) {
 						$imgID = get_field('post_fallback_thumbnail','option')['ID'];
 						$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
@@ -34,14 +42,14 @@
 					}
 				?>
 			</div>
-			<div class="right cell small-12 xlarge-5">
+			<div class="right cell small-12 tablet-6 xlarge-5">
 				<header class="entry-header">
 					
 					<?php 
 						the_title( '<h1 class="entry-title">', '</h1>' );
 						
 						if($taxonomies) {
-							echo '<ul class="teacher-terms-list no-bullet font-header">';
+							echo '<ul class="terms-list no-bullet font-header">';
 							
 							// Loop through each category
 							if($categories) {

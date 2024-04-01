@@ -49,6 +49,7 @@ $fields = get_fields();
 									$copy_image = $fields['copy_image'] ?? null;
 									$image = $copy_image['image'] ?? null;
 									$copy = $copy_image['copy'] ?? null;
+									$button_link = $copy_image['button_link'] ?? null;
 									get_template_part('template-parts/part', 'image-copy-row',
 										array(
 											'is_intro' => true,
@@ -56,6 +57,7 @@ $fields = get_fields();
 											'image' => $image,
 											'copy' => $copy,
 											'bottom_border_style' => $bottom_border_style,
+											'button_link' => $button_link,
 										),
 									);
 								}

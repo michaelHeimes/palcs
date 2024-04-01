@@ -47,12 +47,14 @@ footer#colophon {
 		}	
 		.h6,
 		.menu-item-has-children {
+			color: $dark-gray;
 			line-height: 1.15;
 			font-weight: 800;
 			margin-bottom: 0;
 			> a {
 				color: $black;
 				font-weight: 800;
+				font-family: $font-header;
 			}
 			ul li a {
 				font-weight: 600;
@@ -62,7 +64,11 @@ footer#colophon {
 		}
 		.locations {
 			line-height: 1.15;
+			font-size: 1rem;
 			.location {
+				h2.h6 {
+					text-transform: uppercase;
+				}
 				padding-bottom: clamp( rem-calc(18), 3vw, rem-calc(25));
 				.phone-wrap {
 					padding-top: clamp( rem-calc(18), 3vw, rem-calc(25));
@@ -86,15 +92,20 @@ footer#colophon {
 					display: inline-block;
 					margin-bottom: clamp(rem-calc(6), 1vw, rem-calc(9));
 				}
+				li {
+					font-size: 1rem;
+					margin-bottom: .35rem;
+				}
 			}
 		}
 	}
 
 
 	.site-info {
-		padding: rem-calc(16.5) 0 0;
+		padding: 1.1rem 0 0;
 		.p {
-			margin-bottom: rem-calc(16.5);
+			font-size: 1rem;
+			margin-bottom: 1.15rem;
 		}
 	}	
 	.copyright {

@@ -12,7 +12,7 @@
 				flex-direction: row-reverse;
 			}
 		}
-		&:not(*-flex-dir-row-reverse) {
+		&:not([class$="-flex-dir-row-reverse"]):not(.intro-img) {
 			.img-wrap {
 				margin-left: -#{($smallGutter * .5)};
 				@include breakpoint(medium down) {
@@ -54,7 +54,7 @@
 					margin-right: calc( (100vw - $global-width) * -.5 - ($mediumGutter * .5) );
 				}
 				@media (min-width: 1920px) {
-					margin-right: -137px;
+					margin-right: -162px;
 				}
 			}
 			.swiper-slide {
@@ -68,7 +68,7 @@
 						margin-right: calc( (100vw - $global-width) * -.5 );
 					}
 					@media (min-width: 1920px) {
-						margin-right: -137px;
+						margin-right: -162px;
 					}
 				}
 			}

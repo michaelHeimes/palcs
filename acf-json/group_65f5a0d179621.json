@@ -191,7 +191,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "table",
+                    "layout": "block",
                     "min": 0,
                     "max": 0,
                     "collapsed": "",
@@ -269,5 +269,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1710613989
+    "modified": 1712003829
 }

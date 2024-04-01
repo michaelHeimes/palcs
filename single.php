@@ -54,7 +54,7 @@ get_header();
 			 	$combined_terms = implode(' ', $term_slugs);
 				}
 				
-				get_template_part('template-parts/content', 'filtered-post-single',
+				get_template_part('template-parts/content', 'post-single-img-sidebar',
 					array(
 						'post_id' => $post_id,	
 						'categories' => $categories,

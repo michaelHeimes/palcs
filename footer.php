@@ -36,7 +36,7 @@
 							</div>
 							<?php endif; ?>
 						</div>
-						<div class="bottom grid-x grid-padding-x flex-dir-column-reverse large-flex-dir-row align-center font-size-20">
+						<div class="bottom grid-x grid-padding-x flex-dir-column-reverse large-flex-dir-row align-center">
 							<?php if( !empty(get_field('locations', 'option')) || !empty(get_field('contact_email_address', 'option')) || !empty(get_field('hours', 'option')) ):
 								$locations = get_field('locations', 'option') ?? null;
 							?>
@@ -49,7 +49,7 @@
 											$directions_url = $location['directions_url'] ?? null;
 											$telephone_number = $location['telephone_number'] ?? null;
 										?>
-										<div class="location font-size-20">
+										<div class="location">
 											<?php if( !empty($name) ):?>
 												<h2 class="h6 font-size-20">
 													<?=$name;?>

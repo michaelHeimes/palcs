@@ -10,13 +10,13 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'cta-heading-heading-bg-img' . $block['id'];
+$id = 'block-tabbed-content' . $block['id'];
 if( !empty($block['anchor']) ) {
 	$id = $block['anchor'];
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$className = 'cta-heading-heading-bg-img';
+$className = 'block-tabbed-content';
 if( !empty($block['className']) ) {
 	$className .= ' ' . $block['className'];
 }
