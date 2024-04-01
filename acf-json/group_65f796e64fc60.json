@@ -77,27 +77,6 @@
                 "operator": "==",
                 "value": "page-templates\/page-teachers-staff.php"
             }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "default"
-            }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "default"
-            }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "default"
-            }
         ]
     ],
     "menu_order": 0,
@@ -109,5 +88,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1711637999
+    "modified": 1711994490
 }

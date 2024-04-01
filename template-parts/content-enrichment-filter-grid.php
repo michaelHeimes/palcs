@@ -57,7 +57,7 @@ $specialty_terms = get_terms( array(
 					<div class="stages tax-menu grid-x grid-padding-x font-size-20">
 						<?php if($enrichment_terms && !is_wp_error($enrichment_terms)) : foreach($enrichment_terms as $term):?>
 						<div class="cell shrink top-level">
-							<a class="button filter-btn no-style<?php if( !empty($enrichment) && $term->slug == $enrichment->slug) { echo ' active'; };?>" href="/enrichment-courses/<?=esc_attr( $term->slug );?>/">
+							<a class="button filter-btn no-style<?php if( !empty($enrichment) && $term->slug == $enrichment->slug) { echo ' active'; };?>" href="/enrichment-courses/<?=esc_attr( $term->slug );?>">
 								<?=esc_html( $term->name );?>
 							</a>
 						</div>

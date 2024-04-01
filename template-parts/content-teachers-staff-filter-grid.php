@@ -78,13 +78,13 @@ $department_2s = get_terms( array(
 					<div class="stages tax-menu grid-x grid-padding-x font-size-20">
 						<?php if($stage_terms && !is_wp_error($stage_terms)) : foreach($stage_terms as $term):?>
 						<div class="cell shrink top-level">
-							<a class="button filter-btn no-style<?php if( !empty($stage) && $term->slug == $stage->slug) { echo ' active'; };?>" href="/about/teachers-staff/<?=esc_attr( $term->slug );?>/">
+							<a class="button filter-btn no-style<?php if( !empty($stage) && $term->slug == $stage->slug) { echo ' active'; };?>" href="/about-us/meet-our-team/<?=esc_attr( $term->slug );?>/">
 								<?=esc_html( $term->name );?>
 							</a>
 						</div>
 						<?php endforeach; endif;?>
 						<div class="cell shrink top-level">
-							<a class="button filter-btn no-style all" href="/about/teachers-staff/">
+							<a class="button filter-btn no-style all" href="/about-us/meet-our-team/">
 								All
 							</a>
 						</div>
