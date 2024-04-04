@@ -161,6 +161,20 @@ article.post-card {
 	}
 }
 
+article.event-card {
+	margin-bottom: rem-calc(82);
+	h3 {
+		font-weight: 800;
+		margin-bottom: .87em;
+	}
+	.date {
+		margin-bottom: .66em;
+	}
+	.btn-wrap {
+		margin-top: rem-calc(22);
+	}
+}
+
 .circle-thumb-wrap {
 	border-radius: 100%;
 	overflow: hidden;

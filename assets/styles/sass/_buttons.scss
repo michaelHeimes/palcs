@@ -14,6 +14,8 @@ body .alm-btn-wrap button.alm-load-more-btn {
 	}
 }
 
+body .gform-theme.gform-theme--framework.gform_wrapper .button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)),
+body .gform-theme.gform-theme--framework.gform_wrapper input:is([type=submit],[type=button],[type=reset]).button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)), .gform-theme.gform-theme--framework.gform_wrapper input:is([type=submit],[type=button],[type=reset]):where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)), .gform-theme.gform-theme--framework.gform_wrapper input[type=submit].button.gform_button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *))
 .alm-btn-wrap button,
 button,
 .button:not(.input-wrap) {
@@ -22,6 +24,8 @@ button,
 		height: auto;
 		text-transform: uppercase;
 		@extend .font-size-20;
+		font-family: $font-header;
+		padding: 1.125em 1.68em;
 		color: $white;
 		line-height: 1.35;
 		font-weight: 800;
@@ -30,24 +34,8 @@ button,
 		min-width: rem-calc(226);
 		position: relative;
 		transition: color .3s ease, background-color .3s ease, box-shadow .3s ease;
-		&.black-ds {
-			box-shadow: 4px 4px 0px 0px #000;
-			&:hover {
-				box-shadow: 4px 4px 0px 0px #010B1A;
-			}
-		}
-		&.alm-load-more-btn,
-		&.purple-ds {
-			box-shadow: 4px 4px 0px 0px #5D30BB;
-			&:hover {
-				box-shadow: 4px 4px 0px 0px #010B1A;
-			}
-		}
-		&.blue-ds {
-			box-shadow: 4px 4px 0px 0px $color-blue;
-			&:hover {
-				box-shadow: -4px -4px 0px 0px $color-blue;
-			}
+		&:not(.white-bg) {
+			background-color: $color-blue !important;
 		}
 		&.white-bg {
 			color: $color-sky-blue;

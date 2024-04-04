@@ -104,8 +104,12 @@ footer#colophon {
 	.site-info {
 		padding: 1.1rem 0 0;
 		.p {
+			color: #D0E8FC;
 			font-size: 1rem;
 			margin-bottom: 1.15rem;
+			a {
+				color: $white;
+			}
 		}
 	}	
 	.copyright {

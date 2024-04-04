@@ -1,13 +1,13 @@
 {
-    "key": "group_659f32dc10aaa",
-    "title": "Contact",
+    "key": "group_660d54876712c",
+    "title": "CPT: Event",
     "fields": [
         {
-            "key": "field_659f32dcaa901",
-            "label": "Phone Number",
-            "name": "phone_number",
+            "key": "field_660d548742e55",
+            "label": "Date",
+            "name": "event_date",
             "aria-label": "",
-            "type": "text",
+            "type": "date_picker",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,24 +16,22 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "display_format": "F j, Y",
+            "return_format": "Ymd",
+            "first_day": 1
         }
     ],
     "location": [
         [
             {
-                "param": "options_page",
+                "param": "post_type",
                 "operator": "==",
-                "value": "theme-general-settings"
+                "value": "event"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "side",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -41,5 +39,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1712189930
+    "modified": 1712156244
 }

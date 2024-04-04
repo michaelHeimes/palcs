@@ -10,20 +10,23 @@ $dropdown_links = get_field('csdl_dropdown_links') ?? get_sub_field('csdl_dropdo
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x align-middle align-center">
 			<?php if( !empty($heading) || !empty($subheading) || !empty($heading) ):?>
-				<div class="left cell small-12 tablet-6 large-6 xlarge-5">
-					<?php if( !empty($heading) ):?>
-						<h2 class="color-blue"><?=$heading;?></h2>
-					<?php endif;?>
-					<?php if( !empty($subheading) ):?>
-						<h3 class="color-orange"><?=$subheading;?></h3>
-					<?php endif;?>
-					<?php if( !empty($copy) ):?>
-						<div class="copy-wrap"><?=$copy;?></div>
-					<?php endif;?>
+				<div class="left cell small-12 tablet-6 large-6 xlarge-5 has-bg">
+					<dig class="bg"></dig>
+					<div class="relative">
+						<?php if( !empty($heading) ):?>
+							<h2 class="color-blue"><?=$heading;?></h2>
+						<?php endif;?>
+						<?php if( !empty($subheading) ):?>
+							<h1 class="h3 color-orange"><?=$subheading;?></h1>
+						<?php endif;?>
+						<?php if( !empty($copy) ):?>
+							<div class="copy-wrap"><?=$copy;?></div>
+						<?php endif;?>
+					</div>
 				</div>
 			<?php endif;?>
 			<?php if( !empty($dropdown_title) || !empty($dropdown_button_text) || !is_empty($dropdown_links) ):?>
-				<div class="right cell small-12 medium-8 tablet-6 large-6 xlarge-5 grid-x">
+				<div class="right cell small-12 medium-8 tablet-6 large-6 xlarge-5 grid-x align-center">
 					<div class="inner text-center">
 						<?php if( !empty($dropdown_title) ):?>
 							<h3 class="color-dark-gray"><?=$dropdown_title;?></h3>

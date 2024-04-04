@@ -4,11 +4,11 @@
     "fields": [
         {
             "key": "field_6604a87f3df2c",
-            "label": "Enrichment",
-            "name": "enrichment",
+            "label": "Program",
+            "name": "program",
             "aria-label": "",
             "type": "taxonomy",
-            "instructions": "This selects the Enrichment (University Scholars, Professional Studies, etc.). If left blank, it will show all.",
+            "instructions": "This selects the Program (University Scholars, Professional Studies, etc.). If left blank, it will show all.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "taxonomy": "enrichment",
+            "taxonomy": "program",
             "add_term": 1,
             "save_terms": 0,
             "load_terms": 0,
@@ -71,5 +71,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1711996491
+    "modified": 1712197214
 }

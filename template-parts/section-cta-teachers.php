@@ -2,6 +2,7 @@
 $teachers_cta_bg = $args['teachers_cta_bg'] ?? null;
 $cta_teachers_heading = $args['cta_teachers_heading'] ?? null; 
 $cta_teachers_text = $args['cta_teachers_text'] ?? null;
+$school_to_show = $args['school_to_show'] ?? null;
 $link = $args['cta_teachers_button_link'] ?? null;
 ?>
 <section class="teachers-cta relative">
@@ -31,6 +32,13 @@ $link = $args['cta_teachers_button_link'] ?? null;
 			'post_status'    => 'publish',
 			'posts_per_page' => 4,
 			'orderby'        => 'rand',
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'stage',
+					'field'    => 'term_id',
+					'terms'    => $school_to_show,
+				),
+			),
 		);
 		
 		$loop = new WP_Query( $args ); 

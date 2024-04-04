@@ -135,6 +135,7 @@ $department_2s = get_terms( array(
 					<?php foreach( $posts as $post ){
 						get_template_part('template-parts/loop', 'teacher-staff', 
 							array(
+								'class' => 'hidden',
 							),
 						);
 					}?>

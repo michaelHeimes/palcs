@@ -533,7 +533,15 @@
         //     });
         // });
         
-    } 
+   } 
+    
+   _app.accordions = function() {
+      $(".accordion").on("down.zf.accordion", function(event) {
+         var $openDrawer = $(this).find('.is-active');
+         console.log($openDrawer);
+         $('html,body').animate({scrollTop: $($openDrawer).offset().top - 120}, 500);
+      }); 
+   } 
             
     _app.init = function() {
         
@@ -544,6 +552,7 @@
         _app.fade_function();
         
         // Custom Functions
+        _app.accordions();
         _app.isotope_filtering();
         _app.mobile_takover_nav();
         _app.sliders();

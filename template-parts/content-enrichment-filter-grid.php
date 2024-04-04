@@ -1,6 +1,6 @@
 <?php
 $sidebar_image = get_field('sidebar_image') ?? null;
-$enrichment = $args['enrichment'] ?? null;
+$program = $args['program'] ?? null;
 $posts = $args['posts'];
 // Initialize an array to store term objects
 
@@ -31,8 +31,8 @@ foreach ($posts as $post) {
 	$specialty_terms_check = array_merge($specialty_terms_check, $post_terms);
 }
 
-$enrichment_terms = get_terms( array(
-'taxonomy'   => 'enrichment',
+$program_terms = get_terms( array(
+'taxonomy'   => 'program',
 'hide_empty' => true,
 ) );
 
@@ -55,9 +55,9 @@ $specialty_terms = get_terms( array(
 				
 				<div id="options" class="tax-menu-wrap">
 					<div class="stages tax-menu grid-x grid-padding-x font-size-20">
-						<?php if($enrichment_terms && !is_wp_error($enrichment_terms)) : foreach($enrichment_terms as $term):?>
+						<?php if($program_terms && !is_wp_error($program_terms)) : foreach($program_terms as $term):?>
 						<div class="cell shrink top-level">
-							<a class="button filter-btn no-style<?php if( !empty($enrichment) && $term->slug == $enrichment->slug) { echo ' active'; };?>" href="/enrichment-courses/<?=esc_attr( $term->slug );?>">
+							<a class="button filter-btn no-style<?php if( !empty($program) && $term->slug == $program->slug) { echo ' active'; };?>" href="/enrichment-courses/<?=esc_attr( $term->slug );?>">
 								<?=esc_html( $term->name );?>
 							</a>
 						</div>

@@ -15,14 +15,8 @@ if( !empty($block['anchor']) ) {
     $id = $block['anchor'];
 }
 
-// Create id attribute allowing for custom "anchor" value.
-$id = 'accordion' . $block['id'];
-if( !empty($block['anchor']) ) {
-    $id = $block['anchor'];
-}
-
 // Create class attribute allowing for custom "className" and "align" values.
-$className = 'accordion';
+$className = 'accordion-block';
 if( !empty($block['className']) ) {
     $className .= ' ' . $block['className'];
 }
@@ -37,9 +31,10 @@ $accordions = get_field('accordion');
     <?php if( !empty($accordions) ):?>
         <ul class="accordion" data-accordion
         <?php
-            if( $allow_all_closed ) { echo ' data-allow-all-closed="true"'; }
-            if( $allow_multiple_open ) { echo ' data-multi-expand="true"'; }
+            if( $allow_all_closed ) { echo ' data-allow-all-closed="true" '; }
+            if( $allow_multiple_open ) { echo ' data-multi-expand="true" '; }
         ?>
+         data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge-delay="500" data-deep-link-smudge-offset="50"
         >
             
             <?php $i = 1; foreach( $accordions as $accordion ):
@@ -47,11 +42,11 @@ $accordions = get_field('accordion');
                 $content = $accordion['content'];    
             ?>    
             <li class="accordion-item<?php if( $i == 1 && $all_closed_by_default != true) { echo ' is-active';}?>" data-accordion-item>
-                <a href="#" class="accordion-title weight-medium font-sans">
+                <a href="#<?= sanitize_title($title);?>" class="accordion-title weight-medium font-sans">
                     <?= esc_attr($title);?>
                     <span class="marker"></span>
                 </a>
-                <div class="accordion-content" data-tab-content>
+                <div class="accordion-content" data-tab-content id="<?= sanitize_title($title);?>">
                     <?= $content;?>
                  </div>
             </li>

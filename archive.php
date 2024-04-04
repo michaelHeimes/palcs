@@ -64,20 +64,6 @@ $current_category_id = get_queried_object_id();
 						<div class="grid-x grid-padding-x">
 							
 							<?=do_shortcode( '[ajax_load_more archive="true" post_type="post" posts_per_page="9" css_classes="grid-x grid-padding-x small-up-1 medium-up-2 tablet-up-3"]' );?>
-							<?php 
-							/* Start the Loop */
-							while ( have_posts() ) :?>
-								<?php
-								the_post();
-				
-								/*
-								 * Include the Post-Type-specific template for the content.
-								 * If you want to override this in a child theme, then include a file
-								 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-								 */
-								//get_template_part( 'template-parts/loop', get_post_type() );
-				
-							endwhile;?>
 						</div>
 						
 						<div class="">

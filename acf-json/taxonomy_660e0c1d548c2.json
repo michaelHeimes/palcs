@@ -1,42 +1,41 @@
 {
-    "key": "taxonomy_65ea663832514",
-    "title": "Schools",
+    "key": "taxonomy_660e0c1d548c2",
+    "title": "Programs",
     "menu_order": 0,
     "active": true,
-    "taxonomy": "stage",
+    "taxonomy": "program",
     "object_type": [
-        "teacher-staff",
         "enrichment-course"
     ],
     "advanced_configuration": 1,
     "import_source": "",
     "import_date": "",
     "labels": {
-        "name": "Schools",
-        "singular_name": "School",
-        "menu_name": "Schools",
-        "all_items": "All Schools",
-        "edit_item": "Edit School",
-        "view_item": "View School",
-        "update_item": "Update Stage",
-        "add_new_item": "Add New School",
-        "new_item_name": "New Stage Name",
-        "parent_item": "Parent School",
-        "parent_item_colon": "Parent School:",
-        "search_items": "Search Stage",
+        "name": "Programs",
+        "singular_name": "Program",
+        "menu_name": "Programs",
+        "all_items": "All Programs",
+        "edit_item": "Edit Program",
+        "view_item": "View Program",
+        "update_item": "Update Program",
+        "add_new_item": "Add New Program",
+        "new_item_name": "New Program Name",
+        "parent_item": "Parent Program",
+        "parent_item_colon": "Parent Program:",
+        "search_items": "Search Programs",
         "most_used": "",
-        "not_found": "No stage found",
-        "no_terms": "No stage",
+        "not_found": "No programs found",
+        "no_terms": "No programs",
         "name_field_description": "",
         "slug_field_description": "",
         "parent_field_description": "",
         "desc_field_description": "",
-        "filter_by_item": "Filter by school",
-        "items_list_navigation": "Stage list navigation",
-        "items_list": "Stage list",
-        "back_to_items": "← Go to stage",
-        "item_link": "Stage Link",
-        "item_link_description": "A link to a stage"
+        "filter_by_item": "Filter by program",
+        "items_list_navigation": "Programs list navigation",
+        "items_list": "Programs list",
+        "back_to_items": "← Go to programs",
+        "item_link": "Program Link",
+        "item_link_description": "A link to a program"
     },
     "description": "",
     "capabilities": {
@@ -46,7 +45,7 @@
         "assign_terms": "edit_posts"
     },
     "public": 1,
-    "publicly_queryable": 0,
+    "publicly_queryable": 1,
     "hierarchical": 1,
     "show_ui": 1,
     "show_in_menu": 1,
@@ -59,9 +58,11 @@
     "show_in_quick_edit": 1,
     "show_admin_column": 1,
     "rewrite": {
-        "permalink_rewrite": "no_permalink"
+        "permalink_rewrite": "taxonomy_key",
+        "with_front": "1",
+        "rewrite_hierarchical": "0"
     },
-    "query_var": "taxonomy_key",
+    "query_var": "post_type_key",
     "query_var_name": "",
     "default_term": {
         "default_term_enabled": "0"
@@ -70,5 +71,5 @@
     "meta_box": "default",
     "meta_box_cb": "",
     "meta_box_sanitize_cb": "",
-    "modified": 1712106541
+    "modified": 1712196670
 }

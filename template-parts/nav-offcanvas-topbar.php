@@ -4,8 +4,8 @@
  *
  * For more info: https://jointswp.com/docs/off-canvas-menu/
  */
- $learn_more_cta = get_field('learn_more_cta', 'option');
- $enroll_cta = get_field('enroll_cta', 'option');
+ $ctachwtb_button_link_1 = get_field('ctachwtb_button_link_1', 'option') ?? get_field('ctachwtb_button_link_1') ?? get_sub_field('ctachwtb_button_link_1') ?? null;
+ $ctachwtb_button_link_2 = get_field('ctachwtb_button_link_2', 'option') ?? get_field('ctachwtb_button_link_2') ?? get_sub_field('ctachwtb_button_link_2') ?? null;
 ?>
 
 <div class="top-bar-wrap">
@@ -67,28 +67,28 @@
 					</ul>
 				</div>
 				<?php endif;?>
-				<?php if( !empty($learn_more_cta) || !empty($learn_more_cta) ):?>
+				<?php if( !empty($ctachwtb_button_link_1) || !empty($ctachwtb_button_link_2) ):?>
 					<div class="right cell small-12 large-shrink">
 						<div class="grid-x grid-padding-x">
-							<?php if( !empty($learn_more_cta) ):?>
+							<?php if( !empty($ctachwtb_button_link_1) ):?>
 								<?php
-									$link = $learn_more_cta;
+									$link = $ctachwtb_button_link_1;
 									$link_url = $link['url'];
 									$link_title = $link['title'];
 									$link_target = $link['target'] ? $link['target'] : '_self';
 								?>
-								<div class="cell small-6">
+								<div class="cell shrink large-6">
 									<a class="button purple-ds" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 								</div>
 							<?php endif;?>
-							<?php if( !empty($enroll_cta) ):?>
+							<?php if( !empty($ctachwtb_button_link_2) ):?>
 								<?php
-									$link = $learn_more_cta;
+									$link = $ctachwtb_button_link_2;
 									$link_url = $link['url'];
 									$link_title = $link['title'];
 									$link_target = $link['target'] ? $link['target'] : '_self';
 								?>
-								<div class="cell small-6">
+								<div class="cell shrink large-6">
 									<a class="button purple-ds" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 								</div>
 							<?php endif;?>
@@ -107,7 +107,7 @@
 					<div class="grid-container">
 						<div class="grid-x grid-padding-x">
 							<?php if( wp_get_nav_menu_items(get_nav_menu_locations()['header-secondary-nav']) ):?>
-							<div class="top-bar-left cell small-12 large-auto relative grid-x align-middle show-for-tablet">
+							<div class="top-bar-left cell small-12 large-auto relative grid-x align-middle show-for-large">
 								<?php if( !empty( get_field('header_logo', 'option') ) ) {
 									$imgID = get_field('header_logo', 'option')['ID'];
 									$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );

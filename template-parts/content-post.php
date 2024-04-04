@@ -42,13 +42,6 @@
 							wp_kses_post( get_the_title() )
 						)
 					);
-			
-					wp_link_pages(
-						array(
-							'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'trailhead' ),
-							'after'  => '</div>',
-						)
-					);
 					?>
 					
 				</div>
@@ -57,6 +50,20 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
+		<div class="grid-container">
+			<div class="grid-x grid-padding-x align-center">
+				<div class="cell small-12 large-8 xlarge-6">
+					<div class="navigation-links grid-x grid-padding-x align-justify">
+						<div class="previous-link cell shrink">
+							<?php previous_post_link('<span class="arrow"><svg xmlns="http://www.w3.org/2000/svg" width="9.609" height="15.561" viewBox="0 0 9.609 15.561"><path id="prev" d="M16.371,6,18.2,7.828,12.26,13.781,18.2,19.733l-1.828,1.828L8.59,13.781Z" transform="translate(-8.59 -6)" fill="#0150d4"/></svg></span> %link', 'Previous Event'); ?>
+						</div>
+						<div class="next-link cell shrink">
+							<?php next_post_link('%link <span class="arrow"><svg xmlns="http://www.w3.org/2000/svg" width="9.609" height="15.561" viewBox="0 0 9.609 15.561"><path id="prev" d="M10.419,6,8.59,7.828l5.939,5.952L8.59,19.733l1.829,1.828L18.2,13.781Z" transform="translate(-8.59 -6)" fill="#0150d4"/></svg></span>', 'Next Event'); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
 

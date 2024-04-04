@@ -68,6 +68,31 @@
             "append": ""
         },
         {
+            "key": "field_660da9caac5ff",
+            "label": "School to Show",
+            "name": "school_to_show",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "stage",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "radio",
+            "allow_null": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
+        },
+        {
             "key": "field_65f738d460ad6",
             "label": "Button Link",
             "name": "cta_teachers_button_link",
@@ -102,5 +127,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1710700813
+    "modified": 1712171492
 }

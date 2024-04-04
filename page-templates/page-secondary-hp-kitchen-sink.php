@@ -66,6 +66,7 @@ $fields = get_fields();
 									if( !empty($wywiwygs_50_50 ) ) {
 										get_template_part('template-parts/part', 'wywiwygs-50-50', 
 											array(
+												'is_intro' => true,
 												'wywiwygs_50_50' => $wywiwygs_50_50,
 											) 
 										);
@@ -81,7 +82,7 @@ $fields = get_fields();
 						<?php if (has_blocks()):?>
 							<div class="blocks grid-container">
 								<div class="grid-x grid-padding-x align-center">
-									<div class="cell small-12 large-11 xlarge-10">
+									<div class="cell small-12 large-10 xlarge-8">
 										<?php the_content();?>
 									</div>
 								</div>

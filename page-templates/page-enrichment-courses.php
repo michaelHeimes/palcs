@@ -11,9 +11,9 @@
 
  $fields = get_fields();
  
- $enrichment = $fields['enrichment'] ?? null;
+ $program = $fields['program'] ?? null;
  
- if( !empty($enrichment) ) {
+ if( !empty($program) ) {
 	$args = array(  
 		'post_type' => 'enrichment-course',
 		'post_status' => 'publish',
@@ -24,7 +24,7 @@
 			 array(
 				 'taxonomy' => 'enrichment',
 				 'field'    => 'slug',
-				 'terms'    =>  $enrichment->slug,
+				 'terms'    =>  $program->slug,
 			 ),
 		 ),
 	);
@@ -42,7 +42,7 @@
  
  $posts = get_posts($args);?>
  
-<div class="content posts-page enrichment-course-posts <?php if( !empty( $enrichment) ) { echo  $enrichment->slug; } else { echo 'all'; };?>">
+<div class="content posts-page enrichment-course-posts <?php if( !empty( $program) ) { echo  $program->slug; } else { echo 'all'; };?>">
 	<div class="inner-content">
 	 
 		<main id="primary" class="site-main">
@@ -51,8 +51,8 @@
 				 
 				<?php get_template_part('template-parts/content', 'enrichment-filter-grid', 
 					array(
-						'enrichment' => $enrichment,
 						'posts' => $posts,
+						'program' => $program,
 					),
 				);?>
  

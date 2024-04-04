@@ -33,7 +33,12 @@
 				margin-top: -2.5rem;
 			}
 			span {
-				border-color: $color-coral;
+				background: transparent;
+				border: 1px solid #FF1B59;
+				&.swiper-pagination-bullet-active {
+					background: $color-blue;
+					border-color: $color-blue;
+				}
 			}
 		}
 	}

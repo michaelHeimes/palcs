@@ -173,7 +173,6 @@ function trailhead_custom_admin_footer() {
 	
 	
 	// Add custom column header
-// Add custom column header
 	function custom_sticky_column($columns) {
 		$columns['is_sticky'] = 'Sticky';
 		return $columns;
@@ -201,3 +200,24 @@ function trailhead_custom_admin_footer() {
 		}
 	}
 	add_action('manage_teacher-staff_posts_custom_column', 'custom_teacher_staff_column_content', 10, 2);
+	
+	// Add custom admin column for event_date
+	function custom_event_columns($columns) {
+		$columns['event_date'] = 'Event Date';
+		return $columns;
+	}
+	add_filter('manage_event_posts_columns', 'custom_event_columns');
+	
+	// Display event_date in custom admin column with format m/d/Y
+	function custom_event_column_content($column, $post_id) {
+		if ($column == 'event_date') {
+			$event_date = get_field('event_date', $post_id); // Replace 'event_date' with your ACF field name
+			if ($event_date) {
+				$formatted_date = date('m/d/Y', strtotime($event_date));
+				echo $formatted_date;
+			}
+		}
+	}
+	add_action('manage_event_posts_custom_column', 'custom_event_column_content', 10, 2);
+
+

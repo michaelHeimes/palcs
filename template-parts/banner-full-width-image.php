@@ -9,6 +9,9 @@ if ( is_home() ) {
 	if ($current_category && function_exists('get_field')) {
 		$full_width_banner_image = get_field('full_width_banner_image', 'category_' . $current_category->term_id);
 	}
+} elseif ( is_404() ) {
+	$full_width_banner_image = get_field('404_error_feature_image', 'option');
+
 } else {
 	$full_width_banner_image = get_field('full_width_banner_image');
 }

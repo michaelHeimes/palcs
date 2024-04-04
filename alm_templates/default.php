@@ -8,6 +8,10 @@ if( $post_type == 'teacher-staff' ) {
 		),
 	);
 
+} elseif( $post_type == 'event' ) {
+	
+	get_template_part( 'template-parts/loop', get_post_type() );
+	
 } else {
 	
 	get_template_part( 'template-parts/loop', get_post_type() );

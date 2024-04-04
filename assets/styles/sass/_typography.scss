@@ -1,5 +1,6 @@
 .font-size-20 {
-	font-size: clamp(rem-calc(17), 2vw, rem-calc(20));
+	font-size: clamp(1rem, 0.885rem + 0.305vw, 1.25rem);
+	line-height: 2.05;
 }
 
 p,
@@ -71,7 +72,8 @@ h2,
 
 h1,
 .h1,
-h1.wp-block-heading {
+h1.wp-block-heading,
+.h1-style-h2 h2 {
 	font-size: clamp(1.881rem, 1.683rem + 0.846vw, 2.688rem);
 	line-height: 1.093;
 }
@@ -106,6 +108,7 @@ h4,
 	margin-bottom: 0;
 	&.wp-block-heading {
 		color: $dark-gray;	
+		margin-bottom: 0 !important;
 	}
 }
 

@@ -6,7 +6,7 @@ $copy = $args['copy'] ?? null;
 $button_link = $args['button_link'] ?? null;
 ?>
 <div class="icr-row grid-container<?php if( $is_intro == true ):?> intro<?php endif;?>">
-	<div class="grid-x grid-padding-x align-middle <?=$layout;?>">
+	<div class="grid-x grid-padding-x <?=$layout;?>">
 		<?php if( !empty( $image ) ):
 			$imgID = $image['ID'];
 			$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
@@ -20,7 +20,7 @@ $button_link = $args['button_link'] ?? null;
 		<?php endif?>
 		<?php if( !empty($copy) ):?>
 			<div class="copy-wrap cell small-12<?php if( $is_intro == true ):?> tablet-6 large-5<?php else:?> tablet-7 large-6  xlarge-5<?php endif;?>">
-				<div class="inner">
+				<div class="inner h1-style-h2">
 					<?= wp_kses_post( $copy );?>
 					<?php 
 					$link = $button_link;

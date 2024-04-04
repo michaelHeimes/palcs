@@ -57,7 +57,11 @@
 				max-width: 66px;
 			}
 			h3.h4 {
+				font-size: clamp(1.137rem, 0.914rem + 0.595vw, 1.625rem);
 				line-height: 1.1538;
+			}
+			p {
+				line-height: 1.57;
 			}
 		}
 	}

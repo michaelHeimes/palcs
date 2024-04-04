@@ -1,0 +1,23 @@
+.gform-theme--framework.gform-theme--foundation {
+	.gform_fields {
+		--gf-field-gap-x: 40px;
+		--gf-form-gap-x: 40px;
+		--gf-form-gap-y: 40px;
+		--gf-ctrl-size: 82px;
+		--gf-local-bg-color: #0052d4;
+		--gf-ctrl-border-color: #0052d4;
+		--gf-ctrl-border-color-hover: #0052d4;
+		--gf-ctrl-color: #0052d4;
+		--gf-ctrl-color-hover: #0052d4;
+		--gf-ctrl-color-focus: #0052d4;
+		--gf-ctrl-btn-bg-color-hover-primary: #0052d4;
+		--gf-color-in-ctrl-primary-darker: #0052d4;
+		--gf-ctrl-radius: 0;
+		--gf-ctrl-shadow: 0 0 0;
+		--gf-ctrl-font-size: 23px;
+		--gf-ctrl-padding-x: 30px;
+	}
+	.gform_footer {
+		--gf-form-footer-margin-y-start: 60px;
+	}
+}

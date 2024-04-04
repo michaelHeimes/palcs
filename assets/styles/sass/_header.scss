@@ -3,8 +3,8 @@ header.site-header {
 	z-index: 9;
 	border-bottom: 1px solid #E3E3E3;
 	.pre-header-nav {
-		padding-top: 18px;
-		padding-bottom: 18px;
+		padding-top: 11px;
+		padding-bottom: 11px;
 		.social-links {
 			li {
 				margin-right: clamp(20px, 3vw, 38.5px);
@@ -23,11 +23,20 @@ header.site-header {
 	}
 	.header-middle {
 		margin-top: rem-calc(22);
-		margin-bottom: rem-calc(33);
 		.logo {
 			max-width: 647.76px;
-			@include breakpoint(medium down) {
+			@include breakpoint(tablet down) {
 				margin-bottom: rem-calc(32);
+			}
+		}
+		a.button {
+			@include breakpoint(large down) {
+				margin-bottom: 1rem;
+			}
+		}
+		.right {
+			@include breakpoint(large) {
+				padding-bottom: rem-calc(34);
 			}
 		}
 	}
@@ -93,6 +102,8 @@ header.site-header {
 	}
 	.sticky-nav.is-stuck {
 		border-bottom: 1px solid #E3E3E3;
+		width: 100% !important;
+		max-width: 100% !important;
 		.sticky-logo {
 			visibility: visible !important;
 			opacity: 1;

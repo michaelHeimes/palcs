@@ -1,3 +1,10 @@
 .page-template-page-home {
-	
+	.ctas-video-slider {
+		position: relative;
+		.inner-height-control {
+			@include breakpoint(tablet) {
+				min-height: rem-calc(765);
+			}
+		}
+	}
 }

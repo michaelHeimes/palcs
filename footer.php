@@ -8,7 +8,8 @@
  *
  * @package trailhead
  */
-
+$email = get_field('contact_email_address', 'option');
+$hours = get_field('hours', 'option');
 ?>
 				<?php get_template_part('template-parts/section', 'cta-centered-heading-two-buttons');?>
 				<footer id="colophon" class="site-footer">
@@ -76,7 +77,20 @@
 										<?php endforeach;?>	
 									</div>
 								<?php endif;?>
-								
+								<?php if( !empty($email) || !empty($hours) ):?>
+									<div class="email-hours">
+										<?php if( !empty($email) ):?>
+											<div>
+												Email: <a href="mailto:<?=$email;?>"><?=$email;?></a>
+											</div>
+										<?php endif;?>
+										<?php if( !empty($hours) ):?>
+											<div>
+												<?=$hours;?>
+											</div>
+										<?php endif;?>
+									</div>
+								<?php endif;?>
 							</div>
 							<?php endif;?>
 							<?php if( wp_get_nav_menu_items(get_nav_menu_locations()['footer-nav']) ):?>

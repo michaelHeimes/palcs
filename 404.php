@@ -10,27 +10,24 @@
 get_header();
 ?>
 	<div class="content">
-		<div class="grid-container">
-			<div class="inner-content grid-x grid-padding-x">
-				<main id="primary" class="site-main">
-			
-					<article class="content-not-found">
-					
-						<header class="article-header">
-							<h1>404</h1>
-						</header> <!-- end article header -->
-					
-						<section class="entry-content">
-							<p>The page you're looking for doesn't exist. Please use the navigation at the top of the page or <a href="<?php echo home_url(); ?>">return to the home page.</a></p>
-						</section> <!-- end article section -->
-					
-					
-					</article> <!-- end article -->
-			
-				</main><!-- #main -->
-			</div>
-		</div>
-	</div><!-- end content -->
+		<main id="primary" class="site-main">
+	
+			<article class="content-not-found">
+				<?php get_template_part('template-parts/banner', 'full-width-image');?>
+				<div class="grid-container">
+					<div class="grid-x grid-padding-x align-center">
+						<div class="cell small-12 large-11 xlarge-10">
 
+							<section class="entry-content">
+								<?=wp_kses_post( get_field('404_error_text', 'option') );?>
+							</section> <!-- end article section -->
+							
+						</div>
+					</div>
+				</div>
+			</article> <!-- end article -->
+	
+		</main><!-- #main -->
+	</div>
 <?php
 get_footer();

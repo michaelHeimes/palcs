@@ -1,4 +1,4 @@
-.page-template-page-secondary-hp-kitchen-sink
+.page-template-page-secondary-hp-kitchen-sink,
 .page-template-page-secondary-hp-w-nav,
 .page-template-page-secondary-hp-wo-nav,
 .page-template-page-academics-interior {
@@ -8,6 +8,13 @@
 		@include breakpoint(medium) {
 			padding-top: rem-calc(143);
 			padding-bottom: rem-calc(133);
+		}
+		&.icr-row {
+			.img-wrap {
+				@include breakpoint(medium down) {
+					margin-bottom: 1rem;
+				}
+			}
 		}
 	}
 	.intro:has(+ .blocks) {

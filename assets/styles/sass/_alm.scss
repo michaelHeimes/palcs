@@ -24,3 +24,6 @@
 		font-size: 100%;
 	}
 }
+.alm-btn-wrap .alm-load-more-btn.loading:before {
+	display: none !important;
+}

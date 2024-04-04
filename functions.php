@@ -277,3 +277,6 @@ require_once(get_template_directory().'/inc/admin.php');
 
 // Image Sizes
 require_once(get_template_directory().'/inc/image-sizes.php');
+
+// Expire Events
+require_once(get_template_directory().'/inc/expire-events.php');

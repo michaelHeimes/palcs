@@ -4,8 +4,8 @@
  *
  * For more info: https://jointswp.com/docs/off-canvas-menu/
  */
- $learn_more_cta = get_field('learn_more_cta', 'option');
- $enroll_cta = get_field('enroll_cta', 'option');
+ $ctachwtb_button_link_1 = get_field('ctachwtb_button_link_1', 'option') ?? get_field('ctachwtb_button_link_1') ?? get_sub_field('ctachwtb_button_link_1') ?? null;
+ $ctachwtb_button_link_2 = get_field('ctachwtb_button_link_2', 'option') ?? get_field('ctachwtb_button_link_2') ?? get_sub_field('ctachwtb_button_link_2') ?? null;
  $phone_number = get_field('phone_number', 'option');
 ?>
 
@@ -25,12 +25,12 @@
 		<div class="off-canvas-secondary-wrap">
 			<?php trailhead_off_canvas_secondary_nav();?>
 		</div>
-		<?php if( !empty($learn_more_cta) || !empty($learn_more_cta) ):?>
+		<?php if( !empty($ctachwtb_button_link_1) || !empty($ctachwtb_button_link_2) ):?>
 			<div class="ctas">
 				<div class="grid-x grid-padding-x align-center">
-					<?php if( !empty($learn_more_cta) ):?>
+					<?php if( !empty($ctachwtb_button_link_1) ):?>
 						<?php
-							$link = $learn_more_cta;
+							$link = $ctachwtb_button_link_1;
 							$link_url = $link['url'];
 							$link_title = $link['title'];
 							$link_target = $link['target'] ? $link['target'] : '_self';
@@ -39,9 +39,9 @@
 							<a class="button white-bg" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 						</div>
 					<?php endif;?>
-					<?php if( !empty($enroll_cta) ):?>
+					<?php if( !empty($ctachwtb_button_link_2) ):?>
 						<?php
-							$link = $learn_more_cta;
+							$link = $ctachwtb_button_link_2;
 							$link_url = $link['url'];
 							$link_title = $link['title'];
 							$link_target = $link['target'] ? $link['target'] : '_self';

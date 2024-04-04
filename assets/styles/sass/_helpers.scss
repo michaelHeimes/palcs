@@ -39,9 +39,16 @@
 	p,
 	.p,
 	.h3,
-	.h4 {
+	.h4,
+	.h6 {
 		color: $color-blue;
 	}
+	&.h6 {
+		color: $color-blue;
+	}
+}
+.color-coral {
+	color: $color-coral;
 }
 .color-sky-blue {
 	color: $color-sky-blue;
@@ -64,7 +71,8 @@
 	color: $color-orange;
 	a,
 	p,
-	.p {
+	.p,
+	&.h3 {
 		color: $color-orange;
 	}
 }
@@ -75,6 +83,31 @@
 	.p {
 		color: $color-purple;
 	}
+}
+.black-ds,
+.purple-ds,
+.blue-ds {
+	transition: color .3s ease, background-color .3s ease,box-shadow .3s ease;
+	&.button,
+	&.link {
+		&:hover {
+			box-shadow: 4px 4px 0px 0px #010B1A;
+		}
+	}
+}
+.black-ds {
+	box-shadow: 4px 4px 0px 0px #000;
+}
+body .gform_footer input,
+.purple-ds,
+body .alm-btn-wrap .alm-load-more-btn {
+	box-shadow: 4px 4px 0px 0px $color-purple !important;
+	&:hover {
+		box-shadow: 4px 4px 0px 0px #010B1A !important;
+	}
+}
+.blue-ds {
+	box-shadow: 4px 4px 0px 0px $color-blue;
 }
 .uppercase {
 	text-transform: uppercase;
