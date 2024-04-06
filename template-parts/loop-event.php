@@ -3,7 +3,7 @@
 	$event_date = get_field('event_date') ?? null;
 	$date = DateTime::createFromFormat( 'Ymd', $event_date );
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class('event-card cell'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('event-card load-more-filter-card cell hidden'); ?>>
 	<div class="inner relative">
 		<div class="grid-x grid-padding-x">
 			<?php if( !empty( $thumb_id ) ) {

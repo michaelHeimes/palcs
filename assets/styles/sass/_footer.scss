@@ -14,7 +14,7 @@ footer#colophon {
 			}
 		}
 		.right {
-			ul {
+			ul.social-links {
 				display: flex;
 				justify-content: center; 
 				@include breakpoint(medium) {
@@ -23,13 +23,13 @@ footer#colophon {
 				}
 				li {
 					margin: clamp( rem-calc(10), 2vw, rem-calc(20) );
-					a {
+					svg path {
+						transition: .25s ease;
+					}
+					a:hover {
 						svg {
-							path[fill="#fff"] {
-								fill: $color-blue;
-							}
-							path[fill="#379ff8"] {
-								fill: $white;
+							path[fill="#0151d4"] {
+								fill: $color-coral;
 							}
 						}
 					}
@@ -38,12 +38,16 @@ footer#colophon {
 		}
 	}
 	.bottom {
+		padding-bottom: 4rem;
 		.left,
 		.right {
 			margin-bottom: clamp( rem-calc(15), 3vw, rem-calc(19) );
 		}
 		a {
 			color: $color-blue;
+			&:hover {
+				color: $color-coral;
+			}
 		}	
 		.h6,
 		.menu-item-has-children {

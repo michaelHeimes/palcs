@@ -69,10 +69,12 @@ $intro_text = $fields['intro_text'];
 					</div>
 				</header><!-- .entry-header -->
 				
-				<?php get_template_part('template-parts/content', 'teachers-staff-filter-grid', 
+				<?php get_template_part('template-parts/content', 'load-more-filter-grid', 
 					array(
-						'stage' => $stage,
+						'cpt'   => 'teacher-staff',
 						'posts' => $posts,
+						'posts-per-load' => 12,
+						'stage' => $stage,
 					),
 				);?>
 

@@ -85,7 +85,6 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 @import "header";
 @import "footer";
 @import "full-nav";
-@import "default";
 @import "buttons";
 @import "alm";
 @import "forms";
@@ -115,6 +114,7 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 @import "_blocks/button-group";
 @import "_blocks/copy-left-cta-right";
 
+@import "_templates/default";
 @import "_templates/home";
 @import "_templates/secondary-home";
 @import "_templates/teachers-staff";

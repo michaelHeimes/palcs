@@ -71,6 +71,7 @@ button,
 		font-weight: 800;
 		font-family: $font-header;
 		padding: 0.525em 1.04885em;
+		line-height: 1.25;
 		transition: color .2s ease, background-color .2s ease;
 		&:is(span),
 		&.active,
@@ -111,15 +112,6 @@ button,
 	margin: 0;
 }
 
-// .posts-page {
-// 	.content {
-// 		&.all {
-// 			
-// 		}
-// 	}
-// }
-
-
 #options.tax-menu-wrap {
 	.option-set.tax-menu.grid-x {
 		margin-left: -rem-calc(10);
@@ -156,4 +148,8 @@ button,
 			}
 		}
 	}
+}
+
+.shortcode-btn-wrap {
+	margin: 1rem 0 2rem;
 }

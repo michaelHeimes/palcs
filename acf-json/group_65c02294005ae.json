@@ -68,6 +68,31 @@
             "append": ""
         },
         {
+            "key": "field_660eccb3747cd",
+            "label": "Categories To Show",
+            "name": "categories_to_show",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "Maximum of 6",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "checkbox",
+            "bidirectional": 0,
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional_target": []
+        },
+        {
             "key": "field_65c022e003711",
             "label": "CTA Button Link",
             "name": "latest_posts_cta_button_link",
@@ -99,8 +124,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": true,
+    "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1707095882
+    "modified": 1712246015
 }

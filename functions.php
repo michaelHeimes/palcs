@@ -280,3 +280,6 @@ require_once(get_template_directory().'/inc/image-sizes.php');
 
 // Expire Events
 require_once(get_template_directory().'/inc/expire-events.php');
+
+// Shortcodes
+require_once(get_template_directory().'/inc/shortcodes.php');

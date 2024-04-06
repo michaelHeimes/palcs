@@ -24,7 +24,7 @@ get_header();
 				if( is_singular('teacher-staff') ) { 
 					$categories = array('stage');
 					$taxonomies = array('grade', 'enrichment', 'department-1', 'department-2');
-					$slug_front = '/about/teachers-staff/';
+					$slug_front = '/about-us/teachers-staff/';
 				}
 				
 				if( is_singular('enrichment-course') ) { 
@@ -67,8 +67,11 @@ get_header();
 			} else {
 
 				get_template_part( 'template-parts/content', get_post_type() );
-				
+				trailhead_page_navi();
+
 			}
+			
+
 
 
 		endwhile; // End of the loop.

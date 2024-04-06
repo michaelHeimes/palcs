@@ -1,5 +1,4 @@
 <?php 
-$class = $args['class'] ?? null;
 $post_id = $post->ID;
 $term_slugs = [];
 $taxonomies = array('stage', 'grade', 'enrichment', 'department-1', 'department-2');
@@ -24,7 +23,7 @@ if (!empty($term_slugs)) {
 	$combined_terms = implode(' ', $term_slugs);
 }
 
-$article_classes = 'teacher-card cell small-12 medium-6 tablet-4 large-3 text-center' . ' ' . $combined_terms . ' ' . $class;
+$article_classes = 'teacher-card load-more-filter-card cell small-12 medium-6 tablet-4 large-3 text-center' . ' ' . $combined_terms;
 
 // Output or use the combined terms as needed
 ?>

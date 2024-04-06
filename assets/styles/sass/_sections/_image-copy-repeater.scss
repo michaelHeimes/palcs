@@ -1,9 +1,9 @@
 .image-copy-repeater {
 	background-color: #F7F7F7;
-	padding-top: rem-calc(38.5);
+	padding-top: rem-calc(80);
 	padding-bottom: rem-calc(80.5);
 	@include breakpoint(medium) {
-		padding-top: rem-calc(55);
+		padding-top: rem-calc(115);
 		padding-bottom: rem-calc(115);
 	}
 	&.type-slider {
@@ -30,7 +30,7 @@
 			display: flex;
 			margin-left: -.75rem;
 			@include breakpoint(tablet) {
-				margin-top: -2.5rem;
+				margin-top: -1.5rem;
 			}
 			span {
 				background: transparent;

@@ -33,14 +33,13 @@ svg {
 }
 
 ul.pagination {
-	padding: 0;
+	padding: 2.5rem 0 5.4rem;
+	@include breakpoint(medium) {
+		padding: 4.5rem 0 15.4rem;
+	}
 	margin: 0;
 	list-style: none;
 	position: relative;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: center;
 	li {
 		margin: .2rem 1rem;
 		text-transform: uppercase;
@@ -70,7 +69,7 @@ ul.pagination {
 	}
 }
 
-.single-teacher-staff .entry-footer .tax-label,
+.entry-footer .tax-label,
 ul.pagination li,
 ul.teacher-terms-list li {
 	font-size: clamp(1rem, 0.909rem + 0.388vw, 1.375rem);
@@ -98,7 +97,11 @@ ul.teacher-terms-list li {
 	}
 }
 
-.reveal {
+.reveal.large {
+	max-width: 100vw;
+	@include breakpoint(tablet) {
+		max-width: 900px;
+	}
 	button.close-button {
 		font-size: rem-calc(50);
 		color: $color-blue;

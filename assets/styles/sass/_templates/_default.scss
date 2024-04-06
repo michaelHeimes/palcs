@@ -43,36 +43,34 @@ body.error404,
 body.page-template-default,
 body.single-post {
 	.entry-content {
-		margin-bottom: 5rem;
-		@include breakpoint(tablet) {
-			margin-bottom: 7rem;
+		overflow: hidden;
+		p {
+			
 		}
-	}
-	p {
-		
-	}
-	p,
-	ul,
-	ol,
-	.button-group  {
-		line-height: 2.05;
-	}
-	ul,
-	ol {
-		&:not(.tabs) {
-			margin-bottom: 2.5rem;
-			@include breakpoint(tablet) {
-				margin-bottom: 3rem;
+		p,
+		ul,
+		ol,
+		.button-group  {
+			line-height: 2.05;
+		}
+		ul,
+		ol {
+			&:not(.tabs) {
+				margin-bottom: 2.5rem;
+				@include breakpoint(tablet) {
+					margin-bottom: 3rem;
+				}
+			}
+			&:not(.tabs):not(.accordion) {
+				padding-left: 2.5rem;
+			}
+			li:not(.accordion-item):not(.tabs-title) {
+				margin-bottom: 0.75rem;
 			}
 		}
-		&:not(.tabs):not(.accordion) {
-			padding-left: 2.5rem;
-		}
-		li:not(.accordion-item):not(.tabs-title) {
-			margin-bottom: 0.75rem;
-		}
+		
 	}
-	
+
 	.wp-block-gallery.has-nested-images {
 		margin-left: -15px;
 		margin-right: -15px;
@@ -121,6 +119,12 @@ body.single-post {
 			font-style: normal;
 			padding-top: 2.05rem;
 		}
+	}
+}
+
+body.error404 {
+	.entry-content {	
+		margin-bottom: 5rem;
 	}
 }
 

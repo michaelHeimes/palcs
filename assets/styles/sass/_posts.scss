@@ -28,10 +28,8 @@
 			padding-bottom: 18rem;
 		}
 	}
-	article.teacher-card,
-	article.enrichment-card {
+	article.load-more-filter-card {
 		transition: opacity .3s ease .3s;
-		a {}
 		&.hidden {
 			visibility: hidden;
 			width: 0px !important;
@@ -199,23 +197,6 @@ article.event-card {
 	}
 }
 
-.single .icon-wrap {
-	border-radius: 100%;
-	padding-bottom: 360px;
-	max-width: 360px;
-	margin: auto;
-	@include breakpoint(xlarge) {
-		padding-bottom: 100%;
-	}
-	img {
-		position: absolute;
-		top: 15%;
-		left: 15%;
-		width: 70%;
-		height: 70%;
-		object-fit: contain;
-	}	
-}
 
 article.teacher-card {
 	a {
@@ -227,22 +208,24 @@ article.teacher-card {
 	}
 }
 
-article.single-img-sidebar {
-	padding-top: 7.125rem;
-	padding-bottom: 7.5rem;
-	.inner {
-		@include breakpoint(tablet) {
-			justify-content: center;
+article.single-img-sidebar,
+.single-post {
+	.icon-wrap {
+		border-radius: 100%;
+		padding-bottom: 360px;
+		max-width: 360px;
+		margin: auto;
+		@include breakpoint(xlarge) {
+			padding-bottom: 100%;
 		}
-	}
-	.left {
-		max-width: calc(360px + calc($smallGutter * 2) ) ; 
-		@include breakpoint(medium) {
-			max-width: calc(360px + calc($mediumGutter * 2) ) ;
-		}
-		> div {
-			margin-bottom: 0.95rem;
-		}
+		img {
+			position: absolute;
+			top: 15%;
+			left: 15%;
+			width: 70%;
+			height: 70%;
+			object-fit: contain;
+		}	
 	}
 	.entry-footer,
 	ul.terms-list {
@@ -263,6 +246,26 @@ article.single-img-sidebar {
 		}
 		button {
 			margin: rem-calc(5) 0;
+		}
+	}
+}
+
+article.single-img-sidebar,
+ {
+	padding-top: 7.125rem;
+	padding-bottom: 7.5rem;
+	.inner {
+		@include breakpoint(tablet) {
+			justify-content: center;
+		}
+	}
+	.left {
+		max-width: calc(360px + calc($smallGutter * 2) ) ; 
+		@include breakpoint(medium) {
+			max-width: calc(360px + calc($mediumGutter * 2) ) ;
+		}
+		> div {
+			margin-bottom: 0.95rem;
 		}
 	}
 }

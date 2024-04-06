@@ -1,11 +1,9 @@
 .wywiwygs-50-50 {
 	padding-top: 9.65rem;
-	&.intro {
-		padding-bottom: 0 !important;
-		p:last-child {
-			&:has(img) {
-				margin-bottom: 0;
-			}
+	padding-bottom: 5rem;
+	.left {
+		@include breakpoint( small down) {
+			margin-bottom: rem-calc(70);
 		}
 	}
 }

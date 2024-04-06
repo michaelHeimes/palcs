@@ -158,16 +158,17 @@
          var $isotopeFilterLoadMore = document.querySelector('.isotope-filter-loadmore');
     
         if( $isotopeFilterLoadMore ) {
-           
 
             $('.isotope-filter-loadmore').imagesLoaded(function() {
                 
                const $container = $('.isotope-filter-loadmore .filter-grid');
                var $postsPer = $isotopeFilterLoadMore.getAttribute('data-postsper');
+               console.log($postsPer);
                                 
                 $($container).isotope({
                     itemSelector: '.filter-grid article',
                     layoutMode: 'fitRows',
+                    stagger: 2,
                });
                
                // Function to set equal heights for each row
@@ -195,40 +196,39 @@
                   console.log('arrangeComplete after filter with ' + filteredItems.length + ' items');
                   
                   const filterButtons = document.querySelectorAll('#options input');
-                   const postsShown = filteredItems;
-                   let activeTerms = [];
-                   
-                   postsShown.forEach(function (postShown) {
-                       if(postShown) {
-                           const post = Object.values(postShown);
-                           const terms = post[0].getAttribute('data-terms');
-                           activeTerms.push(terms.split(' '));
-                       }
-                   });
-                   
-                   // Flatten the array of arrays into a single array
-                   activeTerms = activeTerms.flat();
                   
-                   filterButtons.forEach(function (btn) {
-                       const btnTerms = btn.getAttribute('data-taxonomy-terms').split(' ');
-                   
-                       const hasMatchingTerm = btnTerms.some(term => activeTerms.includes(term));
-                       const wrapper = btn.parentElement.parentElement;
-                       if (!hasMatchingTerm) {
-                           if (!wrapper.classList.contains('top-level')) {
-                              wrapper.classList.add('hide-btn');
-                              //$(wrapper).hide(100);
-                           }
-                       } else {
-                           wrapper.classList.remove('hide-btn');
-                           //$(wrapper).show(100);
-                       }
-                   });
-                  
-                  if(filteredItems.length == 0){
-                        $(".no-items").fadeIn(200);
-                  } else {
-                        $(".no-items").fadeOut(200);
+                  if(filterButtons.length > 0) {
+                     
+                     const postsShown = filteredItems;
+                     let activeTerms = [];
+                      
+                      postsShown.forEach(function (postShown) {
+                          if(postShown) {
+                              const post = Object.values(postShown);
+                              const terms = post[0].getAttribute('data-terms');
+                              activeTerms.push(terms.split(' '));
+                          }
+                      });
+                      
+                      // Flatten the array of arrays into a single array
+                      activeTerms = activeTerms.flat();
+                     
+                      filterButtons.forEach(function (btn) {
+                          const btnTerms = btn.getAttribute('data-taxonomy-terms').split(' ');
+                      
+                          const hasMatchingTerm = btnTerms.some(term => activeTerms.includes(term));
+                          const wrapper = btn.parentElement.parentElement;
+                          if (!hasMatchingTerm) {
+                              if (!wrapper.classList.contains('top-level')) {
+                                 wrapper.classList.add('hide-btn');
+                                 //$(wrapper).hide(100);
+                              }
+                          } else {
+                              wrapper.classList.remove('hide-btn');
+                              //$(wrapper).show(100);
+                          }
+                     });
+                     
                   }
                   
                });
@@ -380,7 +380,7 @@
                 //****************************
                   // Isotope Load more button
                   //****************************
-                  var initShow = $postsPer; //number of items loaded on init & onclick load more button
+                  var initShow = parseInt($postsPer); //number of items loaded on init & onclick load more button
                   var counter = initShow; //counter for load more button
                   var iso = $container.data('isotope'); // get Isotope instance
                 
@@ -415,6 +415,8 @@
                     } else {
                       counter = counter;
                     };
+                    
+                    console.log(initShow);
                 
                     counter = counter + initShow;
                 

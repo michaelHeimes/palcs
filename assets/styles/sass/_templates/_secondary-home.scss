@@ -16,6 +16,17 @@
 				}
 			}
 		}
+		&.wywiwygs-50-50 {
+			padding-bottom: rem-calc(50);
+			@include breakpoint(medium) {
+				padding-bottom: 0;
+			}
+			p:last-child {
+				&:has(img) {
+					margin-bottom: 0;
+				}
+			}
+		}
 	}
 	.intro:has(+ .blocks) {
 		padding-bottom: rem-calc(32);

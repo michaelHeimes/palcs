@@ -23,7 +23,7 @@ if (!empty($term_slugs)) {
 	$combined_terms = implode(' ', $term_slugs);
 }
 
-$article_classes = 'enrichment-card cell small-12 hidden' . ' ' . $combined_terms;
+$article_classes = 'enrichment-card load-more-filter-card cell small-12 hidden' . ' ' . $combined_terms;
 
 // Output or use the combined terms as needed
 ?>

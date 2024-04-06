@@ -123,40 +123,26 @@
             "prefix_name": 0
         },
         {
-            "key": "field_65c00e992079b",
-            "label": "CTA Heading",
-            "name": "dual_sliders_cta_heading",
+            "key": "field_660eba004eb56",
+            "label": "CTA",
+            "name": "cta",
             "aria-label": "",
-            "type": "text",
+            "type": "clone",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_65c00eb02079c",
-            "label": "Button Link",
-            "name": "dual_sliders_button_link",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
+            "clone": [
+                "group_65c00a3a34572"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         },
         {
             "key": "field_65c02f2498617",
@@ -219,5 +205,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1710612723
+    "modified": 1712246018
 }
