@@ -10454,6 +10454,7 @@ button:not(.no-style).white-bg,
   margin: 0;
   line-height: 1;
   display: block;
+  background-color: #fff;
 }
 #options.tax-menu-wrap .button [type=checkbox] {
   opacity: 0;

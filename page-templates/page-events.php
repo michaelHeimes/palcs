@@ -9,34 +9,20 @@
  */
 
 get_header();
-$current_term_id = get_queried_object_id();
+
+$current_url = home_url( add_query_arg( NULL, NULL ) );
+$index_page = substr( $current_url, strlen( home_url() ) );
 ?>
 
 <div class="content posts-page event-posts no-banner primary-only <?php if( !empty( $program) ) { echo  $program->slug; } else { echo 'all'; };?>">
 	<div class="inner-content">
  
 		<main id="primary" class="site-main">
-		
+	
 			<?php
-			if ( have_posts() ) :?>
-				<div class="grid-container">
-					<div class="grid-x grid-padding-x align-center">
-						<div class="cell small-12 large-10">
-							<header class="grid-intro-text">
-								<?php the_content();?>
-							</header>
-						</div>
-					</div>
-				</div>
-			<?php
-			endif;
-			?>
-			
-			<?php
-			$taxonomy = 'event-category';
 			$post_categories = get_terms( array(
-			'taxonomy'   => $taxonomy,
-			'hide_empty' => true,
+				'taxonomy'   => 'event-category',
+				'hide_empty' => true,
 			) );			
 			?>
 			
@@ -45,8 +31,9 @@ $current_term_id = get_queried_object_id();
 					'post_type' => 'event',
 					'post_status' => 'publish',
 					'posts_per_page' => -1,
-					'orderby' => 'title',
-					'order' => 'ASC',
+					'meta_key'  => 'event_date',
+					'orderby'   => 'meta_value_num',
+					'order'     => 'ASC',
 				);	 
 				$posts = get_posts($args);
 			?>
@@ -55,8 +42,10 @@ $current_term_id = get_queried_object_id();
 				array(
 					'cpt'   => 'event',
 					'posts' => $posts,
-					'posts-per-load' => 2,
+					'posts-per-load' => 10,
 					'post_categories' => $post_categories,
+					'primary_cat_front' => '/event-category/',
+					'index_page' => $index_page,
 				),
 			);?>
 	

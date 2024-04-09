@@ -32,7 +32,7 @@ get_header();
 				
 				if( is_singular('event') ) { 
 					$categories = array('event-category');
-					$slug_front = '/category/';
+					$slug_front = '/about-us/upcoming-events/event-category/';
 				}
 				
 				if( is_singular('enrichment-course') ) { 

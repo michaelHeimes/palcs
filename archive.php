@@ -35,27 +35,47 @@ if($post_type == 'event') {
 						'taxonomy'   => $tax,
 						'hide_empty' => true,
 					) );
+					
+					$args = array(  
+						'post_type' => 'event',
+						'post_status' => 'publish',
+						'posts_per_page' => -1,
+						'meta_key'  => 'date',
+						'orderby'   => 'meta_value_num',
+						'order'     => 'ASC',
+						'tax_query' => array(
+							array(
+								'taxonomy' => $tax,
+								'field'    => 'slug',
+								'terms'    => $terms,
+							),
+						),
+					);	 
+					
 				} else {
 					$post_categories = get_categories( array(
 						'hide_empty' => true,
 					));
 					$tax = 'category';
+					
+					$args = array(  
+						'post_type' => $post_type,
+						'post_status' => 'publish',
+						'posts_per_page' => -1,
+						'orderby' => 'title',
+						'order' => 'ASC',
+						'tax_query' => array(
+							array(
+								'taxonomy' => $tax,
+								'field'    => 'slug',
+								'terms'    => $terms,
+							),
+						),
+					);	 
+					
 				}
 
-				$args = array(  
-					'post_type' => $post_type,
-					'post_status' => 'publish',
-					'posts_per_page' => -1,
-					'orderby' => 'title',
-					'order' => 'ASC',
-					'tax_query' => array(
-						array(
-							'taxonomy' => $tax,
-							'field'    => 'slug',
-							'terms'    => $terms,
-						),
-					),
-				);	 
+
 				$posts = get_posts($args);
 				
 				get_template_part('template-parts/content', 'load-more-filter-grid', 

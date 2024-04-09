@@ -159,7 +159,6 @@
     
         if( $isotopeFilterLoadMore ) {
 
-            $('.isotope-filter-loadmore').imagesLoaded(function() {
                 
                const $container = $('.isotope-filter-loadmore .filter-grid');
                var $postsPer = $isotopeFilterLoadMore.getAttribute('data-postsper');
@@ -213,7 +212,7 @@
                       // Flatten the array of arrays into a single array
                       activeTerms = activeTerms.flat();
                       
-                      console.log(activeTerms);
+                      //console.log(activeTerms);
                      
                       filterButtons.forEach(function (btn) {
                           const btnTerms = btn.getAttribute('data-taxonomy-terms').split(' ');
@@ -430,7 +429,6 @@
                       loadMore(initShow);
                   });
                   
-            });
         }
     }
     
@@ -542,7 +540,6 @@
    _app.accordions = function() {
       $(".accordion").on("down.zf.accordion", function(event) {
          var $openDrawer = $(this).find('.is-active');
-         console.log($openDrawer);
          $('html,body').animate({scrollTop: $($openDrawer).offset().top - 120}, 500);
       }); 
    } 

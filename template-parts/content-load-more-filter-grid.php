@@ -2,6 +2,7 @@
 $queried_object = get_queried_object();
 // This template is used for all JS load more and filtering
 $cpt = $args['cpt'] ?? null;
+$index_page = $args['index_page'] ?? null;
 $intro_text = $args['intro_text'] ?? null;
 $stage = $args['stage'] ?? null;
 $program = $args['program'] ?? null;
@@ -57,22 +58,61 @@ if( $cpt == 'teacher-staff' ) {
 	$primary_cat_terms = $stage_terms;
 	$primary_cat_front = '/about-us/teachers-staff/';
 	$primary_all = $primary_cat_front;
+	$index_page = $primary_cat_front;
 	$active_term = $stage;
 }
 if( $cpt == 'enrichment-course' ) {
 	$primary_cat_terms = $program_terms;
 	$primary_all = '/enrichment-courses/';
 	$active_term = $program;
+	$index_page = $primary_cat_front;
 }
-
+if( $cpt == 'event' ) {
+	$primary_cat_terms = $post_categories;
+	$primary_cat_front = $index_page . 'event-category/';
+}
 if( !is_front_page() && is_home() || is_archive() ) {
 	$primary_cat_terms = $post_categories;
 	$active_term = $queried_object;
 	$primary_cat_front = '/category/';
+
 	if( $queried_object->taxonomy == 'event-category') {
-		$primary_cat_front = '/event-category/';
+		
+		// Get the term archive URL
+		$archive_url = get_term_link($queried_object->slug, 'event-category');
+		
+		// Get the current URL
+		$current_url = home_url(add_query_arg(array(), $wp->request));
+		
+		// Remove the last segment (slug) from the URL
+		$current_url_parts = explode('/', rtrim($current_url, '/'));
+		array_pop($current_url_parts);
+		$current_url_without_last_slug = implode('/', $current_url_parts);
+		
+		// Remove the last two segments (slugs) from the URL
+		$current_url_parts_without_last_two = $current_url_parts;
+		array_pop($current_url_parts_without_last_two);
+		$current_url_without_last_two_slugs = implode('/', $current_url_parts_without_last_two);
+		
+		// Output or use the modified URLs as needed
+		$primary_cat_front = $current_url_without_last_slug;
+		$index_page = $current_url_without_last_two_slugs;
+		
+		// Add trailing slashes if not there
+		if (substr($primary_cat_front, -1) !== '/') {
+			$primary_cat_front .= '/';
+		}
+		
+		if (substr($index_page, -1) !== '/') {
+			$index_page .= '/';
+		}
+
+		
 	}
 }
+
+
+
 ?>
 
 <section class="isotope-filter-loadmore loading" data-postsper="<?=esc_attr( $posts_per_load );?>">
@@ -101,7 +141,7 @@ if( !is_front_page() && is_home() || is_archive() ) {
 						</div>
 						<?php endforeach; endif;?>
 						<div class="cell shrink top-level">
-							<a class="button filter-btn no-style all" href="<?=esc_url($primary_cat_front);?>">
+							<a class="button filter-btn no-style all" href="<?=esc_url($index_page);?>">
 								All
 							</a>
 						</div>

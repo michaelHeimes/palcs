@@ -16,11 +16,7 @@ get_header();
 
 $posts_page_id = get_option('page_for_posts'); // Retrieve the ID of the posts page
 $posts_page_link = get_permalink($posts_page_id); 
-$posts_per_load = 12;
-$post_type = get_post_type();
-if($post_type == 'post') {
-	$posts_per_load = 9;
-}
+$posts_per_load = 9;
 ?>
 
 	<main id="primary" class="site-main">
