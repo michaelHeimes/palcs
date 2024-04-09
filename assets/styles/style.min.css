@@ -10441,6 +10441,8 @@ button:not(.no-style).white-bg,
   padding: 0;
   width: 0;
   height: 0;
+  pointer-events: none;
+  cursor: auto;
 }
 #options.tax-menu-wrap .button {
   display: inline-block;
@@ -11870,15 +11872,48 @@ body.error404 .entry-content {
   }
 }
 
-.blog .ajax-load-more-wrap,
-.archive .ajax-load-more-wrap {
-  padding-bottom: 13.85rem;
+.blog.content,
+.blog .content,
+.archive.content,
+.archive .content,
+.posts-page.content,
+.posts-page .content,
+.teachers-cta.content,
+.teachers-cta .content {
+  padding-bottom: 6.6rem;
 }
-.blog .ajax-load-more-wrap .alm-btn-wrap,
-.archive .ajax-load-more-wrap .alm-btn-wrap {
-  padding-top: 2.9rem;
+@media print, screen and (min-width: 40em) {
+  .blog.content,
+  .blog .content,
+  .archive.content,
+  .archive .content,
+  .posts-page.content,
+  .posts-page .content,
+  .teachers-cta.content,
+  .teachers-cta .content {
+    padding-bottom: 12.6rem;
+  }
 }
-
+.blog.content.no-banner,
+.blog .content.no-banner,
+.archive.content.no-banner,
+.archive .content.no-banner,
+.posts-page.content.no-banner,
+.posts-page .content.no-banner,
+.teachers-cta.content.no-banner,
+.teachers-cta .content.no-banner {
+  padding-top: 3.1rem;
+}
+.blog.content.primary-only #options,
+.blog .content.primary-only #options,
+.archive.content.primary-only #options,
+.archive .content.primary-only #options,
+.posts-page.content.primary-only #options,
+.posts-page .content.primary-only #options,
+.teachers-cta.content.primary-only #options,
+.teachers-cta .content.primary-only #options {
+  padding-bottom: 2.6rem;
+}
 .blog .grid-intro-text,
 .archive .grid-intro-text,
 .posts-page .grid-intro-text,
@@ -11896,28 +11931,22 @@ body.error404 .entry-content {
 .posts-page .load-more-wrap,
 .teachers-cta .load-more-wrap {
   width: 100%;
-  padding-top: 4.35rem;
-}
-.blog article.page,
-.archive article.page,
-.posts-page article.page,
-.teachers-cta article.page {
-  padding-bottom: 5rem;
+  padding-top: 2rem;
 }
 @media print, screen and (min-width: 40em) {
-  .blog article.page,
-  .archive article.page,
-  .posts-page article.page,
-  .teachers-cta article.page {
-    padding-bottom: 18rem;
+  .blog .load-more-wrap,
+  .archive .load-more-wrap,
+  .posts-page .load-more-wrap,
+  .teachers-cta .load-more-wrap {
+    padding-top: 4.35rem;
   }
 }
 .blog article.load-more-filter-card,
 .archive article.load-more-filter-card,
 .posts-page article.load-more-filter-card,
 .teachers-cta article.load-more-filter-card {
-  -webkit-transition: opacity 0.3s ease 0.3s;
-  transition: opacity 0.3s ease 0.3s;
+  -webkit-transition: opacity 0.25s ease 0.35s;
+  transition: opacity 0.25s ease 0.35s;
 }
 .blog article.load-more-filter-card.hidden,
 .archive article.load-more-filter-card.hidden,
@@ -12077,6 +12106,11 @@ article.post-card .inner .cat-link:hover {
 
 article.event-card {
   margin-bottom: 5.125rem;
+}
+@media print, screen and (max-width: 39.99875em) {
+  article.event-card .thumbnail-wrap {
+    margin-bottom: 2rem;
+  }
 }
 article.event-card h3 {
   font-weight: 800;

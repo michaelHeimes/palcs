@@ -1,10 +1,20 @@
 <?php
-$post_type = get_post_type();
+$home_url = get_home_url();
 $post_id = $args['post_id'] ?? null;
+$post_type = $args['post_type'];
 $categories = $args['categories'] ?? null;
 $taxonomies = $args['taxonomies'] ?? null;
 $combined_terms = $args['combined_terms'] ?? null;
 $slug_front = $args['slug_front'] ?? null;
+$image_size = 'circle-thumb';
+$thumbwrap_class = 'thumb-wrap circle-thumb-wrap';
+if( $post_type == 'event'  ) {
+	$thumbwrap_class = 'thumb-wrap';
+	$image_size = 'full';
+}
+if( $post_type == 'teacher-staff' ) {
+	$image_size = 'staff-grid';
+}
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('single-img-sidebar'); ?>>
 	<div class="grid-container">
@@ -12,7 +22,7 @@ $slug_front = $args['slug_front'] ?? null;
 			<div class="left cell small-12 tablet-4 xlarge-3">
 				<?php
 					$image_id = get_post_thumbnail_id($post_id);
-					$image_data = wp_get_attachment_image_src($image_id, 'staff-grid') ?? null;
+					$image_data = wp_get_attachment_image_src($image_id, $image_size) ?? null;
 					
 					if ($image_data) {
 						$thumbnail_url = $image_data[0];
@@ -25,20 +35,20 @@ $slug_front = $args['slug_front'] ?? null;
 						$title = isset($attachment_metadata['image_meta']['title']) ? $attachment_metadata['image_meta']['title'] : '';
 					
 						// Output the image with alt text and title
-						echo '<div class="circle-thumb-wrap"><img width="724" height="724" src="' . esc_url($thumbnail_url) . '" alt="' . esc_attr($alt_text) . '" title="' . esc_attr($title) . '" decoding="async" loading="lazy"></div>';
+						echo '<div class="' . $thumbwrap_class . '"><img src="' . esc_url($thumbnail_url) . '" alt="' . esc_attr($alt_text) . '" title="' . esc_attr($title) . '" decoding="async" loading="lazy"></div>';
 						
 					} elseif( $post_type == 'enrichment-course' && !empty( get_field('icon') ) ) {
 							$imgID = get_field('icon')['ID'];
 							$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
-							$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
+							$img = wp_get_attachment_image( $imgID, $image_size, false, [ "class" => "", "alt"=>$img_alt] );
 							echo '<div class="icon-wrap relative purple-bg grid-x align-middle align-center">';
 							echo $img;
 							echo '</div>';
 					} elseif( !empty( get_field('post_fallback_thumbnail','option') ) ) {
 						$imgID = get_field('post_fallback_thumbnail','option')['ID'];
 						$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
-						$img = wp_get_attachment_image( $imgID, 'staff-grid', false, [ "class" => "", "alt"=>$img_alt] );
-						echo '<div class="circle-thumb-wrap">' . $img . '</div>';
+						$img = wp_get_attachment_image( $imgID, $image_size, false, [ "class" => "", "alt"=>$img_alt] );
+						echo '<div class="' . $thumbwrap_class .'">' . $img . '</div>';
 					}
 				?>
 			</div>
@@ -150,7 +160,7 @@ $slug_front = $args['slug_front'] ?? null;
 									// Loop through each term and add its slug to the array
 									foreach ($terms as $term) {
 										echo '<li class="color-purple cell shrink">';
-										echo '<a class="button no-style" href="/' . $slug_front . '/?' . $term->slug . '">';
+										echo '<a class="button no-style" href="' . $home_url . '/' . $slug_front . '?' . $taxonomy .  '=.' . $term->slug . '">';
 										echo $term->name;
 										echo '</a>';
 										echo '</li>';

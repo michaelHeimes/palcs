@@ -16,10 +16,13 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 			
-			if( is_singular('teacher-staff') || is_singular('enrichment-course') ) { 
+			if( is_singular('teacher-staff') || is_singular('enrichment-course') || is_singular('event') ) { 
+				
 			
 				$post_id = get_the_ID();
 				$term_slugs = [];
+				$taxonomies = '';
+				$combined_terms = '';
 				
 				if( is_singular('teacher-staff') ) { 
 					$categories = array('stage');
@@ -27,10 +30,15 @@ get_header();
 					$slug_front = '/about-us/teachers-staff/';
 				}
 				
+				if( is_singular('event') ) { 
+					$categories = array('event-category');
+					$slug_front = '/category/';
+				}
+				
 				if( is_singular('enrichment-course') ) { 
 					$categories = array('enrichment');
 					$taxonomies = array('stage', 'specialty') ?? null;
-					$slug_front = '/enrichments/';
+					$slug_front = '/enrichment-courses/';
 				}
 				
 				// Loop through each taxonomy
@@ -53,10 +61,11 @@ get_header();
 				if (!empty($term_slugs)) {
 			 	$combined_terms = implode(' ', $term_slugs);
 				}
-				
+
 				get_template_part('template-parts/content', 'post-single-img-sidebar',
 					array(
 						'post_id' => $post_id,	
+						'post_type' => get_post_type(),
 						'categories' => $categories,
 						'taxonomies' => $taxonomies,
 						'combined_terms' => $combined_terms,

@@ -46,15 +46,19 @@
 	<div class="inner-content">
 	 
 		<main id="primary" class="site-main">
-	  
-			<?php get_template_part('template-parts/content', 'load-more-filter-grid', 
-				array(
-					'cpt'   => 'enrichment-course',
-					'posts' => $posts,
-					'posts-per-load' => 12,
-					'program' => $program,
-				),
-			);?>
+			
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			 
+				<?php get_template_part('template-parts/content', 'load-more-filter-grid', 
+					array(
+						'cpt'   => 'enrichment-course',
+						'posts' => $posts,
+						'posts-per-load' => 12,
+						'program' => $program,
+					),
+				);?>
+
+			</article>
 	 
 		</main><!-- #main -->
 			 

@@ -1,17 +1,27 @@
 .blog,
 .archive {
-	.ajax-load-more-wrap {
-		padding-bottom: 13.85rem;
-		.alm-btn-wrap{
-			padding-top: 2.9rem;
-		}
-	}	
+
 }
 
 .blog,
 .archive,
 .posts-page,
 .teachers-cta {
+	&.content,
+	.content {
+		padding-bottom: 6.6rem;
+		@include breakpoint(medium) {
+			padding-bottom: 12.6rem;
+		}
+		&.no-banner {
+			padding-top: 3.1rem;
+		}
+		&.primary-only {
+			#options {
+				padding-bottom: 2.6rem;
+			}
+		}
+	}
 	.grid-intro-text {
 		padding-bottom: 1.7rem;
 	}
@@ -20,16 +30,19 @@
 	}
 	.load-more-wrap {
 		width: 100%;
-		padding-top: 4.35rem;
-	}
-	article.page {
-		padding-bottom: 5rem;
+		padding-top: 2rem;
 		@include breakpoint(medium) {
-			padding-bottom: 18rem;
+			padding-top: 4.35rem;
 		}
 	}
+	// article.page {
+	// 	padding-bottom: 5rem;
+	// 	@include breakpoint(medium) {
+	// 		padding-bottom: 18rem;
+	// 	}
+	// }
 	article.load-more-filter-card {
-		transition: opacity .3s ease .3s;
+		transition: opacity .25s ease .35s;
 		&.hidden {
 			visibility: hidden;
 			width: 0px !important;
@@ -161,6 +174,11 @@ article.post-card {
 
 article.event-card {
 	margin-bottom: rem-calc(82);
+	.thumbnail-wrap {
+		@include breakpoint(small down) {
+			margin-bottom: 2rem;
+		}
+	}
 	h3 {
 		font-weight: 800;
 		margin-bottom: .87em;

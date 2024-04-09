@@ -1,4 +1,5 @@
 <?php
+$queried_object = get_queried_object();
 // This template is used for all JS load more and filtering
 $cpt = $args['cpt'] ?? null;
 $intro_text = $args['intro_text'] ?? null;
@@ -63,17 +64,33 @@ if( $cpt == 'enrichment-course' ) {
 	$primary_all = '/enrichment-courses/';
 	$active_term = $program;
 }
-if( $cpt == 'event' ) {
-	$primary_cat_terms = $post_categories;
-}
 
+if( !is_front_page() && is_home() || is_archive() ) {
+	$primary_cat_terms = $post_categories;
+	$active_term = $queried_object;
+	$primary_cat_front = '/category/';
+	if( $queried_object->taxonomy == 'event-category') {
+		$primary_cat_front = '/event-category/';
+	}
+}
 ?>
 
 <section class="isotope-filter-loadmore loading" data-postsper="<?=esc_attr( $posts_per_load );?>">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x align-center">
 			<div class="cell small-12 xlarge-10">
-				
+				<?php if( !empty(get_the_content() && !is_home()) && !is_archive() ) {
+					echo '<header class="grid-intro-text">';
+						the_content();
+					echo '</header>';
+				} else {
+					if( !empty($queried_object->description) ) {
+						echo '<header class="grid-intro-text">';
+							echo $queried_object->description;
+						echo '</header>';
+					}
+				};?>
+
 				<div id="options" class="tax-menu-wrap">
 					<div class="stages tax-menu grid-x grid-padding-x font-size-20">
 						<?php if($primary_cat_terms && !is_wp_error($primary_cat_terms)) : foreach($primary_cat_terms as $term):?>

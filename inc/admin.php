@@ -46,7 +46,6 @@ function trailhead_custom_admin_footer() {
 		$excluded_templates = array(
 			'page-templates/page-home.php',
 			'page-templates/page-teachers-staff.php',
-			'page-templates/page-enrichment-courses.php',
 		);
 	
 		$excluded_ids = array(

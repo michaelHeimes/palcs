@@ -163,12 +163,12 @@
                 
                const $container = $('.isotope-filter-loadmore .filter-grid');
                var $postsPer = $isotopeFilterLoadMore.getAttribute('data-postsper');
-               console.log($postsPer);
+               console.log('posts per load:' + $postsPer);
                                 
                 $($container).isotope({
                     itemSelector: '.filter-grid article',
                     layoutMode: 'fitRows',
-                    stagger: 2,
+                    //stagger: 2,
                });
                
                // Function to set equal heights for each row
@@ -212,6 +212,8 @@
                       
                       // Flatten the array of arrays into a single array
                       activeTerms = activeTerms.flat();
+                      
+                      console.log(activeTerms);
                      
                       filterButtons.forEach(function (btn) {
                           const btnTerms = btn.getAttribute('data-taxonomy-terms').split(' ');
@@ -399,9 +401,9 @@
                 
                     //when no more to load, hide show more button
                     if (hiddenElems.length == 0) {
-                      jQuery("#load-more").hide();
+                      jQuery("#load-more").parent().hide();
                     } else {
-                      jQuery("#load-more").show();
+                      jQuery("#load-more").parent().show();
                     };
                 
                   }

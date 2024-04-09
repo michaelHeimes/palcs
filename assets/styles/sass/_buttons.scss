@@ -126,6 +126,8 @@ button,
 				padding: 0;
 				width: 0;
 				height: 0;
+				pointer-events: none;
+				cursor: auto;
 			}
 		}
 	}

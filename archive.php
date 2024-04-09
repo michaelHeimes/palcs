@@ -8,77 +8,71 @@
  */
 
 get_header();
+$post_type = get_post_type();
+$queried_object = get_queried_object();
 $posts_page_id = get_option('page_for_posts'); // Retrieve the ID of the posts page
 $posts_page_link = get_permalink($posts_page_id); 
-$current_category_id = get_queried_object_id();
+$terms = $queried_object->slug;
+$posts_per_load = 12;
+$post_type = get_post_type();
+if($post_type == 'post') {
+	$posts_per_load = 9;
+}
+if($post_type == 'event') {
+	$posts_per_load = 10;
+}
 ?>
 
 	<main id="primary" class="site-main">
 		<?php get_template_part('template-parts/banner', 'full-width-image');?>
-		<div class="grid-container">
-			<div class="grid-x grid-padding-x align-center">
-				<div class="cell small-12 large-10">
-	
-					<?php
-					if ( have_posts() ) :
-			
-						$current_page_id = get_queried_object_id();
-						$intro_copy = get_field('intro_copy', $current_page_id);
-						?>
-						<header class="grid-intro-text">
-							<?php if(!empty($intro_copy)):?>
-								<?=$intro_copy;?>
-							<?php else:?>
-								<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-							<?php endif;?>
-						</header>
-					
-						<?php
-						
-						$post_categories = get_categories();
-						
-						if (!empty($post_categories)) {
-							echo '<div class="tax-menu-wrap">';
-							echo '<ul class="no-bullet tax-menu grid-x grid-padding-x">';
-							foreach ($post_categories as $category) {
-								// Check if the category has posts before displaying it
-								$active = ($category->term_id == $current_category_id) ? 'active' : '';
-								$category_link = get_category_link($category->term_id);
-								$category_count = $category->count;
-							
-								if ($category_count > 0) {
-									$link_or_span = ($category->term_id == $current_category_id) ? 'span' : 'a';
-									$link_attributes = ($category->term_id == $current_category_id) ? '' : 'href="' . esc_url($category_link) . '"';
-									echo '<li class="cell shrink top-level"><' . $link_or_span . ' class="button no-style font-size-20" ' . $link_attributes . '>' . esc_html($category->name) . '</' . $link_or_span . '></li>';
-								}
-							}
-							if ($posts_page_link) {
-								$link_or_span = ($current_category_id == get_option('page_for_posts')) ? 'span' : 'a';
-								$link_attributes = ($current_category_id == get_option('page_for_posts')) ? '' : 'href="' . esc_url($posts_page_link) . '"';
-								echo '<li class="cell shrink top-level"><' . $link_or_span . ' class="button no-style font-size-20" ' . $link_attributes . '>All</' . $link_or_span . '></li>';
-							}
-							echo '</ul>';
-							echo '</div>';
-						}?>
+		<div class="content posts-page primary-only<?php if ( $post_type == 'event' ) { echo ' no-banner';}?>">
+			<?php
+			if ( have_posts() ) :
+				
+				if ( $post_type == 'event' ) {
+					$tax = 'event-category';
+					$post_categories = get_terms( array(
+						'taxonomy'   => $tax,
+						'hide_empty' => true,
+					) );
+				} else {
+					$post_categories = get_categories( array(
+						'hide_empty' => true,
+					));
+					$tax = 'category';
+				}
 
-						<div class="grid-x grid-padding-x">
-							
-							<?=do_shortcode( '[ajax_load_more archive="true" post_type="post" posts_per_page="9" css_classes="grid-x grid-padding-x small-up-1 medium-up-2 tablet-up-3"]' );?>
-						</div>
-						
-						<div class="">
-						<?php trailhead_page_navi();?>
-						</div>
-					<?php
-					else :
-			
-						get_template_part( 'template-parts/content', 'none' );
-			
-					endif;
-					?>
-					
-				</div>
-			</div>
+				$args = array(  
+					'post_type' => $post_type,
+					'post_status' => 'publish',
+					'posts_per_page' => -1,
+					'orderby' => 'title',
+					'order' => 'ASC',
+					'tax_query' => array(
+						array(
+							'taxonomy' => $tax,
+							'field'    => 'slug',
+							'terms'    => $terms,
+						),
+					),
+				);	 
+				$posts = get_posts($args);
+				
+				get_template_part('template-parts/content', 'load-more-filter-grid', 
+					array(
+						'cpt'   => 'event',
+						'posts' => $posts,
+						'posts-per-load' => $posts_per_load,
+						'post_categories' => $post_categories,
+					),
+				);
+	
+			else :
+	
+				get_template_part( 'template-parts/content', 'none' );
+	
+			endif;
+			?>
 		</div>
 	</main><!-- #main -->
 

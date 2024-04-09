@@ -16,56 +16,45 @@ get_header();
 
 $posts_page_id = get_option('page_for_posts'); // Retrieve the ID of the posts page
 $posts_page_link = get_permalink($posts_page_id); 
-
+$posts_per_load = 12;
+$post_type = get_post_type();
+if($post_type == 'post') {
+	$posts_per_load = 9;
+}
 ?>
 
 	<main id="primary" class="site-main">
 		<?php get_template_part('template-parts/banner', 'full-width-image');?>
-		<div class="grid-container">
-			<div class="grid-x grid-padding-x align-center">
-				<div class="cell small-12 large-10">
-	
-						<?php
-						if ( have_posts() ) :
-							
-							$post_categories = get_categories();
-							
-							if (!empty($post_categories)) {
-								echo '<div class="tax-menu-wrap">';
-								echo '<ul class="no-bullet tax-menu grid-x grid-padding-x">';
-								foreach ($post_categories as $category) {
-									// Check if the category has posts before displaying it
-									$category_link = get_category_link($category->term_id);
-									$category_count = $category->count;
-							
-									if ($category_count > 0) {
-										echo '<li class="cell shrink top-level"><a class="button no-style font-size-20" href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a></li>';
-									}
-								}
-								if ($posts_page_link) {
-									echo '<li class="cell shrink top-level"><span class="button no-style font-size-20" href="' . esc_url($posts_page_link) . '">All</span></li>';
-								}
-								echo '</ul>';
-								echo '</div>';
-							}?>
+		<div class="content">
+			<?php
+			if ( have_posts() ) :
+				
+				$post_categories = get_categories();
 
-							<div class="grid-x grid-padding-x">
-								<?=do_shortcode( '[ajax_load_more archive="true" scroll="false" post_type="post" posts_per_page="9" css_classes="grid-x grid-padding-x small-up-1 medium-up-2 tablet-up-3"]' );?>
-							</div>
-							
-							<div class="">
-							<?php trailhead_page_navi();?>
-							</div>
-						<?php
-						else :
+				$args = array(  
+					'post_type' => 'post',
+					'post_status' => 'publish',
+					'posts_per_page' => -1,
+					'orderby' => 'title',
+					'order' => 'ASC',
+				);	 
+				$posts = get_posts($args);
 				
-							get_template_part( 'template-parts/content', 'none' );
-				
-						endif;
-						?>
-					
-				</div>
-			</div>
+				get_template_part('template-parts/content', 'load-more-filter-grid', 
+					array(
+						'cpt'   => 'event',
+						'posts' => $posts,
+						'post_categories' => $post_categories,
+						'posts-per-load' => $posts_per_load,
+					),
+				);
+
+			else :
+	
+				get_template_part( 'template-parts/content', 'none' );
+	
+			endif;
+			?>
 		</div>
 	</main><!-- #main -->
 
