@@ -33,19 +33,23 @@ $icrs = get_field('image_copy_repeater') ?? get_sub_field('image_copy_repeater')
 		<?php if( $row_type == 'slider' ) :?>
 			<div class="ics-slider img-pagination-slider">
 				<div class="swiper-wrapper">
-					<?php foreach($slides as $slide) {
-						echo '<div class="swiper-slide">';
-						$image = $slide['image'];
-						$copy = $slide['copy'];
-						get_template_part('template-parts/part', 'image-copy-row',
-							array(
-								'layout' => $layout,
-								'image' => $image,
-								'copy' => $copy,
-							),
-						);
-						echo '</div>';
-					}?>
+					<?php 
+					if($slides) {
+						foreach($slides as $slide) {
+							echo '<div class="swiper-slide">';
+							$image = $slide['image'];
+							$copy = $slide['copy'];
+							get_template_part('template-parts/part', 'image-copy-row',
+								array(
+									'layout' => $layout,
+									'image' => $image,
+									'copy' => $copy,
+								),
+							);
+							echo '</div>';
+						}
+					}
+					?>
 				</div>
 				<div class="grid-container">
 					<div class="grid-x grid-padding-x align-middle<?=$layout;?>">

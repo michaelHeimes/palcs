@@ -16,8 +16,12 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 			
-			if( is_singular('teacher-staff') || is_singular('enrichment-course') || is_singular('event') ) { 
+			if( is_singular('post') ) { 
 				
+				get_template_part( 'template-parts/content', get_post_type() );
+				trailhead_page_navi();
+				
+			} else {
 			
 				$post_id = get_the_ID();
 				$term_slugs = [];
@@ -33,6 +37,11 @@ get_header();
 				if( is_singular('event') ) { 
 					$categories = array('event-category');
 					$slug_front = '/about-us/upcoming-events/event-category/';
+				}
+				
+				if( is_singular('club') ) { 
+					$categories = array('club-category');
+					$slug_front = '/activities/student-activities/clubs/club-category/';
 				}
 				
 				if( is_singular('enrichment-course') ) { 
@@ -72,11 +81,6 @@ get_header();
 						'slug_front' => $slug_front,
 					),
 				);
-				
-			} else {
-
-				get_template_part( 'template-parts/content', get_post_type() );
-				trailhead_page_navi();
 
 			}
 			

@@ -21,11 +21,12 @@ if($post_type == 'post') {
 if($post_type == 'event') {
 	$posts_per_load = 10;
 }
+
 ?>
 
 	<main id="primary" class="site-main">
 		<?php get_template_part('template-parts/banner', 'full-width-image');?>
-		<div class="content posts-page primary-only<?php if ( $post_type == 'event' ) { echo ' no-banner';}?>">
+		<div class="content posts-page primary-only no-banner">
 			<?php
 			if ( have_posts() ) :
 				
@@ -35,7 +36,6 @@ if($post_type == 'event') {
 						'taxonomy'   => $tax,
 						'hide_empty' => true,
 					) );
-					
 					$args = array(  
 						'post_type' => 'event',
 						'post_status' => 'publish',
@@ -51,12 +51,32 @@ if($post_type == 'event') {
 							),
 						),
 					);	 
-					
 					$posts = get_posts($args);
-					
 					get_template_part('template-parts/content', 'load-more-filter-grid', 
 						array(
 							'cpt'   => 'event',
+							'posts' => $posts,
+							'posts-per-load' => $posts_per_load,
+							'post_categories' => $post_categories,
+						),
+					);
+				} elseif ( $post_type == 'club' ) {
+					$tax = 'club-category';
+					$post_categories = get_terms( array(
+						'taxonomy'   => $tax,
+						'hide_empty' => true,
+					) );
+					$args = array(  
+						'post_type' => 'club',
+						'post_status' => 'publish',
+						'posts_per_page' => -1,
+						'orderby' => 'title',
+						'order' => 'ASC',
+					);	 
+					$posts = get_posts($args);
+					get_template_part('template-parts/content', 'load-more-filter-grid', 
+						array(
+							'cpt'   => 'club',
 							'posts' => $posts,
 							'posts-per-load' => $posts_per_load,
 							'post_categories' => $post_categories,
@@ -68,7 +88,6 @@ if($post_type == 'event') {
 						'hide_empty' => true,
 					));
 					$tax = 'category';
-					
 					$args = array(  
 						'post_type' => $post_type,
 						'post_status' => 'publish',
@@ -83,7 +102,6 @@ if($post_type == 'event') {
 							),
 						),
 					);	 
-					
 					$posts = get_posts($args);
 					
 					get_template_part('template-parts/content', 'load-more-filter-grid', 

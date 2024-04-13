@@ -21,6 +21,26 @@
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_661ae9b60726e",
+            "label": "Show Content in Modal",
+            "name": "show_content_in_modal",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -29,6 +49,13 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "enrichment-course"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "club"
             }
         ]
     ],
@@ -41,5 +68,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1712752714
+    "modified": 1713042994
 }

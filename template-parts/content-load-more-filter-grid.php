@@ -68,8 +68,6 @@ $primary_cat_front = '';
 $primary_all = '';
 $active_term = '';
 
-
-
 if( $cpt == 'teacher-staff' ) {
 	$primary_cat_terms = $stage_terms;
 	$primary_cat_front = '/about-us/teachers-staff/';
@@ -88,15 +86,25 @@ if( $cpt == 'event' ) {
 	$primary_cat_terms = $post_categories;
 	$primary_cat_front = $index_page . 'event-category/';
 }
+if( $cpt == 'club' ) {
+	$primary_cat_terms = $post_categories;
+	$primary_cat_front = $index_page . 'club-category/';
+}
 if( !is_front_page() && is_home() || is_archive() ) {
 	$primary_cat_terms = $post_categories;
 	$active_term = $queried_object;
 	$primary_cat_front = '/category/';
 
-	if( $queried_object->taxonomy == 'event-category') {
+	if( $queried_object->taxonomy == 'event-category' || $queried_object->taxonomy == 'club-category' ) {
 		
 		// Get the term archive URL
-		$archive_url = get_term_link($queried_object->slug, 'event-category');
+		if( $queried_object->taxonomy == 'event-category' ) {
+			$archive_url = get_term_link($queried_object->slug, 'event-category');
+		}
+		if( $queried_object->taxonomy == 'club-category' ) {
+			$archive_url = get_term_link($queried_object->slug, 'club-category');
+		}
+		
 		
 		// Get the current URL
 		$current_url = home_url(add_query_arg(array(), $wp->request));
@@ -131,8 +139,8 @@ $filter_grid_classes = [];
 if($equalHeightCards == true) { 
 	$filter_grid_classes[] = ' equal-heights'; 
 }
-if( $cpt == 'post' ) {
-	$filter_grid_classes[] = 'small-up-1 medium-up-2 tablet-up-3';
+if( $cpt == 'post' || $cpt == 'club' ) {
+	$filter_grid_classes[] = ' small-up-1 medium-up-2 tablet-up-3';
 }
 $filter_grid_classes_string = implode(' ', $filter_grid_classes);
 
@@ -157,17 +165,18 @@ $filter_grid_classes_string = implode(' ', $filter_grid_classes);
 				<div id="options" class="tax-menu-wrap">
 					<div class="stages tax-menu grid-x grid-padding-x font-size-20">
 						<?php if($primary_cat_terms && !is_wp_error($primary_cat_terms)) : foreach($primary_cat_terms as $term):?>
-						<div class="cell shrink top-level">
-							<a class="button filter-btn no-style<?php if( !empty($active_term) && $term->slug == $active_term->slug) { echo ' active'; };?>" href="<?=esc_url($primary_cat_front);?><?=esc_attr( $term->slug );?>/">
-								<?=esc_html( $term->name );?>
-							</a>
-						</div>
-						<?php endforeach; endif;?>
-						<div class="cell shrink top-level">
-							<a class="button filter-btn no-style all" href="<?=esc_url($index_page);?>">
-								All
-							</a>
-						</div>
+							<div class="cell shrink top-level">
+								<a class="button filter-btn no-style<?php if( !empty($active_term) && $term->slug == $active_term->slug) { echo ' active'; };?>" href="<?=esc_url($primary_cat_front);?><?=esc_attr( $term->slug );?>/">
+									<?=esc_html( $term->name );?>
+								</a>
+							</div>
+							<?php endforeach;?>
+							<div class="cell shrink top-level">
+								<a class="button filter-btn no-style all" href="<?=esc_url($index_page);?>">
+									All
+								</a>
+							</div>
+						<?php endif;?>
 					</div>
 					<div class="filter-group">
 						<div class="option-set other-terms tax-menu grid-x grid-padding-x" data-group="taxonomy-terms">
@@ -207,7 +216,7 @@ $filter_grid_classes_string = implode(' ', $filter_grid_classes);
 						if( $cpt == 'event' ) {
 							get_template_part('template-parts/loop', 'event');
 						}
-						if( $cpt == 'post' ) {
+						if( $cpt == 'post' || $cpt == 'club' ) {
 							get_template_part('template-parts/loop', 'post',
 								array(
 									'card-classes' => 'hidden',

@@ -10,9 +10,9 @@ $image_size = 'circle-thumb';
 $thumbwrap_class = 'thumb-wrap circle-thumb-wrap';
 if( $post_type == 'event'  ) {
 	$thumbwrap_class = 'thumb-wrap';
-	$image_size = 'full';
+	$image_size = 'event-card';
 }
-if( $post_type == 'teacher-staff' ) {
+if( $post_type == 'teacher-staff' || $post_type == 'club' ) {
 	$image_size = 'staff-grid';
 }
 if( $post_type == 'enrichment-course' ) {
@@ -23,11 +23,14 @@ if( $post_type == 'enrichment-course' ) {
 		$icon = get_field('icon', $first_term) ?? get_field('enrichment_fallback_icon', 'option');
 	}
 }
+
+$sidebar_width = $args['sidebar-width'] ?? ' small-12 tablet-4 xlarge-3';
+$content_width = $args['content-width'] ?? ' small-12 tablet-6 xlarge-5';
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('single-img-sidebar'); ?>>
 	<div class="grid-container">
 		<div class="inner grid-x grid-padding-x">
-			<div class="left cell small-12 tablet-4 xlarge-3">
+			<div class="left cell<?=$sidebar_width;?>">
 				<?php
 					$image_id = get_post_thumbnail_id($post_id);
 					$image_data = wp_get_attachment_image_src($image_id, $image_size) ?? null;
@@ -60,7 +63,7 @@ if( $post_type == 'enrichment-course' ) {
 					}
 				?>
 			</div>
-			<div class="right cell small-12 tablet-6 xlarge-5">
+			<div class="right cell<?=$content_width;?>">
 				<header class="entry-header">
 					
 					<?php 

@@ -123,9 +123,9 @@
 }
 
 article.post-card {
-	margin: calc($smallGutter * .5) 0; 
+	margin: 0 0 calc($smallGutter); 
 	@include breakpoint(medium) {
-		margin: calc($mediumGutter * .5) 0;
+		margin: 0 0 calc($mediumGutter);
 	}
 	.inner {
 		.permalink {

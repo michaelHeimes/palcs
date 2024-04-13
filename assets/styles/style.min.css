@@ -10957,14 +10957,6 @@ body.single-post .part-header-button-link-cta blockquote.bg.wp-block-quote.is-st
   background-color: #0151D4;
   mix-blend-mode: multiply;
 }
-.latest-posts article {
-  margin: 16px 0;
-}
-@media print, screen and (min-width: 40em) {
-  .latest-posts article {
-    margin: 25px 0;
-  }
-}
 .latest-posts article .inner {
   border: 10px solid #fff;
 }
@@ -11151,7 +11143,7 @@ body.single-post .part-header-button-link-cta blockquote.bg.wp-block-quote.is-st
 
 .explore-cards {
   padding-top: 7.4rem;
-  padding-bottom: 9.85rem;
+  padding-bottom: 9.45rem;
 }
 .explore-cards .bg-img {
   position: absolute;
@@ -11169,7 +11161,7 @@ body.single-post .part-header-button-link-cta blockquote.bg.wp-block-quote.is-st
   mix-blend-mode: multiply;
 }
 .explore-cards h2 {
-  margin-bottom: 1.9em;
+  margin-bottom: 2.16em;
 }
 .explore-cards .inner {
   border: 10px solid #fff;
@@ -12061,11 +12053,11 @@ body.error404 .entry-content {
 }
 
 article.post-card {
-  margin: 16px 0;
+  margin: 0 0 32px;
 }
 @media print, screen and (min-width: 40em) {
   article.post-card {
-    margin: 25px 0;
+    margin: 0 0 50px;
   }
 }
 article.post-card .inner .permalink {

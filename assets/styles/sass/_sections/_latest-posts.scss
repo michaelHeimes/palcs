@@ -14,10 +14,6 @@
 		mix-blend-mode: multiply;	
 	}
 	article {
-		margin: calc($smallGutter * .5) 0; 
-		@include breakpoint(medium) {
-			margin: calc($mediumGutter * .5) 0;
-		}
 		.inner {
 			border: 10px solid $white;
 			.permalink {
