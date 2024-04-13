@@ -1,5 +1,6 @@
 <?php
 $queried_object = get_queried_object();
+$sidebar_image = $args['sidebar-image'] ?? null;
 // This template is used for all JS load more and filtering
 $cpt = $args['cpt'] ?? null;
 $index_page = $args['index_page'] ?? null;
@@ -67,6 +68,8 @@ $primary_cat_front = '';
 $primary_all = '';
 $active_term = '';
 
+
+
 if( $cpt == 'teacher-staff' ) {
 	$primary_cat_terms = $stage_terms;
 	$primary_cat_front = '/about-us/teachers-staff/';
@@ -119,18 +122,26 @@ if( !is_front_page() && is_home() || is_archive() ) {
 		
 		if (substr($index_page, -1) !== '/') {
 			$index_page .= '/';
-		}
-
-		
+		}		
 	}
+	
 }
+
+$filter_grid_classes = [];
+if($equalHeightCards == true) { 
+	$filter_grid_classes[] = ' equal-heights'; 
+}
+if( $cpt == 'post' ) {
+	$filter_grid_classes[] = 'small-up-1 medium-up-2 tablet-up-3';
+}
+$filter_grid_classes_string = implode(' ', $filter_grid_classes);
 
 ?>
 
-<section class="isotope-filter-loadmore loading" data-postsper="<?=esc_attr( $posts_per_load );?>">
+<section class="isotope-filter-loadmore loading overflow-hidden" data-postsper="<?=esc_attr( $posts_per_load );?>">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x align-center">
-			<div class="cell small-12 xlarge-10">
+			<div class="cell small-12 large-10 xxlarge-8">
 				<?php if( !empty(get_the_content() && !is_home()) && !is_archive() ) {
 					echo '<header class="grid-intro-text">';
 						the_content();
@@ -183,8 +194,9 @@ if( !is_front_page() && is_home() || is_archive() ) {
 						</div>
 					</div>
 				</div>
-				
-				<div class="filter-grid grid-x grid-padding-x<?php if($equalHeightCards == true) { echo ' equal-heights'; };?>">
+			</div>
+			<div class="cell small-12<?php if( $sidebar_image != null ) { echo '  medium-7 tablet-8 large-6 xxlarge-5'; } else { echo ' large-10 xxlarge-8'; }?>">
+				<div class="filter-grid grid-x grid-padding-x<?=esc_attr( $filter_grid_classes_string );?>">
 					<?php foreach( $posts as $post ){
 						if( $cpt == 'teacher-staff' ) {
 							get_template_part('template-parts/loop', 'teacher-staff');
@@ -195,12 +207,27 @@ if( !is_front_page() && is_home() || is_archive() ) {
 						if( $cpt == 'event' ) {
 							get_template_part('template-parts/loop', 'event');
 						}
+						if( $cpt == 'post' ) {
+							get_template_part('template-parts/loop', 'post',
+								array(
+									'card-classes' => 'hidden',
+								),
+							);
+						}
 					}?>
-				</div>
-				<div class="text-center load-more-wrap">
-					<button class="button purple-ds" id="load-more">Load More</button>
-				</div>
-			</div>
+				</div>		
+			</div>			
+			<?php if( !empty( $sidebar_image ) ) {
+				$imgID = $sidebar_image['ID'];
+				$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
+				$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
+				echo '<div class="img-wrap cell small-12 medium-5 tablet-4 large-4 xxlarge-3">';
+				echo $img;
+				echo '</div>';
+			}?>
+		<div class="text-center load-more-wrap">
+			<button class="button purple-ds" id="load-more">Load More</button>
+		</div>
 		</div>
 	</div>
 </section>

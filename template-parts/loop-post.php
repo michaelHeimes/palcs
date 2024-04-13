@@ -1,7 +1,13 @@
 <?php
+	$card_classes = $args['card-classes'] ?? null;
 	$thumb_id = get_post_thumbnail_id();
+	if( $card_classes != null ) {
+		$card_classes = 'post-card cell load-more-filter-card hidden';
+	} else {
+		$card_classes = 'post-card cell';
+	}
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class('post-card cell'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class($card_classes); ?>>
 	<div class="inner relative">
 		<?php if( !empty( $thumb_id ) ) {
 			$imgID = $thumb_id;

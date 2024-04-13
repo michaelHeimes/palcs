@@ -21,7 +21,7 @@ $posts_per_load = 9;
 
 	<main id="primary" class="site-main">
 		<?php get_template_part('template-parts/banner', 'full-width-image');?>
-		<div class="content">
+		<div class="content posts-page">
 			<?php
 			if ( have_posts() ) :
 				
@@ -38,7 +38,7 @@ $posts_per_load = 9;
 				
 				get_template_part('template-parts/content', 'load-more-filter-grid', 
 					array(
-						'cpt'   => 'event',
+						'cpt'   => 'post',
 						'posts' => $posts,
 						'post_categories' => $post_categories,
 						'posts-per-load' => $posts_per_load,

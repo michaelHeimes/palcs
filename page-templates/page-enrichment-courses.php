@@ -10,8 +10,8 @@
  get_header();
 
  $fields = get_fields();
- 
  $program = $fields['program'] ?? null;
+ $sidebar_image = get_field('sidebar_image') ?? null;
 
  if( !empty($program) ) {
 	$args = array(  
@@ -56,6 +56,7 @@
 						'posts-per-load' => 12,
 						'program' => $program,
 						'equal-height-cards' => true,
+						'sidebar-image' => $sidebar_image,
 					),
 				);?>
 

@@ -14,7 +14,7 @@ $posts_page_id = get_option('page_for_posts'); // Retrieve the ID of the posts p
 $posts_page_link = get_permalink($posts_page_id); 
 $terms = $queried_object->slug;
 $posts_per_load = 12;
-$post_type = get_post_type();
+
 if($post_type == 'post') {
 	$posts_per_load = 9;
 }
@@ -52,6 +52,17 @@ if($post_type == 'event') {
 						),
 					);	 
 					
+					$posts = get_posts($args);
+					
+					get_template_part('template-parts/content', 'load-more-filter-grid', 
+						array(
+							'cpt'   => 'event',
+							'posts' => $posts,
+							'posts-per-load' => $posts_per_load,
+							'post_categories' => $post_categories,
+						),
+					);
+					
 				} else {
 					$post_categories = get_categories( array(
 						'hide_empty' => true,
@@ -73,19 +84,21 @@ if($post_type == 'event') {
 						),
 					);	 
 					
+					$posts = get_posts($args);
+					
+					get_template_part('template-parts/content', 'load-more-filter-grid', 
+						array(
+							'cpt'   => $post_type,
+							'posts' => $posts,
+							'posts-per-load' => $posts_per_load,
+							'post_categories' => $post_categories,
+						),
+					);
+					
 				}
 
 
-				$posts = get_posts($args);
-				
-				get_template_part('template-parts/content', 'load-more-filter-grid', 
-					array(
-						'cpt'   => 'event',
-						'posts' => $posts,
-						'posts-per-load' => $posts_per_load,
-						'post_categories' => $post_categories,
-					),
-				);
+
 	
 			else :
 	
