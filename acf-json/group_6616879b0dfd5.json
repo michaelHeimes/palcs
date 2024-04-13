@@ -1,13 +1,13 @@
 {
-    "key": "group_66008bd81ca7f",
-    "title": "CPT: Enrichment Courses",
+    "key": "group_6616879b0dfd5",
+    "title": "No Single Post",
     "fields": [
         {
-            "key": "field_66008bd80aa69",
-            "label": "Icon",
-            "name": "icon",
+            "key": "field_6616879ba3139",
+            "label": "When checked the posts in the archive will not link.",
+            "name": "no_single_post",
             "aria-label": "",
-            "type": "image",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,16 +16,11 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium"
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -38,7 +33,7 @@
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "side",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -46,5 +41,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1711312163
+    "modified": 1712752714
 }

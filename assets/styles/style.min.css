@@ -10443,6 +10443,7 @@ button:not(.no-style).white-bg,
   height: 0;
   pointer-events: none;
   cursor: auto;
+  overflow: hidden;
 }
 #options.tax-menu-wrap .button {
   display: inline-block;
@@ -10455,12 +10456,16 @@ button:not(.no-style).white-bg,
   line-height: 1;
   display: block;
   background-color: #fff;
+  cursor: pointer;
 }
 #options.tax-menu-wrap .button [type=checkbox] {
   opacity: 0;
+  pointer-events: all;
   position: absolute;
+  margin: 0;
+  cursor: pointer;
 }
-#options.tax-menu-wrap .button [type=checkbox]:checked + label {
+#options.tax-menu-wrap .button [type=checkbox]:checked + label, #options.tax-menu-wrap .button [type=checkbox]:hover + label {
   color: #fff;
   background-color: #379ff8;
 }
@@ -11991,18 +11996,19 @@ body.error404 .entry-content {
 .teachers-cta article.enrichment-card {
   margin-bottom: 26px;
 }
-.blog article.enrichment-card a,
-.archive article.enrichment-card a,
-.posts-page article.enrichment-card a,
-.teachers-cta article.enrichment-card a {
+.blog article.enrichment-card .grid-x,
+.archive article.enrichment-card .grid-x,
+.posts-page article.enrichment-card .grid-x,
+.teachers-cta article.enrichment-card .grid-x {
+  width: 100%;
   height: 100%;
   position: relative;
   padding: 8px 0;
 }
-.blog article.enrichment-card a:before,
-.archive article.enrichment-card a:before,
-.posts-page article.enrichment-card a:before,
-.teachers-cta article.enrichment-card a:before {
+.blog article.enrichment-card .grid-x:before,
+.archive article.enrichment-card .grid-x:before,
+.posts-page article.enrichment-card .grid-x:before,
+.teachers-cta article.enrichment-card .grid-x:before {
   content: "";
   display: block;
   position: absolute;

@@ -40,7 +40,7 @@ if($post_type == 'event') {
 						'post_type' => 'event',
 						'post_status' => 'publish',
 						'posts_per_page' => -1,
-						'meta_key'  => 'date',
+						'meta_key'  => 'event_date',
 						'orderby'   => 'meta_value_num',
 						'order'     => 'ASC',
 						'tax_query' => array(

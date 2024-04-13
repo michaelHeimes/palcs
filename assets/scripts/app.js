@@ -158,17 +158,50 @@
          var $isotopeFilterLoadMore = document.querySelector('.isotope-filter-loadmore');
     
         if( $isotopeFilterLoadMore ) {
-
                 
                const $container = $('.isotope-filter-loadmore .filter-grid');
                var $postsPer = $isotopeFilterLoadMore.getAttribute('data-postsper');
-               console.log('posts per load:' + $postsPer);
-                                
+               //console.log('posts per load:' + $postsPer);
+               
+               const facetingBtns = function(filteredItems) {
+                    // console.log('Filtering Complete after filter with ' + filteredItems.length + ' items');
+                    const filterButtons = document.querySelectorAll('#options input');
+               
+                    if (filterButtons.length > 0) {
+                        const postsShown = filteredItems;
+                        let activeTerms = [];
+               
+                        postsShown.forEach(function(postShown) {
+                            if (postShown) {
+                                const post = Object.values(postShown);
+                                const terms = post[0].getAttribute('data-terms');
+                                activeTerms.push(terms.split(' '));
+                            }
+                        });
+               
+                        // Flatten the array of arrays into a single array
+                        activeTerms = activeTerms.flat();
+               
+                        filterButtons.forEach(function(btn) {
+                            const btnTerms = btn.getAttribute('data-taxonomy-terms').split(' ');
+               
+                            const hasMatchingTerm = btnTerms.some(term => activeTerms.includes(term));
+                            const wrapper = btn.parentElement.parentElement;
+                            if (!hasMatchingTerm) {
+                                if (!wrapper.classList.contains('top-level')) {
+                                    wrapper.classList.add('hide-btn');
+                                }
+                            } else {
+                                wrapper.classList.remove('hide-btn');
+                            }
+                        });
+                    }
+                };
+               
                 $($container).isotope({
                     itemSelector: '.filter-grid article',
                     layoutMode: 'fitRows',
-                    //stagger: 2,
-               });
+                });
                
                // Function to set equal heights for each row
                const setEqualRowHeights = function() {
@@ -191,71 +224,13 @@
                $container.addClass('init');
 
                 
-               $container.on( 'layoutComplete', function( event, filteredItems ) {
-                  console.log('arrangeComplete after filter with ' + filteredItems.length + ' items');
-                  
-                  const filterButtons = document.querySelectorAll('#options input');
-                  
-                  if(filterButtons.length > 0) {
-                     
-                     const postsShown = filteredItems;
-                     let activeTerms = [];
-                      
-                      postsShown.forEach(function (postShown) {
-                          if(postShown) {
-                              const post = Object.values(postShown);
-                              const terms = post[0].getAttribute('data-terms');
-                              activeTerms.push(terms.split(' '));
-                          }
-                      });
-                      
-                      // Flatten the array of arrays into a single array
-                      activeTerms = activeTerms.flat();
-                      
-                      //console.log(activeTerms);
-                     
-                      filterButtons.forEach(function (btn) {
-                          const btnTerms = btn.getAttribute('data-taxonomy-terms').split(' ');
-                      
-                          const hasMatchingTerm = btnTerms.some(term => activeTerms.includes(term));
-                          const wrapper = btn.parentElement.parentElement;
-                          if (!hasMatchingTerm) {
-                              if (!wrapper.classList.contains('top-level')) {
-                                 wrapper.classList.add('hide-btn');
-                                 //$(wrapper).hide(100);
-                              }
-                          } else {
-                              wrapper.classList.remove('hide-btn');
-                              //$(wrapper).show(100);
-                          }
-                     });
-                     
-                  }
-                  
-               });
-                
-                
-                
                var filters = {};
                var comboFilter = "";
-               $('#options').on( 'change', function( event ) {
-                  $(".no-items").fadeOut(0);
+               $('#options input').on( 'change', function( event ) {
                   var checkbox = event.target;
                   var $checkbox = $( checkbox );
-                  var group = $checkbox.parents('.filter-group').attr('data-group');
-                    
-                  $('#options .filter-group').each(function(){
-                     const $checks = $(this).find('input');
-                        
-                     if( $(this).find('input:checked').length ) {
-                        $(this).addClass('active');
-                     } else {
-                        $(this).removeClass('active');
-                     }
-                        
-                  });
-                  
-                  
+                  var group = $checkbox.parents('.option-set').attr('data-group');
+
                   // Initialize an empty array to store input values
                    var queryParams = [];
                   
@@ -293,15 +268,15 @@
                   }
                 
                   var comboFilter = getComboFilter();
-                  $container.isotope({ 
-                     filter: comboFilter,
-                     itemSelector: '.filter-grid article',
-                     layoutMode: 'fitRows',
-                  });
+                    $($container).isotope({
+                        filter: comboFilter
+                    }).promise().done(function() {
+                        // Initialize Isotope and then call facetingBtns directly
+                        $container.isotope('layout');
+                        facetingBtns($container.data('isotope').filteredItems);
+                    });
                     
-                });
-                
-                
+                });                
                 
                //Click matching button if query string match
                // Parse the query string
@@ -344,10 +319,7 @@
                         //$inputs.prop('checked', true);
                         $inputs.click();
                     }
-                }
-                
-                
-                
+                }                
                 
                function getComboFilter() {
                     var combo = [];
@@ -416,9 +388,7 @@
                     } else {
                       counter = counter;
                     };
-                    
-                    console.log(initShow);
-                
+
                     counter = counter + initShow;
                 
                     loadMore(counter);
@@ -561,7 +531,7 @@
     
     
     // initialize functions on load
-    $(function() {
+    document.addEventListener("DOMContentLoaded", () => {
         _app.init();
     });
 	

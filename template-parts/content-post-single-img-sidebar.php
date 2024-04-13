@@ -15,6 +15,14 @@ if( $post_type == 'event'  ) {
 if( $post_type == 'teacher-staff' ) {
 	$image_size = 'staff-grid';
 }
+if( $post_type == 'enrichment-course' ) {
+	$icon = '';
+	$specialty_terms = get_the_terms($post_id, 'specialty');
+	if ($specialty_terms && !is_wp_error($specialty_terms)) {
+		$first_term = reset($specialty_terms);
+		$icon = get_field('icon', $first_term) ?? get_field('enrichment_fallback_icon', 'option');
+	}
+}
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('single-img-sidebar'); ?>>
 	<div class="grid-container">
@@ -37,8 +45,8 @@ if( $post_type == 'teacher-staff' ) {
 						// Output the image with alt text and title
 						echo '<div class="' . $thumbwrap_class . '"><img src="' . esc_url($thumbnail_url) . '" alt="' . esc_attr($alt_text) . '" title="' . esc_attr($title) . '" decoding="async" loading="lazy"></div>';
 						
-					} elseif( $post_type == 'enrichment-course' && !empty( get_field('icon') ) ) {
-							$imgID = get_field('icon')['ID'];
+					} elseif( $post_type == 'enrichment-course' && !empty( $icon ) ) {
+							$imgID = $icon['ID'];
 							$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
 							$img = wp_get_attachment_image( $imgID, $image_size, false, [ "class" => "", "alt"=>$img_alt] );
 							echo '<div class="icon-wrap relative purple-bg grid-x align-middle align-center">';

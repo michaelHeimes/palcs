@@ -55,6 +55,7 @@
 						'posts' => $posts,
 						'posts-per-load' => 12,
 						'program' => $program,
+						'equal-height-cards' => true,
 					),
 				);?>
 

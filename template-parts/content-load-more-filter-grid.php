@@ -9,45 +9,58 @@ $program = $args['program'] ?? null;
 $post_categories = $args['post_categories'] ?? null;
 $posts = $args['posts'];
 $posts_per_load = $args['posts-per-load'] ?? 12;
+$equalHeightCards = $args['equal-height-cards'] ?? null;
+
+$terms_to_hide_string = $args['terms-to-hide'] ?? null;
+$terms_to_hide_string = trim($terms_to_hide_string); // Remove leading and trailing spaces
+$terms_to_hide_array = explode(',', $terms_to_hide_string);
 
 $stage_terms = get_terms( array(
-'taxonomy'   => 'stage',
-'hide_empty' => true,
+	'taxonomy'   => 'stage',
+	'hide_empty' => true,
+	'exclude'    => $terms_to_hide_array,
 ) );
 
 $grade_terms = get_terms( array(
-'taxonomy'   => 'grade',
-'hide_empty' => true,
+	'taxonomy'   => 'grade',
+	'hide_empty' => true,
+	'exclude'    => $terms_to_hide_array,
 ) );
 
 $enrichment_terms = get_terms( array(
-'taxonomy'   => 'enrichment',
-'hide_empty' => true,
+	'taxonomy'   => 'enrichment',
+	'hide_empty' => true,
+	'exclude'    => $terms_to_hide_array,
 ) );
 
 $department_1s = get_terms( array(
-'taxonomy'   => 'department-1',
-'hide_empty' => true,
+	'taxonomy'   => 'department-1',
+	'hide_empty' => true,
+	'exclude'    => $terms_to_hide_array,
 ) );
 
 $department_2s = get_terms( array(
-'taxonomy'   => 'department-2',
-'hide_empty' => true,
+	'taxonomy'   => 'department-2',
+	'hide_empty' => true,
+	'exclude'    => $terms_to_hide_array,
 ) );
 
 $program_terms = get_terms( array(
-'taxonomy'   => 'program',
-'hide_empty' => true,
+	'taxonomy'   => 'program',
+	'hide_empty' => true,
+	'exclude'    => $terms_to_hide_array,
 ) );
 
 $specialty_terms = get_terms( array(
-'taxonomy'   => 'specialty',
-'hide_empty' => true,
+	'taxonomy'   => 'specialty',
+	'hide_empty' => true,
+	'exclude'    => $terms_to_hide_array,
 ) );
 
 $stage_terms = get_terms( array(
-'taxonomy'   => 'stage',
-'hide_empty' => true,
+	'taxonomy'   => 'stage',
+	'hide_empty' => true,
+	'exclude'    => $terms_to_hide_array,
 ) );
 $primary_cat_terms = '';
 $primary_cat_front = '';
@@ -63,6 +76,7 @@ if( $cpt == 'teacher-staff' ) {
 }
 if( $cpt == 'enrichment-course' ) {
 	$primary_cat_terms = $program_terms;
+	$primary_cat_front = '/enrichment-courses/';
 	$primary_all = '/enrichment-courses/';
 	$active_term = $program;
 	$index_page = $primary_cat_front;
@@ -110,8 +124,6 @@ if( !is_front_page() && is_home() || is_archive() ) {
 		
 	}
 }
-
-
 
 ?>
 
@@ -172,7 +184,7 @@ if( !is_front_page() && is_home() || is_archive() ) {
 					</div>
 				</div>
 				
-				<div class="filter-grid grid-x grid-padding-x">
+				<div class="filter-grid grid-x grid-padding-x<?php if($equalHeightCards == true) { echo ' equal-heights'; };?>">
 					<?php foreach( $posts as $post ){
 						if( $cpt == 'teacher-staff' ) {
 							get_template_part('template-parts/loop', 'teacher-staff');

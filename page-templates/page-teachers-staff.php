@@ -11,6 +11,7 @@ get_header();
 $fields = get_fields();
 
 $stage = $fields['stage'] ?? null;
+$terms_to_hide = $fields['terms_to_hide'] ?? null;
 
 if( !empty($stage) ) {
 	$args = array(  
@@ -75,6 +76,7 @@ $intro_text = $fields['intro_text'];
 						'posts' => $posts,
 						'posts-per-load' => 12,
 						'stage' => $stage,
+						'terms-to-hide' => $terms_to_hide,
 					),
 				);?>
 

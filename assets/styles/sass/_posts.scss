@@ -69,7 +69,8 @@
 	}
 	article.enrichment-card {
 		margin-bottom: 26px;
-		a {
+		.grid-x {
+			width: 100%;
 			height: 100%;
 			position: relative;
 			padding: 8px 0;
