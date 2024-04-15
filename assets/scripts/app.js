@@ -159,11 +159,11 @@
     
         if( $isotopeFilterLoadMore ) {
                 
-               const $container = $('.isotope-filter-loadmore .filter-grid');
-               var $postsPer = $isotopeFilterLoadMore.getAttribute('data-postsper');
-               //console.log('posts per load:' + $postsPer);
+                const $container = $('.isotope-filter-loadmore .filter-grid');
+                var $postsPer = $isotopeFilterLoadMore.getAttribute('data-postsper');
+                //console.log('posts per load:' + $postsPer);
                
-               const facetingBtns = function(filteredItems) {
+                const facetingBtns = function(filteredItems) {
                     // console.log('Filtering Complete after filter with ' + filteredItems.length + ' items');
                     const filterButtons = document.querySelectorAll('#options input');
                
@@ -202,21 +202,57 @@
                     itemSelector: '.filter-grid article',
                     layoutMode: 'fitRows',
                 });
+                
+                let gravityFormId = '';
+                let formIntroCopy;
+                let hiddenIsotopeContainer; // Declare it outside the loop
+               
+                const blockVideos = document.querySelectorAll('.block-videos');
+                if (blockVideos) {
+                    blockVideos.forEach(function (blockVideo) {
+                        formIntroCopy = blockVideo.querySelector('.form-intro-copy');
+                        const gravityForm = blockVideo.querySelector('.gform_wrapper form');
+                        if (gravityForm) {
+                            gravityFormId = gravityForm.getAttribute('data-formid');
+                            hiddenIsotopeContainer = blockVideo.querySelector('.isotope-filter-loadmore'); // Assign the value here
+                        }
+                    });
+               
+                    if (gravityFormId && hiddenIsotopeContainer && hiddenIsotopeContainer.classList.contains('loading')) {
+                        $(document).on("gform_confirmation_loaded", function (e, formID) {
+                            if (formID == gravityFormId) {
+                                hiddenIsotopeContainer.classList.remove('loading');
+                                formIntroCopy.style.display = 'none';
+                                hiddenIsotopeContainer.style.height = 'auto';
+                                hiddenIsotopeContainer.style.visibility = 'visible';
+                                $container.isotope('layout');
+                                hiddenIsotopeContainer.style.opacity = 1;
+                            }
+                        });
+                    }
+                }
+
+                if (document.getElementById('init-isotope')) {
+                    document.getElementById('init-isotope').addEventListener('click', function() {
+                        console.log('clicked');
+                        moreVideosFormValidated();
+                    });
+                }
                
                // Function to set equal heights for each row
                const setEqualRowHeights = function() {
-                  const rows =$isotopeFilterLoadMore.querySelectorAll('.filter-grid.equal-heights > *'); // Assuming each row is a direct child of .filter-grid
-                  let maxRowHeight = 0;
+                    const rows =$isotopeFilterLoadMore.querySelectorAll('.filter-grid.equal-heights > *'); // Assuming each row is a direct child of .filter-grid
+                    let maxRowHeight = 0;
                
-                  rows.forEach(function(row) {
-                      const rowHeight = row.getBoundingClientRect().height;
-                      maxRowHeight = Math.max(maxRowHeight, rowHeight);
-                  });
+                    rows.forEach(function(row) {
+                        const rowHeight = row.getBoundingClientRect().height;
+                        maxRowHeight = Math.max(maxRowHeight, rowHeight);
+                    });
                
-                  rows.forEach(function(row) {
-                      row.style.minHeight = maxRowHeight + 'px';
-                  });
-                  $container.isotope('layout');
+                    rows.forEach(function(row) {
+                        row.style.minHeight = maxRowHeight + 'px';
+                    });
+                    $container.isotope('layout');
                };
                // Attach the event listener to the window object
                window.addEventListener('resize', setEqualRowHeights);
@@ -224,39 +260,39 @@
                $container.addClass('init');
 
                 
-               var filters = {};
-               var comboFilter = "";
-               $('#options input').on( 'change', function( event ) {
-                  var checkbox = event.target;
-                  var $checkbox = $( checkbox );
-                  var group = $checkbox.parents('.option-set').attr('data-group');
+                var filters = {};
+                var comboFilter = "";
+                $('#options input').on( 'change', function( event ) {
+                    var checkbox = event.target;
+                    var $checkbox = $( checkbox );
+                    var group = $checkbox.parents('.option-set').attr('data-group');
 
-                  // Initialize an empty array to store input values
-                   var queryParams = [];
+                    // Initialize an empty array to store input values
+                    var queryParams = [];
                   
-                   // Iterate over each checked input within #options
-                   $('#options input:checked').each(function() {
-                       // Get the name and value of each checked input
-                       var name = $(this).attr('name');
-                       var value = $(this).val();
+                    // Iterate over each checked input within #options
+                    $('#options input:checked').each(function() {
+                        // Get the name and value of each checked input
+                        var name = $(this).attr('name');
+                        var value = $(this).val();
                   
-                       // Construct query parameter string and push to array
-                       queryParams.push(encodeURIComponent(name) + '=' + encodeURIComponent(value));
-                   });
+                        // Construct query parameter string and push to array
+                        queryParams.push(encodeURIComponent(name) + '=' + encodeURIComponent(value));
+                    });
                   
-                   // Construct the full query string by joining all query parameters with '&'
-                   var queryString = queryParams.join('&');
+                    // Construct the full query string by joining all query parameters with '&'
+                    var queryString = queryParams.join('&');
                   
-                   // Update the URL with the new query string
-                   window.history.replaceState({}, '', window.location.pathname + '?' + queryString);
+                    // Update the URL with the new query string
+                    window.history.replaceState({}, '', window.location.pathname + '?' + queryString);
                    
                    
                 
-                  // create array for filter group, if not there yet
-                  var filterGroup = filters[ group ];
-                  if ( !filterGroup ) {
-                     filterGroup = filters[ group ] = [];
-                  }
+                // create array for filter group, if not there yet
+                var filterGroup = filters[ group ];
+                    if ( !filterGroup ) {
+                    filterGroup = filters[ group ] = [];
+                }
                   // add/remove filter
                   if ( checkbox.checked ) {
                      // add filter

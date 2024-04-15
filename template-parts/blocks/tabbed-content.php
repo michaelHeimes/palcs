@@ -21,7 +21,7 @@ if( !empty($block['className']) ) {
 	$className .= ' ' . $block['className'];
 }
 
-$tabs = get_field('tabs');
+$tabs = get_field('tabs') ?? null;
 
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="module block <?php echo esc_attr($className); ?>">

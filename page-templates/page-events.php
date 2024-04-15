@@ -36,6 +36,7 @@ $index_page = substr( $current_url, strlen( home_url() ) );
 					'order'     => 'ASC',
 				);	 
 				$posts = get_posts($args);
+				var_dump($posts);
 			?>
 			
 			<?php get_template_part('template-parts/content', 'load-more-filter-grid', 

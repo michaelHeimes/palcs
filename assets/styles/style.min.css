@@ -9560,7 +9560,7 @@ body .alm-btn-wrap .alm-load-more-btn:hover {
   position: relative;
 }
 
-.font-size-20, body .gform-theme.gform-theme--framework.gform_wrapper .button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):not(.no-style),
+.font-size-20, .block-videos .tabs-panel.more-videos .gform-theme--framework.gform-theme--foundation .gform_confirmation_message, body .gform-theme.gform-theme--framework.gform_wrapper .button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):not(.no-style),
 body .gform-theme.gform-theme--framework.gform_wrapper input:is([type=submit], [type=button], [type=reset]).button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):not(.no-style), .gform-theme.gform-theme--framework.gform_wrapper input:is([type=submit], [type=button], [type=reset]):where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):not(.no-style), .gform-theme.gform-theme--framework.gform_wrapper input[type=submit].button.gform_button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)) .alm-btn-wrap button:not(.no-style),
 button:not(.no-style),
 .button:not(.input-wrap):not(.no-style), header.site-header #header-nav li a, p,
@@ -11590,6 +11590,82 @@ body.single-post .part-header-button-link-cta blockquote.bg.wp-block-quote.is-st
 .copy-left-cta-right .right h2 {
   color: #505050;
   margin-bottom: 0.53em;
+}
+
+.block-videos .tabs-panel {
+  padding: 1.35rem 1.25rem;
+}
+.block-videos .tabs-panel button .play-btn-wrap {
+  padding: 3rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.block-videos .tabs-panel button svg {
+  max-width: 100%;
+  max-height: 100%;
+}
+.block-videos .tabs-panel button svg circle,
+.block-videos .tabs-panel button svg path {
+  -webkit-transition: 0.25s ease;
+  transition: 0.25s ease;
+}
+.block-videos .tabs-panel button:hover svg circle {
+  opacity: 1;
+}
+.block-videos .tabs-panel button:hover svg path {
+  fill: #379ff8;
+}
+.block-videos .tabs-panel.more-videos .form-intro-copy {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+.block-videos .tabs-panel.more-videos .form-intro-copy h1,
+.block-videos .tabs-panel.more-videos .form-intro-copy h2,
+.block-videos .tabs-panel.more-videos .form-intro-copy h3,
+.block-videos .tabs-panel.more-videos .form-intro-copy h4 {
+  color: #272727;
+}
+.block-videos .tabs-panel.more-videos .gform-theme--framework.gform-theme--foundation form {
+  padding-bottom: 2rem;
+}
+.block-videos .tabs-panel.more-videos .gform-theme--framework.gform-theme--foundation .gform_footer {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.block-videos .tabs-panel.more-videos .gform-theme--framework.gform-theme--foundation .gform_confirmation_message {
+  padding-bottom: 1rem;
+}
+.block-videos .tabs-panel.more-videos .isotope-filter-loadmore {
+  -webkit-transition: opacity 0.25s ease 0.4s;
+  transition: opacity 0.25s ease 0.4s;
+}
+.block-videos .tabs-panel.more-videos .isotope-filter-loadmore .grid-container {
+  padding: 0;
+}
+.block-videos .tabs-panel.more-videos .load-more-filter-card {
+  margin-bottom: 2.3125rem;
+  margin-bottom: clamp(2.313rem, 2.009rem + 1.294vw, 3.563rem);
+}
+@media print, screen and (min-width: 40em) {
+  .block-videos .tabs-panel.more-videos .load-more-filter-card {
+    margin-bottom: 3.5625rem;
+    margin-bottom: clamp(2.313rem, 2.009rem + 1.294vw, 3.563rem);
+  }
+}
+.block-videos .tabs-panel.more-videos .excerpt {
+  padding-top: 1em;
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.97rem + 0.129vw, 1.125rem);
+}
+@media print, screen and (min-width: 40em) {
+  .block-videos .tabs-panel.more-videos .excerpt {
+    font-size: 1.125rem;
+    font-size: clamp(1rem, 0.97rem + 0.129vw, 1.125rem);
+  }
 }
 
 figure.wp-block-image {

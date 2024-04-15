@@ -21,10 +21,10 @@ if( !empty($block['className']) ) {
     $className .= ' ' . $block['className'];
 }
 
-$allow_all_closed = get_field('allow_all_closed');
-$all_closed_by_default = get_field('all_closed_by_default');
-$allow_multiple_open = get_field('allow_multiple_open');
-$accordions = get_field('accordion');
+$allow_all_closed = get_field('allow_all_closed') ?? null;
+$all_closed_by_default = get_field('all_closed_by_default') ?? null;
+$allow_multiple_open = get_field('allow_multiple_open') ?? null;
+$accordions = get_field('accordion') ?? null;
 
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="module block <?php echo esc_attr($className); ?>">

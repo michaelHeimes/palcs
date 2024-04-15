@@ -33,7 +33,7 @@ $caption = $args['caption'] ?? null;
 	}?>
 </div>
 <?php if( !empty($video_url) ):?>
-	<div class="reveal large" id="<?=sanitize_title($modal_id);?>-video-modal" data-reveal data-animation-in="fade-in fast" data-animation-out="fade-out fast" data-reset-on-close="true">
+	<div class="reveal large" id="<?=sanitize_title($modal_id);?>-video-modal" data-reveal data-animation-in="fade-in fast" data-animation-out="fade-out fast" data-reset-on-close="true" data-deep-link="true">
 		<div class="text-right">
 			<button class="close-button no-style" data-close aria-label="Close modal" type="button">
 				<span aria-hidden="true">&times;</span>

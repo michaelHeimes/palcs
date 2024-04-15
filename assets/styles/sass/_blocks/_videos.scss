@@ -1,0 +1,80 @@
+.block-videos {
+	.tabs-panel {
+		padding: 1.35rem 1.25rem;
+		button {
+			.play-btn-wrap {
+				padding: 3rem;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+			svg {
+				max-width: 100%;
+				max-height: 100%;
+				circle, 
+				path {
+					transition: .25s ease;
+				}
+			}
+			&:hover {
+				svg {
+					circle {
+						opacity: 1;
+					}
+					path {
+						fill: $color-sky-blue;
+					}
+				}
+			}
+		}
+		&.more-videos {
+			.form-intro-copy {
+				padding-top: 2rem;
+				padding-bottom: 1rem;
+				h1,
+				h2,
+				h3,
+				h4 {
+					color: $black;
+				}
+			}
+			.gform-theme--framework.gform-theme--foundation {
+				form {
+					padding-bottom: 2rem;
+				}
+				.gform_footer {
+					justify-content: center;
+				}
+				.gform_confirmation_message {
+					@extend .font-size-20;
+					padding-bottom: 1rem;
+				}
+			}
+			.isotope-filter-loadmore {
+				transition: opacity .25s ease .4s;
+				.grid-container {
+					padding: 0;
+				}
+			}
+			.load-more-filter-card {
+				margin-bottom: rem-calc(37);
+				margin-bottom: clamp(2.313rem, 2.009rem + 1.294vw, 3.563rem);
+				@include breakpoint(medium) {
+					margin-bottom: rem-calc(57);
+					margin-bottom: clamp(2.313rem, 2.009rem + 1.294vw, 3.563rem);
+				}
+			}
+			.excerpt {
+				padding-top: 1em;
+				font-size: 1rem;
+				font-size: clamp(1rem, 0.97rem + 0.129vw, 1.125rem);
+				@include breakpoint(medium) {
+					font-size: 1.125rem;
+					font-size: clamp(1rem, 0.97rem + 0.129vw, 1.125rem);
+				}
+			}
+		}
+	}
+}

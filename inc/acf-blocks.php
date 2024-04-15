@@ -45,6 +45,16 @@ function register_acf_block_types() {
             'keywords'          => array( 'custom', 'block', 'tabs', 'tabbed' ),
         ));
         
+        acf_register_block_type(array(
+            'name'              => 'videos',
+            'title'             => __('Block: Videos'),
+            'description'       => __('Block: Videos'),
+            'render_template'   => 'template-parts/blocks/videos.php',
+            'category'          => 'embed',
+            'icon'              => 'video-alt3',
+            'keywords'          => array( 'custom', 'block', 'tabs', 'videos', 'tabbed' ),
+        ));
+        
     }
         
 }

@@ -283,3 +283,6 @@ require_once(get_template_directory().'/inc/expire-events.php');
 
 // Shortcodes
 require_once(get_template_directory().'/inc/shortcodes.php');
+
+// Shortcodes
+require_once(get_template_directory().'/inc/gravity-forms.php');

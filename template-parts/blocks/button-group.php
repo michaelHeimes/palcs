@@ -21,10 +21,10 @@ if( !empty($block['className']) ) {
     $className .= ' ' . $block['className'];
 }
 
-$remove_top_spacing = get_field('remove_top_spacing');
-$remove_bottom_spacing = get_field('remove_bottom_spacing');
-$alignment = get_field('alignment');
-$button_links = get_field('button_links');
+$remove_top_spacing = get_field('remove_top_spacing') ?? null;
+$remove_bottom_spacing = get_field('remove_bottom_spacing') ?? null;
+$alignment = get_field('alignment') ?? null;
+$button_links = get_field('button_links') ?? null;
 
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="module block 

@@ -1,14 +1,14 @@
 {
-    "key": "group_6616879b0dfd5",
-    "title": "No Single Post",
+    "key": "group_661bea1d98aae",
+    "title": "Show Content in Modal",
     "fields": [
         {
-            "key": "field_6616879ba3139",
-            "label": "When checked the posts in the archive will not link.",
-            "name": "no_single_post",
+            "key": "field_661bea1d9bcda",
+            "label": "Show Content in Modal",
+            "name": "show_content_in_modal",
             "aria-label": "",
             "type": "true_false",
-            "instructions": "",
+            "instructions": "When checked, this will no longer link to a post but open a modal with the post's content.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -28,13 +28,6 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "enrichment-course"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
                 "value": "club"
             }
         ]
@@ -48,5 +41,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1713105479
+    "modified": 1713105511
 }

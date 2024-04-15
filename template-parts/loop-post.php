@@ -24,11 +24,15 @@ if( $card_classes != null ) {
 				<h3 class="color-blue"><?php the_title();?></h3>
 			</a>
 		<?php endif;?>
-		<?php if( $show_content_in_modal ):?>
-			<a href="#" class="color-blue permalink grid-x align-bottom" data-open="<?=get_the_ID();?>-video-modal">
-				<h3 class="color-blue"><?php the_title();?></h3>
-			</a>
-			<div class="reveal large" id="<?=get_the_ID();?>-video-modal" data-reveal data-animation-in="fade-in fast" data-animation-out="fade-out fast" data-reset-on-close="true">
+		<?php if( $show_content_in_modal ):
+			$title = get_the_title();	
+			$slug = sanitize_title($title);
+			$post_id = get_the_ID();
+		?>
+			<button class="no-style color-blue permalink grid-x align-bottom" data-open="modal-<?=$post_id;?>-<?=esc_attr( $slug );?>">
+				<h3 class="color-blue"><?=esc_html( $title )?></h3>
+			</button>
+			<div class="reveal large" id="modal-<?=$post_id;?>-<?=esc_attr( $slug );?>" data-reveal data-animation-in="fade-in fast" data-animation-out="fade-out fast" data-reset-on-close="true" data-deep-link="true">
 				<div class="text-right">
 					<button class="close-button no-style" data-close aria-label="Close modal" type="button">
 						<span aria-hidden="true">&times;</span>
