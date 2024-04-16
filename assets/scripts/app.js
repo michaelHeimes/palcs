@@ -162,8 +162,8 @@
                 const $container = $('.isotope-filter-loadmore .filter-grid');
                 var $postsPer = $isotopeFilterLoadMore.getAttribute('data-postsper');
                 //console.log('posts per load:' + $postsPer);
-               
-                const facetingBtns = function(filteredItems) {
+                
+               const facetingBtns = function(filteredItems) {
                     // console.log('Filtering Complete after filter with ' + filteredItems.length + ' items');
                     const filterButtons = document.querySelectorAll('#options input');
                
@@ -183,16 +183,24 @@
                         activeTerms = activeTerms.flat();
                
                         filterButtons.forEach(function(btn) {
+                           
+                            var greatGrandparent = $(btn).parent().parent().parent();
+                            var grandparent = $(btn).parent().parent();
+                            const taxonomyGroup = $(grandparent).data('group');
+
                             const btnTerms = btn.getAttribute('data-taxonomy-terms').split(' ');
                
                             const hasMatchingTerm = btnTerms.some(term => activeTerms.includes(term));
                             const wrapper = btn.parentElement.parentElement;
+                            var groupSiblings = $(grandparent).siblings(`[data-group="${taxonomyGroup}"]`);
                             if (!hasMatchingTerm) {
                                 if (!wrapper.classList.contains('top-level')) {
                                     wrapper.classList.add('hide-btn');
                                 }
                             } else {
-                                wrapper.classList.remove('hide-btn');
+                                if(!groupSiblings.hasClass('active')) {
+                                    wrapper.classList.remove('hide-btn');
+                                }
                             }
                         });
                     }
@@ -205,8 +213,9 @@
                 
                 let gravityFormId = '';
                 let formIntroCopy;
-                let hiddenIsotopeContainer; // Declare it outside the loop
-               
+                let hiddenIsotopeContainer;
+                let topBarHeight;
+                let blockVideo;
                 const blockVideos = document.querySelectorAll('.block-videos');
                 if (blockVideos) {
                     blockVideos.forEach(function (blockVideo) {
@@ -214,7 +223,8 @@
                         const gravityForm = blockVideo.querySelector('.gform_wrapper form');
                         if (gravityForm) {
                             gravityFormId = gravityForm.getAttribute('data-formid');
-                            hiddenIsotopeContainer = blockVideo.querySelector('.isotope-filter-loadmore'); // Assign the value here
+                            hiddenIsotopeContainer = blockVideo.querySelector('.isotope-filter-loadmore');
+                            formIntroCopy = blockVideo.querySelector('.form-intro-copy');
                         }
                     });
                
@@ -227,16 +237,19 @@
                                 hiddenIsotopeContainer.style.visibility = 'visible';
                                 $container.isotope('layout');
                                 hiddenIsotopeContainer.style.opacity = 1;
+                                
+                                const topBarHeight = document.querySelector('.top-bar').offsetHeight;
+                                const hiddenIsotopeContainerOffsetTop = hiddenIsotopeContainer.parentElement.offsetTop;
+                                
+                                setTimeout(function () {
+                                    window.scrollTo({
+                                      top: hiddenIsotopeContainerOffsetTop - topBarHeight - 60,
+                                      behavior: 'smooth'
+                                    });
+                                }, 1000);
                             }
                         });
                     }
-                }
-
-                if (document.getElementById('init-isotope')) {
-                    document.getElementById('init-isotope').addEventListener('click', function() {
-                        console.log('clicked');
-                        moreVideosFormValidated();
-                    });
                 }
                
                // Function to set equal heights for each row
@@ -259,23 +272,52 @@
                 
                $container.addClass('init');
 
-                
+                var isAnimating = false;
                 var filters = {};
                 var comboFilter = "";
-                $('#options input').on( 'change', function( event ) {
+                $('#options input').on( 'click', function( event ) {
+                    if (isAnimating) return; // Prevent clicks during transition
+                    isAnimating = true; 
+                    
                     var checkbox = event.target;
                     var $checkbox = $( checkbox );
-                    var group = $checkbox.parents('.option-set').attr('data-group');
+                    //var group = $checkbox.parents('.option-set').attr('data-group');
+                    
+
 
                     // Initialize an empty array to store input values
                     var queryParams = [];
-                  
+                    
+                    var greatGrandparent = $(this).parent().parent().parent();
+                    var grandparent = $(this).parent().parent();
+                    const taxonomyGroup = $(grandparent).data('group');
+                    
+                    var group = taxonomyGroup;
+                    //console.log(group );
+                    
+                    if( $(grandparent).hasClass('active') ) {
+                        $(grandparent).removeClass('active');
+                        var groupSiblings = $(grandparent).siblings(`[data-group="${taxonomyGroup}"]`);
+                        $(groupSiblings).each(function() {
+                            $(this).removeClass('hide-btn');
+                        });
+                    } else {
+                        $(grandparent).addClass('active');
+                        var groupSiblings = $(grandparent).siblings(`[data-group="${taxonomyGroup}"]`);
+
+                        $(groupSiblings).each(function() {
+                            if(!$(this).hasClass('active')) {
+                                $(this).addClass('hide-btn');
+                            }
+                        });
+                    }
+
                     // Iterate over each checked input within #options
                     $('#options input:checked').each(function() {
                         // Get the name and value of each checked input
                         var name = $(this).attr('name');
                         var value = $(this).val();
-                  
+
                         // Construct query parameter string and push to array
                         queryParams.push(encodeURIComponent(name) + '=' + encodeURIComponent(value));
                     });
@@ -286,13 +328,16 @@
                     // Update the URL with the new query string
                     window.history.replaceState({}, '', window.location.pathname + '?' + queryString);
                    
-                   
-                
-                // create array for filter group, if not there yet
-                var filterGroup = filters[ group ];
-                    if ( !filterGroup ) {
-                    filterGroup = filters[ group ] = [];
-                }
+                    // Reset the flag after the transition is complete
+                    setTimeout(function() {
+                        isAnimating = false;
+                    }, 350);
+
+                    // create array for filter group, if not there yet
+                    var filterGroup = filters[ group ];
+                        if ( !filterGroup ) {
+                        filterGroup = filters[ group ] = [];
+                    }
                   // add/remove filter
                   if ( checkbox.checked ) {
                      // add filter
@@ -310,6 +355,7 @@
                         // Initialize Isotope and then call facetingBtns directly
                         $container.isotope('layout');
                         facetingBtns($container.data('isotope').filteredItems);
+
                     });
                     
                 });                
@@ -449,21 +495,7 @@
                 
             });
         });
-        
-        // $(document).on('click', 'a.menu-toggle', function(){
-        //     
-        //     if ( $(this).hasClass('clicked') ) {
-        //         $(this).removeClass('clicked');
-        //         $('#off-canvas').fadeOut(200);
-        //     
-        //     } else {
-        //     
-        //         $(this).addClass('clicked');
-        //         $('#off-canvas').fadeIn(200);
-        //     
-        //     }
-        //     
-        // });
+
     }
     
     _app.sliders = function() {
@@ -526,20 +558,6 @@
                 },
             });
         });
-        
-        // const imageContentSliders = document.querySelectorAll('.ics-slider');
-        // imageContentSliders.forEach(function (slider) {
-        //     const pagination = slider.querySelector('.swiper-pagination');
-        //     const swiper = new Swiper(slider, {
-        //         pagination: {
-        //             el: ".swiper-pagination",
-        //             clickable: true,
-        //         },
-        //         slidesPerView: 1,
-        //         slidesPerGroup: 1,
-        //         spaceBetween: 25,
-        //     });
-        // });
         
    } 
     

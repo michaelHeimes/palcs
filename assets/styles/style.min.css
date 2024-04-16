@@ -11629,7 +11629,7 @@ body.single-post .part-header-button-link-cta blockquote.bg.wp-block-quote.is-st
   color: #272727;
 }
 .block-videos .tabs-panel.more-videos .gform-theme--framework.gform-theme--foundation form {
-  padding-bottom: 2rem;
+  padding-bottom: 2.65rem;
 }
 .block-videos .tabs-panel.more-videos .gform-theme--framework.gform-theme--foundation .gform_footer {
   -webkit-box-pack: center;
@@ -11642,6 +11642,7 @@ body.single-post .part-header-button-link-cta blockquote.bg.wp-block-quote.is-st
 .block-videos .tabs-panel.more-videos .isotope-filter-loadmore {
   -webkit-transition: opacity 0.25s ease 0.4s;
   transition: opacity 0.25s ease 0.4s;
+  padding-bottom: 2.62rem;
 }
 .block-videos .tabs-panel.more-videos .isotope-filter-loadmore .grid-container {
   padding: 0;
