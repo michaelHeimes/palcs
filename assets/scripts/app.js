@@ -88,6 +88,9 @@
 // Isotope
 //@prepros-prepend vendor/isotope.pkgd.js
 
+// js-cookie
+//@prepros-prepend vendor/js-cookie.js
+
 // DOM Ready
 (function($) {
 	'use strict';
@@ -210,34 +213,49 @@
                     itemSelector: '.filter-grid article',
                     layoutMode: 'fitRows',
                 });
-                
+                let showVideos = false;
+                let videoCookie = Cookies.get('video-access');                
                 let gravityFormId = '';
                 let formIntroCopy;
                 let hiddenIsotopeContainer;
                 let topBarHeight;
                 let blockVideo;
+                let moreVidsTab;
                 const blockVideos = document.querySelectorAll('.block-videos');
+                const allGravityForms = document.querySelectorAll('.block-videos .gform_wrapper');
+                const allFormIntroCopies = document.querySelectorAll('.block-videos .form-intro-copy');
                 if (blockVideos) {
+                    
+                    if( videoCookie == 'true' ) {
+                        showVideos = true;
+                    }
+                                        
                     blockVideos.forEach(function (blockVideo) {
                         formIntroCopy = blockVideo.querySelector('.form-intro-copy');
                         const gravityForm = blockVideo.querySelector('.gform_wrapper form');
+                        moreVidsTab = blockVideo.querySelector('.more-vids-tab');
                         if (gravityForm) {
                             gravityFormId = gravityForm.getAttribute('data-formid');
                             hiddenIsotopeContainer = blockVideo.querySelector('.isotope-filter-loadmore');
                             formIntroCopy = blockVideo.querySelector('.form-intro-copy');
                         }
                     });
+                    
+                    const showVideosFunction = function() {
+                        formIntroCopy.style.display = 'none';
+                        hiddenIsotopeContainer.style.height = 'auto';
+                        hiddenIsotopeContainer.style.visibility = 'visible';
+                        $container.isotope('layout');
+                        hiddenIsotopeContainer.style.opacity = 1;
+                    }
                
                     if (gravityFormId && hiddenIsotopeContainer && hiddenIsotopeContainer.classList.contains('loading')) {
                         $(document).on("gform_confirmation_loaded", function (e, formID) {
                             if (formID == gravityFormId) {
                                 hiddenIsotopeContainer.classList.remove('loading');
-                                formIntroCopy.style.display = 'none';
-                                hiddenIsotopeContainer.style.height = 'auto';
-                                hiddenIsotopeContainer.style.visibility = 'visible';
-                                $container.isotope('layout');
-                                hiddenIsotopeContainer.style.opacity = 1;
-                                
+                                showVideosFunction();
+                                Cookies.set('video-access', 'true', { expires: 30 });
+                                showVideos = true;
                                 const topBarHeight = document.querySelector('.top-bar').offsetHeight;
                                 const hiddenIsotopeContainerOffsetTop = hiddenIsotopeContainer.parentElement.offsetTop;
                                 
@@ -250,6 +268,22 @@
                             }
                         });
                     }
+                    
+                    if( showVideos === true ) {
+                        moreVidsTab.addEventListener('click', function (event) {
+                            event.preventDefault();
+                            allGravityForms.forEach(function (gravityForm) {
+                               gravityForm.style.display = 'none'; 
+                            });
+                            allFormIntroCopies.forEach(function (introCopy) {
+                               introCopy.style.display = 'none'; 
+                            });
+                            setTimeout(function () {
+                                showVideosFunction();
+                            }, 10);
+                        });
+                    }
+
                 }
                
                // Function to set equal heights for each row

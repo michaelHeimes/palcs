@@ -39,7 +39,7 @@ $videos = get_field('videos') ?? null;
 				</li>
 			<?php endif;?>
 			<?php if( !empty($videos) ):?>
-				<li class="tabs-title" aria-selected="false">
+				<li class="tabs-title more-vids-tab" aria-selected="false">
 					<a href="#more-videos-<?=$block['id'];?>">More Videos</a>
 				</li>
 			<?php endif;?>	
