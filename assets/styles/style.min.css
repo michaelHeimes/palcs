@@ -6058,7 +6058,7 @@ table.hover:not(.unstriped) tr:nth-of-type(even):hover {
 .tabs {
   margin: 0;
   border: 1px solid #379ff8;
-  background: #fff;
+  background: transparent;
   list-style-type: none;
 }
 .tabs::before, .tabs::after {
@@ -6105,18 +6105,18 @@ table.hover:not(.unstriped) tr:nth-of-type(even):hover {
   padding: 1.25rem 1.5rem;
   font-size: 1.5625rem;
   line-height: 1;
-  color: #379ff8;
+  color: #fff;
 }
 [data-whatinput=mouse] .tabs-title > a {
   outline: 0;
 }
 .tabs-title > a:hover {
   background: #fff;
-  color: #0e8bf7;
+  color: #dbdbdb;
 }
 .tabs-title > a:focus, .tabs-title > a[aria-selected=true] {
-  background: #379ff8;
-  color: #fff;
+  background: #fff;
+  color: #379ff8;
 }
 
 .tabs-content {
@@ -8780,6 +8780,26 @@ ul.teacher-terms-list li {
   .vw-flush-left {
     left: -50px !important;
   }
+}
+
+ul.tabs {
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+}
+ul.tabs li:not(.is-active) {
+  background-color: #379ff8;
+}
+ul.tabs li a {
+  border: 1px solid #379ff8;
+  border-bottom: 0;
+  -webkit-transition: background-color 0.25s ease;
+  transition: background-color 0.25s ease;
+}
+ul.tabs li a:hover {
+  background-color: #0052d4;
+  color: #fff;
+  border-color: #0052d4;
 }
 
 .tabs-panel .gallery,

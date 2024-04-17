@@ -822,10 +822,10 @@ $table-stack-breakpoint: medium;
 // --------
 
 $tab-margin: 0;
-$tab-background: $white;
-$tab-color: $color-sky-blue;
-$tab-background-active: $color-sky-blue;
-$tab-active-color: $white;
+$tab-background: transparent;
+$tab-color: $white;
+$tab-background-active: $white;
+$tab-active-color: $color-sky-blue;
 $tab-item-font-size: rem-calc(25);
 $tab-item-background-hover: $white;
 $tab-item-padding: 1.25rem 1.5rem;

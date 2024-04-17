@@ -6,6 +6,7 @@ $cpt = $args['cpt'] ?? null;
 $index_page = $args['index_page'] ?? null;
 $intro_text = $args['intro_text'] ?? null;
 $stage = $args['stage'] ?? null;
+$team = $args['team'] ?? null;
 $program = $args['program'] ?? null;
 $post_categories = $args['post_categories'] ?? null;
 $posts = $args['posts'];
@@ -22,8 +23,20 @@ $stage_terms = get_terms( array(
 	'exclude'    => $terms_to_hide_array,
 ) );
 
+$team_terms = get_terms( array(
+	'taxonomy'   => 'team',
+	'hide_empty' => true,
+	'exclude'    => $terms_to_hide_array,
+) );
+
 $grade_terms = get_terms( array(
 	'taxonomy'   => 'grade',
+	'hide_empty' => true,
+	'exclude'    => $terms_to_hide_array,
+) );
+
+$admin_department_terms = get_terms( array(
+	'taxonomy'   => 'admin-department',
 	'hide_empty' => true,
 	'exclude'    => $terms_to_hide_array,
 ) );
@@ -63,6 +76,7 @@ $stage_terms = get_terms( array(
 	'hide_empty' => true,
 	'exclude'    => $terms_to_hide_array,
 ) );
+
 $primary_cat_terms = '';
 $primary_cat_front = '';
 $primary_all = '';
@@ -74,6 +88,13 @@ if( $cpt == 'teacher-staff' ) {
 	$primary_all = $primary_cat_front;
 	$index_page = $primary_cat_front;
 	$active_term = $stage;
+}
+if( $cpt == 'administration' ) {
+	$primary_cat_terms = $team_terms;
+	$primary_cat_front = '/about-us/administration/';
+	$primary_all = $primary_cat_front;
+	$index_page = $primary_cat_front;
+	$active_term = $team;
 }
 if( $cpt == 'enrichment-course' ) {
 	$primary_cat_terms = $program_terms;
@@ -191,6 +212,13 @@ $filter_grid_classes_string = implode(' ', $filter_grid_classes);
 										),
 									);
 								}
+								if( $cpt == 'administration' ) {
+									get_template_part('template-parts/part-filter-btns', 'administration',
+										array (
+											'admin_department_terms' => $admin_department_terms,
+										),
+									);
+								}
 								if( $cpt == 'enrichment-course' ) {
 									get_template_part('template-parts/part-filter-btns', 'enrichment-course',
 										array (
@@ -207,7 +235,7 @@ $filter_grid_classes_string = implode(' ', $filter_grid_classes);
 			<div class="cell small-12<?php if( $sidebar_image != null ) { echo '  medium-7 tablet-8 large-6 xxlarge-5'; } else { echo ' large-10 xxlarge-8'; }?>">
 				<div class="filter-grid grid-x grid-padding-x<?=esc_attr( $filter_grid_classes_string );?>">
 					<?php foreach( $posts as $post ){
-						if( $cpt == 'teacher-staff' ) {
+						if( $cpt == 'teacher-staff' || $cpt == 'administration' ) {
 							get_template_part('template-parts/loop', 'teacher-staff');
 						}
 						if( $cpt == 'enrichment-course' ) {

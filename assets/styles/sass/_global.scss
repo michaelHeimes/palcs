@@ -85,6 +85,28 @@ ul.teacher-terms-list li {
 		left: -$mediumGutter !important;
 	}
 }
+
+ul.tabs {
+	border-top: 0;
+	border-right: 0;
+	border-left: 0;
+	li {
+		&:not(.is-active) {
+			background-color: $color-sky-blue;
+		}
+		a {
+			border: 1px solid $color-sky-blue;
+			border-bottom: 0;
+			transition: background-color .25s ease;
+			&:hover {
+				background-color: $color-blue;
+				color: $white;
+				border-color: $color-blue;
+			}
+		}
+	}
+}
+
 .tabs-panel,
 .accordion {
 	.gallery {

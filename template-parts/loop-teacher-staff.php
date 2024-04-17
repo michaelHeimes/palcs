@@ -1,7 +1,14 @@
 <?php 
+$cpt = get_post_type();
 $post_id = $post->ID;
 $term_slugs = [];
-$taxonomies = array('stage', 'grade', 'enrichment', 'department-1', 'department-2');
+$taxonomies = '';
+if($cpt == 'administration') {
+	$taxonomies = array('admin-department');
+}
+if($cpt == 'teacher-staff') {
+	$taxonomies = array('stage', 'grade', 'enrichment', 'department-1', 'department-2');
+}
 $combined_terms = '';
 
 // Loop through each taxonomy

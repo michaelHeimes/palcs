@@ -224,8 +224,8 @@
                 const blockVideos = document.querySelectorAll('.block-videos');
                 const allGravityForms = document.querySelectorAll('.block-videos .gform_wrapper');
                 const allFormIntroCopies = document.querySelectorAll('.block-videos .form-intro-copy');
-                if (blockVideos) {
-                    
+
+                if (blockVideos.length > 0) {
                     if( videoCookie == 'true' ) {
                         showVideos = true;
                     }
@@ -269,7 +269,7 @@
                         });
                     }
                     
-                    if( showVideos === true ) {
+                    if( showVideos === true && moreVidsTab ) {
                         moreVidsTab.addEventListener('click', function (event) {
                             event.preventDefault();
                             allGravityForms.forEach(function (gravityForm) {
