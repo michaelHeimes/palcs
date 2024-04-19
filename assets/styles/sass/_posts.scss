@@ -174,9 +174,9 @@ article.post-card {
 					}
 				}
 				.content-wrap {
-					padding: .5rem 0 1.05rem;
+					padding: 0 0 1.05rem;
 					//margin-bottom: calc(-100% - 1.56rem);
-					transition: margin-bottom .5s ease, opacity .25s ease;
+					transition: margin-bottom .5s ease, opacity .25s ease .5s;
 				}
 			}
 			&:hover {

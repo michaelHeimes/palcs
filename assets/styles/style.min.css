@@ -12885,9 +12885,9 @@ article.post-card .inner .permalink .text-wrap h3 {
   }
 }
 article.post-card .inner .permalink .text-wrap .content-wrap {
-  padding: 0.5rem 0 1.05rem;
-  -webkit-transition: margin-bottom 0.5s ease, opacity 0.25s ease;
-  transition: margin-bottom 0.5s ease, opacity 0.25s ease;
+  padding: 0 0 1.05rem;
+  -webkit-transition: margin-bottom 0.5s ease, opacity 0.25s ease 0.3s;
+  transition: margin-bottom 0.5s ease, opacity 0.25s ease 0.3s;
 }
 article.post-card .inner .permalink:hover h3 {
   color: #ff1b85;
