@@ -15,6 +15,11 @@ if ( is_home() ) {
 } else {
 	$full_width_banner_image = get_field('full_width_banner_image');
 }
+
+$intro_size_classes = ' small-12 large-10';
+if ( is_home() || is_archive() ) {
+	$intro_size_classes = ' small-12 large-10 xxlarge-8';
+}
 ?>
 
 <header class="entry-header banner-full-width-image text-center">
@@ -30,7 +35,7 @@ if ( is_home() ) {
 	}?>
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x align-center">
-			<div class="cell small-12 large-10 text-left">
+			<div class="cell<?=$intro_size_classes;?> text-left">
 				<?php if ( is_archive() || is_home() ) {
 					get_template_part('template-parts/part', 'grid-intro');
 				}?>

@@ -1,8 +1,12 @@
 .ctas-video-slider {
 	position: relative;
 	.inner-height-control {
-		min-height: rem-calc(720);
-		min-height: clamp(31.25rem, 24.952rem + 16.794vw, 45rem);
+		min-height: rem-calc(448);
+		min-height: clamp(28rem, 25.068rem + 12.508vw, 40rem);
+		@include breakpoint(medium) {
+			min-height: rem-calc(640);
+			min-height: clamp(28rem, 25.068rem + 12.508vw, 40rem);
+		}
 	}
 	.bg.gradient-1 {
 		position: absolute;
@@ -13,6 +17,9 @@
 		background-image: linear-gradient(90.59deg, #f6885c 0%, #f91c5d 23.599999999999998%, #96358a 53.2%, #5446ab 71.6%, #379ff8 100%);
 		@include breakpoint(tablet) {
 			width: 100%;
+			top: -1px;
+			bottom: -1px;
+			height: calc(100% + 2px);
 			clip-path: polygon(0% 0, 100% 0%, 73% 100%, 0 100%);
 			width: calc( 70vw + $mediumGutter);
 		}
@@ -32,10 +39,24 @@
 		h2 {
 			margin-bottom: 1em,
 		}
+		h3 {
+			line-height: 1.375;
+			font-size: 1.75rem;
+			@include breakpoint(medium) {
+				font-size: 2.5rem;
+				font-size: clamp(1.75rem, 1.567rem + 0.782vw, 2.5rem);
+			}
+		}
 		.inner {
 			position: relative;
 			z-index: 1;
 			padding: $mediumGutter 0;
+		}
+		.text-wrap,
+		.button-group {
+			@media (max-width: 1660px) {
+				padding-left: 3rem;
+			}
 		}
 	}
 	.right {

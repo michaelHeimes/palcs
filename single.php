@@ -28,17 +28,19 @@ get_header();
 				$taxonomies = '';
 				$combined_terms = '';
 				
-				if( is_singular('teacher-staff') ) { 
+				if( is_singular('academic-course') ) { 
 					$categories = array('stage');
-					$taxonomies = array('grade', 'enrichment', 'department-1', 'department-2');
-					$slug_front = '/about-us/teachers-staff/';
+					$taxonomies = array('core-elect', 'grade', 'academic-course-specialty') ?? null;
+					$slug_front = '/academic-courses/';
 				}
 				
-				if( is_singular('event') ) { 
-					$categories = array('event-category');
-					$slug_front = '/about-us/upcoming-events/event-category/';
+				if( is_singular('administration') ) { 
+					$categories = array('team');
+					$taxonomies = array('admin-department');
+					$slug_front = '/about-us/administration/';
 				}
 				
+								
 				if( is_singular('club') ) { 
 					$categories = array('club-category');
 					$slug_front = '/activities/student-activities/clubs/club-category/';
@@ -50,6 +52,17 @@ get_header();
 					$slug_front = '/enrichment-courses/';
 				}
 				
+				if( is_singular('event') ) { 
+					$categories = array('event-category');
+					$slug_front = '/about-us/upcoming-events/event-category/';
+				}
+				
+				if( is_singular('teacher-staff') ) { 
+					$categories = array('stage');
+					$taxonomies = array('grade', 'enrichment', 'department-1', 'department-2');
+					$slug_front = '/about-us/teachers-staff/';
+				}
+
 				// Loop through each taxonomy
 				if($taxonomies) {
 					foreach ($taxonomies as $taxonomy) {

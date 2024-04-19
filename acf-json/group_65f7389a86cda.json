@@ -68,11 +68,11 @@
             "append": ""
         },
         {
-            "key": "field_660da9caac5ff",
-            "label": "School to Show",
-            "name": "school_to_show",
+            "key": "field_6621bc7258d9d",
+            "label": "Taxonomy To Show",
+            "name": "taxonomy_to_show",
             "aria-label": "",
-            "type": "taxonomy",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -81,8 +81,178 @@
                 "class": "",
                 "id": ""
             },
+            "choices": {
+                "all": "All",
+                "stage": "School",
+                "grade": "Grade",
+                "enrichment": "Enrichment",
+                "department-1": "Department 1",
+                "department-2": "Department 2"
+            },
+            "default_value": "all",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_660da9caac5ff",
+            "label": "School to Show",
+            "name": "school_to_show",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6621bc7258d9d",
+                        "operator": "==",
+                        "value": "stage"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
             "taxonomy": "stage",
-            "add_term": 1,
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "radio",
+            "allow_null": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_6621400968454",
+            "label": "Grade To Show",
+            "name": "grade_to_show",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6621bc7258d9d",
+                        "operator": "==",
+                        "value": "grade"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "grade",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "radio",
+            "allow_null": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_6621400868453",
+            "label": "Enrichment to Show",
+            "name": "enrichment_to_show",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6621bc7258d9d",
+                        "operator": "==",
+                        "value": "enrichment"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "enrichment",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "radio",
+            "allow_null": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_6621400868452",
+            "label": "Department 1 to Show",
+            "name": "department_1_to_show",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6621bc7258d9d",
+                        "operator": "==",
+                        "value": "department-1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "department-1",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "radio",
+            "allow_null": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_6621400768451",
+            "label": "Department 2 to Show",
+            "name": "department_2_to_show",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6621bc7258d9d",
+                        "operator": "==",
+                        "value": "department-2"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "department-2",
+            "add_term": 0,
             "save_terms": 0,
             "load_terms": 0,
             "return_format": "id",
@@ -127,5 +297,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1712171492
+    "modified": 1713536620
 }

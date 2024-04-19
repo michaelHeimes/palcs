@@ -2,8 +2,13 @@
 	padding-top: rem-calc(20);
 	padding-bottom: rem-calc(4);
 	font-family: $font-header;
-	font-size: clamp(1rem, 0.954rem + 0.194vw, 1.188rem);
 	font-weight: 700;
+	font-size: 1rem;
+	font-size: clamp(1rem, 0.954rem + 0.194vw, 1.188rem);
+	@include breakpoint(medium) {
+		font-size: 1.188rem;
+		font-size: clamp(1rem, 0.954rem + 0.194vw, 1.188rem);
+	}
 	.cell {
 		margin-bottom: 1rem;
 	}

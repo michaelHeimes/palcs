@@ -6,11 +6,19 @@
  *
  * @package trailhead
  */
-
+$classes = 'no-banner';
+ if( get_field('full_width_banner_image') ) {
+	 $classes = 'has-banner';
+ }
+ $classes .= ' cell small-12 medium-6 tablet-4';
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('cell small-12 medium-6 tablet-4'); ?>>
-	<?php get_template_part('template-parts/banner', 'full-width-image');?>
+<article id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
+	<?php 
+		if( get_field('full_width_banner_image') ) {
+			get_template_part('template-parts/banner', 'full-width-image');
+		}
+	?>
 	<header class="entry-header">
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x align-center">

@@ -74,28 +74,48 @@ h1,
 .h1,
 h1.wp-block-heading,
 .h1-style-h2 h2 {
-	font-size: clamp(1.881rem, 1.683rem + 0.846vw, 2.688rem);
 	line-height: 1.093;
+	font-size: 1.881rem;
+	font-size: clamp(1.881rem, 1.634rem + 1.054vw, 2.688rem);
+	@include breakpoint(medium) {
+		font-size: 2.688rem;
+		font-size: clamp(1.881rem, 1.634rem + 1.054vw, 2.688rem);
+	}
 }
 
 h2,
 .h2 {
 	text-transform: none;
-	font-size: clamp(1.663rem, 1.487rem + 0.748vw, 2.375rem);
 	line-height: 1.2368;
+	font-size: 1.663rem;
+	font-size: clamp(1.663rem, 1.487rem + 0.748vw, 2.375rem);
+	@include breakpoint(medium) {
+		font-size: 2.375rem;
+		font-size: clamp(1.663rem, 1.487rem + 0.748vw, 2.375rem);
+	}
 	&.wp-block-heading {
 		color: $dark-gray;
 	}
 	&.cta-heading {
-		font-size: clamp(2.275rem, 2.038rem + 1.01vw, 3.25rem);
 		line-height: 1.038;
+		font-size: 2.275rem;
+		font-size: clamp(2.275rem, 2.038rem + 1.01vw, 3.25rem);
+		@include breakpoint(medium) {
+			font-size: 3.25rem;
+			font-size: clamp(2.275rem, 2.038rem + 1.01vw, 3.25rem);
+		}
 	}
 }
 
 h3,
 .h3 {
-	font-size: clamp(1.4rem, 1.252rem + 0.63vw, 2rem);
+	font-size: 1.4rem;
 	line-height: 1.34375;
+	font-size: clamp(1.4rem, 1.252rem + 0.63vw, 2rem);
+	@include breakpoint(medium) {
+		font-size: 2rem;
+		font-size: clamp(1.4rem, 1.252rem + 0.63vw, 2rem);
+	}
 	&.wp-block-heading {
 		color: $dark-gray;
 	}
@@ -103,9 +123,14 @@ h3,
 
 h4,
 .h4 {
-	font-size: clamp(1.225rem, 1.096rem + 0.551vw, 1.75rem);
 	line-height: 1.2875;
 	margin-bottom: 0;
+	font-size: 1.225rem;
+	font-size: clamp(1.225rem, 1.096rem + 0.551vw, 1.75rem);
+	@include breakpoint(medium) {
+		font-size: 1.75rem;
+		font-size: clamp(1.225rem, 1.096rem + 0.551vw, 1.75rem);
+	}
 	&.wp-block-heading {
 		color: $dark-gray;	
 		margin-bottom: 0 !important;
@@ -115,37 +140,62 @@ h4,
 h5,
 .h5,
 h5.wp-block-heading {
-	font-size: clamp(1.063rem, 0.956rem + 0.453vw, 1.5rem);
 	color: $dark-gray;
 	line-height: 1.2875;
+	font-size: 1.063rem;
+	font-size: clamp(1.063rem, 0.956rem + 0.453vw, 1.5rem);
+	@include breakpoint(medium) {
+		font-size: 1.5rem;
+		font-size: clamp(1.063rem, 0.956rem + 0.453vw, 1.5rem);
+	}
 }
 
 h6,
 .h6,
 h6.wp-block-heading {
 	font-weight: bold;
-	font-size: clamp(1rem, 0.894rem + 0.453vw, 1.438rem);
 	color: $dark-gray;
 	line-height: 1.0869;
+	font-size: 1rem;
+	font-size: clamp(1rem, 0.894rem + 0.453vw, 1.438rem);
+	@include breakpoint(medium) {
+		font-size: 1.438rem;
+		font-size: clamp(1rem, 0.894rem + 0.453vw, 1.438rem);
+	}
 }
 
 .home .content {
 	h1,
 	.h1,
 	.ctas-video-slider h2 {
-		font-size: clamp(2.975rem, 2.661rem + 1.338vw, 4.25rem);
 		line-height: 1.132;
+		font-size: 2.975rem;
+		font-size: clamp(2.975rem, 2.661rem + 1.338vw, 4.25rem);
+		@include breakpoint(medium) {
+			font-size: 4.25rem;
+			font-size: clamp(2.975rem, 2.661rem + 1.338vw, 4.25rem);
+		}
 	}
 	h2,
 	.h2 {
-		font-size: clamp(2.188rem, 1.957rem + 0.984vw, 3.125rem);
 		line-height: 1.08;
 		text-transform: uppercase;
+		font-size: 2.188rem;
+		font-size: clamp(2.188rem, 1.957rem + 0.984vw, 3.125rem);
+		@include breakpoint(medium) {
+			font-size: 3.125rem;
+			font-size: clamp(2.188rem, 1.957rem + 0.984vw, 3.125rem);
+		}
 	}
 	h3,
 	.h3 {
-		font-size: clamp(1.356rem, 1.213rem + 0.61vw, 1.938rem);
 		line-height: 1.419;
+		font-size: 1.356rem;
+		font-size: clamp(1.356rem, 1.213rem + 0.61vw, 1.938rem);
+		@include breakpoint(medium) {
+			font-size: 1.938rem;
+			font-size: clamp(1.356rem, 1.213rem + 0.61vw, 1.938rem);
+		}
 	}
 }
 

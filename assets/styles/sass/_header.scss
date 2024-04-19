@@ -7,16 +7,34 @@ header.site-header {
 		padding-bottom: 11px;
 		.social-links {
 			li {
+				margin-right: 20px;
 				margin-right: clamp(20px, 3vw, 38.5px);
+				@include breakpoint(medium) {
+					margin-right: 38.5px;
+					margin-right: clamp(20px, 3vw, 38.5px);
+				}
 			}
 		}
 		.header-secondary-nav {
 			li {
+				padding-left: 32px;
 				padding-left: clamp(32px, 3vw, 70px);
+				@include breakpoint(medium) {
+					padding-left: 70px;
+					padding-left: clamp(32px, 3vw, 70px);
+				}
 				a {
 					font-weight: bold;
-					font-size: clamp( rem-calc(15), 2.3vw, rem-calc(18) );
 					line-height: 1.333;
+					font-size: rem-calc(15);
+					font-size: clamp( rem-calc(15), 2.3vw, rem-calc(18) );
+					&:hover {
+						text-decoration: underline;
+					}
+					@include breakpoint(medium) {
+						font-size: rem-calc(18);
+						font-size: clamp( rem-calc(15), 2.3vw, rem-calc(18) );
+					}
 				}
 			}
 		}
@@ -74,7 +92,12 @@ header.site-header {
 				color: $black;
 				@extend .font-size-20;
 				line-height: 1.35;
+				padding: 16px;
 				padding: clamp(16px, 1vw, 21px) clamp(16px, 2vw, 27px);
+				@include breakpoint(medium) {
+					padding: 27px;
+					padding: clamp(16px, 1vw, 21px) clamp(16px, 2vw, 27px);
+				}
 			}
 			&.active {
 				a {
@@ -141,13 +164,18 @@ header.site-header {
 		
 		.menu-toggle {
 			text-transform: uppercase;
-			font-size: clamp(rem-calc(17), 2vw, rem-calc(20));;
 			line-height: 1.35;
 			font-weight: bold;
 			border: 1px solid $black;
 			border-radius: 4px;
 			padding: rem-calc(12.4) rem-calc(10);
 			transition: .25s ease;
+			font-size: rem-calc(17);
+			font-size: clamp(rem-calc(17), 2vw, rem-calc(20));
+			@include breakpoint(medium) {
+				font-size: rem-calc(20);
+				font-size: clamp(rem-calc(17), 2vw, rem-calc(20));
+			}
 			svg path {
 				transition: .25s ease;
 			}

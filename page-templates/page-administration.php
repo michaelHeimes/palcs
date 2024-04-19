@@ -13,7 +13,7 @@ $fields = get_fields();
 $team = $fields['team'] ?? null;
 $terms_to_hide = $fields['terms_to_hide'] ?? null;
 
-if( !empty($stage) ) {
+if( !empty($team) ) {
 	$args = array(  
 		'post_type' => 'administration',
 		'post_status' => 'publish',
@@ -25,7 +25,7 @@ if( !empty($stage) ) {
 			array(
 				'taxonomy' => 'team',
 				'field'    => 'slug',
-				'terms'    => $stage->slug,
+				'terms'    => $team->slug,
 			),
 		),
 	);
@@ -56,7 +56,7 @@ $intro_text = $fields['intro_text'];
 					<?php get_template_part('template-parts/section', 'ctas-video-slider');?>
 					<div class="grid-container">
 						<div class="grid-x grid-padding-x align-center">
-							<div class="cell small-12 xlarge-10">
+							<div class="cell small-12 xlarge-10 xxlarge-8">
 								<?php if( !empty($intro_text) ) {
 									get_template_part('template-parts/part', 'grid-intro', 
 										array(

@@ -20,7 +20,9 @@
 			}?>
 			<div class="cell small-12 medium-8">
 				<h3 class="h6 color-blue">
-					<?php the_title();?>
+					<a class="color-blue" href="<?= esc_url(get_the_permalink());?>">
+						<?php the_title();?>
+					</a>
 				</h3>
 				<?php if( !empty($event_date) ):?>
 				<p class="date">

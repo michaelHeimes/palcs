@@ -8,13 +8,16 @@ $combined_terms = $args['combined_terms'] ?? null;
 $slug_front = $args['slug_front'] ?? null;
 $image_size = 'circle-thumb';
 $thumbwrap_class = 'thumb-wrap circle-thumb-wrap';
-if( $post_type == 'event'  ) {
-	$thumbwrap_class = 'thumb-wrap';
-	$image_size = 'event-card';
+
+if( $post_type == 'academic-course' ) {
+	$icon = '';
+	$specialty_terms = get_the_terms($post_id, 'academic-course-specialty');
+	if ($specialty_terms && !is_wp_error($specialty_terms)) {
+		$first_term = reset($specialty_terms);
+		$icon = get_field('icon', $first_term) ?? get_field('enrichment_fallback_icon', 'option');
+	}
 }
-if( $post_type == 'teacher-staff' || $post_type == 'club' ) {
-	$image_size = 'staff-grid';
-}
+
 if( $post_type == 'enrichment-course' ) {
 	$icon = '';
 	$specialty_terms = get_the_terms($post_id, 'specialty');
@@ -23,6 +26,18 @@ if( $post_type == 'enrichment-course' ) {
 		$icon = get_field('icon', $first_term) ?? get_field('enrichment_fallback_icon', 'option');
 	}
 }
+
+if( $post_type == 'event'  ) {
+	$thumbwrap_class = 'thumb-wrap purple-ds';
+	$image_size = 'event-card';
+	$event_date = get_field('event_date') ?? null;
+	$date = DateTime::createFromFormat( 'Ymd', $event_date );
+}
+
+if( $post_type == 'teacher-staff' || $post_type == 'club' ) {
+	$image_size = 'staff-grid';
+}
+
 
 $sidebar_width = $args['sidebar-width'] ?? ' small-12 tablet-4 xlarge-3';
 $content_width = $args['content-width'] ?? ' small-12 tablet-6 xlarge-5';
@@ -48,7 +63,7 @@ $content_width = $args['content-width'] ?? ' small-12 tablet-6 xlarge-5';
 						// Output the image with alt text and title
 						echo '<div class="' . $thumbwrap_class . '"><img src="' . esc_url($thumbnail_url) . '" alt="' . esc_attr($alt_text) . '" title="' . esc_attr($title) . '" decoding="async" loading="lazy"></div>';
 						
-					} elseif( $post_type == 'enrichment-course' && !empty( $icon ) ) {
+					} elseif( $post_type == 'academic-course' && !empty( $icon ) || $post_type == 'enrichment-course' && !empty( $icon ) ) {
 							$imgID = $icon['ID'];
 							$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
 							$img = wp_get_attachment_image( $imgID, $image_size, false, [ "class" => "", "alt"=>$img_alt] );
@@ -68,8 +83,9 @@ $content_width = $args['content-width'] ?? ' small-12 tablet-6 xlarge-5';
 					
 					<?php 
 						the_title( '<h1 class="entry-title">', '</h1>' );
-						
-						if($taxonomies) {
+												
+						if($categories || $taxonomies) {
+							
 							echo '<ul class="terms-list no-bullet font-header">';
 							
 							// Loop through each category
@@ -90,15 +106,17 @@ $content_width = $args['content-width'] ?? ' small-12 tablet-6 xlarge-5';
 							
 							
 							// Loop through each taxonomy
-							foreach ($taxonomies as $taxonomy) {
-								// Get the terms assigned to the post for the current taxonomy
-								$terms = get_the_terms($post_id, $taxonomy);
-							
-								// Check if there are any terms
-								if ($terms && !is_wp_error($terms)) {
-									// Loop through each term and add its slug to the array
-									foreach ($terms as $term) {
-										echo '<li class="color-purple">' . $term->name . '</li>';
+							if($taxonomies) {
+								foreach ($taxonomies as $taxonomy) {
+									// Get the terms assigned to the post for the current taxonomy
+									$terms = get_the_terms($post_id, $taxonomy);
+								
+									// Check if there are any terms
+									if ($terms && !is_wp_error($terms)) {
+										// Loop through each term and add its slug to the array
+										foreach ($terms as $term) {
+											echo '<li class="color-purple">' . $term->name . '</li>';
+										}
 									}
 								}
 							}
@@ -109,7 +127,17 @@ $content_width = $args['content-width'] ?? ' small-12 tablet-6 xlarge-5';
 				</header><!-- .entry-header -->
 				
 				<div class="entry-content">
+					
 					<?php
+					
+					if( $post_type == 'event'  ) {		
+						if( !empty($event_date) ) {
+							echo '<p><b>Event Date:</b> ';
+							echo $date->format( 'm/d/y' );;
+							echo '</p>';
+						}
+					}
+					
 					the_content(
 						sprintf(
 							wp_kses(

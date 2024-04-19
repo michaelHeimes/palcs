@@ -56,6 +56,7 @@ $department_2s_check = array_merge($department_2s_check, $post_terms);
 		</div>
 	</div>
 <?php endif; endforeach; endif;?>
+
 <?php if($enrichment_terms && !is_wp_error($enrichment_terms)): foreach($enrichment_terms as $term):
 		if( in_array($term, $enrichment_terms_check) ):
 	?>
@@ -65,6 +66,7 @@ $department_2s_check = array_merge($department_2s_check, $post_terms);
 		</div>
 	</div>
 <?php endif; endforeach; endif;?>
+
 <?php if($department_1s && !is_wp_error($department_1s)): foreach($department_1s as $term):
 		if( in_array($term, $department_1s_check) ):
 	?>
@@ -74,6 +76,7 @@ $department_2s_check = array_merge($department_2s_check, $post_terms);
 		</div>
 	</div>
 <?php endif; endforeach; endif;?>
+
 <?php if($department_2s && !is_wp_error($department_2s)): foreach($department_2s as $term):
 		if( in_array($term, $department_2s_check) ):
 	?>

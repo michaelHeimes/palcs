@@ -1,10 +1,10 @@
 {
     "key": "group_66168c01c99ee",
-    "title": "Enrichment Fallback Icon",
+    "title": "Course Fallback Icon",
     "fields": [
         {
             "key": "field_66168c01cefa0",
-            "label": "Enrichment Fallback Icon",
+            "label": "Course Fallback Icon",
             "name": "enrichment_fallback_icon",
             "aria-label": "",
             "type": "image",
@@ -46,5 +46,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1712753715
+    "modified": 1713376422
 }

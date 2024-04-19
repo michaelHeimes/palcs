@@ -35,6 +35,9 @@
 			padding-top: 4.35rem;
 		}
 	}
+	.isotope-filter-loadmore {
+		padding-bottom: 4px;
+	}
 	// article.page {
 	// 	padding-bottom: 5rem;
 	// 	@include breakpoint(medium) {
@@ -62,8 +65,13 @@
 			color: $dark-gray;
 			font-family: $font-header;
 			font-weight: 700;
-			font-size: clamp(1rem, 0.97rem + 0.129vw, 1.125rem);
 			line-height: 1.1666;
+			font-size: 1rem;
+			font-size: clamp(1rem, 0.97rem + 0.129vw, 1.125rem);
+			@include breakpoint(medium) {
+				font-size: 1.125rem;
+				font-size: clamp(1rem, 0.97rem + 0.129vw, 1.125rem);
+			}
 		}
 
 	}
@@ -108,15 +116,18 @@
 	}
 }
 
-.filter-grid {
-	&.equal-heights {
-		article {
-			display: flex;
-			width: 100%;
-			a {
+.page-template-page-academic-courses,
+.page-template-page-enrichment-courses {
+	.filter-grid {
+		&.equal-heights {
+			article {
 				display: flex;
 				width: 100%;
-				height: auto;
+				a {
+					display: flex;
+					width: 100%;
+					height: auto;
+				}
 			}
 		}
 	}
@@ -124,32 +135,56 @@
 
 article.post-card {
 	margin: 0 0 calc($smallGutter); 
+	display: flex;
 	@include breakpoint(medium) {
 		margin: 0 0 calc($mediumGutter);
 	}
 	.inner {
+		.thumbnail-wrap {
+			height: 100%;
+			img {
+				height: 100%;
+				object-fit: cover;
+			}
+		}
 		.permalink {
 			position: absolute;
 			top: 0;
 			bottom: 0;
 			height: 100%;
-			width: 100%;
-			h3 {
-				font-weight: 800;
-				margin-bottom: 0;
-				margin: 0;
-				width: 100%;
-				font-size: clamp(1rem, 0.894rem + 0.453vw, 1.438rem);
-				line-height: 1.0869;
-				font-weight: 700;
+			width: 100%; cursor: pointer;
+			overflow: hidden;
+			.text-wrap {
 				background-color: rgba(255,255,255,.8);
-				padding: 1.35rem 1.25rem 1.05rem;
-				transition: background-color .25s ease;
+				padding: 0 1.25rem;
+				h3 {
+					font-weight: 800;
+					margin-bottom: 0;
+					margin: 0;
+					width: 100%;
+					line-height: 1.0869;
+					font-weight: 700;
+					padding: 1.35rem 0 1.05rem;
+					transition: background-color .25s ease;
+					font-size: 1rem;
+					font-size: clamp(1rem, 0.894rem + 0.453vw, 1.438rem);
+					@include breakpoint(medium) {
+						font-size: 1.438rem;
+						font-size: clamp(1rem, 0.894rem + 0.453vw, 1.438rem);
+					}
+				}
+				.content-wrap {
+					padding: .5rem 0 1.05rem;
+					//margin-bottom: calc(-100% - 1.56rem);
+					transition: margin-bottom .5s ease, opacity .25s ease;
+				}
 			}
 			&:hover {
 				h3 {
 					color: $color-coral;
-					background-color: rgba(255,255,255,1);
+				}
+				.content-wrap {
+					//margin-bottom: 0;
 				}
 			}
 		}
@@ -171,6 +206,30 @@ article.post-card {
 			}
 		}			
 	}
+	&.hover-card {
+		.permalink {
+			overflow-x: hidden;
+			overflow-y: auto;
+			.content-wrap {
+				opacity: 0;
+			}
+			.text-wrap {
+
+			}
+			&:hover {
+				.content-wrap {
+					opacity: 1;
+					margin-bottom: 0 !important;
+					transition: margin-bottom .5s ease, opacity .25s ease .3s;
+				}
+			}
+		}
+		&.loading {
+			.content-wrap {
+				transition: margin-bottom 0s linear !important;
+			}
+		}
+	}
 }
 
 article.event-card {
@@ -183,6 +242,9 @@ article.event-card {
 	h3 {
 		font-weight: 800;
 		margin-bottom: .87em;
+		a:hover {
+			color: $color-coral;
+		}
 	}
 	.date {
 		margin-bottom: .66em;

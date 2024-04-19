@@ -1,14 +1,15 @@
 figure.wp-block-image {
+	margin-top: 2rem;
 	margin-bottom: 2rem;
 }
 [class^="wp-block-"]:not(.wp-block-image),
 .module.block,
 blockquote {
-	margin-top: 1.5rem;
-	margin-bottom: 1.5rem;
+	margin-top: rem-calc(30);
+	margin-bottom: rem-calc(30);
 	@include breakpoint(tablet) {
-		margin-top: 2.5rem;
-		margin-bottom: 2.5rem;
+		margin-top: rem-calc(52);
+		margin-bottom: rem-calc(52);
 	}
 	&.wp-block-heading:not(h4) {
 		margin-bottom: .7rem;
@@ -20,6 +21,9 @@ blockquote {
 		margin-top: 1.75rem;
 	}
 	&.is-layout-flow {
+		figure {
+			margin-bottom: 2.5rem;
+		}
 		.wp-block-heading {
 			margin-top: 0;
 		}
@@ -39,19 +43,38 @@ blockquote {
 		}
 	}
 }
+hr.wp-block-separator {
+	border-color: #cccccc;
+}
 body.error404,
 body.page-template-default,
-body.single-post {
+body.page-template-page-academics-interior,
+body.page-template-page-secondary-hp-w-nav,
+body.page-template-page-secondary-hp-wo-nav,
+body.page-template-page-secondary-kitchen-sink,
+body.page-template-page-search,
+body.single {
 	.entry-content {
 		overflow: hidden;
+		padding-bottom: 5.5rem;
+		@include breakpoint(medium) {
+			padding-bottom: 8rem;
+		}
 		p {
 			
 		}
 		p,
-		ul,
+		ul:not(.tabs):not(.accordion),
 		ol,
 		.button-group  {
 			line-height: 2.05;
+			padding-top: rem-calc(20);
+			padding-bottom: rem-calc(20);
+		}
+		.content-wrap {
+			> *:first-child {
+				margin-top: rem-calc(10);
+			}
 		}
 		ul,
 		ol {
@@ -118,6 +141,24 @@ body.single-post {
 			font-weight: 700;
 			font-style: normal;
 			padding-top: 2.05rem;
+		}
+	}
+}
+
+body.page-template-default {
+	article {
+		&.no-banner {
+			.entry-content {
+				padding-top: 5.55rem;
+			}
+		}
+	}
+}
+
+body.single-post {
+	article {
+		&.no-banner {
+				padding-top: 5.55rem;
 		}
 	}
 }

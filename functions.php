@@ -161,6 +161,10 @@ function trailhead_scripts() {
 	
 	wp_enqueue_script( 'app-js', get_template_directory_uri() . '/assets/scripts/app.min.js', array('jquery'), _S_VERSION, true );
 	
+	wp_enqueue_script('ajax-search-script', get_template_directory_uri() . '/assets/scripts/ajax-search.js', array('jquery'), _S_VERSION, true);
+	wp_localize_script('ajax-search-script', 'ajax_search_params', array('ajax_url' => admin_url('admin-ajax.php'),
+	));
+	
 	//wp_enqueue_script( 'trailhead-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -284,5 +288,8 @@ require_once(get_template_directory().'/inc/expire-events.php');
 // Shortcodes
 require_once(get_template_directory().'/inc/shortcodes.php');
 
-// Shortcodes
+// Gravity Forms
 require_once(get_template_directory().'/inc/gravity-forms.php');
+
+// Ajax Search Handler
+require_once(get_template_directory().'/inc/ajax-search.php');

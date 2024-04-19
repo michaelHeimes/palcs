@@ -1,6 +1,6 @@
 {
     "key": "group_66155783517a1",
-    "title": "Taxonomy: Program",
+    "title": "Taxonomy: Specialty",
     "fields": [
         {
             "key": "field_66155783e98e7",
@@ -35,6 +35,13 @@
                 "operator": "==",
                 "value": "specialty"
             }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "academic-course-specialty"
+            }
         ]
     ],
     "menu_order": 0,
@@ -46,5 +53,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1712675490
+    "modified": 1713376545
 }

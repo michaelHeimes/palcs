@@ -179,22 +179,6 @@
                     "delay": 0
                 },
                 {
-                    "key": "field_660b1b5e574b4",
-                    "label": "Button Link (optional)",
-                    "name": "button_link",
-                    "aria-label": "",
-                    "type": "link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array"
-                },
-                {
                     "key": "field_65f65474e2e6b",
                     "label": "Image",
                     "name": "image",
@@ -240,5 +224,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1712190256
+    "modified": 1712238430
 }

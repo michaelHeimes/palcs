@@ -102,10 +102,14 @@ body .gform_footer input,
 .purple-ds,
 body .alm-btn-wrap .alm-load-more-btn {
 	box-shadow: 4px 4px 0px 0px $color-purple !important;
-	&:hover {
+	&:not(input):hover {
 		box-shadow: 4px 4px 0px 0px #010B1A !important;
 	}
+	
 }
+// input.purple-ds:focus {
+// 	box-shadow: 4px 4px 0px 0px #010B1A !important;
+// }
 .blue-ds {
 	box-shadow: 4px 4px 0px 0px $color-blue;
 }

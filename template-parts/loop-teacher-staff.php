@@ -1,4 +1,5 @@
 <?php 
+// Archive card for both Teachers & Staff and Administration
 $cpt = get_post_type();
 $post_id = $post->ID;
 $term_slugs = [];

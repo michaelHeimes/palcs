@@ -64,7 +64,7 @@ function trailhead_off_canvas_nav() {
 		'container'			=> true,							// Remove nav container
 		'menu_id'			=> 'offcanvas-nav',					// Adding custom nav id
 		'menu_class'		=> 'vertical menu drilldown',	// Adding custom nav class
-		'items_wrap'		=> '<ul id="%1$s" class="%2$s" data-drilldown data-parent-link="true">%3$s</ul>',
+		'items_wrap'		=> '<ul id="%1$s" class="%2$s" data-drilldown data-parent-link="true" data-auto-height="true" data-animate-height="true">%3$s</ul>',
 		'theme_location'	=> 'offcanvas-nav',					// Where it's located in the theme
 		'depth'				=> 5,								// Limit the depth of the nav
 		'fallback_cb'		=> false,							// Fallback function (see below)

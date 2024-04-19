@@ -32,7 +32,7 @@
             "label": "Heading",
             "name": "ctachwtb_heading",
             "aria-label": "",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -43,9 +43,9 @@
             },
             "default_value": "",
             "maxlength": "",
+            "rows": 4,
             "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "new_lines": "br"
         },
         {
             "key": "field_65c0480dfdcaa",
@@ -98,5 +98,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1710103586
+    "modified": 1713453073
 }

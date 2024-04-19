@@ -35,7 +35,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "club"
+                "value": "academic-course"
             }
         ]
     ],
@@ -48,5 +48,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1713105479
+    "modified": 1713490511
 }

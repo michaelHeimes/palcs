@@ -87,8 +87,13 @@
 						a {
 							color: $color-sky-blue;
 							font-weight: 500;
-							font-size: clamp(1.137rem, 1.018rem + 0.511vw, 1.625rem);
 							transition: color .25s ease;
+							font-size: 1.137rem;
+							font-size: clamp(1.137rem, 1.018rem + 0.511vw, 1.625rem);
+							@include breakpoint(medium) {
+								font-size: 1.625rem;
+								font-size: clamp(1.137rem, 1.018rem + 0.511vw, 1.625rem);
+							}
 							&:hover {
 								color: $color-coral;
 							}

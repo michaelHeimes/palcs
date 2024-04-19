@@ -1,0 +1,30 @@
+.page-template-page-search {
+	.search-wrap {
+		padding: 3.08rem 2.31rem;
+		padding: clamp(3.08rem, 2.137rem + 2.514vw, 4.4rem) clamp(2.31rem, 1.603rem + 1.886vw, 3.3rem);
+		@include breakpoint(medium) {
+			padding: 4.4rem 3.3rem;
+			padding: clamp(3.08rem, 2.137rem + 2.514vw, 4.4rem) clamp(2.31rem, 1.603rem + 1.886vw, 3.3rem);
+		}
+	}
+	#search-query.h3 {
+		font-weight: 800;
+		color: $black;
+		&.has-results {
+			border-bottom: 1px solid $black;
+			padding-bottom: 1.08em;
+			margin-bottom: 2.32em;
+		}
+	}
+	#search-results {
+		.search-results-list {
+			h4.h3 {
+				font-size: 700;
+				margin-bottom: 1.75em;
+			}
+			a {
+				color: $color-blue;
+			}
+		}
+	}
+}

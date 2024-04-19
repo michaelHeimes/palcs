@@ -42,11 +42,21 @@
 		}
 		h3.h6 {
 			font-weight: 800;
+			font-size: 1.313rem;
 			font-size: clamp(1.313rem, 1.176rem + 0.583vw, 1.875rem);
+			@include breakpoint(medium) {
+				font-size: clamp(1.313rem, 1.176rem + 0.583vw, 1.875rem);
+			}
 		}
 		h4 {
 			font-weight: 600;
+			font-size: 1.563rem;
+			font-size: 1.094rem;
 			font-size: clamp(1.094rem, 0.98rem + 0.485vw, 1.563rem);
+			@include breakpoint(medium) {
+				font-size: 1.875rem;
+				font-size: clamp(1.313rem, 1.176rem + 0.583vw, 1.875rem);
+			}
 		}
 
 	}	.btn-wrap {

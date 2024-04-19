@@ -18,9 +18,9 @@ $admin_department_terms_check = array_merge($admin_department_terms_check, $post
 <?php if($admin_department_terms && !is_wp_error($admin_department_terms)) : foreach($admin_department_terms as $term):
 		if( in_array($term, $admin_department_terms_check) ):
 	?>
-	<div class="cell shrink" data-group="grades">
+	<div class="cell shrink" data-group="admin-department">
 		<div class="button input-wrap">
-			<?='<input name="grade" type="checkbox" id="' . $term->slug . '" value=".' . $term->slug . '" data-taxonomy-terms="' . $term->slug . '"/><label for="' . $term->slug . '"/>' . $term->name . '</label>';?>
+			<?='<input name="admin-department" type="checkbox" id="' . $term->slug . '" value=".' . $term->slug . '" data-taxonomy-terms="' . $term->slug . '"/><label for="' . $term->slug . '"/>' . $term->name . '</label>';?>
 		</div>
 	</div>
 <?php endif; endforeach; endif;?>

@@ -4,7 +4,7 @@
     "menu_order": 0,
     "active": true,
     "post_type": "avada_portfolio",
-    "advanced_configuration": false,
+    "advanced_configuration": true,
     "import_source": "",
     "import_date": "",
     "labels": {
@@ -56,7 +56,7 @@
     "rest_base": "",
     "rest_namespace": "wp\/v2",
     "rest_controller_class": "WP_REST_Posts_Controller",
-    "menu_position": "",
+    "menu_position": 10,
     "menu_icon": "",
     "rename_capabilities": false,
     "singular_capability_name": "post",
@@ -81,5 +81,5 @@
     "delete_with_user": false,
     "register_meta_box_cb": "",
     "enter_title_here": "",
-    "modified": 1710031687
+    "modified": 1713364342
 }

@@ -46,11 +46,11 @@
         },
         {
             "key": "field_6604a1998d842",
-            "label": "Stage",
+            "label": "School",
             "name": "stage",
             "aria-label": "",
             "type": "taxonomy",
-            "instructions": "This selects the Stage (Elementary School, Middle School, etc.). If left blank, it will show all.",
+            "instructions": "This selects the School (Elementary School, Middle School, etc.). If left blank, it will show all.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -88,5 +88,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1711994490
+    "modified": 1713378304
 }

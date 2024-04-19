@@ -46,7 +46,7 @@ $accordions = get_field('accordion') ?? null;
                     <?= esc_attr($title);?>
                     <span class="marker"></span>
                 </a>
-                <div class="accordion-content" data-tab-content id="<?= sanitize_title($title);?>">
+                <div class="accordion-content entry-content" data-tab-content id="<?= sanitize_title($title);?>">
                     <?= $content;?>
                  </div>
             </li>

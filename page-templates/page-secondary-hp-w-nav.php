@@ -114,14 +114,24 @@ $fields = get_fields();
 							$teachers_cta_bg = $fields['cta_teachers_background_image'] ?? null;
 							$cta_teachers_heading = $fields['cta_teachers_heading'] ?? null;
 							$cta_teachers_text = $fields['cta_teachers_text'] ?? null;
+							$taxonomy_to_show = $fields['taxonomy_to_show'] ?? null;
 							$school_to_show = $fields['school_to_show'] ?? null;
+							$grade_to_show = $fields['grade_to_show'] ?? null;
+							$enrichment_to_show = $fields['enrichment_to_show'] ?? null;
+							$department_1_to_show = $fields['department_1_to_show'] ?? null;
+							$department_2_to_show = $fields['department_2_to_show'] ?? null;
 							$cta_teachers_button_link = $fields['cta_teachers_button_link'] ?? null;
 							get_template_part('template-parts/section', 'cta-teachers',
 								array(
 									'teachers_cta_bg' => $teachers_cta_bg,
 									'cta_teachers_heading' => $cta_teachers_heading,
 									'cta_teachers_text' => $cta_teachers_text,
+									'taxonomy_to_show' => $taxonomy_to_show,
 									'school_to_show' => $school_to_show,
+									'grade_to_show' => $grade_to_show,
+									'enrichment_to_show' => $enrichment_to_show,
+									'department_1_to_show' => $department_1_to_show,
+									'department_2_to_show' => $department_2_to_show,
 									'cta_teachers_button_link' => $cta_teachers_button_link,
 								),
 							);

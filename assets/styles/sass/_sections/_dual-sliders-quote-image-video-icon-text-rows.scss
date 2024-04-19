@@ -41,12 +41,22 @@
 				line-height: 2.2;
 			}
 			.quote-text {
+				font-size: 1.181rem;
 				font-size: clamp(1.181rem, 1.057rem + 0.531vw, 1.688rem);
+				@include breakpoint(medium) {
+					font-size: 1.688rem;
+					font-size: clamp(1.181rem, 1.057rem + 0.531vw, 1.688rem);
+				}
 			}
 			cite {
 				padding-top: 0.15rem;
-				font-size: clamp(1.181rem, 1.057rem + 0.531vw, 1.688rem);
 				font-style: normal;
+				font-size: 1.181rem;
+				font-size: clamp(1.181rem, 1.057rem + 0.531vw, 1.688rem);
+				@include breakpoint(medium) {
+					font-size: 1.688rem;
+					font-size: clamp(1.181rem, 1.057rem + 0.531vw, 1.688rem);
+				}
 			}
 		}
 	}
@@ -57,8 +67,13 @@
 				max-width: 66px;
 			}
 			h3.h4 {
-				font-size: clamp(1.137rem, 0.914rem + 0.595vw, 1.625rem);
 				line-height: 1.1538;
+				font-size: 1.137rem;
+				font-size: clamp(1.137rem, 0.914rem + 0.595vw, 1.625rem);
+				@include breakpoint(medium) {
+					font-size: 1.625rem;
+					font-size: clamp(1.137rem, 0.914rem + 0.595vw, 1.625rem);
+				}
 			}
 			p {
 				line-height: 1.57;

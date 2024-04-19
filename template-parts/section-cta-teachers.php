@@ -2,7 +2,31 @@
 $teachers_cta_bg = $args['teachers_cta_bg'] ?? null;
 $cta_teachers_heading = $args['cta_teachers_heading'] ?? null; 
 $cta_teachers_text = $args['cta_teachers_text'] ?? null;
+$taxonomy_to_show  = $args['taxonomy_to_show'] ?? null;
 $school_to_show = $args['school_to_show'] ?? null;
+$grade_to_show = $args['grade_to_show'] ?? null;
+$enrichment_to_show = $args['enrichment_to_show'] ?? null;
+$department_1_to_show = $args['department_1_to_show'] ?? null;
+$department_2_to_show = $args['department_2_to_show'] ?? null;
+
+$term = '';
+
+if($taxonomy_to_show == 'stage') {
+	$term = $school_to_show ?? null;
+}
+if($taxonomy_to_show == 'grade') {
+	$term = $grade_to_show ?? null;
+}
+if($taxonomy_to_show == 'enrichment') {
+	$term = $enrichment_to_show ?? null;
+}
+if($taxonomy_to_show == 'department-1') {
+	$term = $department_1_to_show ?? null;
+}
+if($taxonomy_to_show == 'department-2') {
+	$term = $department_2_to_show ?? null;
+}
+
 $link = $args['cta_teachers_button_link'] ?? null;
 ?>
 <section class="teachers-cta relative">
@@ -26,20 +50,29 @@ $link = $args['cta_teachers_button_link'] ?? null;
 				</div>
 			</div>
 		<?php endif;?>
-		<?php			
-		$args = array(  
-			'post_type'      => 'teacher-staff',
-			'post_status'    => 'publish',
-			'posts_per_page' => 4,
-			'orderby'        => 'rand',
-			'tax_query' => array(
-				array(
-					'taxonomy' => 'stage',
-					'field'    => 'term_id',
-					'terms'    => $school_to_show,
+		<?php	
+		if( $taxonomy_to_show == 'all' ) {
+			$args = array(  
+				'post_type'      => 'teacher-staff',
+				'post_status'    => 'publish',
+				'posts_per_page' => 4,
+				'orderby'        => 'rand',
+			);
+		} else {
+			$args = array(  
+				'post_type'      => 'teacher-staff',
+				'post_status'    => 'publish',
+				'posts_per_page' => 4,
+				'orderby'        => 'rand',
+				'tax_query' => array(
+					array(
+						'taxonomy' => $taxonomy_to_show,
+						'field'    => 'term_id',
+						'terms'    => $term,
+					),
 				),
-			),
-		);
+			);
+		}
 		
 		$loop = new WP_Query( $args ); 
 		

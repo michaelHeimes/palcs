@@ -1,11 +1,11 @@
 {
     "key": "group_661bea1d98aae",
-    "title": "Show Content in Modal",
+    "title": "Show Content on Hover",
     "fields": [
         {
             "key": "field_661bea1d9bcda",
-            "label": "Show Content in Modal",
-            "name": "show_content_in_modal",
+            "label": "Show Content on Hover",
+            "name": "show_content_on_hover",
             "aria-label": "",
             "type": "true_false",
             "instructions": "When checked, this will no longer link to a post but open a modal with the post's content.",
@@ -21,6 +21,34 @@
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_66226a79c9f21",
+            "label": "Hover Text",
+            "name": "hover_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_661bea1d9bcda",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -41,5 +69,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1713105511
+    "modified": 1713531559
 }

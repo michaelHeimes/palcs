@@ -46,6 +46,8 @@ function ea_disable_editor( $id = false ) {
 	$excluded_templates = array(
 		'page-templates/page-home.php',
 		'page-templates/page-teachers-staff.php',
+		'page-templates/page-administration.php',
+
 	);
 
 	$excluded_ids = array(
@@ -171,6 +173,19 @@ function relocate_revisions_metabox() {
 //add_action('do_meta_boxes','relocate_revisions_metabox', 30);
 
 
+// Hide taxonomy Description field
+add_action('admin_head', 'my_admin_area_custom_css');
+
+function my_admin_area_custom_css() {
+	echo '<style>
+		body tr.form-field.term-description-wrap {
+			display:none;
+		}
+  </style>';
+}
+
+
+
 // Add custom column header
 function custom_sticky_column($columns) {
 	$columns['is_sticky'] = 'Sticky';
@@ -188,17 +203,6 @@ function custom_sticky_column_content($column, $post_id) {
 //add_action('manage_posts_custom_column', 'custom_sticky_column_content', 10, 2);
 
 
-// Display featured image in the custom column
-function custom_teacher_staff_column_content($column, $post_id) {
-	if ($column == 'featured_image') {
-		$thumbnail = get_the_post_thumbnail($post_id, array(50, 50)); // Adjust the size as needed
-		echo $thumbnail ? $thumbnail : 'N/A';
-	} elseif ($column == 'last_name') {
-		$last_name = get_post_meta($post_id, 'last_name', true); // Replace 'last_name' with your actual custom field name
-		echo $last_name ? esc_html($last_name) : 'N/A';
-	}
-}
-add_action('manage_teacher-staff_posts_custom_column', 'custom_teacher_staff_column_content', 10, 2);
 
 // Add custom admin column for event_date
 function custom_event_columns($columns) {
@@ -238,7 +242,7 @@ function custom_video_column_content($column_name, $post_id) {
 		// Check if the thumbnail URL is not empty
 		if (!empty($thumbnail_url)) {
 			// Output the thumbnail image using the WordPress function wp_get_attachment_image()
-			echo wp_get_attachment_image($thumbnail_url, 'thumbnail');
+			echo wp_get_attachment_image($thumbnail_url, array(50, 50), true);
 		} else {
 			// Output a message if no thumbnail is available
 			echo 'No thumbnail';
@@ -246,4 +250,26 @@ function custom_video_column_content($column_name, $post_id) {
 	}
 }
 add_action('manage_video_posts_custom_column', 'custom_video_column_content', 10, 2);
+
+
+// Add custom column to display featured image
+function custom_featured_image_column($columns) {
+	// Add a new column with key 'featured_image' and title 'Featured Image'
+	$columns['featured_image'] = 'Featured Image';
+	return $columns;
+}
+add_filter('manage_posts_columns', 'custom_featured_image_column');
+
+// Display featured image in custom column
+function custom_display_featured_image_column($column, $post_id) {
+	// Check if column is 'featured_image'
+	if ($column === 'featured_image') {
+		// Get the post's featured image
+		$thumbnail = get_the_post_thumbnail($post_id, array(50, 50), true);
+		// Output the thumbnail
+		echo $thumbnail ? $thumbnail : 'N/A';
+	}
+}
+add_action('manage_posts_custom_column', 'custom_display_featured_image_column', 10, 2);
+
 

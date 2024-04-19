@@ -10,10 +10,20 @@
 		mix-blend-mode: multiply;
 	}
 	h2 {
-		font-size: clamp(2.712rem, 2.427rem + 1.22vw, 3.875rem);
 		line-height: 1;
 		text-transform: none;
 		margin-bottom: 1.045em;
+		font-size: 2.712rem;
+		font-size: clamp(2.712rem, 2.427rem + 1.22vw, 3.875rem);
+		@media (max-width: 570px) {
+			br {
+				display: none;
+			}
+		}
+		@include breakpoint(medium) {
+			font-size: 3.875rem;
+			font-size: clamp(2.712rem, 2.427rem + 1.22vw, 3.875rem);
+		}
 	}
 	a.button {
 		margin-bottom: $smallGutter; 

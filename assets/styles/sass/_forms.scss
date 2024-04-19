@@ -21,3 +21,27 @@
 		--gf-form-footer-margin-y-start: 60px;
 	}
 }
+
+form#search-form {
+	border-radius: 6px;
+	input[type=text] {
+		@extend .font-size-20;
+		flex: 1 1 0;
+		height: rem-calc(74);
+		border: 1px solid $color-blue;
+		border-radius: 6px 0 0 6px;
+		margin: 0;
+		padding: 0.5em 2.2em;
+		&::placeholder {
+			color: $black;
+		}
+	}
+	button:not(.no-style) {
+		flex: 0 0 auto;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+		min-width: 0;
+		padding-left: 3.35rem;
+		padding-right: 3.35rem;
+	}
+}

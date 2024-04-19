@@ -30,7 +30,7 @@ foreach ($posts as $post) {
 	?>
 	<div class="cell shrink" data-group="grades">
 		<div class="button input-wrap">
-			<?='<input type="checkbox" name="stage" id="' . $term->slug . '" value=".' . $term->slug . '" data-taxonomy-terms="' . $term->slug . '"/><label for="' . $term->slug . '"/>' . $term->name . '</label>';?>
+			<?='<input type="checkbox" name="school" id="' . $term->slug . '" value=".' . $term->slug . '" data-taxonomy-terms="' . $term->slug . '"/><label for="' . $term->slug . '"/>' . $term->name . '</label>';?>
 		</div>
 	</div>
 <?php endif; endforeach; endif;?>

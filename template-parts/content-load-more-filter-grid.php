@@ -17,32 +17,14 @@ $terms_to_hide_string = $args['terms-to-hide'] ?? null;
 $terms_to_hide_string = trim($terms_to_hide_string); // Remove leading and trailing spaces
 $terms_to_hide_array = explode(',', $terms_to_hide_string);
 
-$stage_terms = get_terms( array(
-	'taxonomy'   => 'stage',
-	'hide_empty' => true,
-	'exclude'    => $terms_to_hide_array,
-) );
-
-$team_terms = get_terms( array(
-	'taxonomy'   => 'team',
-	'hide_empty' => true,
-	'exclude'    => $terms_to_hide_array,
-) );
-
-$grade_terms = get_terms( array(
-	'taxonomy'   => 'grade',
+$academic_specialty_terms = get_terms( array(
+	'taxonomy'   => 'academic-course-specialty',
 	'hide_empty' => true,
 	'exclude'    => $terms_to_hide_array,
 ) );
 
 $admin_department_terms = get_terms( array(
 	'taxonomy'   => 'admin-department',
-	'hide_empty' => true,
-	'exclude'    => $terms_to_hide_array,
-) );
-
-$enrichment_terms = get_terms( array(
-	'taxonomy'   => 'enrichment',
 	'hide_empty' => true,
 	'exclude'    => $terms_to_hide_array,
 ) );
@@ -55,6 +37,24 @@ $department_1s = get_terms( array(
 
 $department_2s = get_terms( array(
 	'taxonomy'   => 'department-2',
+	'hide_empty' => true,
+	'exclude'    => $terms_to_hide_array,
+) );
+
+$core_elect_terms = get_terms( array(
+	'taxonomy'   => 'core-elect',
+	'hide_empty' => true,
+	'exclude'    => $terms_to_hide_array,
+) );
+
+$enrichment_terms = get_terms( array(
+	'taxonomy'   => 'enrichment',
+	'hide_empty' => true,
+	'exclude'    => $terms_to_hide_array,
+) );
+
+$grade_terms = get_terms( array(
+	'taxonomy'   => 'grade',
 	'hide_empty' => true,
 	'exclude'    => $terms_to_hide_array,
 ) );
@@ -77,10 +77,50 @@ $stage_terms = get_terms( array(
 	'exclude'    => $terms_to_hide_array,
 ) );
 
+$team_terms = get_terms( array(
+	'taxonomy'   => 'team',
+	'hide_empty' => true,
+	'exclude'    => $terms_to_hide_array,
+) );
+
 $primary_cat_terms = '';
 $primary_cat_front = '';
 $primary_all = '';
 $active_term = '';
+
+if( $cpt == 'academic-course' ) {
+	$primary_cat_terms = $stage_terms;
+	$primary_cat_front = '/academic-courses/';
+	$primary_all = '/academic-courses/';
+	$active_term = $stage;
+	$index_page = $primary_cat_front;
+}
+
+if( $cpt == 'administration' ) {
+	$primary_cat_terms = $team_terms;
+	$primary_cat_front = '/about-us/administration/';
+	$primary_all = $primary_cat_front;
+	$index_page = $primary_cat_front;
+	$active_term = $team;
+}
+
+if( $cpt == 'club' ) {
+	$primary_cat_terms = $post_categories;
+	$primary_cat_front = $index_page . 'club-category/';
+}
+
+if( $cpt == 'enrichment-course' ) {
+	$primary_cat_terms = $program_terms;
+	$primary_cat_front = '/enrichment-courses/';
+	$primary_all = '/enrichment-courses/';
+	$active_term = $program;
+	$index_page = $primary_cat_front;
+}
+
+if( $cpt == 'event' ) {
+	$primary_cat_terms = $post_categories;
+	$primary_cat_front = $index_page . 'event-category/';
+}
 
 if( $cpt == 'teacher-staff' ) {
 	$primary_cat_terms = $stage_terms;
@@ -89,28 +129,7 @@ if( $cpt == 'teacher-staff' ) {
 	$index_page = $primary_cat_front;
 	$active_term = $stage;
 }
-if( $cpt == 'administration' ) {
-	$primary_cat_terms = $team_terms;
-	$primary_cat_front = '/about-us/administration/';
-	$primary_all = $primary_cat_front;
-	$index_page = $primary_cat_front;
-	$active_term = $team;
-}
-if( $cpt == 'enrichment-course' ) {
-	$primary_cat_terms = $program_terms;
-	$primary_cat_front = '/enrichment-courses/';
-	$primary_all = '/enrichment-courses/';
-	$active_term = $program;
-	$index_page = $primary_cat_front;
-}
-if( $cpt == 'event' ) {
-	$primary_cat_terms = $post_categories;
-	$primary_cat_front = $index_page . 'event-category/';
-}
-if( $cpt == 'club' ) {
-	$primary_cat_terms = $post_categories;
-	$primary_cat_front = $index_page . 'club-category/';
-}
+
 if( !is_front_page() && is_home() || is_archive() ) {
 	$primary_cat_terms = $post_categories;
 	$active_term = $queried_object;
@@ -202,19 +221,20 @@ $filter_grid_classes_string = implode(' ', $filter_grid_classes);
 					<div class="filter-group">
 						<div class="option-set other-terms tax-menu grid-x grid-padding-x" data-group="taxonomy-terms">
 							<?php 
-								if( $cpt == 'teacher-staff' ) {
-									get_template_part('template-parts/part-filter-btns', 'teacher-staff',
+								if( $cpt == 'academic-course' ) {
+									get_template_part('template-parts/part-filter-btns', 'academic-course',
 										array (
-											'grade_terms' => $grade_terms, 
-											'enrichment_terms' => $enrichment_terms,
-											'department_1s' => $department_1s,
-											'department_2s' > $department_2s,
+											'stage_terms' => $stage_terms,
+											'core_elect_terms' => $core_elect_terms,
+											'grade_terms' => $grade_terms,
+											'specialty_terms' => $academic_specialty_terms, 
 										),
 									);
 								}
 								if( $cpt == 'administration' ) {
 									get_template_part('template-parts/part-filter-btns', 'administration',
 										array (
+											'admin_department_terms' => $team_terms,
 											'admin_department_terms' => $admin_department_terms,
 										),
 									);
@@ -227,6 +247,16 @@ $filter_grid_classes_string = implode(' ', $filter_grid_classes);
 										),
 									);
 								}
+								if( $cpt == 'teacher-staff' ) {
+									get_template_part('template-parts/part-filter-btns', 'teacher-staff',
+										array (
+											'grade_terms' => $grade_terms, 
+											'enrichment_terms' => $enrichment_terms,
+											'department_1s' => $department_1s,
+											'department_2s' > $department_2s,
+										),
+									);
+								}
 							?>
 						</div>
 					</div>
@@ -235,10 +265,10 @@ $filter_grid_classes_string = implode(' ', $filter_grid_classes);
 			<div class="cell small-12<?php if( $sidebar_image != null ) { echo '  medium-7 tablet-8 large-6 xxlarge-5'; } else { echo ' large-10 xxlarge-8'; }?>">
 				<div class="filter-grid grid-x grid-padding-x<?=esc_attr( $filter_grid_classes_string );?>">
 					<?php foreach( $posts as $post ){
-						if( $cpt == 'teacher-staff' || $cpt == 'administration' ) {
+						if( $cpt == 'administration' || $cpt == 'teacher-staff' ) {
 							get_template_part('template-parts/loop', 'teacher-staff');
 						}
-						if( $cpt == 'enrichment-course' ) {
+						if( $cpt == 'academic-course' || $cpt == 'enrichment-course' ) {
 							get_template_part('template-parts/loop', 'enrichment-course');
 						}
 						if( $cpt == 'event' ) {

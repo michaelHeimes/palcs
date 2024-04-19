@@ -1,11 +1,25 @@
 <?php 
+// Archive card for both Academic and Enrichment Courses
+$cpt = get_post_type();
 $post_id = $post->ID;
 $term_slugs = [];
-$taxonomies = array('stage', 'specialty');
+if( $cpt == 'academic-course' ) {
+	$taxonomies = array('stage', 'core-elect', 'grade', 'academic-course-specialty');
+}
+if( $cpt == 'enrichment-course' ) {
+	$taxonomies = array('stage', 'specialty');
+}
 $combined_terms = '';
 $no_single_post = get_field('no_single_post') ?? null;
 
 $icon = '';
+
+$academic_specialty_terms = get_the_terms($post_id, 'academic-course-specialty');
+if ($academic_specialty_terms && !is_wp_error($academic_specialty_terms)) {
+	$first_term = reset($academic_specialty_terms);
+	$icon = get_field('icon', $first_term);
+}
+
 $specialty_terms = get_the_terms($post_id, 'specialty');
 if ($specialty_terms && !is_wp_error($specialty_terms)) {
 	$first_term = reset($specialty_terms);
