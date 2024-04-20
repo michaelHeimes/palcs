@@ -42,8 +42,8 @@ $accordions = get_field('accordion') ?? null;
                 $content = $accordion['content'];    
             ?>    
             <li class="accordion-item<?php if( $i == 1 && $all_closed_by_default != true) { echo ' is-active';}?>" data-accordion-item>
-                <a href="#<?= sanitize_title($title);?>" class="accordion-title weight-medium font-sans">
-                    <?= esc_attr($title);?>
+                <a href="#<?= sanitize_title($title);?>" class="accordion-title font-header">
+                    <b><?= esc_attr($title);?></b>
                     <span class="marker"></span>
                 </a>
                 <div class="accordion-content entry-content" data-tab-content id="<?= sanitize_title($title);?>">

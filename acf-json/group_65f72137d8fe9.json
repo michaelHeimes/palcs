@@ -5,7 +5,7 @@
         {
             "key": "field_65f722476e7f8",
             "label": "Category",
-            "name": "latest_category_posts_category",
+            "name": "latest_category_posts_category_id",
             "aria-label": "",
             "type": "taxonomy",
             "instructions": "",
@@ -104,8 +104,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": true,
+    "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1710695333
+    "modified": 1713625750
 }

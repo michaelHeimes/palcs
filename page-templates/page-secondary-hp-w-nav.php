@@ -93,8 +93,8 @@ $fields = get_fields();
 					<?php endif;?>
 					
 					<?php
-						if( !empty( $fields['latest_category_posts_category'] ) ) {
-							$lcp_cat = $fields['latest_category_posts_category'] ?? null;
+						if( !empty( $fields['latest_category_posts_category_id'] ) || !empty( $fields['latest_category_posts_background_image'] ) || !empty( $fields['latest_category_posts_heading'] ) || !empty( $fields['latest_category_posts_cta_button_link'] ) ) {
+							$lcp_cat = $fields['latest_category_posts_category_id'] ?? null;
 							$lcp_bg_img = $fields['latest_category_posts_background_image'] ?? null;
 							$lcp_heading = $fields['latest_category_posts_heading'] ?? null;
 							$lcp_link = $fields['latest_category_posts_cta_button_link'] ?? null;

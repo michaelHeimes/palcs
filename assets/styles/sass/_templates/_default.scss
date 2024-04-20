@@ -2,7 +2,7 @@ figure.wp-block-image {
 	margin-top: 2rem;
 	margin-bottom: 2rem;
 }
-[class^="wp-block-"]:not(.wp-block-image),
+[class^="wp-block-"]:not(.wp-block-image):not(.wp-block-column):not(.wp-block-heading),
 .module.block,
 blockquote {
 	margin-top: rem-calc(30);
@@ -25,7 +25,9 @@ blockquote {
 			margin-bottom: 2.5rem;
 		}
 		.wp-block-heading {
-			margin-top: 0;
+			@media (min-width: 782px) {
+				margin-top: 0;
+			}
 		}
 	}
 	&.wp-block-column {
@@ -56,9 +58,11 @@ body.page-template-page-search,
 body.single {
 	.entry-content {
 		overflow: hidden;
-		padding-bottom: 5.5rem;
-		@include breakpoint(medium) {
-			padding-bottom: 8rem;
+		&:not(.accordion-content):not(.tabs-panel) {
+			padding-bottom: 5.5rem;
+			@include breakpoint(medium) {
+				padding-bottom: 8rem;
+			}
 		}
 		p {
 			
@@ -68,8 +72,8 @@ body.single {
 		ol,
 		.button-group  {
 			line-height: 2.05;
-			padding-top: rem-calc(20);
-			padding-bottom: rem-calc(20);
+			margin-top: rem-calc(30);
+			margin-bottom: rem-calc(30);
 		}
 		.content-wrap {
 			> *:first-child {
@@ -95,14 +99,28 @@ body.single {
 	}
 
 	.wp-block-gallery.has-nested-images {
+		margin-left: -10px;
+		margin-right: -10px;
+			figure {
+				padding: 10px;
+			}
+		@include breakpoint(tablet) {
 		margin-left: -15px;
 		margin-right: -15px;
-		figure {
-			padding: 15px;
+			figure {
+				padding: 15px;
+			}
 		}
 	}
 	:where(.wp-block-columns.is-layout-flex) {
-		gap: 60px;
+		> .wp-block-column-is-layout-flow {
+			>* {
+				margin-bottom: 2rem;
+			}
+		}
+		@media (min-width: 782px) {
+			gap: 60px;
+		}
 	}
 	blockquote.wp-block-quote.is-style-default {
 		border: 0;

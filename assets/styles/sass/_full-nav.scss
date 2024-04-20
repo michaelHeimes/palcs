@@ -177,10 +177,11 @@
 	}
 	#offcanvas-secondary-nav {
 		list-style: none;
-		columns: 2;
+		columns: 1;
 		padding: 0 1rem;
 		padding: 0 clamp(1rem, 4.5vw, 6.125rem);
 		@include breakpoint(medium) {
+			columns: 2;
 			padding: 0 6.125rem;
 			padding: 0 clamp(1rem, 4.5vw, 6.125rem);
 		}
@@ -215,6 +216,9 @@
 		@include breakpoint(medium) {
 			padding-bottom: rem-calc(54);
 			padding-bottom: clamp( rem-calc(30), 4vw, rem-calc(54) );
+		}
+		a.button {
+			margin-bottom: 1.2rem;
 		}
 	}
 	.call-wrap {

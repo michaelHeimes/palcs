@@ -161,9 +161,11 @@ function trailhead_scripts() {
 	
 	wp_enqueue_script( 'app-js', get_template_directory_uri() . '/assets/scripts/app.min.js', array('jquery'), _S_VERSION, true );
 	
-	wp_enqueue_script('ajax-search-script', get_template_directory_uri() . '/assets/scripts/ajax-search.js', array('jquery'), _S_VERSION, true);
-	wp_localize_script('ajax-search-script', 'ajax_search_params', array('ajax_url' => admin_url('admin-ajax.php'),
-	));
+	wp_localize_script('app-js', 'ajax_search_params', array('ajax_url' => admin_url('admin-ajax.php') ));
+	
+	// wp_enqueue_script('ajax-search-script', get_template_directory_uri() . '/assets/scripts/ajax-search.js', array('jquery'), _S_VERSION, true);
+	// wp_localize_script('ajax-search-script', 'ajax_search_params', array('ajax_url' => admin_url('admin-ajax.php'),
+	// ));
 	
 	//wp_enqueue_script( 'trailhead-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 

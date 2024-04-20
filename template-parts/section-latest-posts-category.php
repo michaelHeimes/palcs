@@ -1,12 +1,15 @@
 <?php
 $cat = $args['lcp_cat'] ?? null;
-$cat_string = implode(',', $cat) ?? null;
-$cat_ids = explode(',', $cat_string);
+if($cat) {
+	$cat_string = implode(',', $cat) ?? null;
+	$cat_ids = explode(',', $cat_string);
+}
 $bg_img = $args['lcp_bg_img'] ?? null; 
 $heading = $args['lcp_heading'] ?? null;
 $link = $args['lcp_link'] ?? null;
 ?>
 <section class="latest-posts-category relative">
+	hi
 	<?php if( !empty( $bg_img ) ) {
 		$imgID = $bg_img['ID'];
 		$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
@@ -22,19 +25,28 @@ $link = $args['lcp_link'] ?? null;
 				</div>
 			</div>
 		<?php endif;?>
-		<?php			
-		$args = array(  
-			'post_type' => 'post',
-			'post_status' => 'publish',
-			'posts_per_page' => 3,
-			'tax_query' => array(
-				array(
-					'taxonomy'  => 'category',
-					'field'     => 'term_id',
-					'terms'     => $cat_ids,
-				)
-			),
-		);
+		<?php	
+		if( !$cat ) {
+			$args = array(  
+				'post_type' => 'post',
+				'post_status' => 'publish',
+				'posts_per_page' => 3,
+			);
+
+		} else {
+			$args = array(  
+				'post_type' => 'post',
+				'post_status' => 'publish',
+				'posts_per_page' => 3,
+				'tax_query' => array(
+					array(
+						'taxonomy'  => 'category',
+						'field'     => 'term_id',
+						'terms'     => $cat_ids,
+					)
+				),
+			);
+		}
 		
 		$loop = new WP_Query( $args ); 
 		

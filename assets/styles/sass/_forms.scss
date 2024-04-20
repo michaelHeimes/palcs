@@ -16,6 +16,9 @@
 		--gf-ctrl-shadow: 0 0 0;
 		--gf-ctrl-font-size: 23px;
 		--gf-ctrl-padding-x: 30px;
+		.gform-grid-row {
+			row-gap: 40px;
+		}
 	}
 	.gform_footer {
 		--gf-form-footer-margin-y-start: 60px;
@@ -41,7 +44,11 @@ form#search-form {
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 		min-width: 0;
-		padding-left: 3.35rem;
-		padding-right: 3.35rem;
+		padding-left: 1.35rem;
+		padding-right: 1.35rem;
+		@include breakpoint(medium) {
+			padding-left: 3.35rem;
+			padding-right: 3.35rem;
+		}
 	}
 }

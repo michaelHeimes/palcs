@@ -13,13 +13,25 @@ header.site-header {
 					margin-right: 38.5px;
 					margin-right: clamp(20px, 3vw, 38.5px);
 				}
+				a {
+					svg {
+						path {
+							fill: $white;
+						}
+					}
+				}
+			}
+		}
+		.right {
+			justify-content: center;
+			@include breakpoint(tablet) {
+				justify-content: flex-end;
 			}
 		}
 		.header-secondary-nav {
 			li {
-				padding-left: 32px;
-				padding-left: clamp(32px, 3vw, 70px);
-				@include breakpoint(medium) {
+				padding: 0 1rem;
+				@include breakpoint(tablet) {
 					padding-left: 70px;
 					padding-left: clamp(32px, 3vw, 70px);
 				}
@@ -48,6 +60,9 @@ header.site-header {
 			}
 		}
 		a.button {
+			@include breakpoint(medium down) {
+				width: 100%;
+			}
 			@include breakpoint(large down) {
 				margin-bottom: 1rem;
 			}

@@ -15,14 +15,14 @@
 			<div class="grid-container fluid">
 				<div class="grid-x grid-padding-x align-middle">
 					<?php if( wp_get_nav_menu_items(get_nav_menu_locations()['social-links'])):?>
-						<div class="cell shrink">
+						<div class="cell shrink show-for-tablet">
 							<nav>
 								<?php trailhead_social_links();?>
 							</nav>
 						</div>
 					<?php endif;?>
 					<?php if( wp_get_nav_menu_items(get_nav_menu_locations()['header-secondary-nav'])):?>
-						<div class="cell auto grid-x align-middle align-right color-white">
+						<div class="right cell small-12 tablet-auto grid-x align-middle color-white">
 							<?php trailhead_header_secondary_nav();?>
 						</div>
 					<?php endif;?>
@@ -77,7 +77,7 @@
 									$link_title = $link['title'];
 									$link_target = $link['target'] ? $link['target'] : '_self';
 								?>
-								<div class="cell shrink large-6">
+								<div class="cell small-12 medium-shrink large-6">
 									<a class="button purple-ds" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 								</div>
 							<?php endif;?>
@@ -88,7 +88,7 @@
 									$link_title = $link['title'];
 									$link_target = $link['target'] ? $link['target'] : '_self';
 								?>
-								<div class="cell shrink large-6">
+								<div class="cell small-12 medium-shrink large-6">
 									<a class="button purple-ds" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 								</div>
 							<?php endif;?>

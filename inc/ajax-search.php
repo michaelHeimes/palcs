@@ -48,3 +48,4 @@ function handle_ajax_search() {
 	}
 }
 add_action('wp_ajax_custom_search', 'handle_ajax_search');
+add_action('wp_ajax_nopriv_custom_search', 'handle_ajax_search');

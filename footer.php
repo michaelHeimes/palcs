@@ -37,7 +37,7 @@ $hours = get_field('hours', 'option');
 							</div>
 							<?php endif; ?>
 						</div>
-						<div class="bottom grid-x grid-padding-x flex-dir-column-reverse large-flex-dir-row align-center">
+						<div class="bottom grid-x grid-padding-x flex-dir-column large-flex-dir-row align-center">
 							<?php if( !empty(get_field('locations', 'option')) || !empty(get_field('contact_email_address', 'option')) || !empty(get_field('hours', 'option')) ):
 								$locations = get_field('locations', 'option') ?? null;
 							?>

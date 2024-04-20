@@ -1,7 +1,7 @@
 .page-template-page-search {
 	.search-wrap {
-		padding: 3.08rem 2.31rem;
-		padding: clamp(3.08rem, 2.137rem + 2.514vw, 4.4rem) clamp(2.31rem, 1.603rem + 1.886vw, 3.3rem);
+		padding: 3.08rem 0;
+		padding: clamp(3.08rem, 2.137rem + 2.514vw, 4.4rem) 0;
 		@include breakpoint(medium) {
 			padding: 4.4rem 3.3rem;
 			padding: clamp(3.08rem, 2.137rem + 2.514vw, 4.4rem) clamp(2.31rem, 1.603rem + 1.886vw, 3.3rem);

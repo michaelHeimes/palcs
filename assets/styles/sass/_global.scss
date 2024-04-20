@@ -150,8 +150,14 @@ ul.tabs {
 body .accordion {
 	li.accordion-item {
 		a.accordion-title {
-			font-weight: 700;
+			padding-right: 4rem;
 			transition: color .25s ease;
+			font-size: 1.225rem;
+			font-size: clamp(1.225rem, 1.097rem + 0.547vw, 1.75rem);
+			@include breakpoint(medium) {
+				font-size: 1.75rem;
+				font-size: clamp(1.225rem, 1.097rem + 0.547vw, 1.75rem);
+			}
 			&:focus {
 				color: $color-blue;
 			}
@@ -166,11 +172,15 @@ body .accordion {
 				&:after {
 					content: '';
 					display: block;
-					width: 24px;
-					height: 4px;
+					width: 20px;
+					height: 3px;
 					transform-origin: center;
 					background-color: $color-sky-blue;
 					transition: all .3s ease;
+					@include breakpoint(tablet) {
+						width: 24px;
+						height: 4px;
+					}
 				}
 				&:before {
 					transform: rotate(0deg) translate(0px, 10px);

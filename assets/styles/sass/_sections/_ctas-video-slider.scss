@@ -162,9 +162,15 @@
 			height: 100%;
 			object-fit: cover;
 			object-position: center;
+			@include breakpoint(medium down) {
+				display: none;
+			}
 		}
 		.bg.gradient-1 {
 			opacity: .83;
+			@include breakpoint(medium down) {
+				opacity: 1;
+			}
 		}
 	}
 	
