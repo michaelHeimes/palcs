@@ -58,7 +58,7 @@ body.page-template-page-search,
 body.single {
 	.entry-content {
 		overflow: hidden;
-		&:not(.accordion-content):not(.tabs-panel) {
+		&:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only) {
 			padding-bottom: 5.5rem;
 			@include breakpoint(medium) {
 				padding-bottom: 8rem;

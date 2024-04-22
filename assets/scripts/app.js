@@ -662,6 +662,61 @@
          });
       });
    }
+   
+   _app.video_lazyload = function() {
+    //     const youtubePlayers = document.querySelectorAll(".youtube-placeholder");
+    //     
+    //     if(youtubePlayers) {
+    //         console.log("loaded");
+    //         // Check if the YouTube iframe API script exists in the DOM
+    //         var youtubeApiScript = document.querySelector('script[src="https://www.youtube.com/iframe_api"]');
+    //         
+    //         // If the script doesn't exist, dynamically create and append it to the DOM
+    //         if (!youtubeApiScript) {
+    //             youtubeApiScript = document.createElement('script');
+    //             youtubeApiScript.src = 'https://www.youtube.com/iframe_api';
+    //             document.body.appendChild(youtubeApiScript);
+    //         }
+    // 
+    //        
+    //         let observer = new IntersectionObserver(function(entries) {
+    //         entries.forEach(function(entry) {
+    //            if (entry.isIntersecting) {
+    //                 var videoId = entry.target.dataset.videoId;
+    //                 var params = {
+    //                     controls: 1,
+    //                     hd: 1,
+    //                     autohide: 1
+    //                 };
+    //                 var player = new YT.Player(entry.target, {
+    //                     height: '900',
+    //                     width: '1600',
+    //                     videoId: videoId + '?' + new URLSearchParams(params).toString()
+    //                 });
+    //            
+    //                 observer.unobserve(entry.target);
+    //            }
+    //          });
+    //        }, { threshold: 0.5 });
+    //        
+    //        youtubePlayers.forEach(function(player) {
+    //          observer.observe(player);
+    //        });
+    //     }
+
+        $(document).on('open.zf.reveal', '[data-reveal]', function() {
+            if ($(this).hasClass('video-modal')) {
+                let existingSrc = '';
+                const src = $(this).find('[data-src-defer]').data('src-defer');
+                const iframe = $(this).find('iframe');
+                existingSrc = iframe.attr('src');
+                if ( !existingSrc && src && iframe.length > 0) {
+                    iframe.attr('src', src);
+                }
+            }
+        });
+
+   }
             
     _app.init = function() {
         
@@ -678,6 +733,7 @@
         _app.sliders();
         _app.post_hover_cards();
         _app.ajax_search();
+        _app.video_lazyload();
     }
     
     

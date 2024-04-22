@@ -13,35 +13,12 @@ For more info, check out the codex:
 http://codex.wordpress.org/Creating_Admin_Themes
 
 ******************************************************************/
-
-body.login {
-	
-}
-
-#login {
-	
-}
-
-// Change the login logo
 .login h1 a {
-	background: url(../images/login-logo.png) no-repeat top center;
-	width: 326px;
-	height: 67px;
-	text-indent: -9999px;
-	overflow: hidden;
-	padding-bottom: 15px;
-	display: block;
-}
-
-form {
-
-}
-
-body form .input {
-
-}
-
-// Login Button Style
-#wp-submit {
-	
+  background: url(../images/login-logo.png) no-repeat top center;
+  width: 326px;
+  height: 67px;
+  text-indent: -9999px;
+  overflow: hidden;
+  padding-bottom: 15px;
+  display: block;
 }

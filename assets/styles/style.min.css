@@ -12323,25 +12323,25 @@ body.page-template-page-search .entry-content,
 body.single .entry-content {
   overflow: hidden;
 }
-body.error404 .entry-content:not(.accordion-content):not(.tabs-panel),
-body.page-template-default .entry-content:not(.accordion-content):not(.tabs-panel),
-body.page-template-page-academics-interior .entry-content:not(.accordion-content):not(.tabs-panel),
-body.page-template-page-secondary-hp-w-nav .entry-content:not(.accordion-content):not(.tabs-panel),
-body.page-template-page-secondary-hp-wo-nav .entry-content:not(.accordion-content):not(.tabs-panel),
-body.page-template-page-secondary-kitchen-sink .entry-content:not(.accordion-content):not(.tabs-panel),
-body.page-template-page-search .entry-content:not(.accordion-content):not(.tabs-panel),
-body.single .entry-content:not(.accordion-content):not(.tabs-panel) {
+body.error404 .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
+body.page-template-default .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
+body.page-template-page-academics-interior .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
+body.page-template-page-secondary-hp-w-nav .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
+body.page-template-page-secondary-hp-wo-nav .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
+body.page-template-page-secondary-kitchen-sink .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
+body.page-template-page-search .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
+body.single .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only) {
   padding-bottom: 5.5rem;
 }
 @media print, screen and (min-width: 40em) {
-  body.error404 .entry-content:not(.accordion-content):not(.tabs-panel),
-  body.page-template-default .entry-content:not(.accordion-content):not(.tabs-panel),
-  body.page-template-page-academics-interior .entry-content:not(.accordion-content):not(.tabs-panel),
-  body.page-template-page-secondary-hp-w-nav .entry-content:not(.accordion-content):not(.tabs-panel),
-  body.page-template-page-secondary-hp-wo-nav .entry-content:not(.accordion-content):not(.tabs-panel),
-  body.page-template-page-secondary-kitchen-sink .entry-content:not(.accordion-content):not(.tabs-panel),
-  body.page-template-page-search .entry-content:not(.accordion-content):not(.tabs-panel),
-  body.single .entry-content:not(.accordion-content):not(.tabs-panel) {
+  body.error404 .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
+  body.page-template-default .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
+  body.page-template-page-academics-interior .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
+  body.page-template-page-secondary-hp-w-nav .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
+  body.page-template-page-secondary-hp-wo-nav .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
+  body.page-template-page-secondary-kitchen-sink .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
+  body.page-template-page-search .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
+  body.single .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only) {
     padding-bottom: 8rem;
   }
 }
