@@ -9441,14 +9441,7 @@ body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
   left: -9000px;
 }
 
-.gradient-bg, body.error404 blockquote.wp-block-quote.is-style-default,
-body.page-template-default blockquote.wp-block-quote.is-style-default,
-body.page-template-page-academics-interior blockquote.wp-block-quote.is-style-default,
-body.page-template-page-secondary-hp-w-nav blockquote.wp-block-quote.is-style-default,
-body.page-template-page-secondary-hp-wo-nav blockquote.wp-block-quote.is-style-default,
-body.page-template-page-secondary-kitchen-sink blockquote.wp-block-quote.is-style-default,
-body.page-template-page-search blockquote.wp-block-quote.is-style-default,
-body.single blockquote.wp-block-quote.is-style-default {
+.gradient-bg, blockquote.wp-block-quote.is-style-default {
   background-image: linear-gradient(90.59deg, #f6885c 0%, #f91c5d 23.6%, #96358a 53.2%, #5446ab 71.6%, #379ff8 100%);
 }
 
@@ -9644,6 +9637,22 @@ p,
 ul:not(.menu),
 ol {
   color: #272727;
+}
+
+ul:not(.accordion):not(.tabs):not(.menu):not(.tax-menu):not(.terms-list),
+ol:not(.accordion):not(.tabs):not(.menu):not(.tax-menu):not(.terms-list) {
+  padding-left: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+@media print, screen and (min-width: 56.25em) {
+  ul:not(.accordion):not(.tabs):not(.menu):not(.tax-menu):not(.terms-list),
+  ol:not(.accordion):not(.tabs):not(.menu):not(.tax-menu):not(.terms-list) {
+    margin-bottom: 3rem;
+  }
+}
+ul li:not(.accordion-item):not(.tabs-title),
+ol li:not(.accordion-item):not(.tabs-title) {
+  margin-bottom: 0.75rem;
 }
 
 a {
@@ -10326,6 +10335,9 @@ footer#colophon .site-info .p {
 footer#colophon .site-info .p a {
   color: #fff;
 }
+footer#colophon .site-info .p a:hover {
+  text-decoration: underline;
+}
 footer#colophon .copyright {
   margin-bottom: 0;
 }
@@ -10432,6 +10444,9 @@ footer#colophon .copyright {
   width: 100%;
   background-color: #0052d4;
 }
+.off-canvas ul#offcanvas-nav.drilldown > li {
+  text-transform: uppercase;
+}
 .off-canvas ul#offcanvas-nav.drilldown a {
   background: transparent;
   display: -webkit-box;
@@ -10492,6 +10507,9 @@ footer#colophon .copyright {
 .off-canvas ul#offcanvas-nav.drilldown .is-drilldown-submenu-parent > a span {
   display: inline-block;
   margin-right: 1rem;
+}
+.off-canvas ul#offcanvas-nav.drilldown .is-drilldown-submenu li {
+  text-transform: none;
 }
 .off-canvas ul#offcanvas-nav.drilldown .js-drilldown-back a {
   line-height: 1.357;
@@ -10807,14 +10825,35 @@ button:not(.no-style).white-bg,
   margin: 0;
 }
 
+.tax-menu-wrap {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.tax-menu-wrap .tax-menu.grid-x {
+  padding-bottom: 0.5rem;
+  margin-left: -1.65rem;
+  margin-right: -1.65rem;
+}
+.tax-menu-wrap .tax-menu.grid-x > .cell {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+}
+.tax-menu-wrap button,
+.tax-menu-wrap .button {
+  display: inline-block;
+  min-width: 0;
+  margin: 0.35rem 0;
+  font-size: 100%;
+}
+
 #options.tax-menu-wrap .option-set.tax-menu.grid-x {
-  margin-left: -rem-calc(10);
-  margin-right: -rem-calc(10);
+  margin-left: -1.45rem;
+  margin-right: -1.45rem;
 }
 #options.tax-menu-wrap .option-set.tax-menu.grid-x > .cell {
   opacity: 1;
-  padding-left: 0.625rem;
-  padding-right: 0.625rem;
+  padding-left: 0.35rem;
+  padding-right: 0.35rem;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
@@ -10831,7 +10870,7 @@ button:not(.no-style).white-bg,
   display: inline-block;
   min-width: 0;
   font-size: 100%;
-  margin: 0.5625rem 0;
+  margin: 0.35rem 0;
 }
 #options.tax-menu-wrap .button label {
   margin: 0;
@@ -10854,39 +10893,6 @@ button:not(.no-style).white-bg,
 
 .shortcode-btn-wrap {
   margin: 1rem 0 2rem;
-}
-
-.alm-filtered-grid {
-  opacity: 1;
-  -webkit-transition: opacity 0.2s ease 0.3s;
-  transition: opacity 0.2s ease 0.3s;
-}
-.alm-filtered-grid.init {
-  opacity: 0;
-}
-
-.tax-menu-wrap {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-.tax-menu-wrap .tax-menu.grid-x {
-  margin-left: -rem-calc(10);
-  margin-right: -rem-calc(10);
-}
-.tax-menu-wrap .tax-menu.grid-x > .cell {
-  padding-left: 0.625rem;
-  padding-right: 0.625rem;
-}
-.tax-menu-wrap button,
-.tax-menu-wrap .button {
-  display: inline-block;
-  min-width: 0;
-  margin: 0.5625rem 0;
-  font-size: 100%;
-}
-
-.alm-btn-wrap .alm-load-more-btn.loading:before {
-  display: none !important;
 }
 
 .gform-theme--framework.gform-theme--foundation .gform_fields {
@@ -10959,21 +10965,7 @@ form#search-form button:not(.no-style) {
   }
 }
 
-.part-header-button-link-cta .bg.gradient-bg, .part-header-button-link-cta body.error404 blockquote.bg.wp-block-quote.is-style-default, body.error404 .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-.part-header-button-link-cta body.page-template-default blockquote.bg.wp-block-quote.is-style-default,
-body.page-template-default .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-.part-header-button-link-cta body.page-template-page-academics-interior blockquote.bg.wp-block-quote.is-style-default,
-body.page-template-page-academics-interior .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-.part-header-button-link-cta body.page-template-page-secondary-hp-w-nav blockquote.bg.wp-block-quote.is-style-default,
-body.page-template-page-secondary-hp-w-nav .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-.part-header-button-link-cta body.page-template-page-secondary-hp-wo-nav blockquote.bg.wp-block-quote.is-style-default,
-body.page-template-page-secondary-hp-wo-nav .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-.part-header-button-link-cta body.page-template-page-secondary-kitchen-sink blockquote.bg.wp-block-quote.is-style-default,
-body.page-template-page-secondary-kitchen-sink .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-.part-header-button-link-cta body.page-template-page-search blockquote.bg.wp-block-quote.is-style-default,
-body.page-template-page-search .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-.part-header-button-link-cta body.single blockquote.bg.wp-block-quote.is-style-default,
-body.single .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default {
+.part-header-button-link-cta .bg.gradient-bg, .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default {
   position: absolute;
   top: 0;
   left: 16px;
@@ -10982,42 +10974,14 @@ body.single .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-d
   height: 100%;
 }
 @media print, screen and (min-width: 40em) {
-  .part-header-button-link-cta .bg.gradient-bg, .part-header-button-link-cta body.error404 blockquote.bg.wp-block-quote.is-style-default, body.error404 .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-  .part-header-button-link-cta body.page-template-default blockquote.bg.wp-block-quote.is-style-default,
-  body.page-template-default .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-  .part-header-button-link-cta body.page-template-page-academics-interior blockquote.bg.wp-block-quote.is-style-default,
-  body.page-template-page-academics-interior .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-  .part-header-button-link-cta body.page-template-page-secondary-hp-w-nav blockquote.bg.wp-block-quote.is-style-default,
-  body.page-template-page-secondary-hp-w-nav .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-  .part-header-button-link-cta body.page-template-page-secondary-hp-wo-nav blockquote.bg.wp-block-quote.is-style-default,
-  body.page-template-page-secondary-hp-wo-nav .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-  .part-header-button-link-cta body.page-template-page-secondary-kitchen-sink blockquote.bg.wp-block-quote.is-style-default,
-  body.page-template-page-secondary-kitchen-sink .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-  .part-header-button-link-cta body.page-template-page-search blockquote.bg.wp-block-quote.is-style-default,
-  body.page-template-page-search .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-  .part-header-button-link-cta body.single blockquote.bg.wp-block-quote.is-style-default,
-  body.single .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default {
+  .part-header-button-link-cta .bg.gradient-bg, .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default {
     left: 25px;
     right: 25px;
     width: calc(100% - 50px);
   }
 }
 @media print, screen and (min-width: 56.25em) {
-  .part-header-button-link-cta .bg.gradient-bg, .part-header-button-link-cta body.error404 blockquote.bg.wp-block-quote.is-style-default, body.error404 .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-  .part-header-button-link-cta body.page-template-default blockquote.bg.wp-block-quote.is-style-default,
-  body.page-template-default .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-  .part-header-button-link-cta body.page-template-page-academics-interior blockquote.bg.wp-block-quote.is-style-default,
-  body.page-template-page-academics-interior .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-  .part-header-button-link-cta body.page-template-page-secondary-hp-w-nav blockquote.bg.wp-block-quote.is-style-default,
-  body.page-template-page-secondary-hp-w-nav .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-  .part-header-button-link-cta body.page-template-page-secondary-hp-wo-nav blockquote.bg.wp-block-quote.is-style-default,
-  body.page-template-page-secondary-hp-wo-nav .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-  .part-header-button-link-cta body.page-template-page-secondary-kitchen-sink blockquote.bg.wp-block-quote.is-style-default,
-  body.page-template-page-secondary-kitchen-sink .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-  .part-header-button-link-cta body.page-template-page-search blockquote.bg.wp-block-quote.is-style-default,
-  body.page-template-page-search .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default,
-  .part-header-button-link-cta body.single blockquote.bg.wp-block-quote.is-style-default,
-  body.single .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default {
+  .part-header-button-link-cta .bg.gradient-bg, .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-default {
     -webkit-clip-path: polygon(0% 0, 100% 0%, 94% 100%, 0 100%);
             clip-path: polygon(0% 0, 100% 0%, 94% 100%, 0 100%);
   }
@@ -11073,18 +11037,15 @@ body.single .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-d
 }
 .ctas-video-slider .bg.gradient-1 {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  bottom: -1px;
+  height: calc(100% + 2px);
   width: calc(100% + 50px);
-  height: 100%;
   background-image: linear-gradient(90.59deg, #f6885c 0%, #f91c5d 23.6%, #96358a 53.2%, #5446ab 71.6%, #379ff8 100%);
 }
 @media print, screen and (min-width: 56.25em) {
   .ctas-video-slider .bg.gradient-1 {
     width: 100%;
-    top: -1px;
-    bottom: -1px;
-    height: calc(100% + 2px);
     -webkit-clip-path: polygon(0% 0, 100% 0%, 73% 100%, 0 100%);
             clip-path: polygon(0% 0, 100% 0%, 73% 100%, 0 100%);
     width: calc(70vw + 50px);
@@ -11178,8 +11139,12 @@ body.single .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-d
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+  -webkit-transition: -webkit-transform 0.25s ease;
+  transition: -webkit-transform 0.25s ease;
+  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, -webkit-transform 0.25s ease;
   max-width: 80px;
 }
 @media print, screen and (min-width: 40em) {
@@ -11194,9 +11159,9 @@ body.single .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-d
   width: 100%;
   height: 100%;
 }
-.ctas-video-slider .right .inner button:hover img.image {
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+.ctas-video-slider .right .inner button:hover img.play-icon {
+  -webkit-transform: translate(-50%, -50%) scale(1.1);
+          transform: translate(-50%, -50%) scale(1.1);
 }
 .ctas-video-slider .right.sp-wrap {
   z-index: 2;
@@ -11223,10 +11188,17 @@ body.single .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-d
 }
 .ctas-video-slider .swiper-pagination-bullets.swiper-pagination-horizontal {
   position: absolute;
-  bottom: 29px;
+  bottom: 17px;
 }
 .ctas-video-slider .swiper-pagination-bullets.swiper-pagination-horizontal span {
+  -webkit-box-shadow: -1px 2px 6px 0px rgba(0, 0, 0, 0.16);
+          box-shadow: -1px 2px 6px 0px rgba(0, 0, 0, 0.16);
   background: #FF1B59;
+  -webkit-transition: background 0.25s ease;
+  transition: background 0.25s ease;
+}
+.ctas-video-slider .swiper-pagination-bullets.swiper-pagination-horizontal span:hover {
+  background: #0052d4;
 }
 .ctas-video-slider .swiper-pagination-bullets.swiper-pagination-horizontal span.swiper-pagination-bullet-active {
   background: #0052d4;
@@ -11255,6 +11227,11 @@ body.single .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-d
     opacity: 1;
   }
 }
+@media print, screen and (min-width: 56.25em) {
+  .ctas-video-slider.img-type-background .right .inner img.image {
+    display: none;
+  }
+}
 
 .copy-select-dropdown-links {
   padding-bottom: 2.3rem;
@@ -11278,7 +11255,7 @@ body.single .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-d
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 50% 95%;
-  bottom: -1rem;
+  top: 2rem;
   height: calc(100% + 1rem);
 }
 @media print, screen and (min-width: 56.25em) {
@@ -11491,6 +11468,7 @@ body.single .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-d
   border: 10px solid #fff;
 }
 .latest-posts article .inner .permalink {
+  color: #525356;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -11498,6 +11476,9 @@ body.single .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-d
   width: 100%;
 }
 .latest-posts article .inner .permalink h3 {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  color: #525356;
   margin: 0;
   font-size: 1.0625rem;
   line-height: 1.235;
@@ -11530,22 +11511,23 @@ body.single .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-d
   background-color: #f0861e;
 }
 .latest-posts .part-header-button-link-cta {
-  margin-top: 8.35rem;
+  margin-top: 6.8rem;
 }
 
 .cta-centered-heading-two-buttons {
-  padding-top: 5.78rem;
-  padding-bottom: 6.7rem;
+  padding-top: 8.246rem;
+  padding-bottom: 6.79rem;
 }
 @media print, screen and (min-width: 40em) {
   .cta-centered-heading-two-buttons {
     padding-top: 11.78rem;
-    padding-bottom: 12.7rem;
+    padding-bottom: 9.7rem;
   }
 }
 .cta-centered-heading-two-buttons .mask {
   background-color: #379ff8;
   mix-blend-mode: multiply;
+  opacity: 0.75;
 }
 .cta-centered-heading-two-buttons h2 {
   line-height: 1;
@@ -11787,6 +11769,23 @@ body.single .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-d
 .latest-posts-category h2 {
   margin-bottom: 2.3em;
 }
+.latest-posts-category article.post-card .inner {
+  width: 100%;
+}
+.latest-posts-category article.post-card .inner .thumbnail-wrap {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  padding-bottom: 121%;
+  padding-bottom: 118%;
+}
+.latest-posts-category article.post-card .inner .thumbnail-wrap img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  widows: 100%;
+  height: 100%;
+}
 .latest-posts-category article.post-card .inner .permalink h3 {
   color: #4F5053;
   font-weight: 800;
@@ -11800,7 +11799,7 @@ body.single .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-d
   }
 }
 .latest-posts-category .btn-wrap {
-  padding-top: 4.1rem;
+  padding-top: 2.5rem;
 }
 .latest-posts-category .btn-wrap a:hover {
   background-color: #fff;
@@ -11832,6 +11831,17 @@ body.single .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-d
   background-color: rgba(255, 255, 255, 0.21);
   mix-blend-mode: multiply;
 }
+.teachers-cta .section-header {
+  padding-bottom: 3.45625rem;
+}
+@media print, screen and (min-width: 40em) {
+  .teachers-cta .section-header {
+    padding-bottom: 4.9375rem;
+  }
+}
+.teachers-cta h2.cta-heading {
+  margin-bottom: 0.46em;
+}
 .teachers-cta article.teacher-card {
   text-align: center;
 }
@@ -11843,9 +11853,6 @@ body.single .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-d
 }
 .teachers-cta article.teacher-card .circle-thumb-wrap {
   margin-bottom: 2.15rem;
-}
-.teachers-cta article.teacher-card h2 {
-  margin-bottom: 0.56em;
 }
 .teachers-cta article.teacher-card p {
   margin-bottom: 5em;
@@ -11893,6 +11900,18 @@ body.single .part-header-button-link-cta blockquote.bg.wp-block-quote.is-style-d
   .on-page-nav {
     font-size: 1.188rem;
     font-size: clamp(1rem, 0.954rem + 0.194vw, 1.188rem);
+  }
+}
+.on-page-nav .grid-x {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+@media print, screen and (min-width: 40em) {
+  .on-page-nav .grid-x {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
   }
 }
 .on-page-nav .cell {
@@ -12315,33 +12334,16 @@ hr.wp-block-separator {
 
 body.error404 .entry-content,
 body.page-template-default .entry-content,
-body.page-template-page-academics-interior .entry-content,
-body.page-template-page-secondary-hp-w-nav .entry-content,
-body.page-template-page-secondary-hp-wo-nav .entry-content,
-body.page-template-page-secondary-kitchen-sink .entry-content,
 body.page-template-page-search .entry-content,
-body.single .entry-content {
+body.single-post .entry-content {
   overflow: hidden;
-}
-body.error404 .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
-body.page-template-default .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
-body.page-template-page-academics-interior .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
-body.page-template-page-secondary-hp-w-nav .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
-body.page-template-page-secondary-hp-wo-nav .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
-body.page-template-page-secondary-kitchen-sink .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
-body.page-template-page-search .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
-body.single .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only) {
   padding-bottom: 5.5rem;
 }
 @media print, screen and (min-width: 40em) {
-  body.error404 .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
-  body.page-template-default .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
-  body.page-template-page-academics-interior .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
-  body.page-template-page-secondary-hp-w-nav .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
-  body.page-template-page-secondary-hp-wo-nav .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
-  body.page-template-page-secondary-kitchen-sink .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
-  body.page-template-page-search .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only),
-  body.single .entry-content:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only) {
+  body.error404 .entry-content,
+  body.page-template-default .entry-content,
+  body.page-template-page-search .entry-content,
+  body.single-post .entry-content {
     padding-bottom: 8rem;
   }
 }
@@ -12353,60 +12355,81 @@ body.page-template-default .entry-content p,
 body.page-template-default .entry-content ul:not(.tabs):not(.accordion),
 body.page-template-default .entry-content ol,
 body.page-template-default .entry-content .button-group,
-body.page-template-page-academics-interior .entry-content p,
-body.page-template-page-academics-interior .entry-content ul:not(.tabs):not(.accordion),
-body.page-template-page-academics-interior .entry-content ol,
-body.page-template-page-academics-interior .entry-content .button-group,
-body.page-template-page-secondary-hp-w-nav .entry-content p,
-body.page-template-page-secondary-hp-w-nav .entry-content ul:not(.tabs):not(.accordion),
-body.page-template-page-secondary-hp-w-nav .entry-content ol,
-body.page-template-page-secondary-hp-w-nav .entry-content .button-group,
-body.page-template-page-secondary-hp-wo-nav .entry-content p,
-body.page-template-page-secondary-hp-wo-nav .entry-content ul:not(.tabs):not(.accordion),
-body.page-template-page-secondary-hp-wo-nav .entry-content ol,
-body.page-template-page-secondary-hp-wo-nav .entry-content .button-group,
-body.page-template-page-secondary-kitchen-sink .entry-content p,
-body.page-template-page-secondary-kitchen-sink .entry-content ul:not(.tabs):not(.accordion),
-body.page-template-page-secondary-kitchen-sink .entry-content ol,
-body.page-template-page-secondary-kitchen-sink .entry-content .button-group,
 body.page-template-page-search .entry-content p,
 body.page-template-page-search .entry-content ul:not(.tabs):not(.accordion),
 body.page-template-page-search .entry-content ol,
 body.page-template-page-search .entry-content .button-group,
-body.single .entry-content p,
-body.single .entry-content ul:not(.tabs):not(.accordion),
-body.single .entry-content ol,
-body.single .entry-content .button-group {
+body.single-post .entry-content p,
+body.single-post .entry-content ul:not(.tabs):not(.accordion),
+body.single-post .entry-content ol,
+body.single-post .entry-content .button-group {
   line-height: 2.05;
-  margin-top: 1.875rem;
-  margin-bottom: 1.875rem;
+  margin-top: 1.5625rem;
+  margin-bottom: 1.5625rem;
+}
+@media print, screen and (min-width: 40em) {
+  body.error404 .entry-content p,
+  body.error404 .entry-content ul:not(.tabs):not(.accordion),
+  body.error404 .entry-content ol,
+  body.error404 .entry-content .button-group,
+  body.page-template-default .entry-content p,
+  body.page-template-default .entry-content ul:not(.tabs):not(.accordion),
+  body.page-template-default .entry-content ol,
+  body.page-template-default .entry-content .button-group,
+  body.page-template-page-search .entry-content p,
+  body.page-template-page-search .entry-content ul:not(.tabs):not(.accordion),
+  body.page-template-page-search .entry-content ol,
+  body.page-template-page-search .entry-content .button-group,
+  body.single-post .entry-content p,
+  body.single-post .entry-content ul:not(.tabs):not(.accordion),
+  body.single-post .entry-content ol,
+  body.single-post .entry-content .button-group {
+    margin-top: 2.1875rem;
+    margin-bottom: 2.1875rem;
+  }
+}
+body.error404 .entry-content h1 ~ p,
+body.error404 .entry-content h2 ~ p,
+body.error404 .entry-content h3 ~ p,
+body.error404 .entry-content h4 ~ p,
+body.error404 .entry-content h5 ~ p,
+body.page-template-default .entry-content h1 ~ p,
+body.page-template-default .entry-content h2 ~ p,
+body.page-template-default .entry-content h3 ~ p,
+body.page-template-default .entry-content h4 ~ p,
+body.page-template-default .entry-content h5 ~ p,
+body.page-template-page-search .entry-content h1 ~ p,
+body.page-template-page-search .entry-content h2 ~ p,
+body.page-template-page-search .entry-content h3 ~ p,
+body.page-template-page-search .entry-content h4 ~ p,
+body.page-template-page-search .entry-content h5 ~ p,
+body.single-post .entry-content h1 ~ p,
+body.single-post .entry-content h2 ~ p,
+body.single-post .entry-content h3 ~ p,
+body.single-post .entry-content h4 ~ p,
+body.single-post .entry-content h5 ~ p {
+  margin-top: 0;
+}
+body.error404 .entry-content .button-group,
+body.page-template-default .entry-content .button-group,
+body.page-template-page-search .entry-content .button-group,
+body.single-post .entry-content .button-group {
+  padding-top: 1.875rem;
 }
 body.error404 .entry-content .content-wrap > *:first-child,
 body.page-template-default .entry-content .content-wrap > *:first-child,
-body.page-template-page-academics-interior .entry-content .content-wrap > *:first-child,
-body.page-template-page-secondary-hp-w-nav .entry-content .content-wrap > *:first-child,
-body.page-template-page-secondary-hp-wo-nav .entry-content .content-wrap > *:first-child,
-body.page-template-page-secondary-kitchen-sink .entry-content .content-wrap > *:first-child,
 body.page-template-page-search .entry-content .content-wrap > *:first-child,
-body.single .entry-content .content-wrap > *:first-child {
+body.single-post .entry-content .content-wrap > *:first-child {
   margin-top: 0.625rem;
 }
 body.error404 .entry-content ul:not(.tabs),
 body.error404 .entry-content ol:not(.tabs),
 body.page-template-default .entry-content ul:not(.tabs),
 body.page-template-default .entry-content ol:not(.tabs),
-body.page-template-page-academics-interior .entry-content ul:not(.tabs),
-body.page-template-page-academics-interior .entry-content ol:not(.tabs),
-body.page-template-page-secondary-hp-w-nav .entry-content ul:not(.tabs),
-body.page-template-page-secondary-hp-w-nav .entry-content ol:not(.tabs),
-body.page-template-page-secondary-hp-wo-nav .entry-content ul:not(.tabs),
-body.page-template-page-secondary-hp-wo-nav .entry-content ol:not(.tabs),
-body.page-template-page-secondary-kitchen-sink .entry-content ul:not(.tabs),
-body.page-template-page-secondary-kitchen-sink .entry-content ol:not(.tabs),
 body.page-template-page-search .entry-content ul:not(.tabs),
 body.page-template-page-search .entry-content ol:not(.tabs),
-body.single .entry-content ul:not(.tabs),
-body.single .entry-content ol:not(.tabs) {
+body.single-post .entry-content ul:not(.tabs),
+body.single-post .entry-content ol:not(.tabs) {
   margin-bottom: 2.5rem;
 }
 @media print, screen and (min-width: 56.25em) {
@@ -12414,18 +12437,10 @@ body.single .entry-content ol:not(.tabs) {
   body.error404 .entry-content ol:not(.tabs),
   body.page-template-default .entry-content ul:not(.tabs),
   body.page-template-default .entry-content ol:not(.tabs),
-  body.page-template-page-academics-interior .entry-content ul:not(.tabs),
-  body.page-template-page-academics-interior .entry-content ol:not(.tabs),
-  body.page-template-page-secondary-hp-w-nav .entry-content ul:not(.tabs),
-  body.page-template-page-secondary-hp-w-nav .entry-content ol:not(.tabs),
-  body.page-template-page-secondary-hp-wo-nav .entry-content ul:not(.tabs),
-  body.page-template-page-secondary-hp-wo-nav .entry-content ol:not(.tabs),
-  body.page-template-page-secondary-kitchen-sink .entry-content ul:not(.tabs),
-  body.page-template-page-secondary-kitchen-sink .entry-content ol:not(.tabs),
   body.page-template-page-search .entry-content ul:not(.tabs),
   body.page-template-page-search .entry-content ol:not(.tabs),
-  body.single .entry-content ul:not(.tabs),
-  body.single .entry-content ol:not(.tabs) {
+  body.single-post .entry-content ul:not(.tabs),
+  body.single-post .entry-content ol:not(.tabs) {
     margin-bottom: 3rem;
   }
 }
@@ -12433,112 +12448,54 @@ body.error404 .entry-content ul:not(.tabs):not(.accordion),
 body.error404 .entry-content ol:not(.tabs):not(.accordion),
 body.page-template-default .entry-content ul:not(.tabs):not(.accordion),
 body.page-template-default .entry-content ol:not(.tabs):not(.accordion),
-body.page-template-page-academics-interior .entry-content ul:not(.tabs):not(.accordion),
-body.page-template-page-academics-interior .entry-content ol:not(.tabs):not(.accordion),
-body.page-template-page-secondary-hp-w-nav .entry-content ul:not(.tabs):not(.accordion),
-body.page-template-page-secondary-hp-w-nav .entry-content ol:not(.tabs):not(.accordion),
-body.page-template-page-secondary-hp-wo-nav .entry-content ul:not(.tabs):not(.accordion),
-body.page-template-page-secondary-hp-wo-nav .entry-content ol:not(.tabs):not(.accordion),
-body.page-template-page-secondary-kitchen-sink .entry-content ul:not(.tabs):not(.accordion),
-body.page-template-page-secondary-kitchen-sink .entry-content ol:not(.tabs):not(.accordion),
 body.page-template-page-search .entry-content ul:not(.tabs):not(.accordion),
 body.page-template-page-search .entry-content ol:not(.tabs):not(.accordion),
-body.single .entry-content ul:not(.tabs):not(.accordion),
-body.single .entry-content ol:not(.tabs):not(.accordion) {
+body.single-post .entry-content ul:not(.tabs):not(.accordion),
+body.single-post .entry-content ol:not(.tabs):not(.accordion) {
   padding-left: 2.5rem;
 }
 body.error404 .entry-content ul li:not(.accordion-item):not(.tabs-title),
 body.error404 .entry-content ol li:not(.accordion-item):not(.tabs-title),
 body.page-template-default .entry-content ul li:not(.accordion-item):not(.tabs-title),
 body.page-template-default .entry-content ol li:not(.accordion-item):not(.tabs-title),
-body.page-template-page-academics-interior .entry-content ul li:not(.accordion-item):not(.tabs-title),
-body.page-template-page-academics-interior .entry-content ol li:not(.accordion-item):not(.tabs-title),
-body.page-template-page-secondary-hp-w-nav .entry-content ul li:not(.accordion-item):not(.tabs-title),
-body.page-template-page-secondary-hp-w-nav .entry-content ol li:not(.accordion-item):not(.tabs-title),
-body.page-template-page-secondary-hp-wo-nav .entry-content ul li:not(.accordion-item):not(.tabs-title),
-body.page-template-page-secondary-hp-wo-nav .entry-content ol li:not(.accordion-item):not(.tabs-title),
-body.page-template-page-secondary-kitchen-sink .entry-content ul li:not(.accordion-item):not(.tabs-title),
-body.page-template-page-secondary-kitchen-sink .entry-content ol li:not(.accordion-item):not(.tabs-title),
 body.page-template-page-search .entry-content ul li:not(.accordion-item):not(.tabs-title),
 body.page-template-page-search .entry-content ol li:not(.accordion-item):not(.tabs-title),
-body.single .entry-content ul li:not(.accordion-item):not(.tabs-title),
-body.single .entry-content ol li:not(.accordion-item):not(.tabs-title) {
+body.single-post .entry-content ul li:not(.accordion-item):not(.tabs-title),
+body.single-post .entry-content ol li:not(.accordion-item):not(.tabs-title) {
   margin-bottom: 0.75rem;
 }
-body.error404 .wp-block-gallery.has-nested-images,
-body.page-template-default .wp-block-gallery.has-nested-images,
-body.page-template-page-academics-interior .wp-block-gallery.has-nested-images,
-body.page-template-page-secondary-hp-w-nav .wp-block-gallery.has-nested-images,
-body.page-template-page-secondary-hp-wo-nav .wp-block-gallery.has-nested-images,
-body.page-template-page-secondary-kitchen-sink .wp-block-gallery.has-nested-images,
-body.page-template-page-search .wp-block-gallery.has-nested-images,
-body.single .wp-block-gallery.has-nested-images {
+
+body.single-post .entry-content {
+  padding-bottom: 0;
+}
+
+.wp-block-gallery.has-nested-images {
   margin-left: -10px;
   margin-right: -10px;
 }
-body.error404 .wp-block-gallery.has-nested-images figure,
-body.page-template-default .wp-block-gallery.has-nested-images figure,
-body.page-template-page-academics-interior .wp-block-gallery.has-nested-images figure,
-body.page-template-page-secondary-hp-w-nav .wp-block-gallery.has-nested-images figure,
-body.page-template-page-secondary-hp-wo-nav .wp-block-gallery.has-nested-images figure,
-body.page-template-page-secondary-kitchen-sink .wp-block-gallery.has-nested-images figure,
-body.page-template-page-search .wp-block-gallery.has-nested-images figure,
-body.single .wp-block-gallery.has-nested-images figure {
+.wp-block-gallery.has-nested-images figure {
   padding: 10px;
 }
 @media print, screen and (min-width: 56.25em) {
-  body.error404 .wp-block-gallery.has-nested-images,
-  body.page-template-default .wp-block-gallery.has-nested-images,
-  body.page-template-page-academics-interior .wp-block-gallery.has-nested-images,
-  body.page-template-page-secondary-hp-w-nav .wp-block-gallery.has-nested-images,
-  body.page-template-page-secondary-hp-wo-nav .wp-block-gallery.has-nested-images,
-  body.page-template-page-secondary-kitchen-sink .wp-block-gallery.has-nested-images,
-  body.page-template-page-search .wp-block-gallery.has-nested-images,
-  body.single .wp-block-gallery.has-nested-images {
+  .wp-block-gallery.has-nested-images {
     margin-left: -15px;
     margin-right: -15px;
   }
-  body.error404 .wp-block-gallery.has-nested-images figure,
-  body.page-template-default .wp-block-gallery.has-nested-images figure,
-  body.page-template-page-academics-interior .wp-block-gallery.has-nested-images figure,
-  body.page-template-page-secondary-hp-w-nav .wp-block-gallery.has-nested-images figure,
-  body.page-template-page-secondary-hp-wo-nav .wp-block-gallery.has-nested-images figure,
-  body.page-template-page-secondary-kitchen-sink .wp-block-gallery.has-nested-images figure,
-  body.page-template-page-search .wp-block-gallery.has-nested-images figure,
-  body.single .wp-block-gallery.has-nested-images figure {
+  .wp-block-gallery.has-nested-images figure {
     padding: 15px;
   }
 }
-body.error404 :where(.wp-block-columns.is-layout-flex) > .wp-block-column-is-layout-flow > *,
-body.page-template-default :where(.wp-block-columns.is-layout-flex) > .wp-block-column-is-layout-flow > *,
-body.page-template-page-academics-interior :where(.wp-block-columns.is-layout-flex) > .wp-block-column-is-layout-flow > *,
-body.page-template-page-secondary-hp-w-nav :where(.wp-block-columns.is-layout-flex) > .wp-block-column-is-layout-flow > *,
-body.page-template-page-secondary-hp-wo-nav :where(.wp-block-columns.is-layout-flex) > .wp-block-column-is-layout-flow > *,
-body.page-template-page-secondary-kitchen-sink :where(.wp-block-columns.is-layout-flex) > .wp-block-column-is-layout-flow > *,
-body.page-template-page-search :where(.wp-block-columns.is-layout-flex) > .wp-block-column-is-layout-flow > *,
-body.single :where(.wp-block-columns.is-layout-flex) > .wp-block-column-is-layout-flow > * {
+
+:where(.wp-block-columns.is-layout-flex) > .wp-block-column-is-layout-flow > *:not(.wp-block-imag) {
   margin-bottom: 2rem;
 }
 @media (min-width: 782px) {
-  body.error404 :where(.wp-block-columns.is-layout-flex),
-  body.page-template-default :where(.wp-block-columns.is-layout-flex),
-  body.page-template-page-academics-interior :where(.wp-block-columns.is-layout-flex),
-  body.page-template-page-secondary-hp-w-nav :where(.wp-block-columns.is-layout-flex),
-  body.page-template-page-secondary-hp-wo-nav :where(.wp-block-columns.is-layout-flex),
-  body.page-template-page-secondary-kitchen-sink :where(.wp-block-columns.is-layout-flex),
-  body.page-template-page-search :where(.wp-block-columns.is-layout-flex),
-  body.single :where(.wp-block-columns.is-layout-flex) {
+  :where(.wp-block-columns.is-layout-flex) {
     gap: 60px;
   }
 }
-body.error404 blockquote.wp-block-quote.is-style-default,
-body.page-template-default blockquote.wp-block-quote.is-style-default,
-body.page-template-page-academics-interior blockquote.wp-block-quote.is-style-default,
-body.page-template-page-secondary-hp-w-nav blockquote.wp-block-quote.is-style-default,
-body.page-template-page-secondary-hp-wo-nav blockquote.wp-block-quote.is-style-default,
-body.page-template-page-secondary-kitchen-sink blockquote.wp-block-quote.is-style-default,
-body.page-template-page-search blockquote.wp-block-quote.is-style-default,
-body.single blockquote.wp-block-quote.is-style-default {
+
+blockquote.wp-block-quote.is-style-default {
   border: 0;
   position: relative;
   max-width: 880px;
@@ -12547,14 +12504,7 @@ body.single blockquote.wp-block-quote.is-style-default {
   margin-right: auto;
   color: #fff;
 }
-body.error404 blockquote.wp-block-quote.is-style-default:before,
-body.page-template-default blockquote.wp-block-quote.is-style-default:before,
-body.page-template-page-academics-interior blockquote.wp-block-quote.is-style-default:before,
-body.page-template-page-secondary-hp-w-nav blockquote.wp-block-quote.is-style-default:before,
-body.page-template-page-secondary-hp-wo-nav blockquote.wp-block-quote.is-style-default:before,
-body.page-template-page-secondary-kitchen-sink blockquote.wp-block-quote.is-style-default:before,
-body.page-template-page-search blockquote.wp-block-quote.is-style-default:before,
-body.single blockquote.wp-block-quote.is-style-default:before {
+blockquote.wp-block-quote.is-style-default:before {
   content: "";
   position: absolute;
   top: 0;
@@ -12567,35 +12517,14 @@ body.single blockquote.wp-block-quote.is-style-default:before {
   background-repeat: no-repeat;
   background-position: center;
 }
-body.error404 blockquote.wp-block-quote.is-style-default .wp-block-heading,
-body.page-template-default blockquote.wp-block-quote.is-style-default .wp-block-heading,
-body.page-template-page-academics-interior blockquote.wp-block-quote.is-style-default .wp-block-heading,
-body.page-template-page-secondary-hp-w-nav blockquote.wp-block-quote.is-style-default .wp-block-heading,
-body.page-template-page-secondary-hp-wo-nav blockquote.wp-block-quote.is-style-default .wp-block-heading,
-body.page-template-page-secondary-kitchen-sink blockquote.wp-block-quote.is-style-default .wp-block-heading,
-body.page-template-page-search blockquote.wp-block-quote.is-style-default .wp-block-heading,
-body.single blockquote.wp-block-quote.is-style-default .wp-block-heading {
+blockquote.wp-block-quote.is-style-default .wp-block-heading {
   color: #fff !important;
 }
-body.error404 blockquote.wp-block-quote.is-style-default p,
-body.page-template-default blockquote.wp-block-quote.is-style-default p,
-body.page-template-page-academics-interior blockquote.wp-block-quote.is-style-default p,
-body.page-template-page-secondary-hp-w-nav blockquote.wp-block-quote.is-style-default p,
-body.page-template-page-secondary-hp-wo-nav blockquote.wp-block-quote.is-style-default p,
-body.page-template-page-secondary-kitchen-sink blockquote.wp-block-quote.is-style-default p,
-body.page-template-page-search blockquote.wp-block-quote.is-style-default p,
-body.single blockquote.wp-block-quote.is-style-default p {
+blockquote.wp-block-quote.is-style-default p {
   color: #fff;
   font-weight: 800;
 }
-body.error404 blockquote.wp-block-quote.is-style-default cite,
-body.page-template-default blockquote.wp-block-quote.is-style-default cite,
-body.page-template-page-academics-interior blockquote.wp-block-quote.is-style-default cite,
-body.page-template-page-secondary-hp-w-nav blockquote.wp-block-quote.is-style-default cite,
-body.page-template-page-secondary-hp-wo-nav blockquote.wp-block-quote.is-style-default cite,
-body.page-template-page-secondary-kitchen-sink blockquote.wp-block-quote.is-style-default cite,
-body.page-template-page-search blockquote.wp-block-quote.is-style-default cite,
-body.single blockquote.wp-block-quote.is-style-default cite {
+blockquote.wp-block-quote.is-style-default cite {
   color: #fff;
   font-weight: 700;
   font-style: normal;
@@ -12773,7 +12702,19 @@ body.error404 .entry-content {
 .posts-page .content.no-banner,
 .teachers-cta.content.no-banner,
 .teachers-cta .content.no-banner {
-  padding-top: 3.1rem;
+  padding-top: 4.1rem;
+}
+@media print, screen and (min-width: 40em) {
+  .blog.content.no-banner,
+  .blog .content.no-banner,
+  .archive.content.no-banner,
+  .archive .content.no-banner,
+  .posts-page.content.no-banner,
+  .posts-page .content.no-banner,
+  .teachers-cta.content.no-banner,
+  .teachers-cta .content.no-banner {
+    padding-top: 6.6rem;
+  }
 }
 .blog.content.primary-only #options,
 .blog .content.primary-only #options,
@@ -12795,7 +12736,13 @@ body.error404 .entry-content {
 .archive #options,
 .posts-page #options,
 .teachers-cta #options {
-  padding-bottom: 1.3rem;
+  padding-bottom: 1rem;
+}
+.blog.course-posts #options,
+.archive.course-posts #options,
+.posts-page.course-posts #options,
+.teachers-cta.course-posts #options {
+  padding-bottom: 2rem;
 }
 .blog .load-more-wrap,
 .archive .load-more-wrap,
@@ -12972,6 +12919,7 @@ article.post-card .inner .permalink {
   overflow: hidden;
 }
 article.post-card .inner .permalink .text-wrap {
+  width: 100%;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 0 1.25rem;
 }
@@ -12983,8 +12931,8 @@ article.post-card .inner .permalink .text-wrap h3 {
   line-height: 1.0869;
   font-weight: 700;
   padding: 1.35rem 0 1.05rem;
-  -webkit-transition: background-color 0.25s ease;
-  transition: background-color 0.25s ease;
+  -webkit-transition: color 0.25s ease;
+  transition: color 0.25s ease;
   font-size: 1rem;
   font-size: clamp(1rem, 0.894rem + 0.453vw, 1.438rem);
 }
@@ -13005,9 +12953,9 @@ article.post-card .inner .permalink:hover h3 {
 article.post-card .inner .cat-link {
   display: inline-block;
   position: absolute;
-  top: -9px;
-  right: -9px;
-  min-width: calc(50% + 9px);
+  top: -10px;
+  right: -10px;
+  min-width: calc(50% + 10px);
   background-color: #f4a85d;
   color: #fff;
   text-transform: uppercase;

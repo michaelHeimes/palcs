@@ -18,6 +18,15 @@
 		background-color: rgba($white, .21);
 		mix-blend-mode: multiply;
 	}
+	.section-header {
+		padding-bottom: rem-calc(55.3);
+		@include breakpoint(medium) {
+			padding-bottom: rem-calc(79);
+		}
+	}
+	h2.cta-heading {
+		margin-bottom: .46em;
+	}
 	article.teacher-card {
 		text-align: center;
 		a {
@@ -28,9 +37,6 @@
 		}
 		.circle-thumb-wrap {
 			margin-bottom: 2.15rem;
-		}
-		h2 {
-			margin-bottom: 0.56em;
 		}
 		p {
 			margin-bottom: 5em;

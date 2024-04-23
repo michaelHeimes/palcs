@@ -22,11 +22,21 @@ if($post_type == 'event') {
 	$posts_per_load = 10;
 }
 
+$banner_class = 'no-banner';
+
+$current_category = get_queried_object();
+if ($current_category && function_exists('get_field')) {
+	$full_width_banner_image = get_field('full_width_banner_image', 'category_' . $current_category->term_id) ?? null;
+	if( $full_width_banner_image ) {
+		$banner_class = '';
+	}
+}
+
 ?>
 
 	<main id="primary" class="site-main">
 		<?php get_template_part('template-parts/banner', 'full-width-image');?>
-		<div class="content posts-page primary-only no-banner">
+		<div class="content posts-page primary-only <?=$banner_class;?>">
 			<?php
 			if ( have_posts() ) :
 				
@@ -86,6 +96,7 @@ if($post_type == 'event') {
 				} else {
 					$post_categories = get_categories( array(
 						'hide_empty' => true,
+						'exclude' => get_cat_ID('Uncategorized')
 					));
 					$tax = 'category';
 					$args = array(  
@@ -110,6 +121,7 @@ if($post_type == 'event') {
 							'posts' => $posts,
 							'posts-per-load' => $posts_per_load,
 							'post_categories' => $post_categories,
+							'equal-height-cards' => true,
 						),
 					);
 					

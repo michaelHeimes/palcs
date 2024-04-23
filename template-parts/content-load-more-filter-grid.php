@@ -87,6 +87,7 @@ $primary_cat_terms = '';
 $primary_cat_front = '';
 $primary_all = '';
 $active_term = '';
+$all_class = '';
 
 if( $cpt == 'academic-course' ) {
 	$primary_cat_terms = $stage_terms;
@@ -134,7 +135,7 @@ if( !is_front_page() && is_home() || is_archive() ) {
 	$primary_cat_terms = $post_categories;
 	$active_term = $queried_object;
 	$primary_cat_front = '/category/';
-
+	
 	if( $queried_object->taxonomy == 'event-category' || $queried_object->taxonomy == 'club-category' ) {
 		
 		// Get the term archive URL
@@ -162,7 +163,6 @@ if( !is_front_page() && is_home() || is_archive() ) {
 		// Output or use the modified URLs as needed
 		$primary_cat_front = $current_url_without_last_slug;
 		$index_page = $current_url_without_last_two_slugs;
-		
 		// Add trailing slashes if not there
 		if (substr($primary_cat_front, -1) !== '/') {
 			$primary_cat_front .= '/';
@@ -173,6 +173,13 @@ if( !is_front_page() && is_home() || is_archive() ) {
 		}		
 	}
 	
+}
+
+if( !is_front_page() && is_home() ) {
+	$all_class = 'active';
+}
+if (is_archive() && $queried_object->taxonomy == 'category' ) {
+	$index_page = get_permalink( get_option( 'page_for_posts' ) );
 }
 
 $filter_grid_classes = [];
@@ -212,7 +219,7 @@ $filter_grid_classes_string = implode(' ', $filter_grid_classes);
 							</div>
 							<?php endforeach;?>
 							<div class="cell shrink top-level">
-								<a class="button filter-btn no-style all" href="<?=esc_url($index_page);?>">
+								<a class="button filter-btn no-style all <?=$all_class;?>" href="<?=esc_url($index_page);?>">
 									All
 								</a>
 							</div>

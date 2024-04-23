@@ -22,10 +22,12 @@ $fields = get_fields();
 					<?php
 						if( !empty( $fields['parent_title'] ) || !empty( $fields['onpage_links'] ) ) {
 							$parent_title = $fields['parent_title'] ?? null;
+							$parent_page_link = $fields['parent_page_link'] ?? null;
 							$onpage_links = $fields['onpage_links'] ?? null;
 							get_template_part('template-parts/section', 'onpage-nav',
 								array(
 									'parent_title' => $parent_title,
+									'parent_page_link' => $parent_page_link,
 									'onpage_links' => $onpage_links,
 								),
 							);

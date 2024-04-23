@@ -56,7 +56,6 @@ button,
 	}
 }
 
-
 .tax-menu,
 .alm-filtered .alm-filter-nav {
 	button,
@@ -112,14 +111,35 @@ button,
 	margin: 0;
 }
 
+.tax-menu-wrap {
+	padding-left: 1rem;
+	padding-right: 1rem;
+	.tax-menu.grid-x {
+		padding-bottom: 0.5rem;
+		margin-left: -1.65rem;
+		margin-right: -1.65rem;
+		> .cell {
+			padding-left: .625rem;
+			padding-right: .625rem;
+		}
+	}
+	button,
+	.button {
+		display: inline-block;
+		min-width: 0;
+		margin: .35rem 0;
+		font-size: 100%;
+	}
+}
+
 #options.tax-menu-wrap {
 	.option-set.tax-menu.grid-x {
-		margin-left: -rem-calc(10);
-		margin-right: -rem-calc(10);
+		margin-left: -1.45rem;
+		margin-right: -1.45rem;
 		> .cell {
 			opacity: 1;
-			padding-left: rem-calc(10);
-			padding-right: rem-calc(10);
+			padding-left: .35rem;
+			padding-right: .35rem;
 			transition: all .2s ease;
 			&.hide-btn {
 				opacity: 0;
@@ -136,7 +156,7 @@ button,
 		display: inline-block;
 		min-width: 0;
 		font-size: 100%;
-		margin: rem-calc(9) 0;
+		margin: .35rem 0;
 		label {
 			margin: 0;
 			line-height: 1;

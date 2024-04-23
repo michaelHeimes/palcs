@@ -9,6 +9,12 @@
 		font-size: 1.188rem;
 		font-size: clamp(1rem, 0.954rem + 0.194vw, 1.188rem);
 	}
+	.grid-x {
+		justify-content: center;
+		@include breakpoint(medium) {
+			justify-content: flex-end;
+		}
+	}
 	.cell {
 		margin-bottom: 1rem;
 	}

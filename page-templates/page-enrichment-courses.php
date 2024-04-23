@@ -42,7 +42,7 @@
  
  $posts = get_posts($args);?>
  
-<div class="content posts-page enrichment-course-posts <?php if( !empty( $program) ) { echo  $program->slug; } else { echo 'all'; };?>">
+<div class="content posts-page course-posts <?php if( !empty( $program) ) { echo  $program->slug; } else { echo 'all'; };?>">
 	<div class="inner-content">
 	 
 		<main id="primary" class="site-main">

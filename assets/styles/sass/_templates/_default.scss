@@ -50,19 +50,13 @@ hr.wp-block-separator {
 }
 body.error404,
 body.page-template-default,
-body.page-template-page-academics-interior,
-body.page-template-page-secondary-hp-w-nav,
-body.page-template-page-secondary-hp-wo-nav,
-body.page-template-page-secondary-kitchen-sink,
 body.page-template-page-search,
-body.single {
+body.single-post {
 	.entry-content {
 		overflow: hidden;
-		&:not(.accordion-content):not(.tabs-panel):not(.typography-styles-only) {
-			padding-bottom: 5.5rem;
-			@include breakpoint(medium) {
-				padding-bottom: 8rem;
-			}
+		padding-bottom: 5.5rem;
+		@include breakpoint(medium) {
+			padding-bottom: 8rem;
 		}
 		p {
 			
@@ -72,8 +66,24 @@ body.single {
 		ol,
 		.button-group  {
 			line-height: 2.05;
-			margin-top: rem-calc(30);
-			margin-bottom: rem-calc(30);
+			margin-top: rem-calc(25);
+			margin-bottom: rem-calc(25);
+			@include breakpoint(medium) {
+				margin-top: rem-calc(35);
+				margin-bottom: rem-calc(35);
+			}
+		}
+		h1,
+		h2,
+		h3,
+		h4,
+		h5 {
+			~ p {
+				margin-top: 0;
+			}
+		}
+		.button-group  {
+			padding-top: rem-calc(30);
 		}
 		.content-wrap {
 			> *:first-child {
@@ -97,69 +107,73 @@ body.single {
 		}
 		
 	}
+}
 
-	.wp-block-gallery.has-nested-images {
-		margin-left: -10px;
-		margin-right: -10px;
-			figure {
-				padding: 10px;
-			}
-		@include breakpoint(tablet) {
-		margin-left: -15px;
-		margin-right: -15px;
-			figure {
-				padding: 15px;
-			}
+body.single-post .entry-content {
+	padding-bottom: 0;
+}
+
+.wp-block-gallery.has-nested-images {
+	margin-left: -10px;
+	margin-right: -10px;
+		figure {
+			padding: 10px;
+		}
+	@include breakpoint(tablet) {
+	margin-left: -15px;
+	margin-right: -15px;
+		figure {
+			padding: 15px;
 		}
 	}
-	:where(.wp-block-columns.is-layout-flex) {
-		> .wp-block-column-is-layout-flow {
-			>* {
-				margin-bottom: 2rem;
-			}
-		}
-		@media (min-width: 782px) {
-			gap: 60px;
+}
+:where(.wp-block-columns.is-layout-flex) {
+	> .wp-block-column-is-layout-flow {
+		>*:not(.wp-block-imag) {
+			margin-bottom: 2rem;
 		}
 	}
-	blockquote.wp-block-quote.is-style-default {
-		border: 0;
-		position: relative;
-		max-width: 880px;
-		padding: 5.35rem 4.85rem;
-		margin-left: auto;
-		margin-right: auto;
-		@extend .gradient-bg;
+	@media (min-width: 782px) {
+		gap: 60px;
+	}
+}
+blockquote.wp-block-quote.is-style-default {
+	border: 0;
+	position: relative;
+	max-width: 880px;
+	padding: 5.35rem 4.85rem;
+	margin-left: auto;
+	margin-right: auto;
+	@extend .gradient-bg;
+	color: $white;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		
+		// width: 157px;
+		// height: 117px;
+		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='156.984' height='116.437' viewBox='0 0 156.984 116.437'%3E%3Cpath id='Path_472' data-name='Path 472' d='M18.228-152.148v-38.316a99.187,99.187,0,0,1,7.44-38.874q7.44-17.67,26.04-36.27l21.948,17.856q-18.6,18.6-22.692,35.712H78.492v59.892Zm123.5,2.976-21.948-17.112q18.6-18.972,22.692-36.456H114.948v-59.52h60.264v38.316a99.187,99.187,0,0,1-7.44,38.874Q160.332-167.4,141.732-149.172Z' transform='translate(-18.228 265.608)' fill='%23fff' opacity='0.151'/%3E%3C/svg%3E");
+		background-size: 157px;
+		background-repeat: no-repeat;
+		background-position: center; 
+	}
+	.wp-block-heading {
+		color: $white !important;
+	}
+	p {
 		color: $white;
-		&:before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			margin: auto;
-			
-			// width: 157px;
-			// height: 117px;
-			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='156.984' height='116.437' viewBox='0 0 156.984 116.437'%3E%3Cpath id='Path_472' data-name='Path 472' d='M18.228-152.148v-38.316a99.187,99.187,0,0,1,7.44-38.874q7.44-17.67,26.04-36.27l21.948,17.856q-18.6,18.6-22.692,35.712H78.492v59.892Zm123.5,2.976-21.948-17.112q18.6-18.972,22.692-36.456H114.948v-59.52h60.264v38.316a99.187,99.187,0,0,1-7.44,38.874Q160.332-167.4,141.732-149.172Z' transform='translate(-18.228 265.608)' fill='%23fff' opacity='0.151'/%3E%3C/svg%3E");
-			background-size: 157px;
-			background-repeat: no-repeat;
-			background-position: center; 
-		}
-		.wp-block-heading {
-			color: $white !important;
-		}
-		p {
-			color: $white;
-			font-weight: 800;
-		}
-		cite {
-			color: $white;
-			font-weight: 700;
-			font-style: normal;
-			padding-top: 2.05rem;
-		}
+		font-weight: 800;
+	}
+	cite {
+		color: $white;
+		font-weight: 700;
+		font-style: normal;
+		padding-top: 2.05rem;
 	}
 }
 

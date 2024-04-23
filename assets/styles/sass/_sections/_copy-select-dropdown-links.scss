@@ -16,7 +16,7 @@
 			background-repeat: no-repeat;
 			background-size: contain;
 			background-position: 50% 95%;
-			bottom: -1rem;
+			top: 2rem;
 			height: calc(100% + 1rem);
 			@include breakpoint(tablet) {
 				background-position: 100% 50%;

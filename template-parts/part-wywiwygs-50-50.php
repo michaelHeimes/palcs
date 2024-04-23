@@ -17,12 +17,12 @@ $right = $wywiwygs_50_50['right_wysiwyg'] ?? null;
 		<?php endif;?>
 		<div class="grid-x grid-padding-x align-center">
 			<?php if( !empty($left) ):?>
-				<div class="left cell small-12 medium-6 large-5 entry-content typography-styles-only">
+				<div class="left cell small-12 medium-6 large-5">
 					<?=wp_kses_post( $left );?>
 				</div>
 			<?php endif;?>
 			<?php if( !empty($right) ):?>
-				<div class="right cell small-12 medium-6 large-5 entry-content typography-styles-only">
+				<div class="right cell small-12 medium-6 large-5">
 					<?=wp_kses_post( $right );?>
 				</div>
 			<?php endif;?>

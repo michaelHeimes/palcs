@@ -17,12 +17,16 @@
 		.inner {
 			border: 10px solid $white;
 			.permalink {
+				color: $dark-gray;
 				position: absolute;
 				top: 0;
 				bottom: 0;
 				height: 100%;
 				width: 100%;
 				h3 {
+					width: 100%;
+					font-family: $font-body;
+					color: $dark-gray;
 					margin: 0;
 					font-size: rem-calc(17);
 					line-height: 1.235;
@@ -58,6 +62,6 @@
 		}
 	}
 	.part-header-button-link-cta {
-		margin-top: 8.35rem;
+		margin-top: 6.8rem;
 	}
 }

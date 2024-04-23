@@ -72,6 +72,9 @@
 	ul#offcanvas-nav.drilldown {
 		width: 100%;
 		background-color: $color-blue;
+		> li {
+			text-transform: uppercase;
+		}
 		a {
 			background: transparent;
 			display: flex;
@@ -123,6 +126,11 @@
 					display: inline-block;
 					margin-right: rem-calc(16);
 				}
+			}
+		}
+		.is-drilldown-submenu {
+			li {
+				text-transform: none;
 			}
 		}
 		.js-drilldown-back {

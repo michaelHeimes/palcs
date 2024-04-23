@@ -8,7 +8,7 @@
             "name": "latest_category_posts_category_id",
             "aria-label": "",
             "type": "taxonomy",
-            "instructions": "",
+            "instructions": "If no category is checked this will show all categories.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -107,5 +107,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1713625750
+    "modified": 1713836858
 }

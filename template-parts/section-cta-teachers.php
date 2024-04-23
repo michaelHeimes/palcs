@@ -39,7 +39,7 @@ $link = $args['cta_teachers_button_link'] ?? null;
 	<div class="bg-img mask"></div>
 	<div class="grid-container relative">
 		<?php if( !empty($cta_teachers_heading) || !empty($cta_teachers_text) ):?>
-			<div class="grid-x grid-padding-x align-center">
+			<div class="grid-x grid-padding-x align-center section-header">
 				<div class="cell small-12 medium-10 tablet-8 text-center">
 					<?php if( !empty($cta_teachers_heading) ):?>
 						<h2 class="cta-heading"><?=esc_attr( $cta_teachers_heading );?></h2>

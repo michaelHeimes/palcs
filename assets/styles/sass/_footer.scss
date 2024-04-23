@@ -149,6 +149,9 @@ footer#colophon {
 			margin-bottom: 1.15rem;
 			a {
 				color: $white;
+				&:hover {
+					text-decoration: underline;
+				}
 			}
 		}
 	}	

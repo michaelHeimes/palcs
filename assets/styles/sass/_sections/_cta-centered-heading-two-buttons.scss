@@ -1,13 +1,14 @@
 .cta-centered-heading-two-buttons {
-	padding-top: 5.78rem;
-	padding-bottom: 6.7rem;
+	padding-top: 8.246rem;
+	padding-bottom: 6.79rem;
 	@include breakpoint(medium) {
 		padding-top: 11.78rem;
-		padding-bottom: 12.7rem;
+		padding-bottom: 9.7rem;
 	}
 	.mask {
 		background-color: $color-sky-blue;
 		mix-blend-mode: multiply;
+		opacity: .75;
 	}
 	h2 {
 		line-height: 1;

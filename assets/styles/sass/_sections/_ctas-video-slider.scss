@@ -10,16 +10,13 @@
 	}
 	.bg.gradient-1 {
 		position: absolute;
-		top: 0;
-		left: 0;
+		top: -1px;
+		bottom: -1px;
+		height: calc(100% + 2px);
 		width: calc(100% + $mediumGutter);
-		height: 100%;
 		background-image: linear-gradient(90.59deg, #f6885c 0%, #f91c5d 23.599999999999998%, #96358a 53.2%, #5446ab 71.6%, #379ff8 100%);
 		@include breakpoint(tablet) {
 			width: 100%;
-			top: -1px;
-			bottom: -1px;
-			height: calc(100% + 2px);
 			clip-path: polygon(0% 0, 100% 0%, 73% 100%, 0 100%);
 			width: calc( 70vw + $mediumGutter);
 		}
@@ -100,7 +97,8 @@
 				position: absolute;
 				top: 50%;
 				left: 50%;
-				transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%) scale(1);
+				transition: transform .25s ease;
 				max-width: 80px;
 				@include breakpoint(medium) {
 					max-width: 100%;
@@ -113,8 +111,8 @@
 				width: 100%;
 				height: 100%;
 				&:hover {
-					img.image {
-						transform: scale(1.05);
+					img.play-icon {
+						transform: translate(-50%, -50%) scale(1.1);
 					}
 				}
 			}
@@ -144,9 +142,14 @@
 	}
 	.swiper-pagination-bullets.swiper-pagination-horizontal {
 		position: absolute;
-		bottom: 29px;
+		bottom: 17px;
 		span {
+			box-shadow: -1px 2px 6px 0px rgba(0,0,0,0.16);
 			background: #FF1B59;
+			transition: background .25s ease;
+			&:hover {
+				background: $color-blue;
+			}
 			&.swiper-pagination-bullet-active {
 				background: $color-blue;
 			}
@@ -171,6 +174,11 @@
 			@include breakpoint(medium down) {
 				opacity: 1;
 			}
+		}
+		.right .inner img.image {
+			@include breakpoint(tablet) {
+				display: none;
+			}	
 		}
 	}
 	

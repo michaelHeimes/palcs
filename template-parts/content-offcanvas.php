@@ -9,7 +9,7 @@
  $phone_number = get_field('phone_number', 'option');
 ?>
 
-<div class="off-canvas position-right grid-x align-right blue-bg uppercase" id="off-canvas" data-off-canvas>
+<div class="off-canvas position-right grid-x align-right blue-bg" id="off-canvas" data-off-canvas>
 	<div class="inner">
 		<div class="menu-toggle-wrap grid-x align-middle">
 			<div class="cell small-12 grid-x align-right">

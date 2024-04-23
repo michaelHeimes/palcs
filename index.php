@@ -25,7 +25,10 @@ $posts_per_load = 9;
 			<?php
 			if ( have_posts() ) :
 				
-				$post_categories = get_categories();
+				$post_categories = get_categories(array(
+					'hide_empty' => 1,
+					'exclude' => get_cat_ID('Uncategorized')
+				));
 
 				$args = array(  
 					'post_type' => 'post',
