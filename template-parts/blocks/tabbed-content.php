@@ -26,12 +26,15 @@ $tabs = get_field('tabs') ?? null;
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="module block <?php echo esc_attr($className); ?>">
 	<?php if( !empty($tabs) ):?>
-		<ul class="tabs" data-tabs id="<?=$block['id'];?>-tabs">
+		<ul class="tabs" data-responsive-accordion-tabs="tabs small-accordion tablet-tabs" id="<?=$block['id'];?>-tabs" data-allow-all-closed="true" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge-delay="500" data-deep-link-smudge-offset="50">
 			<?php $i = 1; foreach( $tabs as $tab ):
 				$title = $tab['title'];	
 			?>
 				<li class="tabs-title<?php if( $i == 1 ){ echo ' is-active';}?>" <?php if( $i == 1 ){ echo 'aria-selected="true"';};?>>
-					<a href="#panel-<?=sanitize_title($title);?>-<?=$i;?>"><?=$title;?></a>
+					<a class="font-header" href="#panel-<?=sanitize_title($title);?>-<?=$i;?>">
+						<b><?=$title;?></b>
+						<span class="marker"></span>
+					</a>
 				</li>
 			<?php $i++; endforeach;?>
 		</ul>

@@ -27,4 +27,15 @@
 			text-decoration: underline;
 		}
 	}
+	.child-links {
+		a,
+		span {
+			color: #E4C6FD;
+		}
+		a {
+			&:hover {
+				color: $white;
+			}
+		}
+	}
 }

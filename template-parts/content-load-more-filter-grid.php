@@ -1,17 +1,6 @@
 <?php
 $queried_object = get_queried_object() ?? null;
 
-$intro_copy = '';
-if ( is_home() ) {
-	$posts_page_id = get_option('page_for_posts');
-	$intro_copy = get_field('intro_copy', $posts_page_id);
-} elseif ( is_archive() ) {
-	$current_category = get_queried_object();
-	if ($current_category && function_exists('get_field')) {
-		$intro_copy = get_field('intro_copy', 'category_' . $current_category->term_id);
-	}
-}
-
 $sidebar_image = $args['sidebar-image'] ?? null;
 // This template is used for all JS load more and filtering
 $cpt = $args['cpt'] ?? null;
@@ -208,24 +197,9 @@ $filter_grid_classes_string = implode(' ', $filter_grid_classes);
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x align-center">
 			<div class="cell small-12 large-10 xxlarge-8">
-				<?php if( !empty(get_the_content() && !is_home()) && !is_archive() ) {
-					echo '<header class="grid-intro-text">';
-						the_content();
-					echo '</header>';
-					
-				} elseif ( is_home() ) {
+				<?php 
 					get_template_part('template-parts/part', 'grid-intro');
-				} elseif( !empty($intro_copy) ) {
-					echo '<header class="grid-intro-text">';
-						echo $intro_copy;
-					echo '</header>';
-				} else {
-					if( !empty($queried_object->description) ) {
-						echo '<header class="grid-intro-text">';
-							echo $queried_object->description;
-						echo '</header>';
-					}
-				};?>
+				?>
 
 				<div id="options" class="tax-menu-wrap">
 					<div class="stages tax-menu grid-x grid-padding-x font-size-20">

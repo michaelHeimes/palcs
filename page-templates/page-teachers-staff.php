@@ -42,7 +42,10 @@ if( !empty($stage) ) {
 
 $posts = get_posts($args);
 
-$intro_text = $fields['intro_text'];
+$classes = 'no-banner';
+if( get_field('cta_video_slider_slides') ) {
+	$classes = 'has-banner';
+}
 
 ?>
 
@@ -51,23 +54,10 @@ $intro_text = $fields['intro_text'];
 	
 		<main id="primary" class="site-main">
 	
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<article id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
 			
 				<header class="entry-header">
 					<?php get_template_part('template-parts/section', 'ctas-video-slider');?>
-					<div class="grid-container">
-						<div class="grid-x grid-padding-x align-center">
-							<div class="cell small-12 xlarge-10 xxlarge-8">
-								<?php if( !empty($intro_text) ) {
-									get_template_part('template-parts/part', 'grid-intro', 
-										array(
-											'intro_text' => $intro_text,
-										),
-									);
-								};?>
-							</div>
-						</div>
-					</div>
 				</header><!-- .entry-header -->
 				
 				<?php get_template_part('template-parts/content', 'load-more-filter-grid', 

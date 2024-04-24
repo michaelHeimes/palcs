@@ -29,3 +29,5 @@ if( get_field('full_width_banner_image') ) {
 	</div><!-- .entry-content -->
 
 </article><!-- #post-<?php the_ID(); ?> -->
+<div class="gradient-border"></div>
+

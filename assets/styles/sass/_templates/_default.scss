@@ -82,6 +82,9 @@ body.single-post {
 				margin-top: 0;
 			}
 		}
+		.accordion-content > *:first-child {
+			margin-top: 0;	
+		}
 		.button-group  {
 			padding-top: rem-calc(30);
 		}

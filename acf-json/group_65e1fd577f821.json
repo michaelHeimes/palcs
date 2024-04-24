@@ -26,23 +26,9 @@
     "location": [
         [
             {
-                "param": "taxonomy",
-                "operator": "==",
-                "value": "category"
-            }
-        ],
-        [
-            {
                 "param": "page_type",
                 "operator": "==",
                 "value": "posts_page"
-            }
-        ],
-        [
-            {
-                "param": "taxonomy",
-                "operator": "==",
-                "value": "event-category"
             }
         ]
     ],
@@ -55,5 +41,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1713918827
+    "modified": 1713980499
 }

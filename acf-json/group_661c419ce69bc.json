@@ -21,10 +21,10 @@
         },
         {
             "key": "field_661c419de5c1d",
-            "label": "Overview Video",
-            "name": "overview_video",
+            "label": "Overview Video URL",
+            "name": "overview_video_url",
             "aria-label": "",
-            "type": "post_object",
+            "type": "oembed",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -33,19 +33,8 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "video"
-            ],
-            "post_status": [
-                "publish"
-            ],
-            "taxonomy": "",
-            "return_format": "object",
-            "multiple": 0,
-            "allow_null": 0,
-            "bidirectional": 0,
-            "ui": 1,
-            "bidirectional_target": []
+            "width": "",
+            "height": ""
         },
         {
             "key": "field_66284f070d1ab",
@@ -223,5 +212,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1713923265
+    "modified": 1713968307
 }

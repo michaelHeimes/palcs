@@ -28,10 +28,13 @@
 // JS Form Validation
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.abide.js
 
-// Accordian
+// Tabs UI
+//@prepros-prepend vendor/foundation/js/plugins/foundation.tabs.js
+
+// Accordion
 //@prepros-prepend vendor/foundation/js/plugins/foundation.accordion.js
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.accordionMenu.js
-//@*prepros-prepend vendor/foundation/js/plugins/foundation.responsiveAccordionTabs.js
+//@prepros-prepend vendor/foundation/js/plugins/foundation.responsiveAccordionTabs.js
 
 // Menu enhancements
 //@prepros-prepend vendor/foundation/js/plugins/foundation.drilldown.js
@@ -49,7 +52,7 @@
 // Navigation Widget
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.magellan.js
 
-// Offcanvas Naviagtion Option
+// Offcanvas Navigation Option
 //@prepros-prepend vendor/foundation/js/plugins/foundation.offcanvas.js
 
 // Carousel (don't ever use)
@@ -66,9 +69,6 @@
 
 // Sticky Elements
 //@prepros-prepend vendor/foundation/js/plugins/foundation.sticky.js
-
-// Tabs UI
-//@prepros-prepend vendor/foundation/js/plugins/foundation.tabs.js
 
 // On/Off UI Switching
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.toggler.js

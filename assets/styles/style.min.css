@@ -10057,8 +10057,8 @@ header.site-header #top-bar-menu .grid-x {
 header.site-header #top-bar-menu .top-bar-left .sticky-logo {
   position: absolute;
   top: 0;
-  width: 256.47px;
-  height: 94.36px;
+  height: 105px;
+  width: 80px;
 }
 header.site-header #top-bar-menu .top-bar-left .sticky-logo img {
   position: absolute;
@@ -10068,6 +10068,11 @@ header.site-header #top-bar-menu .top-bar-left .sticky-logo img {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+@media print, screen and (min-width: 40em) {
+  header.site-header #top-bar-menu .top-bar-left .sticky-logo {
+    width: 256.47px;
+  }
 }
 header.site-header #top-bar-menu .menu-toggle {
   text-transform: uppercase;
@@ -11913,6 +11918,13 @@ form#search-form button:not(.no-style) {
 .on-page-nav a:hover {
   text-decoration: underline;
 }
+.on-page-nav .child-links a,
+.on-page-nav .child-links span {
+  color: #E4C6FD;
+}
+.on-page-nav .child-links a:hover {
+  color: #fff;
+}
 
 .banner-full-width-image {
   max-width: 1900px;
@@ -12397,6 +12409,12 @@ body.single-post .entry-content h4 ~ p,
 body.single-post .entry-content h5 ~ p {
   margin-top: 0;
 }
+body.error404 .entry-content .accordion-content > *:first-child,
+body.page-template-default .entry-content .accordion-content > *:first-child,
+body.page-template-page-search .entry-content .accordion-content > *:first-child,
+body.single-post .entry-content .accordion-content > *:first-child {
+  margin-top: 0;
+}
 body.error404 .entry-content .button-group,
 body.page-template-default .entry-content .button-group,
 body.page-template-page-search .entry-content .button-group,
@@ -12607,7 +12625,13 @@ body.error404 .entry-content {
 .page-template-page-teachers-staff .ctas-video-slider,
 .page-template-page-administration .ctas-video-slider {
   position: relative;
-  margin-bottom: 5.55rem;
+  margin-bottom: 3.885rem;
+}
+@media print, screen and (min-width: 40em) {
+  .page-template-page-teachers-staff .ctas-video-slider,
+  .page-template-page-administration .ctas-video-slider {
+    margin-bottom: 5.55rem;
+  }
 }
 .page-template-page-teachers-staff .ctas-video-slider .inner-height-control,
 .page-template-page-administration .ctas-video-slider .inner-height-control {
@@ -12618,6 +12642,16 @@ body.error404 .entry-content {
   .page-template-page-teachers-staff .ctas-video-slider .swiper-slide .grid-container .right .inner,
   .page-template-page-administration .ctas-video-slider .swiper-slide .grid-container .right .inner {
     min-height: 40vw;
+  }
+}
+.page-template-page-teachers-staff .no-banner .isotope-filter-loadmore,
+.page-template-page-administration .no-banner .isotope-filter-loadmore {
+  margin-top: 3.885rem;
+}
+@media print, screen and (min-width: 40em) {
+  .page-template-page-teachers-staff .no-banner .isotope-filter-loadmore,
+  .page-template-page-administration .no-banner .isotope-filter-loadmore {
+    margin-top: 5.55rem;
   }
 }
 

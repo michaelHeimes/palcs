@@ -1,21 +1,20 @@
 <?php
-$intro_text = '';
-if( is_archive() ) {
-	$current_category = get_queried_object();
-	if ($current_category && function_exists('get_field')) {
-		$intro_text = get_field('intro_copy', 'category_' . $current_category->term_id);
-	}
-	
-	
-} elseif ( is_home() )  {
-	$current_page_id = get_queried_object_id();
-	$intro_text = get_field('intro_copy', $current_page_id);	
-} else {
-	$intro_text = $args['intro_text'];
+$queried_object = get_queried_object() ?? null;
+
+$intro_copy = '';
+if ( is_home() ) {
+	$posts_page_id = get_option('page_for_posts');
+	$intro_copy = get_field('intro_copy', $posts_page_id);
+} elseif ( is_archive() && !empty($queried_object->description) ) {
+	$intro_copy = $queried_object->description;
+} elseif( !empty( get_field('intro_text') ) ) {
+	$intro_copy =  get_field('intro_text') ?? null;
 }
-if( !empty($intro_text) ):
+echo '<header class="grid-intro-text">';
+	if( !empty(get_the_content() && !is_home()) && !is_archive() ) {
+		the_content();		
+	} elseif( !empty($intro_copy) ) {
+		echo $intro_copy;
+	};
+echo '</header>';
 ?>
-<div class="grid-intro-text">
-	<?=$intro_text;?>
-</div>
-<?php endif;?>

@@ -1,5 +1,4 @@
 <?php
-$parent_title = $args['parent_title'];
 $parent_page_link = $args['parent_page_link'];
 $current_url = $_SERVER['REQUEST_URI'];
 $onpage_links = $args['onpage_links'];
@@ -8,7 +7,7 @@ $home_url = home_url();
 <section class="on-page-nav purple-bg">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x uppercase">
-			<?php if( !empty($parent_title) || !empty($parent_page_link) ):?>
+			<?php if( !empty($parent_page_link)):?>
 				<div class="cell shrink parent-title text-center">
 					<?php if($parent_page_link):
 						$link = $parent_page_link;
@@ -24,9 +23,6 @@ $home_url = home_url();
 						<?php else:?>
 							<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 						<?php endif;?>
-					
-					<?php else:?>
-						<span><?=esc_attr( $parent_title );?></span>
 					<?php endif;?>
 				</div>
 			<?php endif;?>
@@ -39,7 +35,7 @@ $home_url = home_url();
 					
 					$relative_path = str_replace($home_url, '', $link_url);
 			?>
-				<div class="cell shrink">
+				<div class="cell shrink child-links">
 					<?php if( $current_url == $relative_path ):?>
 						<span><?php echo esc_html( $link_title ); ?></span>
 					<?php else:?>

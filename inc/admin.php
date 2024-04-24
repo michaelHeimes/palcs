@@ -51,6 +51,7 @@ function ea_disable_editor( $id = false ) {
 	);
 
 	$excluded_ids = array(
+		//This is because we need an ACF field due to inability to use the_content() 
 		get_option( 'page_for_posts' )
 	);
 
@@ -178,7 +179,7 @@ add_action('admin_head', 'my_admin_area_custom_css');
 
 function my_admin_area_custom_css() {
 	echo '<style>
-		body:not(.taxonomy-category):not(.taxonomy-event-category) tr.form-field.term-description-wrap {
+		body:not(.taxonomy-category):not(.taxonomy-event-category):not(.taxonomy-club-category) tr.form-field.term-description-wrap {
 			display:none;
 		}
   </style>';

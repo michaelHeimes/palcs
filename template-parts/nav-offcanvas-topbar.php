@@ -107,24 +107,34 @@
 					<div class="grid-container">
 						<div class="grid-x grid-padding-x">
 							<?php if( wp_get_nav_menu_items(get_nav_menu_locations()['header-secondary-nav']) ):?>
-							<div class="top-bar-left cell small-12 large-auto relative grid-x align-middle show-for-large">
+							<div class="top-bar-left cell auto relative grid-x align-middle">
+								<?php if( !empty( get_field('header_logo_mobile_sticky_nav', 'option') ) ) {
+									$imgID = get_field('header_logo_mobile_sticky_nav', 'option')['ID'];
+									$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
+									$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
+									echo '<div class="sticky-logo mobile hide-for-medium" style="visibility: hidden;"><a href="' . home_url() . '">';
+									echo $img;
+									echo '</a></div>';
+								}?>
 								<?php if( !empty( get_field('header_logo', 'option') ) ) {
 									$imgID = get_field('header_logo', 'option')['ID'];
 									$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
 									$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
-									echo '<div class="sticky-logo" style="visibility: hidden;"><a href="' . home_url() . '">';
+									echo '<div class="sticky-logo show-for-medium" style="visibility: hidden;"><a href="' . home_url() . '">';
 									echo $img;
 									echo '</a></div>';
 								}?>
+								<div class="show-for-large">
 								<?php trailhead_header_nav();?>
+								</div>
 							</div>
 							<?php endif;?>
 							<?php if( wp_get_nav_menu_items(get_nav_menu_locations()['offcanvas-nav']) ):?>
-							<div class="top-bar-right cell small-12 large-shrink">
+							<div class="top-bar-right cell shrink">
 								<div class="grid-x align-right grid-x align-middle">
 									<ul class="menu">
 										<!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
-										<li>
+										<li class="menu-item">
 											<button class="menu-toggle no-style" data-toggle="off-canvas">
 												<span class="uppercase">Full Menu</span>
 												<svg xmlns="http://www.w3.org/2000/svg" width="17.334" height="16.788" viewBox="0 0 17.334 16.788">

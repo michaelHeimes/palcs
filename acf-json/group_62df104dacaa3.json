@@ -29,8 +29,8 @@
         },
         {
             "key": "field_659ca58a42940",
-            "label": "Header Logo - Sticky Nav",
-            "name": "header_logo_sticky",
+            "label": "Header Logo - Mobile Sticky Nav",
+            "name": "header_logo_mobile_sticky_nav",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -71,5 +71,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704764834
+    "modified": 1713984365
 }
