@@ -121,7 +121,6 @@ if ($current_category && function_exists('get_field')) {
 							'posts' => $posts,
 							'posts-per-load' => $posts_per_load,
 							'post_categories' => $post_categories,
-							'equal-height-cards' => true,
 						),
 					);
 					
@@ -138,6 +137,7 @@ if ($current_category && function_exists('get_field')) {
 			?>
 		</div>
 	</main><!-- #main -->
+	<div class="gradient-border"></div>
 
 <?php
 get_footer();

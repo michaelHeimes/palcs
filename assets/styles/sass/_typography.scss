@@ -22,7 +22,7 @@ ol {
 	}
 	&:not(.tabs):not(.accordion) {
 	}
-	li:not(.accordion-item):not(.tabs-title) {
+	li:not(.accordion-item):not(.tabs-title):not(.menu-item) {
 		margin-bottom: 0.75rem;
 	}
 }

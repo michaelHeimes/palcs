@@ -30,17 +30,6 @@
 					<?=$date->format( 'm/d/y' );?>
 				</p>
 				<?php endif;?>
-				<?php if (has_excerpt()) {
-					echo '<p>';
-						the_excerpt();
-					echo '</p>';
-				} else {
-					// No custom excerpt, create one from the content
-					$content = get_the_content();
-					$excerpt_length = 30; // Number of characters for the excerpt
-					$excerpt = wp_trim_words($content, $excerpt_length, '<span class="color-coral">...</span>'); // Trim content to specified length with ellipsis
-					echo $excerpt;
-				}?>
 				<div class="btn-wrap grid-x align-right">
 					<a class="button purple-ds" class="color-dark-gray" href="<?= esc_url(get_the_permalink());?>">
 						See Event

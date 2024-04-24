@@ -37,6 +37,13 @@
                 "operator": "==",
                 "value": "posts_page"
             }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "event-category"
+            }
         ]
     ],
     "menu_order": 1,
@@ -48,5 +55,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1711054860
+    "modified": 1713918827
 }

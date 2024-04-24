@@ -75,6 +75,7 @@ $fields = get_fields();
 								</div>
 							</div>
 						</div>
+						<div class="gradient-border"></div>
 					<?php endif;?>
 					
 					<?php

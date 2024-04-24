@@ -66,6 +66,7 @@
 			 
 	</div>
 </div>
- 
+<div class="gradient-border"></div>
+
 <?php
 get_footer();

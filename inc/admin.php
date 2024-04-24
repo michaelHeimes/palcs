@@ -51,7 +51,7 @@ function ea_disable_editor( $id = false ) {
 	);
 
 	$excluded_ids = array(
-		// get_option( 'page_on_front' )
+		get_option( 'page_for_posts' )
 	);
 
 	if( empty( $id ) )
@@ -178,7 +178,7 @@ add_action('admin_head', 'my_admin_area_custom_css');
 
 function my_admin_area_custom_css() {
 	echo '<style>
-		body tr.form-field.term-description-wrap {
+		body:not(.taxonomy-category):not(.taxonomy-event-category) tr.form-field.term-description-wrap {
 			display:none;
 		}
   </style>';

@@ -9,7 +9,7 @@ $heading = $args['lcp_heading'] ?? null;
 $link = $args['lcp_link'] ?? null;
 ?>
 <section class="latest-posts-category relative">
-	hi
+
 	<?php if( !empty( $bg_img ) ) {
 		$imgID = $bg_img['ID'];
 		$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );

@@ -33,13 +33,4 @@ if ( is_home() || is_archive() ) {
 		echo '<div class="gradient-border"></div>';
 		echo '</div>';
 	}?>
-	<div class="grid-container">
-		<div class="grid-x grid-padding-x align-center">
-			<div class="cell<?=$intro_size_classes;?> text-left">
-				<?php if ( is_archive() || is_home() ) {
-					get_template_part('template-parts/part', 'grid-intro');
-				}?>
-			</div>
-		</div>
-	</div>
 </header>

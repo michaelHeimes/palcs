@@ -9650,8 +9650,8 @@ ol:not(.accordion):not(.tabs):not(.menu):not(.tax-menu):not(.terms-list) {
     margin-bottom: 3rem;
   }
 }
-ul li:not(.accordion-item):not(.tabs-title),
-ol li:not(.accordion-item):not(.tabs-title) {
+ul li:not(.accordion-item):not(.tabs-title):not(.menu-item),
+ol li:not(.accordion-item):not(.tabs-title):not(.menu-item) {
   margin-bottom: 0.75rem;
 }
 
@@ -10622,6 +10622,10 @@ footer#colophon .copyright {
 }
 .off-canvas .ctas a.button {
   margin-bottom: 1.2rem;
+}
+.off-canvas .ctas a.button:hover {
+  background-color: #cbedfe;
+  color: #ff1b85;
 }
 .off-canvas .call-wrap {
   padding-bottom: 4.375rem;
@@ -11769,23 +11773,6 @@ form#search-form button:not(.no-style) {
 .latest-posts-category h2 {
   margin-bottom: 2.3em;
 }
-.latest-posts-category article.post-card .inner {
-  width: 100%;
-}
-.latest-posts-category article.post-card .inner .thumbnail-wrap {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  padding-bottom: 121%;
-  padding-bottom: 118%;
-}
-.latest-posts-category article.post-card .inner .thumbnail-wrap img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  widows: 100%;
-  height: 100%;
-}
 .latest-posts-category article.post-card .inner .permalink h3 {
   color: #4F5053;
   font-weight: 800;
@@ -12600,7 +12587,7 @@ body.error404 .entry-content {
 .page-template-page-secondary-hp-w-nav .intro:has(+ .blocks),
 .page-template-page-secondary-hp-wo-nav .intro:has(+ .blocks),
 .page-template-page-academics-interior .intro:has(+ .blocks) {
-  padding-bottom: 2rem;
+  padding-bottom: 4.3rem;
 }
 .page-template-page-secondary-hp-kitchen-sink .blocks,
 .page-template-page-secondary-hp-w-nav .blocks,
@@ -12901,10 +12888,20 @@ article.post-card {
     margin: 0 0 50px;
   }
 }
+article.post-card .inner {
+  width: 100%;
+}
 article.post-card .inner .thumbnail-wrap {
   height: 100%;
+  width: 100%;
+  position: relative;
+  padding-bottom: 118%;
 }
 article.post-card .inner .thumbnail-wrap img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  widows: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;

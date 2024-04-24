@@ -45,7 +45,6 @@ $posts_per_load = 9;
 						'posts' => $posts,
 						'post_categories' => $post_categories,
 						'posts-per-load' => $posts_per_load,
-						'equal-height-cards' => true,
 					),
 				);
 
@@ -57,6 +56,7 @@ $posts_per_load = 9;
 			?>
 		</div>
 	</main><!-- #main -->
+	<div class="gradient-border"></div>
 
 <?php
 get_footer();

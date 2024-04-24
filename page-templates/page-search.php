@@ -36,6 +36,6 @@ $index_page = substr( $current_url, strlen( home_url() ) );
 		</main><!-- #main -->
 	</div>
 </div>
-
+<div class="gradient-border"></div>
 <?php
 get_footer();

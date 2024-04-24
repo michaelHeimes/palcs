@@ -90,6 +90,6 @@ $intro_text = $fields['intro_text'];
 			
 	</div>
 </div>
-
+<div class="gradient-border"></div>
 <?php
 get_footer();

@@ -29,5 +29,6 @@ get_header();
 	
 		</main><!-- #main -->
 	</div>
+	<div class="gradient-border"></div>
 <?php
 get_footer();

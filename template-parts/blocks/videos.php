@@ -80,7 +80,8 @@ $videos = get_field('videos') ?? null;
 					$params = array(
 						'controls'  => 1,
 						'hd'        => 1,
-						'autohide'  => 1
+						'autohide'  => 1,
+						'rel'       => 0,
 					);
 					$new_src = add_query_arg($params, $src);
 					$iframe = str_replace($src, '', $iframe);
@@ -115,9 +116,9 @@ $videos = get_field('videos') ?? null;
 							<div class="cell small-12 large-10 xxlarge-8">
 								<div class="filter-grid grid-x grid-padding-x small-up-1 medium-up-2 tablet-up-3">
 									<?php $i = 1; foreach( $videos as $video ):
-										$video_url = get_field('video_url', $video->ID) ?? null;
-										$video_thumbnail = get_field('video_thumbnail', $video->ID) ?? null;
-										$excerpt = get_field('excerpt', $video->ID) ?? null;
+										$video_url = $video['video_url'] ?? null;
+										$video_thumbnail = $video['video_thumbnail'] ?? null;
+										$excerpt = $video['excerpt'] ?? null;
 									?>
 										<?php if( !empty($video_url) ):?>
 											<article class="cell load-more-filter-card hidden">
@@ -159,7 +160,8 @@ $videos = get_field('videos') ?? null;
 												$params = array(
 													'controls'  => 1,
 													'hd'        => 1,
-													'autohide'  => 1
+													'autohide'  => 1,
+													'rel'       => 0,
 												);
 												$new_src = add_query_arg($params, $src);
 												//$iframe = str_replace($src, '', $iframe);
