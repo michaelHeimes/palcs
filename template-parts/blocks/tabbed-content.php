@@ -43,7 +43,7 @@ $tabs = get_field('tabs') ?? null;
 				$title = $tab['title'];	
 				$content = $tab['content'];	
 			?>
-			<div class="tabs-panel<?php if( $i == 1 ){ echo ' is-active';}?>" id="panel-<?=sanitize_title($title);?>-<?=$i;?>">
+			<div class="tabs-panel entry-content<?php if( $i == 1 ){ echo ' is-active';}?>" id="panel-<?=sanitize_title($title);?>-<?=$i;?>">
 				<?=$content;?>
 			</div>
 			<?php $i++; endforeach;?>

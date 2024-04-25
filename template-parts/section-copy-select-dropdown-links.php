@@ -20,7 +20,7 @@ $dropdown_links = get_field('csdl_dropdown_links') ?? get_sub_field('csdl_dropdo
 							<h1 class="h3 color-orange"><?=$subheading;?></h1>
 						<?php endif;?>
 						<?php if( !empty($copy) ):?>
-							<div class="copy-wrap"><?=$copy;?></div>
+							<div class="copy-wrap entry-content"><?=wp_kses_post($copy);?></div>
 						<?php endif;?>
 					</div>
 				</div>

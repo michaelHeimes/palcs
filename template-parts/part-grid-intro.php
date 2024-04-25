@@ -10,11 +10,11 @@ if ( is_home() ) {
 } elseif( !empty( get_field('intro_text') ) ) {
 	$intro_copy =  get_field('intro_text') ?? null;
 }
-echo '<header class="grid-intro-text">';
+echo '<header class="grid-intro-text entry-content">';
 	if( !empty(get_the_content() && !is_home()) && !is_archive() ) {
 		the_content();		
 	} elseif( !empty($intro_copy) ) {
-		echo $intro_copy;
+		echo wp_kses_post($intro_copy);
 	};
 echo '</header>';
 ?>

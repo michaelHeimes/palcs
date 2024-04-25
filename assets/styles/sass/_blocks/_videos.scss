@@ -2,6 +2,7 @@
 	.tabs-panel {
 		padding: 1.35rem 1.25rem;
 		button {
+			width: 100%;
 			.play-btn-wrap {
 				padding: 3rem;
 				position: absolute;
@@ -57,6 +58,19 @@
 				padding-bottom: 2.62rem;
 				.grid-container {
 					padding: 0;
+				}
+			}
+			.img-play-wrap {
+				width: 100%;
+				padding-bottom: 56.045%;
+				img.video-thumb {
+					position: absolute;
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 100%;
+					width: 100%;
+					object-fit: cover;
 				}
 			}
 			.load-more-filter-card {

@@ -21,7 +21,9 @@ $button_link = $args['button_link'] ?? null;
 		<?php if( !empty($copy) ):?>
 			<div class="copy-wrap cell small-12<?php if( $is_intro == true ):?> tablet-6 large-5<?php else:?> tablet-7 large-6  xlarge-5<?php endif;?>">
 				<div class="inner h1-style-h2">
-					<?= wp_kses_post( $copy );?>
+					<div class="entry-content">
+						<?=wp_kses_post( $copy );?>
+					</div>
 					<?php 
 					$link = $button_link;
 					if( $link ): 

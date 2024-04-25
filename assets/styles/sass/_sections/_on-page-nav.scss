@@ -28,14 +28,16 @@
 		}
 	}
 	.child-links {
-		a,
-		span {
+		a{
 			color: #E4C6FD;
 		}
 		a {
 			&:hover {
 				color: $white;
 			}
+		}
+		span {
+			color: $white;
 		}
 	}
 }

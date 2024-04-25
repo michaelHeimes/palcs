@@ -47,7 +47,6 @@ $videos = get_field('videos') ?? null;
 			<div class="tabs-panel overview is-active" id="overview-<?=$block['id'];?>" aria-hidden="false">
 				
 				<?php
-				
 				// Load value.
 				$iframe = $overview_video_url;
 				
@@ -78,7 +77,7 @@ $videos = get_field('videos') ?? null;
 			<?php endif;?>
 			<div class="tabs-panel more-videos posts-page" id="more-videos-<?=$block['id'];?>" aria-hidden="true">
 				<?php if( !empty($more_videos_copy) ):?>
-					<div class="form-intro-copy">
+					<div class="form-intro-copy entry-content">
 						<?=wp_kses_post($more_videos_copy);?>
 					</div>
 				<?php endif;?>
@@ -94,19 +93,75 @@ $videos = get_field('videos') ?? null;
 							<div class="cell small-12 large-10 xxlarge-8">
 								<div class="filter-grid grid-x grid-padding-x small-up-1 medium-up-2 tablet-up-3">
 									<?php $i = 1; foreach( $videos as $video ):
+										
 										$video_url = $video['video_url'] ?? null;
-										$video_thumbnail = $video['video_thumbnail'] ?? null;
+										
+										if( $video_url) {
+											
+											// Load value.
+											$iframe = $video_url;
+											
+											$video_title = '';
+											
+											if (preg_match('/title="([^"]+)"/', $video_url, $matches)) {
+												$video_title = $matches[1] ?? null;
+											}
+											
+											// Use preg_match to find iframe src.
+											preg_match('/src="(.+?)"/', $iframe, $matches);
+											$src = $matches[1];
+											
+											$custom_video_thumbnail = $video['video_thumbnail'] ?? null;
+											
+											$video_thumb_url = '';
+											$vid_api_thumb = '';
+											
+											if( !$custom_video_thumbnail && strpos($src, 'youtube') !== false) {
+												preg_match('/\/embed\/([a-zA-Z0-9_-]+)/', $src, $matches);
+												if (isset($matches[1])) {
+													$video_id = $matches[1];
+													if($video_id) {
+														$video_thumb_url = 'https://img.youtube.com/vi/' . $video_id . '/hqdefault.jpg' ?? null;	
+														$vid_api_thumb = '<img class="youtube-thumb video-thumb" src="' . $video_thumb_url . '" alt="'. $video_title . ' Thumbnail">';
+													}
+												}
+											}
+											//var_dump($src);
+											if( !$custom_video_thumbnail && strpos($src, 'vimeo') !== false) {
+												$path = parse_url($src, PHP_URL_PATH);
+												$last_segment = basename($path);
+												$video_id = preg_replace('/[^0-9]/', '', $last_segment);	
+												if($video_id) {
+													$vid_api_thumb = '<img
+														class="vimeo-thumb video-thumb"
+														srcset="
+															https://vumbnail.com/' . $video_id . '.jpg 640w, 
+															https://vumbnail.com/' . $video_id . '_large.jpg 640w, 
+															https://vumbnail.com/' . $video_id . '_medium.jpg 200w, 
+															https://vumbnail.com/' . $video_id . '_small.jpg 100w
+														"
+														sizes="(max-width: 640px) 100vw, 640px"
+														src="https://vumbnail.com/' . $video_id . '.jpg"
+														alt="'. $video_title . ' Thumbnail"
+													/>';
+												}
+											}
+											
+										}
+										
 										$excerpt = $video['excerpt'] ?? null;
 									?>
 										<?php if( !empty($video_url) ):?>
 											<article class="cell load-more-filter-card hidden">
 												<button class="no-style relative" data-open="video-modal-<?=$block['id'];?>-<?=$i;?>">
 													<div class="img-play-wrap relative">
-														<?php if( !empty( $video_thumbnail ) ) {
-															$imgID = $video_thumbnail['ID'];
+														<?php if( !empty( $custom_video_thumbnail['ID'] ) ) {
+															$imgID = $custom_video_thumbnail['ID'];
 															$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
-															$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
+															$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => " video-thumb", "alt"=>$img_alt] );
 															echo $img;
+														} elseif ( !empty($vid_api_thumb) ) {
+															echo $vid_api_thumb;	
 														}?>
 														<div class="play-btn-wrap grid-x align-middle align-center">
 															<svg xmlns="http://www.w3.org/2000/svg" width="105" height="105" viewBox="0 0 105 105"><g id="Group_348" data-name="Group 348" transform="translate(557.954 190)"><circle id="Ellipse_2" data-name="Ellipse 2" cx="52.5" cy="52.5" r="52.5" transform="translate(-557.954 -190)" fill="#383838" opacity="0.834"/><path id="Polygon_2" data-name="Polygon 2" d="M27.5,0,55,48H0Z" transform="translate(-476.954 -165) rotate(90)" fill="#ff1b59"/></g></svg>
@@ -126,14 +181,7 @@ $videos = get_field('videos') ?? null;
 													 </button>
 												</div>
 												<?php
-												
-												// Load value.
-												$iframe = $video_url;
-												
-												// Use preg_match to find iframe src.
-												preg_match('/src="(.+?)"/', $iframe, $matches);
-												$src = $matches[1];
-												
+
 												// Add extra parameters to src and replace HTML.
 												$params = array(
 													'controls'  => 1,

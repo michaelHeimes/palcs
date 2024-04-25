@@ -11,19 +11,21 @@ ol {
 	@extend .font-size-20;
 }
 
-ul,
-ol {
-	&:not(.accordion):not(.tabs):not(.menu):not(.tax-menu):not(.terms-list) {
-		padding-left: 2.5rem;
-		margin-bottom: 2.5rem;
-		@include breakpoint(tablet) {
-			margin-bottom: 3rem;
+.entry-content {
+	ul,
+	ol {
+		&:not(.accordion):not(.tabs):not(.menu):not(.tax-menu):not(.terms-list) {
+			padding-left: 2.5rem;
+			margin-bottom: 2.5rem;
+			@include breakpoint(tablet) {
+				margin-bottom: 3rem;
+			}
 		}
-	}
-	&:not(.tabs):not(.accordion) {
-	}
-	li:not(.accordion-item):not(.tabs-title):not(.menu-item) {
-		margin-bottom: 0.75rem;
+		&:not(.tabs):not(.accordion) {
+		}
+		li:not(.accordion-item):not(.tabs-title):not(.menu-item) {
+			margin-bottom: 0.75rem;
+		}
 	}
 }
 

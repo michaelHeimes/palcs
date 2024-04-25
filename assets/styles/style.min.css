@@ -9639,19 +9639,19 @@ ol {
   color: #272727;
 }
 
-ul:not(.accordion):not(.tabs):not(.menu):not(.tax-menu):not(.terms-list),
-ol:not(.accordion):not(.tabs):not(.menu):not(.tax-menu):not(.terms-list) {
+.entry-content ul:not(.accordion):not(.tabs):not(.menu):not(.tax-menu):not(.terms-list),
+.entry-content ol:not(.accordion):not(.tabs):not(.menu):not(.tax-menu):not(.terms-list) {
   padding-left: 2.5rem;
   margin-bottom: 2.5rem;
 }
 @media print, screen and (min-width: 56.25em) {
-  ul:not(.accordion):not(.tabs):not(.menu):not(.tax-menu):not(.terms-list),
-  ol:not(.accordion):not(.tabs):not(.menu):not(.tax-menu):not(.terms-list) {
+  .entry-content ul:not(.accordion):not(.tabs):not(.menu):not(.tax-menu):not(.terms-list),
+  .entry-content ol:not(.accordion):not(.tabs):not(.menu):not(.tax-menu):not(.terms-list) {
     margin-bottom: 3rem;
   }
 }
-ul li:not(.accordion-item):not(.tabs-title):not(.menu-item),
-ol li:not(.accordion-item):not(.tabs-title):not(.menu-item) {
+.entry-content ul li:not(.accordion-item):not(.tabs-title):not(.menu-item),
+.entry-content ol li:not(.accordion-item):not(.tabs-title):not(.menu-item) {
   margin-bottom: 0.75rem;
 }
 
@@ -11918,11 +11918,13 @@ form#search-form button:not(.no-style) {
 .on-page-nav a:hover {
   text-decoration: underline;
 }
-.on-page-nav .child-links a,
-.on-page-nav .child-links span {
+.on-page-nav .child-links a {
   color: #E4C6FD;
 }
 .on-page-nav .child-links a:hover {
+  color: #fff;
+}
+.on-page-nav .child-links span {
   color: #fff;
 }
 
@@ -12183,6 +12185,9 @@ form#search-form button:not(.no-style) {
 .block-videos .tabs-panel {
   padding: 1.35rem 1.25rem;
 }
+.block-videos .tabs-panel button {
+  width: 100%;
+}
 .block-videos .tabs-panel button .play-btn-wrap {
   padding: 3rem;
   position: absolute;
@@ -12234,6 +12239,20 @@ form#search-form button:not(.no-style) {
 }
 .block-videos .tabs-panel.more-videos .isotope-filter-loadmore .grid-container {
   padding: 0;
+}
+.block-videos .tabs-panel.more-videos .img-play-wrap {
+  width: 100%;
+  padding-bottom: 56.045%;
+}
+.block-videos .tabs-panel.more-videos .img-play-wrap img.video-thumb {
+  position: absolute;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .block-videos .tabs-panel.more-videos .load-more-filter-card {
   margin-bottom: 2.3125rem;
@@ -12331,142 +12350,142 @@ hr.wp-block-separator {
   border-color: #cccccc;
 }
 
-body.error404 .entry-content,
-body.page-template-default .entry-content,
-body.page-template-page-search .entry-content,
-body.single-post .entry-content {
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content),
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content),
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content),
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) {
   overflow: hidden;
   padding-bottom: 5.5rem;
 }
 @media print, screen and (min-width: 40em) {
-  body.error404 .entry-content,
-  body.page-template-default .entry-content,
-  body.page-template-page-search .entry-content,
-  body.single-post .entry-content {
+  body.error404 .entry-content:not(.accordion-content):not(.accordion-content),
+  body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content),
+  body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content),
+  body.single-post .entry-content:not(.accordion-content):not(.accordion-content) {
     padding-bottom: 8rem;
   }
 }
-body.error404 .entry-content p,
-body.error404 .entry-content ul:not(.tabs):not(.accordion),
-body.error404 .entry-content ol,
-body.error404 .entry-content .button-group,
-body.page-template-default .entry-content p,
-body.page-template-default .entry-content ul:not(.tabs):not(.accordion),
-body.page-template-default .entry-content ol,
-body.page-template-default .entry-content .button-group,
-body.page-template-page-search .entry-content p,
-body.page-template-page-search .entry-content ul:not(.tabs):not(.accordion),
-body.page-template-page-search .entry-content ol,
-body.page-template-page-search .entry-content .button-group,
-body.single-post .entry-content p,
-body.single-post .entry-content ul:not(.tabs):not(.accordion),
-body.single-post .entry-content ol,
-body.single-post .entry-content .button-group {
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content) p,
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs):not(.accordion),
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content) ol,
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content) .button-group,
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) p,
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs):not(.accordion),
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) ol,
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) .button-group,
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) p,
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs):not(.accordion),
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) ol,
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) .button-group,
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) p,
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs):not(.accordion),
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) ol,
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) .button-group {
   line-height: 2.05;
   margin-top: 1.5625rem;
   margin-bottom: 1.5625rem;
 }
 @media print, screen and (min-width: 40em) {
-  body.error404 .entry-content p,
-  body.error404 .entry-content ul:not(.tabs):not(.accordion),
-  body.error404 .entry-content ol,
-  body.error404 .entry-content .button-group,
-  body.page-template-default .entry-content p,
-  body.page-template-default .entry-content ul:not(.tabs):not(.accordion),
-  body.page-template-default .entry-content ol,
-  body.page-template-default .entry-content .button-group,
-  body.page-template-page-search .entry-content p,
-  body.page-template-page-search .entry-content ul:not(.tabs):not(.accordion),
-  body.page-template-page-search .entry-content ol,
-  body.page-template-page-search .entry-content .button-group,
-  body.single-post .entry-content p,
-  body.single-post .entry-content ul:not(.tabs):not(.accordion),
-  body.single-post .entry-content ol,
-  body.single-post .entry-content .button-group {
+  body.error404 .entry-content:not(.accordion-content):not(.accordion-content) p,
+  body.error404 .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs):not(.accordion),
+  body.error404 .entry-content:not(.accordion-content):not(.accordion-content) ol,
+  body.error404 .entry-content:not(.accordion-content):not(.accordion-content) .button-group,
+  body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) p,
+  body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs):not(.accordion),
+  body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) ol,
+  body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) .button-group,
+  body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) p,
+  body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs):not(.accordion),
+  body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) ol,
+  body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) .button-group,
+  body.single-post .entry-content:not(.accordion-content):not(.accordion-content) p,
+  body.single-post .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs):not(.accordion),
+  body.single-post .entry-content:not(.accordion-content):not(.accordion-content) ol,
+  body.single-post .entry-content:not(.accordion-content):not(.accordion-content) .button-group {
     margin-top: 2.1875rem;
     margin-bottom: 2.1875rem;
   }
 }
-body.error404 .entry-content h1 ~ p,
-body.error404 .entry-content h2 ~ p,
-body.error404 .entry-content h3 ~ p,
-body.error404 .entry-content h4 ~ p,
-body.error404 .entry-content h5 ~ p,
-body.page-template-default .entry-content h1 ~ p,
-body.page-template-default .entry-content h2 ~ p,
-body.page-template-default .entry-content h3 ~ p,
-body.page-template-default .entry-content h4 ~ p,
-body.page-template-default .entry-content h5 ~ p,
-body.page-template-page-search .entry-content h1 ~ p,
-body.page-template-page-search .entry-content h2 ~ p,
-body.page-template-page-search .entry-content h3 ~ p,
-body.page-template-page-search .entry-content h4 ~ p,
-body.page-template-page-search .entry-content h5 ~ p,
-body.single-post .entry-content h1 ~ p,
-body.single-post .entry-content h2 ~ p,
-body.single-post .entry-content h3 ~ p,
-body.single-post .entry-content h4 ~ p,
-body.single-post .entry-content h5 ~ p {
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content) h1 ~ p,
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content) h2 ~ p,
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content) h3 ~ p,
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content) h4 ~ p,
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content) h5 ~ p,
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) h1 ~ p,
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) h2 ~ p,
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) h3 ~ p,
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) h4 ~ p,
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) h5 ~ p,
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) h1 ~ p,
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) h2 ~ p,
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) h3 ~ p,
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) h4 ~ p,
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) h5 ~ p,
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) h1 ~ p,
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) h2 ~ p,
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) h3 ~ p,
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) h4 ~ p,
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) h5 ~ p {
   margin-top: 0;
 }
-body.error404 .entry-content .accordion-content > *:first-child,
-body.page-template-default .entry-content .accordion-content > *:first-child,
-body.page-template-page-search .entry-content .accordion-content > *:first-child,
-body.single-post .entry-content .accordion-content > *:first-child {
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content) .accordion-content > *:first-child,
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) .accordion-content > *:first-child,
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) .accordion-content > *:first-child,
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) .accordion-content > *:first-child {
   margin-top: 0;
 }
-body.error404 .entry-content .button-group,
-body.page-template-default .entry-content .button-group,
-body.page-template-page-search .entry-content .button-group,
-body.single-post .entry-content .button-group {
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content) .button-group,
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) .button-group,
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) .button-group,
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) .button-group {
   padding-top: 1.875rem;
 }
-body.error404 .entry-content .content-wrap > *:first-child,
-body.page-template-default .entry-content .content-wrap > *:first-child,
-body.page-template-page-search .entry-content .content-wrap > *:first-child,
-body.single-post .entry-content .content-wrap > *:first-child {
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content) .content-wrap > *:first-child,
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) .content-wrap > *:first-child,
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) .content-wrap > *:first-child,
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) .content-wrap > *:first-child {
   margin-top: 0.625rem;
 }
-body.error404 .entry-content ul:not(.tabs),
-body.error404 .entry-content ol:not(.tabs),
-body.page-template-default .entry-content ul:not(.tabs),
-body.page-template-default .entry-content ol:not(.tabs),
-body.page-template-page-search .entry-content ul:not(.tabs),
-body.page-template-page-search .entry-content ol:not(.tabs),
-body.single-post .entry-content ul:not(.tabs),
-body.single-post .entry-content ol:not(.tabs) {
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs),
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content) ol:not(.tabs),
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs),
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) ol:not(.tabs),
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs),
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) ol:not(.tabs),
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs),
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) ol:not(.tabs) {
   margin-bottom: 2.5rem;
 }
 @media print, screen and (min-width: 56.25em) {
-  body.error404 .entry-content ul:not(.tabs),
-  body.error404 .entry-content ol:not(.tabs),
-  body.page-template-default .entry-content ul:not(.tabs),
-  body.page-template-default .entry-content ol:not(.tabs),
-  body.page-template-page-search .entry-content ul:not(.tabs),
-  body.page-template-page-search .entry-content ol:not(.tabs),
-  body.single-post .entry-content ul:not(.tabs),
-  body.single-post .entry-content ol:not(.tabs) {
+  body.error404 .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs),
+  body.error404 .entry-content:not(.accordion-content):not(.accordion-content) ol:not(.tabs),
+  body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs),
+  body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) ol:not(.tabs),
+  body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs),
+  body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) ol:not(.tabs),
+  body.single-post .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs),
+  body.single-post .entry-content:not(.accordion-content):not(.accordion-content) ol:not(.tabs) {
     margin-bottom: 3rem;
   }
 }
-body.error404 .entry-content ul:not(.tabs):not(.accordion),
-body.error404 .entry-content ol:not(.tabs):not(.accordion),
-body.page-template-default .entry-content ul:not(.tabs):not(.accordion),
-body.page-template-default .entry-content ol:not(.tabs):not(.accordion),
-body.page-template-page-search .entry-content ul:not(.tabs):not(.accordion),
-body.page-template-page-search .entry-content ol:not(.tabs):not(.accordion),
-body.single-post .entry-content ul:not(.tabs):not(.accordion),
-body.single-post .entry-content ol:not(.tabs):not(.accordion) {
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs):not(.accordion),
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content) ol:not(.tabs):not(.accordion),
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs):not(.accordion),
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) ol:not(.tabs):not(.accordion),
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs):not(.accordion),
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) ol:not(.tabs):not(.accordion),
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) ul:not(.tabs):not(.accordion),
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) ol:not(.tabs):not(.accordion) {
   padding-left: 2.5rem;
 }
-body.error404 .entry-content ul li:not(.accordion-item):not(.tabs-title),
-body.error404 .entry-content ol li:not(.accordion-item):not(.tabs-title),
-body.page-template-default .entry-content ul li:not(.accordion-item):not(.tabs-title),
-body.page-template-default .entry-content ol li:not(.accordion-item):not(.tabs-title),
-body.page-template-page-search .entry-content ul li:not(.accordion-item):not(.tabs-title),
-body.page-template-page-search .entry-content ol li:not(.accordion-item):not(.tabs-title),
-body.single-post .entry-content ul li:not(.accordion-item):not(.tabs-title),
-body.single-post .entry-content ol li:not(.accordion-item):not(.tabs-title) {
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content) ul li:not(.accordion-item):not(.tabs-title),
+body.error404 .entry-content:not(.accordion-content):not(.accordion-content) ol li:not(.accordion-item):not(.tabs-title),
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) ul li:not(.accordion-item):not(.tabs-title),
+body.page-template-default .entry-content:not(.accordion-content):not(.accordion-content) ol li:not(.accordion-item):not(.tabs-title),
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) ul li:not(.accordion-item):not(.tabs-title),
+body.page-template-page-search .entry-content:not(.accordion-content):not(.accordion-content) ol li:not(.accordion-item):not(.tabs-title),
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) ul li:not(.accordion-item):not(.tabs-title),
+body.single-post .entry-content:not(.accordion-content):not(.accordion-content) ol li:not(.accordion-item):not(.tabs-title) {
   margin-bottom: 0.75rem;
 }
 
