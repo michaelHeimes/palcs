@@ -1,6 +1,6 @@
 {
     "key": "group_65ea685e6b4ef",
-    "title": "CPT: Teachers &amp; Staff",
+    "title": "CPT: Teachers &amp; Staff, Administration",
     "fields": [
         {
             "key": "field_65ea68dde7b5a",
@@ -30,6 +30,13 @@
                 "operator": "==",
                 "value": "teacher-staff"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "administration"
+            }
         ]
     ],
     "menu_order": 0,
@@ -41,5 +48,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1710037121
+    "modified": 1714410263
 }
