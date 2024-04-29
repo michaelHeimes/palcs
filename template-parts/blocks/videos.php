@@ -77,7 +77,7 @@ $videos = get_field('videos') ?? null;
 			<?php endif;?>
 			<div class="tabs-panel more-videos posts-page" id="more-videos-<?=$block['id'];?>" aria-hidden="true">
 				<?php if( !empty($more_videos_copy) ):?>
-					<div class="form-intro-copy entry-content">
+					<div class="form-intro-copy">
 						<?=wp_kses_post($more_videos_copy);?>
 					</div>
 				<?php endif;?>
