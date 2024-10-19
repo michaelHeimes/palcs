@@ -1,13 +1,13 @@
 {
-    "key": "group_659d54785e340",
-    "title": "Header & Footer Tags",
+    "key": "group_6712c7758277a",
+    "title": "Global CTA Button Group",
     "fields": [
         {
-            "key": "field_659d5478640cf",
-            "label": "Header Footer Scripts",
+            "key": "field_6712c86251a71",
+            "label": "",
             "name": "",
             "aria-label": "",
-            "type": "tab",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,48 +16,43 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
-            "endpoint": 0
+            "message": "These are used in the following locations:<br><ol><li>The Header<\/li><li>The CTA above the Footer<\/li><\/ol>",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
-            "key": "field_659d5478640d2",
-            "label": "Before Closing Head Tag",
-            "name": "before_closing_header",
+            "key": "field_6712c7754edc9",
+            "label": "Button Link 1",
+            "name": "global_cta_button_link_1",
             "aria-label": "",
-            "type": "textarea",
+            "type": "link",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "rows": "",
-            "placeholder": "",
-            "new_lines": ""
+            "return_format": "array",
+            "allow_in_bindings": 0
         },
         {
-            "key": "field_659d5478640d5",
-            "label": "Before Closing Body Tag",
-            "name": "before_closing_footer",
+            "key": "field_6712c7954edca",
+            "label": "Button Link 2",
+            "name": "global_cta_button_link_2",
             "aria-label": "",
-            "type": "textarea",
+            "type": "link",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "rows": "",
-            "placeholder": "",
-            "new_lines": ""
+            "return_format": "array",
+            "allow_in_bindings": 0
         }
     ],
     "location": [
@@ -78,5 +73,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1720634696
+    "modified": 1729284299
 }

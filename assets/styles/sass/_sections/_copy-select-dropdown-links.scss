@@ -1,13 +1,13 @@
 .copy-select-dropdown-links {
 	padding-bottom: 2.3rem;
 	@include breakpoint(medium) {
-		padding-bottom: 9.3rem;
+		padding-bottom: rem-calc(90);
 	}
 	>.grid-container>.grid-x {
-		padding-top: 4.6rem;
+		padding-top: calc( .7* rem-calc(90) );
 		padding-bottom: 3.3rem;
 		@include breakpoint(medium) {
-			padding-top: 9.1rem;
+			padding-top: rem-calc(90);
 		}
 	}
 	.left {

@@ -4,8 +4,8 @@
  *
  * For more info: https://jointswp.com/docs/off-canvas-menu/
  */
- $ctachwtb_button_link_1 = get_field('ctachwtb_button_link_1', 'option') ?? get_field('ctachwtb_button_link_1') ?? get_sub_field('ctachwtb_button_link_1') ?? null;
- $ctachwtb_button_link_2 = get_field('ctachwtb_button_link_2', 'option') ?? get_field('ctachwtb_button_link_2') ?? get_sub_field('ctachwtb_button_link_2') ?? null;
+ $global_cta_button_link_1 = get_field('global_cta_button_link_1', 'option') ?? null;
+ $global_cta_button_link_2 = get_field('global_cta_button_link_2', 'option') ?? null;
 ?>
 
 <div class="top-bar-wrap">
@@ -67,28 +67,28 @@
 					</ul>
 				</div>
 				<?php endif;?>
-				<?php if( !empty($ctachwtb_button_link_1) || !empty($ctachwtb_button_link_2) ):?>
+				<?php if( !empty($global_cta_button_link_1) || !empty($global_cta_button_link_2) ):?>
 					<div class="right cell small-12 large-shrink">
 						<div class="grid-x grid-padding-x">
-							<?php if( !empty($ctachwtb_button_link_1) ):?>
+							<?php if( !empty($global_cta_button_link_1) ):?>
 								<?php
-									$link = $ctachwtb_button_link_1;
+									$link = $global_cta_button_link_1;
 									$link_url = $link['url'];
 									$link_title = $link['title'];
 									$link_target = $link['target'] ? $link['target'] : '_self';
 								?>
-								<div class="cell small-12 medium-shrink large-6">
+								<div class="cell small-6 medium-shrink large-6">
 									<a class="button purple-ds" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 								</div>
 							<?php endif;?>
-							<?php if( !empty($ctachwtb_button_link_2) ):?>
+							<?php if( !empty($global_cta_button_link_2) ):?>
 								<?php
-									$link = $ctachwtb_button_link_2;
+									$link = $global_cta_button_link_2;
 									$link_url = $link['url'];
 									$link_title = $link['title'];
 									$link_target = $link['target'] ? $link['target'] : '_self';
 								?>
-								<div class="cell small-12 medium-shrink large-6">
+								<div class="cell small-6 medium-shrink large-6">
 									<a class="button purple-ds" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 								</div>
 							<?php endif;?>

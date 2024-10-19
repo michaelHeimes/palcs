@@ -7,6 +7,7 @@ header.site-header {
 		padding-bottom: 11px;
 		.social-links {
 			li {
+				max-width: 32px;
 				margin-right: 20px;
 				margin-right: clamp(20px, 3vw, 38.5px);
 				@include breakpoint(medium) {
@@ -36,6 +37,8 @@ header.site-header {
 					padding-left: clamp(32px, 3vw, 70px);
 				}
 				a {
+					display: flex;
+					align-items: center;
 					font-weight: bold;
 					line-height: 1.333;
 					font-size: rem-calc(15);
@@ -47,6 +50,12 @@ header.site-header {
 						font-size: rem-calc(18);
 						font-size: clamp( rem-calc(15), 2.3vw, rem-calc(18) );
 					}
+					svg {
+						width: 18px;
+						flex: 0 0 18px;
+						margin-left: rem-calc(8);
+						transform: translateY(-2px);
+					}
 				}
 			}
 		}
@@ -54,12 +63,16 @@ header.site-header {
 	.header-middle {
 		margin-top: rem-calc(22);
 		.logo {
-			max-width: 647.76px;
+			max-width: 400px;
 			@include breakpoint(tablet down) {
 				margin-bottom: rem-calc(32);
 			}
 		}
 		a.button {
+			@include breakpoint(small down) {
+				min-width: 0;
+				padding: .9em;
+			}
 			@include breakpoint(medium down) {
 				width: 100%;
 			}

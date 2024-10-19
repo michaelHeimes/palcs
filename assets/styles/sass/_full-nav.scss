@@ -75,24 +75,26 @@
 		> li {
 			text-transform: uppercase;
 		}
+		.call-wrap .h2,
+		.call-wrap a,
 		a {
 			background: transparent;
 			display: flex;
 			color: $white;
 			font-weight: bold;
-			font-size: rem-calc(26);
-			font-size: clamp( rem-calc(26), 4vw, rem-calc(52));
+			font-size: rem-calc(24);
+			// font-size: clamp( rem-calc(26), 4vw, rem-calc(52));
 			padding: 0 rem-calc(32);
-			padding: 0 clamp(rem-calc(32), 4.5vw, rem-calc(98));
+			padding: 0 clamp(rem-calc(32), 4.5vw, rem-calc(68));
 			margin-bottom: rem-calc(30);
-			margin-bottom: clamp(rem-calc(30), 2.5vw, rem-calc(47));
+			margin-bottom: clamp(rem-calc(30), 2.5vw, rem-calc(37));
 			@include breakpoint(medium) {
-				font-size: rem-calc(52);
-				font-size: clamp( rem-calc(26), 4vw, rem-calc(52));
+				font-size: rem-calc(32);
+				// font-size: clamp( rem-calc(26), 4vw, rem-calc(52));
 				padding: 0 rem-calc(98);
-				padding: 0 clamp(rem-calc(32), 4.5vw, rem-calc(98));
+				padding: 0 clamp(rem-calc(32), 4.5vw, rem-calc(68));
 				margin-bottom: rem-calc(47);
-				margin-bottom: clamp(rem-calc(30), 2.5vw, rem-calc(47));
+				margin-bottom: clamp(rem-calc(30), 2.5vw, rem-calc(37));
 			}
 		}
 		.is-drilldown-submenu-parent {
@@ -112,14 +114,14 @@
 					background-repeat: no-repeat;
 					transform: translateY(1px);
 					width: rem-calc(12);
-					width: clamp(rem-calc(12), 2vw, rem-calc(26));
+					width: clamp(rem-calc(12), 2vw, rem-calc(20));
 					height: rem-calc(19);
-					height: clamp(rem-calc(19), 4vw, rem-calc(41.6));
+					height: clamp(rem-calc(19), 4vw, rem-calc(26));
 					@include breakpoint(medium) {
 						width: rem-calc(26);
-						width: clamp(rem-calc(12), 2vw, rem-calc(26));
+						width: clamp(rem-calc(12), 2vw, rem-calc(20));
 						height: rem-calc(41.6);
-						height: clamp(rem-calc(19), 4vw, rem-calc(41.6));
+						height: clamp(rem-calc(19), 4vw, rem-calc(26));
 					}
 				}
 				span {

@@ -166,6 +166,24 @@
                 var $postsPer = $isotopeFilterLoadMore.getAttribute('data-postsper');
                 //console.log('posts per load:' + $postsPer);
                 
+               const checkableInputs = document.querySelectorAll('.option-set input');
+               console.log(checkableInputs);
+                // Add keydown event listener to each input
+                checkableInputs.forEach(function(input) {
+                    input.addEventListener('keydown', function(event) {
+                        // Check if the pressed key is Enter (key code 13)
+                        if (event.key === 'Enter' || event.keyCode === 13) {
+                            event.preventDefault(); // Prevent form submission
+                
+                            // Toggle checkbox state
+                            if (input.type === 'checkbox') {
+                                input.click();
+                                input.parentElement.focus();
+                            }
+                        }
+                    });
+               });
+                
                const facetingBtns = function(filteredItems) {
                     // console.log('Filtering Complete after filter with ' + filteredItems.length + ' items');
                     const filterButtons = document.querySelectorAll('#options input');
@@ -621,88 +639,55 @@
    
    _app.ajax_search = function() {
       $('#search-form').submit(function(event) {
-         event.preventDefault();
+          event.preventDefault();
       
          var keyword = $('#search-input').val();
+         var postType = $('input[name="posttype"]:checked').val();
          
+         console.log(postType);
+  
          // Clear previous search results
          $('#search-results').empty();
-         
+      
          // Show loading indicator
          $('#search-query').html('Searching...');
-         
+      
          $.ajax({
             url: ajax_search_params.ajax_url,
             type: 'GET',
             data: {
                action: 'custom_search',
-               search: keyword
+               search: keyword,
+               post_type: postType  // Pass the selected post type
             },
             success: function(response) {
+
                $('#search-query').addClass('has-results');
                $('#search-query').html("Search results for ‘" + response.data.keyword + "’");
-      
+   
                var html = '<ul class="search-results-list no-bullet">';
-      
+   
                if (response.data.results.length > 0) {
-                  response.data.results.forEach(function(result) {
-                     html += '<li><h4 class="h3"><a href="' + result.url + '">' + result.title + '</a></h4></li>';
-                  });
+                   response.data.results.forEach(function(result) {
+                       html += '<li><h4 class="h3"><a href="' + result.url + '">' + result.title + '</a></h4></li>';
+                   });
                } else {
-                  html += '<li><h5>No results found.</h5></li>';
+                   html += '<li><h5>No results found.</h5></li>';
                }
       
                html += '</ul>';
       
                $('#search-results').append(html);
-            },
+              },
             error: function(xhr, status, error) {
                console.error(error);
             }
          });
       });
+
    }
    
    _app.video_lazyload = function() {
-    //     const youtubePlayers = document.querySelectorAll(".youtube-placeholder");
-    //     
-    //     if(youtubePlayers) {
-    //         console.log("loaded");
-    //         // Check if the YouTube iframe API script exists in the DOM
-    //         var youtubeApiScript = document.querySelector('script[src="https://www.youtube.com/iframe_api"]');
-    //         
-    //         // If the script doesn't exist, dynamically create and append it to the DOM
-    //         if (!youtubeApiScript) {
-    //             youtubeApiScript = document.createElement('script');
-    //             youtubeApiScript.src = 'https://www.youtube.com/iframe_api';
-    //             document.body.appendChild(youtubeApiScript);
-    //         }
-    // 
-    //        
-    //         let observer = new IntersectionObserver(function(entries) {
-    //         entries.forEach(function(entry) {
-    //            if (entry.isIntersecting) {
-    //                 var videoId = entry.target.dataset.videoId;
-    //                 var params = {
-    //                     controls: 1,
-    //                     hd: 1,
-    //                     autohide: 1
-    //                 };
-    //                 var player = new YT.Player(entry.target, {
-    //                     height: '900',
-    //                     width: '1600',
-    //                     videoId: videoId + '?' + new URLSearchParams(params).toString()
-    //                 });
-    //            
-    //                 observer.unobserve(entry.target);
-    //            }
-    //          });
-    //        }, { threshold: 0.5 });
-    //        
-    //        youtubePlayers.forEach(function(player) {
-    //          observer.observe(player);
-    //        });
-    //     }
 
         $(document).on('open.zf.reveal', '[data-reveal]', function() {
             if ($(this).hasClass('video-modal')) {
@@ -716,6 +701,58 @@
             }
         });
 
+   }
+   
+   _app.drilldown_hack = function() {
+      
+      
+      
+      const setEqualRowHeights = function() {
+         const activeRow = document.querySelector('ul#offcanvas-nav > li .is-drilldown-submenu[aria-hidden="false"]');
+         const closingRow = document.querySelector('ul#offcanvas-nav > li .is-drilldown-submenu[aria-hidden="true"]');
+
+         if( activeRow ) {
+            const parent = activeRow.parentElement.parentElement.parentElement;
+            const rowHeight = activeRow.getBoundingClientRect().height;
+            
+            parent.style.height = rowHeight + 'px';
+            
+         } else if(closingRow) {
+            const menuHeight = document.getElementById('offcanvas-nav').getBoundingClientRect().height;
+            const parent =  closingRow.parentElement.parentElement.parentElement;
+            parent.style.height = menuHeight + 'px';
+         } else {
+
+           const rows = document.querySelectorAll('ul#offcanvas-nav > li .is-drilldown-submenu');
+           let maxRowHeight = 0;
+      
+           rows.forEach(function(row) {
+               const rowHeight = row.getBoundingClientRect().height;
+               maxRowHeight = Math.max(maxRowHeight, rowHeight);
+           });
+      
+           rows.forEach(function(row) {
+               const parent = row.parentElement.parentElement.parentElement;
+               parent.style.height = maxRowHeight + 'px';
+           });
+           
+         }
+      
+      };
+      window.addEventListener('resize', setEqualRowHeights);
+      
+      $(document).on('open.zf.drilldown', '[data-drilldown]', function() {
+         setEqualRowHeights();
+
+      });
+      
+      $(document).on('hide.zf.drilldown', '[data-drilldown]', function() {
+         setEqualRowHeights();
+      });
+      
+
+      
+      
    }
             
     _app.init = function() {
@@ -734,6 +771,7 @@
         _app.post_hover_cards();
         _app.ajax_search();
         _app.video_lazyload();
+        _app.drilldown_hack();
     }
     
     

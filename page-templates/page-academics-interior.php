@@ -66,7 +66,7 @@ $fields = get_fields();
 					?>
 					
 					<?php if (has_blocks()):?>
-						<div class="blocks grid-container">
+						<div class="blocks grid-container entry-content">
 							<div class="grid-x grid-padding-x align-center">
 								<div class="cell small-12 large-10 xlarge-8">
 									<?php the_content();?>

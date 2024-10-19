@@ -136,5 +136,9 @@ $hours = get_field('hours', 'option');
 					
 <?php wp_footer(); ?>
 
+<?php if( !empty( get_field('before_closing_body', 'option') ) ) {
+	echo get_field('before_closing_footer', 'option');
+}?>
+
 </body>
 </html>

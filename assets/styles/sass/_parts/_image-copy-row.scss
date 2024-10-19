@@ -75,7 +75,10 @@
 		}
 	}
 	.copy-wrap {
-		padding-top: rem-calc(68);
+		padding-top: calc( .7 * rem-calc(68) );
+		@include breakpoint(medium) {
+			padding-top: rem-calc(68);
+		}
 	}
 	.btn-wrap {
 		padding-top: rem-calc(60);

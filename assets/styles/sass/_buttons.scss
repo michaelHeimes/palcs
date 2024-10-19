@@ -109,6 +109,12 @@ button,
 	background: transparent;
 	padding: 0;
 	margin: 0;
+	input:focus {
+		+ label {
+			outline: 1px dotted #212121;
+			outline: 5px auto -webkit-focus-ring-color;
+		}
+	}
 }
 
 .tax-menu-wrap {
@@ -129,6 +135,10 @@ button,
 		min-width: 0;
 		margin: .35rem 0;
 		font-size: 100%;
+		&:focus {
+		  outline: 1px dotted #212121;
+		  outline: 5px auto -webkit-focus-ring-color;
+		}
 	}
 }
 

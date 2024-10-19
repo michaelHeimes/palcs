@@ -2,7 +2,7 @@ figure.wp-block-image {
 	margin-top: 2rem;
 	margin-bottom: 2rem;
 }
-[class^="wp-block-"]:not(.wp-block-image):not(.wp-block-column):not(.wp-block-heading),
+[class^="wp-block-"]:not(.wp-block-image):not(.wp-block-column):not(.wp-block-heading):not(.wp-block-list),
 .module.block,
 blockquote {
 	margin-top: rem-calc(30);

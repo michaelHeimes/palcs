@@ -7,7 +7,7 @@
             "label": "Terms to Hide",
             "name": "terms_to_hide",
             "aria-label": "",
-            "type": "text",
+            "type": "textarea",
             "instructions": "<p>List all term IDs that need to be excluded from the filter options. If multiple, seperate with a comma. To find a taxonomy term’s ID, browse to the taxonomy edit screen. Hover over a term, then look for its <code>tag_ID<\/code> value in the browser window’s status bar at the bottom.<\/p>\r\n<p><b>Example:<\/b> If you wanted to prevent Grade 6 from appearing in the Teachers & Staff - High School page, in the Admin you would click Teachers & Staff\/Grades and hover Grade 6. While hovering, look at the bottom left of your browser and in the url is <code>tag_ID=115<\/code>. The ID is 115 and you would enter 115 into this field.<\/p>",
             "required": 0,
             "conditional_logic": 0,
@@ -18,9 +18,9 @@
             },
             "default_value": "",
             "maxlength": "",
-            "placeholder": "92, 115, 200",
-            "prepend": "",
-            "append": ""
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -48,5 +48,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1713021229
+    "modified": 1727797104
 }

@@ -23,6 +23,10 @@
 	<link rel="mask-icon" href="<?= get_template_directory_uri(); ?>/assets/images/safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
+	
+	<?php if( !empty( get_field('before_closing_header', 'option') ) ) {
+		echo get_field('before_closing_header', 'option');
+	}?>
 
 	<?php wp_head(); ?>
 </head>

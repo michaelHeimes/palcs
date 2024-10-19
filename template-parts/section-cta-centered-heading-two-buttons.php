@@ -1,8 +1,8 @@
 <?php
 $ctachwtb_background_image = get_field('ctachwtb_background_image', 'option') ?? get_field('ctachwtb_background_image') ?? get_sub_field('ctachwtb_background_image') ?? null;
 $ctachwtb_heading = get_field('ctachwtb_heading', 'option') ?? get_field('ctachwtb_heading') ?? get_sub_field('ctachwtb_heading') ?? null;
-$ctachwtb_button_link_1 = get_field('ctachwtb_button_link_1', 'option') ?? get_field('ctachwtb_button_link_1') ?? get_sub_field('ctachwtb_button_link_1') ?? null;
-$ctachwtb_button_link_2 = get_field('ctachwtb_button_link_2', 'option') ?? get_field('ctachwtb_button_link_2') ?? get_sub_field('ctachwtb_button_link_2') ?? null;
+$global_cta_button_link_1 = get_field('global_cta_button_link_1', 'option') ?? null;
+$global_cta_button_link_2 = get_field('global_cta_button_link_2', 'option') ?? null;
 ?>
 <section class="cta-centered-heading-two-buttons has-bg">
 	<?php if( !empty( $ctachwtb_background_image ) ) {
@@ -20,7 +20,7 @@ $ctachwtb_button_link_2 = get_field('ctachwtb_button_link_2', 'option') ?? get_f
 		</div>
 		<div class="grid-x grid-padding-x align-center text-center">
 			<?php 
-			$link = $ctachwtb_button_link_1;
+			$link = $global_cta_button_link_1;
 			if( $link ): 
 				$link_url = $link['url'];
 				$link_title = $link['title'];
@@ -31,7 +31,7 @@ $ctachwtb_button_link_2 = get_field('ctachwtb_button_link_2', 'option') ?? get_f
 			</div>
 			<?php endif; ?>
 			<?php 
-			$link =$ctachwtb_button_link_2;
+			$link =$global_cta_button_link_2;
 			if( $link ): 
 				$link_url = $link['url'];
 				$link_title = $link['title'];

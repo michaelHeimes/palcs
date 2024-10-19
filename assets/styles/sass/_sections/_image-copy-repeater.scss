@@ -1,10 +1,10 @@
 .image-copy-repeater {
 	background-color: #F7F7F7;
-	padding-top: rem-calc(80);
-	padding-bottom: rem-calc(80.5);
+	padding-top: calc( .7 * rem-calc(85) );
+	padding-bottom: calc( .7 * rem-calc(72) );
 	@include breakpoint(medium) {
-		padding-top: rem-calc(115);
-		padding-bottom: rem-calc(115);
+		padding-top: rem-calc(85);
+		padding-bottom: rem-calc(72);
 	}
 	&.type-slider {
 		.ics-slider {

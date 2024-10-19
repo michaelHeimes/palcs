@@ -82,6 +82,13 @@ if ($current_category && function_exists('get_field')) {
 						'posts_per_page' => -1,
 						'orderby' => 'title',
 						'order' => 'ASC',
+						'tax_query' => array(
+							array(
+								'taxonomy' => $tax,
+								'field'    => 'slug',
+								'terms'    => $terms,
+							),
+						),
 					);	 
 					$posts = get_posts($args);
 					get_template_part('template-parts/content', 'load-more-filter-grid', 

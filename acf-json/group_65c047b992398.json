@@ -46,38 +46,6 @@
             "rows": 4,
             "placeholder": "",
             "new_lines": "br"
-        },
-        {
-            "key": "field_65c0480dfdcaa",
-            "label": "Button Link 1",
-            "name": "ctachwtb_button_link_1",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
-        },
-        {
-            "key": "field_65c0481dfdcab",
-            "label": "Button Link 2",
-            "name": "ctachwtb_button_link_2",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
         }
     ],
     "location": [
@@ -98,5 +66,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1713453073
+    "modified": 1729284518
 }

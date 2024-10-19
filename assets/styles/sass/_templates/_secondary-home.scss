@@ -3,11 +3,11 @@
 .page-template-page-secondary-hp-wo-nav,
 .page-template-page-academics-interior {
 	.intro {
-		padding-top: calc(.7 * rem-calc(143));
-		padding-bottom: calc(.7 * rem-calc(133));
+		padding-top: calc(.7 * rem-calc(85));
+		padding-bottom: calc(.7 * rem-calc(85));
 		@include breakpoint(medium) {
-			padding-top: rem-calc(143);
-			padding-bottom: rem-calc(133);
+			padding-top: rem-calc(85);
+			padding-bottom: rem-calc(85);
 		}
 		&.icr-row {
 			.img-wrap {
