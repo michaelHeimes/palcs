@@ -55,13 +55,15 @@
 		<?php endif;?>
 		<?php if( !empty($phone_number) ):?>
 			<div class="call-wrap text-center color-white">
-				<div class="h2 white-color"><b>Questions?</b></div>
-				<a class="h2 white-color" href="tel:<?=$phone_number;?>">
-					<svg xmlns="http://www.w3.org/2000/svg" width="22.232" height="37.623" viewBox="0 0 22.232 37.623">
-					  <path id="ic_phone_iphone_24px" d="M22.957,1H9.275A4.277,4.277,0,0,0,5,5.275V34.348a4.277,4.277,0,0,0,4.275,4.275H22.957a4.277,4.277,0,0,0,4.275-4.275V5.275A4.277,4.277,0,0,0,22.957,1ZM16.116,36.913a2.565,2.565,0,1,1,2.565-2.565A2.562,2.562,0,0,1,16.116,36.913Zm7.7-6.841H8.42V6.13H23.812Z" transform="translate(-5 -1)" fill="#fff"/>
-					</svg>
-					<b><?=$phone_number;?></b>
-				</a>
+				<div class="grid-container">
+					<div class="h2 white-color"><b>Questions?</b></div>
+					<a class="h2 white-color grid-x align-middle align-center" href="tel:<?=$phone_number;?>">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.232 37.623">
+					  	<path id="ic_phone_iphone_24px" d="M22.957,1H9.275A4.277,4.277,0,0,0,5,5.275V34.348a4.277,4.277,0,0,0,4.275,4.275H22.957a4.277,4.277,0,0,0,4.275-4.275V5.275A4.277,4.277,0,0,0,22.957,1ZM16.116,36.913a2.565,2.565,0,1,1,2.565-2.565A2.562,2.562,0,0,1,16.116,36.913Zm7.7-6.841H8.42V6.13H23.812Z" transform="translate(-5 -1)" fill="#fff"/>
+						</svg>
+						<b><?=$phone_number;?></b>
+					</a>
+				</div>
 			</div>
 		<?php endif;?>
 	</div>

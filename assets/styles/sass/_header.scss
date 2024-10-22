@@ -14,13 +14,12 @@ header.site-header {
 					margin-right: 38.5px;
 					margin-right: clamp(20px, 3vw, 38.5px);
 				}
-				a {
-					svg {
-						path {
-							fill: $white;
-						}
-					}
+				.footer {
+					display: none;
 				}
+				img {
+					width: 100%;
+				}	
 			}
 		}
 		.right {
@@ -51,10 +50,10 @@ header.site-header {
 						font-size: clamp( rem-calc(15), 2.3vw, rem-calc(18) );
 					}
 					svg {
-						width: 18px;
-						flex: 0 0 18px;
+						width: rem-calc(13);
+						flex: 0 0 rem-calc(13);
 						margin-left: rem-calc(8);
-						transform: translateY(-2px);
+						transform: translateY(-1px);
 					}
 				}
 			}

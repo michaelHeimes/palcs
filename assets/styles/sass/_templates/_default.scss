@@ -108,6 +108,24 @@ body.single-post {
 	}
 }
 
+body.page-template-default {
+	article {
+		&.no-banner {
+			.entry-content:not(.accordion-content):not(.accordion-content) {
+				padding-top: 5.55rem;
+			}
+		}
+	}
+}
+
+body.single-post {
+	article {
+		&.no-banner {
+				padding-top: 5.55rem;
+		}
+	}
+}
+
 body.single-post .entry-content {
 	padding-bottom: 0;
 }
@@ -173,24 +191,6 @@ blockquote.wp-block-quote.is-style-default {
 		font-weight: 700;
 		font-style: normal;
 		padding-top: 2.05rem;
-	}
-}
-
-body.page-template-default {
-	article {
-		&.no-banner {
-			.entry-content {
-				padding-top: 5.55rem;
-			}
-		}
-	}
-}
-
-body.single-post {
-	article {
-		&.no-banner {
-				padding-top: 5.55rem;
-		}
 	}
 }
 

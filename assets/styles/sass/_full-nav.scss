@@ -75,9 +75,8 @@
 		> li {
 			text-transform: uppercase;
 		}
-		.call-wrap .h2,
-		.call-wrap a,
 		a {
+			width: 100%;
 			background: transparent;
 			display: flex;
 			color: $white;
@@ -253,8 +252,17 @@
 			}
 		}
 		a {
-			display: inline-block;
-			align-items: center;
+			svg {
+				max-width: 14px;
+				margin-top: -1px;
+				margin-right: 12px;
+				max-width: clamp(14px, 1.2vw, 20px);
+				@include breakpoint(medium) {
+					margin-right: 14px;
+					max-width: 16px;
+					max-width: clamp(12px, 1.2vw, 20px);
+				}
+			}
 		}
 	}
 }

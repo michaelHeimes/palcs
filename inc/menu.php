@@ -154,12 +154,18 @@ add_filter( 'nav_menu_css_class', 'required_active_nav_class', 10, 2 );
 			foreach( $items as &$item ) {
 				
 				// vars
-				$icon = get_field('icon', $item);
-				$size = 'full';						
-				// append icon
-				if( $icon ) {
+				$icon_header = get_field('white_bg_icon', $item);
+				$icon_footer = get_field('blue_bg_icon', $item);				
+				// append icon if either exists
+				if( !empty($icon_header) || !empty($icon_footer) ) {
 					
-					$item->title = '<span class="icon" aria-hidden="true"><img class="style-svg" src="' . $icon['url'] . '" alt="' . $icon['alt'] . '"></span><span class="show-for-sr"' . $item->title . '</span>';
+					
+					// check if icons exist before accessing their properties
+					$header_img = $icon_header ? '<img class="header" src="' . esc_url($icon_header['url']) . '" alt="' . esc_attr($icon_header['alt']) . '">' : '';
+					$footer_img = $icon_footer ? '<img class="footer" style="dislay: none;" src="' . esc_url($icon_footer['url']) . '" alt="' . esc_attr($icon_footer['alt']) . '">' : '';
+					
+					// build the title with icons and screen reader text
+					$item->title = '<span class="icon" aria-hidden="true">' . $header_img . $footer_img . '</span><span class="show-for-sr">' . esc_html($item->title) . '</span>';
 					
 				}
 				
@@ -167,8 +173,9 @@ add_filter( 'nav_menu_css_class', 'required_active_nav_class', 10, 2 );
 			
 			// return
 			return $items;		
-
-		} else {			
+		
+		}
+ else {			
 			// loop
 			foreach( $items as &$item ) {}
 			return $items;	

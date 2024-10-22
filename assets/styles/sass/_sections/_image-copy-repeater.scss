@@ -12,14 +12,16 @@
 				box-sizing: border-box;
 			}
 			.copy-wrap {
-				padding-bottom: 3rem;
+				margin-bottom: 3rem;
 				.inner {
 					max-width: 620px;
+					background: #F7F7F7;
 				}
 			}
 		}
 		.swiper-slide {
 			background: #F7F7F7;
+			padding-bottom: 5px;
 		}
 		.pagination-wrap {
 			max-width: 620px;

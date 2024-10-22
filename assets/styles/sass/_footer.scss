@@ -28,8 +28,15 @@ footer#colophon {
 				}
 				li {
 					margin: clamp( rem-calc(10), 2vw, rem-calc(20) );
-					svg path {
-						transition: .25s ease;
+					img {
+						width: 100%;
+						max-width: 42px;
+						&.header {
+							display: none;
+						}
+						&.footer {
+							display: inline-block !important;
+						}
 					}
 					a:hover {
 						svg {
