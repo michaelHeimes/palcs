@@ -1,6 +1,7 @@
 .ctas-video-slider {
 	position: relative;
 	.inner-height-control {
+		height: 100%;
 		min-height: rem-calc(448);
 		min-height: clamp(28rem, 25.068rem + 12.508vw, 40rem);
 		@include breakpoint(medium) {

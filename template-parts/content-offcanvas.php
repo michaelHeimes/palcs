@@ -67,6 +67,7 @@
 				</div>
 			</div>
 		<?php endif;?>
+
 		<?php if( !empty($phone_number) ):?>
 			<div class="call-wrap text-center color-white">
 				<div class="grid-container">
