@@ -5,10 +5,11 @@ $copy = get_field('csdl_copy') ?? get_sub_field('csdl_copy') ?? null;
 $dropdown_title = get_field('csdl_dropdown_title') ?? get_sub_field('csdl_dropdown_title') ?? null;
 $dropdown_button_text = get_field('csdl_dropdown_button_text') ?? get_sub_field('csdl_dropdown_button_text') ?? null;
 $dropdown_links = get_field('csdl_dropdown_links') ?? get_sub_field('csdl_dropdown_links') ?? null;
+$stat_images = get_field('stat_images') ?? get_sub_field('stat_images') ?? null;
 ?>
 <section class="copy-select-dropdown-links" itemprop="text">
 	<div class="grid-container">
-		<div class="grid-x grid-padding-x align-middle align-center">
+		<div class="inner grid-x grid-padding-x align-middle align-center">
 			<?php if( !empty($heading) || !empty($subheading) || !empty($heading) ):?>
 				<div class="left cell small-12 tablet-6 large-6 xlarge-5 has-bg">
 					<dig class="bg"></dig>
@@ -63,6 +64,30 @@ $dropdown_links = get_field('csdl_dropdown_links') ?? get_sub_field('csdl_dropdo
 				</div>
 			<?php endif;?>
 		</div>
+		<?php if( !empty( $stat_images ) ):?>
+			<div class="stat-images align-center align-center-middle grid-x grid-padding-x">
+				<div class="cell small-12 large-10">
+					<div class="grid-x grid-padding-x align-center small-up-1 tablet-up-3 xlarge-up-6">
+						<?php foreach( $stat_images as $stat_image ):
+							$image = $stat_image['image'] ?? null;	
+							$hide_on_mobile = $stat_image['hide_on_mobile'] ?? null;	
+							$classes = '';
+							if( $hide_on_mobile == true ) {
+								$classes = 'show-for-tablet';
+							}
+						?>
+							<div class="img-wrap cell text-center <?=$classes;?>">
+								<?php
+								$size = 'full';
+								if( $image ) {
+									echo wp_get_attachment_image( $image['id'], $size );
+								}?>
+							</div>
+						<?php endforeach;?>
+					</div>
+				</div>
+			</div>
+		<?php endif;?>
 	</div>
 </section>
 <div class="gradient-border"></div>

@@ -36,23 +36,23 @@
 	}
 	.menu-toggle-wrap {
 		padding: 0 rem-calc(32) rem-calc(26);
-		padding: 0 clamp(rem-calc(32), 4.5vw, rem-calc(98)) clamp(rem-calc(26), 3vw, rem-calc(50));
+		padding: 0 clamp(rem-calc(32), 4.5vw, rem-calc(98)) clamp(rem-calc(26), 3vw, rem-calc(26));
 		@include breakpoint(medium) {
-			padding: 0 rem-calc(98) rem-calc(50);
-			padding: 0 clamp(rem-calc(32), 4.5vw, rem-calc(98)) clamp(rem-calc(26), 3vw, rem-calc(50));
+			padding: 0 rem-calc(98) rem-calc(30);
+			padding: 0 clamp(rem-calc(32), 4.5vw, rem-calc(98)) clamp(rem-calc(26), 3vw, rem-calc(30));
 		}
 	}
 	.menu-toggle {
 		display: inline-flex;
 		line-height: 1.357;
 		flex-wrap: nowrap;
+		font-family: $font-header;
 		font-size: rem-calc(20);
-		font-size: clamp(rem-calc(20), 3vw, rem-calc(42));
+
 		@include breakpoint(medium) {
-			font-size: rem-calc(42);
-			font-size: clamp(rem-calc(20), 3vw, rem-calc(42));
+			font-size: rem-calc(28);
 		}
-		b {
+		span {
 			display: inline-block;
 			margin-right: rem-calc(21);
 		}
@@ -81,14 +81,14 @@
 			display: flex;
 			color: $white;
 			font-weight: bold;
-			font-size: rem-calc(24);
+			font-size: rem-calc(20);
 			// font-size: clamp( rem-calc(26), 4vw, rem-calc(52));
 			padding: 0 rem-calc(32);
 			padding: 0 clamp(rem-calc(32), 4.5vw, rem-calc(68));
 			margin-bottom: rem-calc(30);
 			margin-bottom: clamp(rem-calc(30), 2.5vw, rem-calc(37));
 			@include breakpoint(medium) {
-				font-size: rem-calc(32);
+				font-size: rem-calc(28);
 				// font-size: clamp( rem-calc(26), 4vw, rem-calc(52));
 				padding: 0 rem-calc(98);
 				padding: 0 clamp(rem-calc(32), 4.5vw, rem-calc(68));
@@ -220,11 +220,15 @@
 		}
 	}
 	.ctas {
-		padding-bottom: rem-calc(30);
-		padding-bottom: clamp( rem-calc(30), 4vw, rem-calc(54) );
+		padding-top: rem-calc(10);
+		padding-top: clamp( rem-calc(10), 4vw, rem-calc(20) );
+		padding-bottom: rem-calc(20);
+		padding-bottom: clamp( rem-calc(10), 4vw, rem-calc(20) );
 		@include breakpoint(medium) {
+			padding-top: rem-calc(10);
+			padding-top: clamp( rem-calc(10), 4vw, rem-calc(20) );
 			padding-bottom: rem-calc(54);
-			padding-bottom: clamp( rem-calc(30), 4vw, rem-calc(54) );
+			padding-bottom: clamp( rem-calc(10), 4vw, rem-calc(20) );
 		}
 		a.button {
 			margin-bottom: 1.2rem;

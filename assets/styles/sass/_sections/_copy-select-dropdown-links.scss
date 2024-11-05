@@ -3,7 +3,7 @@
 	@include breakpoint(medium) {
 		padding-bottom: rem-calc(90);
 	}
-	>.grid-container>.grid-x {
+	>.grid-container>.grid-x.inner {
 		padding-top: calc( .7* rem-calc(90) );
 		padding-bottom: 3.3rem;
 		@include breakpoint(medium) {
@@ -100,6 +100,14 @@
 						}
 					}
 				}
+			}
+		}
+	}
+	.stat-images {
+		.img-wrap {
+			margin-bottom: $smallGutter;
+			@include breakpoint(medium) {
+				margin-bottom: $mediumGutter;
 			}
 		}
 	}

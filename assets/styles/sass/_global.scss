@@ -222,6 +222,14 @@ body .accordion {
 		}
 		.accordion-content {
 			border-top: 0;
+			>*:last-child {
+				margin-bottom: 0 !important;
+			}
+			> ul:last-child {
+				li:last-child {
+					margin-bottom: 0 !important;
+				}
+			}
 		}
 	}
 }

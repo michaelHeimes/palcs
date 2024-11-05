@@ -59,7 +59,7 @@ $index_page = substr( $current_url, strlen( home_url() ) );
 										</div>
 										<div class="cell shrink">
 											<label class="h6">
-												<input type="radio" name="posttype" value="teacher-staff" id="posttypeteacherstaff" class="posttype"> Clubs
+												<input type="radio" name="posttype" value="teacher-staff" id="posttypeteacherstaff" class="posttype"> Teachers
 												<div class="checkbox"></div>
 											</label>
 										</div>

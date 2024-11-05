@@ -6,9 +6,16 @@ function custom_button_link_shortcode($atts) {
 		array(
 			'link' => '',
 			'text' => '',
+			'target' => '',
 		),
 		$atts
 	);
+	
+	$target = '_self';
+	
+	if( $atts['target'] == 'new tab' ) {
+		$target = '_blank';
+	}
 
 	// Check if both link and text attributes are provided
 	if (empty($atts['link']) || empty($atts['text'])) {
@@ -16,7 +23,7 @@ function custom_button_link_shortcode($atts) {
 	}
 
 	// Generate the HTML for the button link
-	$button_link_html = '<div class="shortcode-btn-wrap"><a href="' . esc_url($atts['link']) . '" class="button shortcode-btn purple-ds">' . esc_html($atts['text']) . '</a></div>';
+	$button_link_html = '<div class="shortcode-btn-wrap"><a href="' . esc_url($atts['link']) . '" class="button shortcode-btn purple-ds" target="' . $target . '">' . esc_html($atts['text']) . '</a></div>';
 
 	return $button_link_html;
 }

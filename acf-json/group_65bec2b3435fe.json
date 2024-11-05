@@ -142,6 +142,79 @@
                     "parent_repeater": "field_65bec371c588a"
                 }
             ]
+        },
+        {
+            "key": "field_6724efb2069c0",
+            "label": "Stat Images",
+            "name": "stat_images",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Image",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6724f257069c1",
+                    "label": "Image",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 0,
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_6724efb2069c0"
+                },
+                {
+                    "key": "field_6724f262069c2",
+                    "label": "Hide on Mobile",
+                    "name": "hide_on_mobile",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "parent_repeater": "field_6724efb2069c0"
+                }
+            ]
         }
     ],
     "location": [
@@ -162,5 +235,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1707057811
+    "modified": 1730476953
 }

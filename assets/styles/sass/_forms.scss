@@ -19,6 +19,9 @@
 		.gform-grid-row {
 			row-gap: 40px;
 		}
+		.gfield select {
+			padding: 1.35rem 1.88rem !important;
+		}
 	}
 	.gform_footer {
 		--gf-form-footer-margin-y-start: 60px;
@@ -39,6 +42,7 @@ form#search-form {
 			color: $black;
 		}
 	}
+	
 	button:not(.no-style) {
 		flex: 0 0 auto;
 		border-top-left-radius: 0;

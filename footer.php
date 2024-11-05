@@ -91,6 +91,13 @@ $hours = get_field('hours', 'option');
 										<?php endif;?>
 									</div>
 								<?php endif;?>
+								
+								<div style="margin-top:24px;">
+									<a href="https://login.palcschool.org/" target="_blank">
+										<img src="<?=get_template_directory_uri();?>/assets/images/palcs-footer-login.png" width="200">
+									</a>
+								</div>
+								
 							</div>
 							<?php endif;?>
 							<?php if( wp_get_nav_menu_items(get_nav_menu_locations()['footer-nav']) ):?>
