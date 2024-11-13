@@ -34,8 +34,6 @@ $posts_per_load = 9;
 					'post_type' => 'post',
 					'post_status' => 'publish',
 					'posts_per_page' => -1,
-					'orderby' => 'title',
-					'order' => 'ASC',
 				);	 
 				$posts = get_posts($args);
 				

@@ -2,6 +2,35 @@ header.site-header {
 	position: relative;
 	z-index: 9;
 	border-bottom: 1px solid #E3E3E3;
+	.menu-toggle {
+		text-transform: uppercase;
+		line-height: 1.35;
+		font-weight: bold;
+		border: 1px solid $black;
+		border-radius: 4px;
+		padding: rem-calc(12.4) rem-calc(10);
+		transition: .25s ease;
+		font-size: rem-calc(17);
+		font-size: clamp(rem-calc(17), 2vw, rem-calc(20));
+		@include breakpoint(medium) {
+			font-size: rem-calc(20);
+			font-size: clamp(rem-calc(17), 2vw, rem-calc(20));
+		}
+		svg path {
+			transition: .25s ease;
+		}
+		&:hover {
+			color: $color-blue;
+			border-color: $color-blue;
+			svg path {
+				fill: $color-blue;
+			}
+		}
+		span {
+			display: inline-block;
+			margin-right: rem-calc(5);
+		}
+	}
 	.pre-header-nav {
 		padding-top: 11px;
 		padding-bottom: 11px;
@@ -61,26 +90,51 @@ header.site-header {
 	}
 	.header-middle {
 		margin-top: rem-calc(22);
+		@include breakpoint(medium down) {
+			padding-bottom: rem-calc(16);
+		}
 		.logo {
 			max-width: 400px;
-			@include breakpoint(tablet down) {
+			@include breakpoint(medium down) {
 				margin-bottom: rem-calc(32);
 			}
 		}
-		a.button {
+		a.button:not(.menu-toggle) {
 			@include breakpoint(small down) {
 				min-width: 0;
 				padding: .9em;
 			}
 			@include breakpoint(medium down) {
+				min-width: 0;
 				width: 100%;
 			}
 			@include breakpoint(large down) {
+				min-width: 0;
+				width: 100%;
 				margin-bottom: 1rem;
+			}
+			@include breakpoint(tablet) {
+				margin-bottom: rem-calc(20);
+			}
+			@include breakpoint(xlarge) {
+				margin-bottom: 0;
 			}
 		}
 		.right {
+			.menu-toggle {
+				padding: 1.15rem 1.133rem;
+
+				span.uppercase {
+					display: none;
+					@include breakpoint(medium) {
+						display: block;
+					}
+				}
+			}
 			@include breakpoint(large) {
+				padding-bottom: rem-calc(10);
+			}
+			@include breakpoint(xlarge) {
 				padding-bottom: rem-calc(34);
 			}
 		}
@@ -189,36 +243,6 @@ header.site-header {
 				@include breakpoint(medium) {
 					width: 256.47px;
 				}
-			}
-		}
-		
-		.menu-toggle {
-			text-transform: uppercase;
-			line-height: 1.35;
-			font-weight: bold;
-			border: 1px solid $black;
-			border-radius: 4px;
-			padding: rem-calc(12.4) rem-calc(10);
-			transition: .25s ease;
-			font-size: rem-calc(17);
-			font-size: clamp(rem-calc(17), 2vw, rem-calc(20));
-			@include breakpoint(medium) {
-				font-size: rem-calc(20);
-				font-size: clamp(rem-calc(17), 2vw, rem-calc(20));
-			}
-			svg path {
-				transition: .25s ease;
-			}
-			&:hover {
-				color: $color-blue;
-				border-color: $color-blue;
-				svg path {
-					fill: $color-blue;
-				}
-			}
-			span {
-				display: inline-block;
-				margin-right: rem-calc(5);
 			}
 		}
 		
