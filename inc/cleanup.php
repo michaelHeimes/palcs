@@ -95,3 +95,14 @@ function trailhead_get_the_author_posts_link() {
 	);
 	return $link;
 }
+
+// Remove tags from posts
+function remove_post_tags() {
+	unregister_taxonomy_for_object_type('post_tag', 'post');
+}
+add_action('init', 'remove_post_tags');
+
+function remove_tags_menu() {
+	remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag');
+}
+add_action('admin_menu', 'remove_tags_menu');

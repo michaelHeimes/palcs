@@ -69,13 +69,23 @@ ul.pagination {
 	}
 }
 
+.single-post .entry-content .social-links {
+	line-height: inherit;
+	padding-top: 1rem;
+	font-weight: 800;
+	.cell:not(.share-label) {
+		padding-left: 0;
+	}
+}
+
+.social-links .share-label,
 .entry-footer .tax-label,
 ul.pagination li,
 ul.teacher-terms-list li {
-	font-weight: 1rem;
+	font-size: 1rem;
 	font-size: clamp(1rem, 0.909rem + 0.388vw, 1.375rem);
 	@include breakpoint(medium) {
-		font-weight: 1.375rem;
+		font-size: 1.375rem;
 		font-size: clamp(1rem, 0.909rem + 0.388vw, 1.375rem);
 	}
 }

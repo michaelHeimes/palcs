@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define( '_S_VERSION', '1.0.2' );
 }
 
 /**
@@ -114,7 +114,7 @@ add_action( 'after_setup_theme', 'trailhead_setup' );
  * @global int $content_width
  */
 function trailhead_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'trailhead_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'trailhead_content_width', 1322 );
 }
 add_action( 'after_setup_theme', 'trailhead_content_width', 0 );
 

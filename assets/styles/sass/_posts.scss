@@ -304,6 +304,32 @@ article.teacher-card {
 
 article.single-img-sidebar,
 .single-post {
+	.thumb-banner {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+		@include breakpoint(medium) {
+			margin-top: 2.5rem;
+			margin-bottom: 2rem;
+		}
+	}
+	.thumb-float {
+		display: inline-block;
+		float: right;
+		max-width: 480px;
+		margin-top: 2.1875rem;
+		margin-bottom: 2.1875rem;
+		margin-left: 2rem;
+		@include breakpoint(medium down) {
+			max-width: 50%;
+		}
+		@include breakpoint(small down) {
+			max-width: 100%;
+			margin-top: 1rem;
+			margin-left: 0;
+			margin-bottom: 0;
+			float: none;
+		}
+	}
 	.icon-wrap {
 		border-radius: 100%;
 		padding-bottom: 360px;
@@ -320,6 +346,9 @@ article.single-img-sidebar,
 			height: 70%;
 			object-fit: contain;
 		}	
+	}
+	.content-wrap > * {
+		margin-top: 0 !important;
 	}
 	.entry-footer,
 	ul.terms-list {
