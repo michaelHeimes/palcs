@@ -322,7 +322,14 @@ POSTS & CONTENT STYLES
 	.aligncenter, img.aligncenter { 
 		clear: both; 
 	}
-			
+	.alignleft, img.alignleft,
+	.alignright, img.alignright { 
+		@include breakpoint(small down) {
+			float: none;
+			display: block;
+			text-align: center;
+		}
+	}			
 	video, object {
 		max-width: 100%;
 		height: auto;

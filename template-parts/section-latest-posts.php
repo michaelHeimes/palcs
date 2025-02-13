@@ -1,7 +1,13 @@
 <?php
 $latest_posts_background_image = get_field('latest_posts_background_image') ?? get_sub_field('latest_posts_background_image') ?? null;
 $latest_posts_heading = get_field('latest_posts_heading') ?? get_sub_field('latest_posts_heading') ?? null;
-$categories_to_show = get_field('categories_to_show') ?? get_sub_field('categories_to_show') ?? null;
+$school_wide_post = get_field('school-wide_post') ?? get_sub_field('school-wide_post') ?? null;
+$elementary_post = get_field('elementary_post') ?? get_sub_field('elementary_post') ?? null;
+$middle_school_post = get_field('middle_school_post') ?? get_sub_field('middle_school_post') ?? null;
+$high_school_post = get_field('high_school_post') ?? get_sub_field('high_school_post') ?? null;
+$activities_post = get_field('activities_post') ?? get_sub_field('activities_post') ?? null;
+$enrichment_post = get_field('enrichment_post') ?? get_sub_field('enrichment_post') ?? null;
+
 $latest_posts_cta_heading = get_field('latest_posts_cta_heading') ?? get_sub_field('latest_posts_cta_heading') ?? null;
 $latest_posts_cta_button_link = get_field('latest_posts_cta_button_link') ?? get_sub_field('latest_posts_cta_button_link') ?? null;
 ?>
@@ -21,52 +27,77 @@ $latest_posts_cta_button_link = get_field('latest_posts_cta_button_link') ?? get
 				</div>
 			<?php endif;?>
 			
-			<?php
-			$categories = get_categories();
-						
-			foreach ($categories as $category) {
-				// Check if the current category ID is in the list of categories to show
-				if (in_array($category->cat_ID, $categories_to_show)) {
-					$args = array(
-						'post_type' => 'post',
-						'post_status' => 'publish',
-						'posts_per_page' => 1,
-						'cat' => $category->cat_ID,
-						'orderby' => 'date',
-						'order' => 'DESC',
+			<?php if( !empty( $school_wide_post ) ) {
+				$posts = is_array($school_wide_post) ? $school_wide_post : [$school_wide_post];
+				foreach($posts as $post) {
+					setup_postdata($post);
+					get_template_part('template-parts/loop', 'latest-post',
+						array(
+							'category_name' => 'school-wide',
+						),
 					);
-				
-					$loop = new WP_Query($args);
-				
-					$sticky_args = array(
-						'post_type' => 'post',
-						'post_status' => 'publish',
-						'posts_per_page' => 1,
-						'cat' => $category->cat_ID,
-						'ignore_sticky_posts' => 1, // Ignore regular posts in the sticky posts loop
-						'orderby' => 'date',
-						'order' => 'DESC',
-						'post__in' => get_option( 'sticky_posts' ),
+				} wp_reset_postdata();
+			};?>
+			
+			<?php if( !empty( $elementary_post ) ) {
+				$posts = is_array($elementary_post) ? $elementary_post : [$elementary_post];
+				foreach($posts as $post) {
+					setup_postdata($post);
+					get_template_part('template-parts/loop', 'latest-post',
+						array(
+							'category_name' => 'elementary',
+						),
 					);
-				
-					$sticky_loop = new WP_Query($sticky_args);
-				
-					// Check if there's a sticky post, if not, fall back to regular posts
-					if ($sticky_loop->have_posts()) :
-						while ($sticky_loop->have_posts()) : $sticky_loop->the_post();
-							get_template_part('template-parts/loop', 'latest-post');
-						endwhile;
-					elseif ($loop->have_posts()) :
-						while ($loop->have_posts()) : $loop->the_post();
-							get_template_part('template-parts/loop', 'latest-post');
-						endwhile;
-					endif;
-				
-					wp_reset_postdata();
-				}
-			}
-			?>
-
+				} wp_reset_postdata();
+			};?>
+			
+			<?php if( !empty( $middle_school_post ) ) {
+				$posts = is_array($middle_school_post) ? $middle_school_post : [$middle_school_post];
+				foreach($posts as $post) {
+					setup_postdata($post);
+					get_template_part('template-parts/loop', 'latest-post',
+						array(
+							'category_name' => 'middle-school',
+						),
+					);
+				} wp_reset_postdata();
+			};?>
+			
+			<?php if( !empty( $high_school_post ) ) {
+				$posts = is_array($high_school_post) ? $high_school_post : [$high_school_post];
+				foreach($posts as $post) {
+					setup_postdata($post);
+					get_template_part('template-parts/loop', 'latest-post',
+						array(
+							'category_name' => 'high-school',
+						),
+					);
+				} wp_reset_postdata();
+			};?>
+			
+			<?php if( !empty( $activities_post ) ) {
+				$posts = is_array($activities_post) ? $activities_post : [$activities_post];
+				foreach($posts as $post) {
+					setup_postdata($post);
+					get_template_part('template-parts/loop', 'latest-post',
+						array(
+							'category_name' => 'activities',
+						),
+					);
+				} wp_reset_postdata();
+			};?>
+			
+			<?php if( !empty( $enrichment_post ) ) {
+				$posts = is_array($enrichment_post) ? $enrichment_post : [$enrichment_post];
+				foreach($posts as $post) {
+					setup_postdata($post);
+					get_template_part('template-parts/loop', 'latest-post',
+						array(
+							'category_name' => 'enrichment',
+						),
+					);
+				} wp_reset_postdata();
+			};?>
 
 		</div>
 		
