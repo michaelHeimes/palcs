@@ -274,3 +274,14 @@ function custom_display_featured_image_column($column, $post_id) {
 add_action('manage_posts_custom_column', 'custom_display_featured_image_column', 10, 2);
 
 
+// Change post object field for Latest Posts to order by post date
+function custom_acf_post_object_order_by_date($args, $field, $post_id) {
+	$fields_to_filter = ['school-wide_post', 'elementary_post', 'middle_school_post', 'high_school_post', 'activities_post', 'enrichment_post']; 
+	if (in_array($field['name'], $fields_to_filter)) {
+		$args['orderby'] = 'date';
+		$args['order'] = 'DESC';
+	}
+	return $args;
+}
+add_filter('acf/fields/post_object/query', 'custom_acf_post_object_order_by_date', 10, 3);
+

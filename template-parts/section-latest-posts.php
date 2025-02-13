@@ -57,7 +57,7 @@ $latest_posts_cta_button_link = get_field('latest_posts_cta_button_link') ?? get
 					setup_postdata($post);
 					get_template_part('template-parts/loop', 'latest-post',
 						array(
-							'category_name' => 'middle-school',
+							'category_name' => 'middle',
 						),
 					);
 				} wp_reset_postdata();
