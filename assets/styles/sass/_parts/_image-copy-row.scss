@@ -15,6 +15,7 @@
 		&:not([class$="-flex-dir-row-reverse"]):not(.intro-img) {
 			.img-wrap {
 				margin-left: -#{($smallGutter * .5)};
+				max-width: 795px;
 				@include breakpoint(medium down) {
 					margin-bottom: 2rem;
 				}

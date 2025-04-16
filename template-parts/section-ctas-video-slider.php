@@ -72,6 +72,7 @@ $cta_video_slider_slides = get_field('cta_video_slider_slides') ?? get_sub_field
 												'video_url' => $video_url,
 												'modal_id' => $sanitized_words,
 												'image_type' => $image_type,
+												'index' => $i,
 											),
 										);?>
 									</div>

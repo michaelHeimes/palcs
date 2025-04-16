@@ -304,6 +304,9 @@ article.teacher-card {
 
 article.single-img-sidebar,
 .single-post {
+	h1 {
+		margin-bottom: .7em;
+	}
 	.thumb-banner {
 		margin-top: 2rem;
 		margin-bottom: 2rem;
@@ -316,7 +319,7 @@ article.single-img-sidebar,
 		display: inline-block;
 		float: right;
 		max-width: 480px;
-		margin-top: 2.1875rem;
+		margin-top: .7rem;
 		margin-bottom: 2.1875rem;
 		margin-left: 2rem;
 		@include breakpoint(medium down) {
@@ -326,7 +329,6 @@ article.single-img-sidebar,
 			max-width: 100%;
 			margin-top: 1rem;
 			margin-left: 0;
-			margin-bottom: 0;
 			float: none;
 		}
 	}

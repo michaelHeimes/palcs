@@ -4,6 +4,7 @@ $modal_id = $args['modal_id'] ?? null;
 $video_thumbnail_image = $args['video_thumbnail_image'] ?? null;
 $video_url = $args['video_url'] ?? null;
 $caption = $args['caption'] ?? null;
+$index = $args['index'] ?? null;
 ?>
 <div class="inner">
 	<?php if( !empty( $video_thumbnail_image ) || !empty( $video_url ) || !empty( $caption ) ) {
@@ -21,7 +22,7 @@ $caption = $args['caption'] ?? null;
 		}
 		
 		if( !empty($video_url) ) {
-			echo '<button type="button" class="no-style" data-open="' . sanitize_title($modal_id) . '-video-modal"><img class="play-icon" src="' . get_template_directory_uri() . '/assets/images/play-icon.svg"></button>';
+			echo '<button type="button" class="no-style" data-open="' . sanitize_title('slide-' . $index . '-' . $modal_id) . '-video-modal"><img class="play-icon" src="' . get_template_directory_uri() . '/assets/images/play-icon.svg"></button>';
 		}
 		
 		echo '</div>';
@@ -33,7 +34,7 @@ $caption = $args['caption'] ?? null;
 	}?>
 </div>
 <?php if( !empty($video_url) ):?>
-	<div class="reveal large video-modal" id="<?=sanitize_title($modal_id);?>-video-modal" data-reveal data-animation-in="fade-in fast" data-animation-out="fade-out fast" data-reset-on-close="true" data-deep-link="true">
+	<div class="reveal large video-modal" id="<?=sanitize_title('slide-' . $index . '-' . $modal_id);?>-video-modal" data-reveal data-animation-in="fade-in fast" data-animation-out="fade-out fast" data-reset-on-close="true" data-deep-link="true">
 		<div class="text-right">
 			<button class="close-button no-style" data-close aria-label="Close modal" type="button">
 				<span aria-hidden="true">&times;</span>
