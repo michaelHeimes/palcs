@@ -5,7 +5,7 @@ $cta_video_slider_slides = get_field('cta_video_slider_slides') ?? get_sub_field
 <section class="ctas-video-slider overflow-hidden img-type-<?=$image_type;?>" itemprop="text">
 
 	<?php if( !empty($cta_video_slider_slides) ):?>
-		<div class="ctas-video-slider-swiper img-pagination-slider" data-autoplaydelay="5000">
+		<div class="ctas-video-slider-swiper img-pagination-slider" data-autoplaydelay="6000">
 			<div class="swiper-wrapper">
 				<?php $i = 0; foreach($cta_video_slider_slides as $cta_video_slider_slide):
 					$text = $cta_video_slider_slide['text'] ?? null;
