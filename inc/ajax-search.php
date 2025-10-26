@@ -18,6 +18,7 @@ function handle_ajax_search() {
 		// Query posts for the selected post type
 		$args = array(
 			'post_type'      => $post_types,
+			'post_status'    => 'publish',
 			'posts_per_page' => -1,
 			's'              => $keyword,
 		);
