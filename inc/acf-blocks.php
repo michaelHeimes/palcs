@@ -55,6 +55,16 @@ function register_acf_block_types() {
             'keywords'          => array( 'custom', 'block', 'tabs', 'videos', 'tabbed' ),
         ));
         
+        acf_register_block_type(array(
+            'name'              => 'teachers-staff',
+            'title'             => __('Block: Teachers Staff'),
+            'description'       => __('Block: Teachers Staff'),
+            'render_template'   => 'template-parts/blocks/teachers-staff.php',
+            'category'          => 'embed',
+            'icon'              => 'video-alt3',
+            'keywords'          => array( 'custom', 'block', 'teachers', 'staff' ),
+        ));
+        
     }
         
 }

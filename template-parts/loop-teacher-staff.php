@@ -1,7 +1,15 @@
 <?php 
 // Archive card for both Teachers & Staff and Administration
-$cpt = get_post_type();
-$post_id = $post->ID;
+if( isset($args['cpt']) ) {
+	$cpt = $args['cpt'];
+} else {
+	$cpt = get_post_type();
+}
+if( isset($args['post_id']) ) {
+	$post_id = $args['post_id'];
+} else {
+	$post_id = $post->ID;
+}
 $term_slugs = [];
 $taxonomies = '';
 if($cpt == 'administration') {
@@ -36,7 +44,7 @@ $article_classes = 'teacher-card load-more-filter-card cell small-12 medium-6 ta
 // Output or use the combined terms as needed
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class($article_classes); ?> data-terms="<?= esc_attr($combined_terms); ?>">
-	<a href="<?= esc_url(get_permalink()); ?>" rel="bookmark">
+	<div>
 		<?php
 
 			$image_id = get_post_thumbnail_id($post_id);
@@ -62,7 +70,7 @@ $article_classes = 'teacher-card load-more-filter-card cell small-12 medium-6 ta
 				echo '<div class="circle-thumb-wrap fallback-img">' . $img . '</div>';
 			}
 		?>
-		<h3 class="h6 color-blue"><?php the_title(); ?></h3>
+		<h3 class="h6 color-blue"><?=get_the_title($post_id); ?></h3>
 		<?php
 		$excerpt = get_the_excerpt($post_id);
 		
@@ -70,5 +78,5 @@ $article_classes = 'teacher-card load-more-filter-card cell small-12 medium-6 ta
 			echo '<h4>' . esc_html($excerpt) . '</h4>';
 		}
 		?>
-	</a>
+	</div>
 </article>

@@ -167,7 +167,7 @@
                 //console.log('posts per load:' + $postsPer);
                 
                const checkableInputs = document.querySelectorAll('.option-set input');
-               console.log(checkableInputs);
+               // console.log(checkableInputs);
                 // Add keydown event listener to each input
                 checkableInputs.forEach(function(input) {
                     input.addEventListener('keydown', function(event) {
