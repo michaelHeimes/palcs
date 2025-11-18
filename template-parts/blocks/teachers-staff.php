@@ -35,7 +35,6 @@ if($teachers_staff):
                         setup_postdata($post);
                         get_template_part('template-parts/loop', 'teacher-staff',
                             array(
-                                'cpt' => 'administration',
                                 'post_id' => $post->ID,
                             )
                         );

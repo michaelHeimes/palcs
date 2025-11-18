@@ -1,15 +1,13 @@
 <?php 
 // Archive card for both Teachers & Staff and Administration
-if( isset($args['cpt']) ) {
-	$cpt = $args['cpt'];
-} else {
-	$cpt = get_post_type();
-}
 if( isset($args['post_id']) ) {
 	$post_id = $args['post_id'];
 } else {
 	$post_id = $post->ID;
 }
+
+$cpt = get_post_type();
+
 $term_slugs = [];
 $taxonomies = '';
 if($cpt == 'administration') {
@@ -21,15 +19,17 @@ if($cpt == 'teacher-staff') {
 $combined_terms = '';
 
 // Loop through each taxonomy
-foreach ($taxonomies as $taxonomy) {
-	// Get the terms assigned to the post for the current taxonomy
-	$terms = get_the_terms($post_id, $taxonomy);
-
-	// Check if there are any terms
-	if ($terms && !is_wp_error($terms)) {
-		// Loop through each term and add its slug to the array
-		foreach ($terms as $term) {
-			$term_slugs[] = $term->slug;
+if( $taxonomies ) {
+	 foreach ($taxonomies as $taxonomy) {
+		// Get the terms assigned to the post for the current taxonomy
+		$terms = get_the_terms($post_id, $taxonomy);
+	
+		// Check if there are any terms
+		if ($terms && !is_wp_error($terms)) {
+			// Loop through each term and add its slug to the array
+			foreach ($terms as $term) {
+				$term_slugs[] = $term->slug;
+			}
 		}
 	}
 }

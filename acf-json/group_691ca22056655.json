@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_691ca2204255e",
-            "label": "Teachers \/ Staff",
+            "label": "Teachers & Staff",
             "name": "teachers_staff",
             "aria-label": "",
             "type": "relationship",
@@ -17,7 +17,8 @@
                 "id": ""
             },
             "post_type": [
-                "teacher-staff"
+                "teacher-staff",
+                "administration"
             ],
             "post_status": [
                 "publish"
@@ -56,5 +57,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1763484380
+    "modified": 1763505282
 }
