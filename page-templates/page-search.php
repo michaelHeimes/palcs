@@ -57,13 +57,8 @@ $index_page = substr( $current_url, strlen( home_url() ) );
 												<div class="checkbox"></div>
 											</label>
 										</div>
-										<div class="cell shrink">
-											<label class="h6">
-												<input type="radio" name="posttype" value="teacher-staff" id="posttypeteacherstaff" class="posttype"> Teachers
-												<div class="checkbox"></div>
-											</label>
-										</div>
 									</div>
+								</div>
 							</form>
 						</div>
 						<div id="search-query" class="h3 color-black"></div>

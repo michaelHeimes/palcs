@@ -6,7 +6,7 @@ function handle_ajax_search() {
 		$search_results = array();
 
 		// Define the post types to search
-		$allowed_post_types = array('page', 'post', 'club', 'teacher-staff');
+		$allowed_post_types = array('page', 'post', 'club');
 		
 		// Determine which post types to search based on the input
 		if ($post_type === 'posttypeall') {

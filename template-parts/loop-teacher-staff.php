@@ -39,7 +39,7 @@ if (!empty($term_slugs)) {
 	$combined_terms = implode(' ', $term_slugs);
 }
 
-$article_classes = 'teacher-card load-more-filter-card cell small-12 medium-6 tablet-4 large-3 text-center' . ' ' . $combined_terms;
+$article_classes = 'teacher-card load-more-filter-card cell small-6 medium-6 tablet-4 large-3 text-center' . ' ' . $combined_terms;
 
 // Output or use the combined terms as needed
 ?>

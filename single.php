@@ -38,6 +38,9 @@ get_header();
 					$categories = array('team');
 					$taxonomies = array('admin-department');
 					$slug_front = '/about-us/administration/';
+					
+					$redirect_url = home_url( trailingslashit( $slug_front ) );
+
 				}
 				
 								
@@ -61,6 +64,9 @@ get_header();
 					$categories = array('stage');
 					$taxonomies = array('grade', 'enrichment', 'department-1', 'department-2');
 					$slug_front = '/about-us/teachers-staff/';
+					
+					$redirect_url = home_url( trailingslashit( $slug_front ) );
+					
 				}
 
 				// Loop through each taxonomy

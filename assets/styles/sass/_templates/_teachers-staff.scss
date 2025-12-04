@@ -22,4 +22,13 @@
 			margin-top: 5.55rem;
 		}
 	}
+	.filter-grid-container {
+		max-width: 514px;
+		@include breakpoint(tablet) {
+			max-width: 818px;
+		}
+		@include breakpoint(large) {
+			max-width: 1096px;
+		}
+	}
 }

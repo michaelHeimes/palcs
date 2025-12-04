@@ -261,7 +261,7 @@ $filter_grid_classes_string = implode(' ', $filter_grid_classes);
 					</div>
 				</div>
 			</div>
-			<div class="cell small-12<?php if( $sidebar_image != null ) { echo '  medium-7 tablet-8 large-6 xxlarge-5'; } else { echo ' large-10 xxlarge-8'; }?>">
+			<div class="cell small-12<?php if( $sidebar_image != null ) { echo '  medium-7 tablet-8 large-6 xxlarge-5'; } else { echo ' large-10 xxlarge-8 filter-grid-container'; }?>">
 				<div class="filter-grid grid-x grid-padding-x<?=esc_attr( $filter_grid_classes_string );?>">
 					<?php foreach( $posts as $post ){
 						if( $cpt == 'administration' || $cpt == 'teacher-staff' ) {
