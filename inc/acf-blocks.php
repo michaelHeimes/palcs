@@ -65,6 +65,16 @@ function register_acf_block_types() {
             'keywords'          => array( 'custom', 'block', 'teachers', 'staff' ),
         ));
         
+        acf_register_block_type(array(
+            'name'              => 'info-stats',
+            'title'             => __('Block: Info Stats'),
+            'description'       => __('Block: Info Stats'),
+            'render_template'   => 'template-parts/blocks/info-stats.php',
+            'category'          => 'embed',
+            'icon'              => 'video-alt3',
+            'keywords'          => array( 'custom', 'block', 'info', 'stats' ),
+        ));
+        
     }
         
 }
