@@ -44,6 +44,9 @@ if($multi_column_list_text_color == 'charcoal-gray') {
     $mcl_text_color = '#272727';
 }
 
+$footer_logo = get_field('footer_logo') ?? null;
+$footer_text = get_field('footer_text') ?? null;
+
 if( $icon_text_columns || $multi_column_list_text_and_list ):
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="module block <?= esc_attr($className);?>">
@@ -76,6 +79,23 @@ if( $icon_text_columns || $multi_column_list_text_and_list ):
     <?php if( $multi_column_list_text_and_list ):?>
         <div class="multi-column-lists list-cols-<?=esc_attr($multi_column_list_columns);?> text-color-<?=esc_attr($multi_column_list_text_color);?>" style="background-color: <?=esc_html($multi_column_list_background_color);?>; color: <?=esc_html($mcl_text_color);?> !important;">
             <?=wp_kses_post( $multi_column_list_text_and_list );?>
+        </div>
+    <?php endif;?>
+    
+    <?php if($footer_logo || $footer_text):?>
+        <div class="footer">
+            <div class="grid-x grid-padding-x align-middle">
+                <?php if($footer_logo):?>
+                    <div class="footer-logo cell small-12 medium-6 tablet-7">
+                        <?=wp_get_attachment_image( $footer_logo['id'], 'full');?>
+                    </div>
+                <?php endif;?>
+                <?php if($footer_text):?>
+                    <div class="footer-text cell small-12 medium-6 tablet-5">
+                        <?=wp_kses_post($footer_text);?>
+                    </div>
+                <?php endif;?>
+            </div>
         </div>
     <?php endif;?>
     
