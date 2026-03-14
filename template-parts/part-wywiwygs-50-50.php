@@ -3,6 +3,7 @@ $is_intro = $args['is_intro'] ?? null;
 $wywiwygs_50_50 = $args['wywiwygs_50_50'] ?? null;
 $left = $wywiwygs_50_50['left_wysiwyg'] ?? null;
 $right = $wywiwygs_50_50['right_wysiwyg'] ?? null;
+if($left || $right):
 ?>
 <div class="wywiwygs-50-50<?php if( $is_intro == true ):?> intro<?php endif;?>">
 	<div class="grid-container">
@@ -20,3 +21,4 @@ $right = $wywiwygs_50_50['right_wysiwyg'] ?? null;
 		</div>
 	</div>
 </div>
+<?php endif;?>

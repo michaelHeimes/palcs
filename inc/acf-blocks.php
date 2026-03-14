@@ -11,7 +11,7 @@ function register_acf_block_types() {
             'description'       => __('Block: Copy Left, CTA Right'),
             'render_template'   => 'template-parts/blocks/copy-left-cta-right.php',
             'category'          => 'formatting',
-            'icon'              => 'admin-comments',
+            'icon'              => 'block-default',
             'keywords'          => array( 'custom', 'block', 'copy', 'cta' ),
         ));
         
@@ -21,7 +21,7 @@ function register_acf_block_types() {
             'description'       => __('Block: Accordion'),
             'render_template'   => 'template-parts/blocks/accordion.php',
             'category'          => 'formatting',
-            'icon'              => 'admin-comments',
+            'icon'              => 'block-default',
             'keywords'          => array( 'custom', 'block', 'accordion' ),
         ));
         
@@ -31,7 +31,7 @@ function register_acf_block_types() {
             'description'       => __('Block: Button Group'),
             'render_template'   => 'template-parts/blocks/button-group.php',
             'category'          => 'formatting',
-            'icon'              => 'admin-comments',
+            'icon'              => 'block-default',
             'keywords'          => array( 'custom', 'block', 'button', 'buttons', 'group' ),
         ));
         
@@ -41,7 +41,7 @@ function register_acf_block_types() {
             'description'       => __('Block: Tabbed Content'),
             'render_template'   => 'template-parts/blocks/tabbed-content.php',
             'category'          => 'formatting',
-            'icon'              => 'admin-comments',
+            'icon'              => 'block-default',
             'keywords'          => array( 'custom', 'block', 'tabs', 'tabbed' ),
         ));
         
@@ -61,7 +61,7 @@ function register_acf_block_types() {
             'description'       => __('Block: Teachers Staff'),
             'render_template'   => 'template-parts/blocks/teachers-staff.php',
             'category'          => 'embed',
-            'icon'              => 'video-alt3',
+            'icon'              => 'businessperson',
             'keywords'          => array( 'custom', 'block', 'teachers', 'staff' ),
         ));
         
@@ -71,7 +71,7 @@ function register_acf_block_types() {
             'description'       => __('Block: Info Stats'),
             'render_template'   => 'template-parts/blocks/info-stats.php',
             'category'          => 'embed',
-            'icon'              => 'video-alt3',
+            'icon'              => 'block-default',
             'keywords'          => array( 'custom', 'block', 'info', 'stats' ),
         ));
         
