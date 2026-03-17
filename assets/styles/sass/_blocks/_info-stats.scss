@@ -18,9 +18,9 @@
 		}
 	}
 	.multi-column-lists {
-		padding: 2rem 2rem 1rem;
+		padding: 2rem 2rem 2rem;
 		@include breakpoint(medium) {
-			padding: 4rem 4rem 1rem;
+			padding: 4rem 4rem 3rem;
 		}
 		&.text-color-white {
 			h1,
@@ -137,9 +137,27 @@
 	}
 	.footer {
 		background-color: #f7f7f7;
-		padding: 2rem 2rem 0;
+		padding: 0 1rem 0;
+		@include breakpoint(medium) {
+			padding: 0 2rem 0;
+		}
 		.cell {
 			margin-bottom: 2rem;
+			@include breakpoint(medium) {
+				margin-bottom: 0;
+			}
+		}
+		.footer-logo {
+			margin-top: -1rem;
+			@include breakpoint(medium) {
+				margin-top: -2rem;
+				padding-bottom: 2rem;
+			}
+		}
+		.footer-text {
+			@include breakpoint(medium) {
+				padding: 2rem 0;
+			}
 		}
 		h1,
 		h2,
