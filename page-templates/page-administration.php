@@ -70,9 +70,9 @@ if( get_field('cta_video_slider_slides') ) {
 					),
 				);?>
 
-				<footer class="article-footer">
-					 <?php wp_link_pages(); ?>
-				</footer> <!-- end article footer -->
+				<div class="article-footer">
+						 <?php wp_link_pages(); ?>
+					</div> <!-- end article footer -->
 					
 			</article><!-- #post-<?php the_ID(); ?> -->
 	

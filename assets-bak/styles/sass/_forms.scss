@@ -1,0 +1,58 @@
+.gform-theme--framework.gform-theme--foundation {
+	.gform_fields {
+		--gf-field-gap-x: 40px;
+		--gf-form-gap-x: 40px;
+		--gf-form-gap-y: 40px;
+		--gf-ctrl-size: 82px;
+		--gf-local-bg-color: #0052d4;
+		--gf-ctrl-border-color: #0052d4;
+		--gf-ctrl-border-color-hover: #0052d4;
+		--gf-ctrl-color: #0052d4;
+		--gf-ctrl-color-hover: #0052d4;
+		--gf-ctrl-color-focus: #0052d4;
+		--gf-ctrl-btn-bg-color-hover-primary: #0052d4;
+		--gf-color-in-ctrl-primary-darker: #0052d4;
+		--gf-ctrl-radius: 0;
+		--gf-ctrl-shadow: 0 0 0;
+		--gf-ctrl-font-size: 23px;
+		--gf-ctrl-padding-x: 30px;
+		.gform-grid-row {
+			row-gap: 40px;
+		}
+		.gfield select {
+			padding: 1.35rem 1.88rem !important;
+		}
+	}
+	.gform_footer {
+		--gf-form-footer-margin-y-start: 60px;
+	}
+}
+
+form#search-form {
+	border-radius: 6px;
+	input[type=text] {
+		@extend .font-size-20;
+		flex: 1 1 0;
+		height: rem-calc(74);
+		border: 1px solid $color-blue;
+		border-radius: 6px 0 0 6px;
+		margin: 0;
+		padding: 0.5em 2.2em;
+		&::placeholder {
+			color: $black;
+		}
+	}
+	
+	button:not(.no-style) {
+		flex: 0 0 auto;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+		min-width: 0;
+		padding-left: 1.35rem;
+		padding-right: 1.35rem;
+		@include breakpoint(medium) {
+			padding-left: 3.35rem;
+			padding-right: 3.35rem;
+		}
+	}
+}

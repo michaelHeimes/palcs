@@ -22,13 +22,13 @@ $index = $args['index'] ?? null;
 		}
 		
 		if( !empty($video_url) ) {
-			echo '<button type="button" class="no-style" data-open="' . sanitize_title('slide-' . $index . '-' . $modal_id) . '-video-modal"><img class="play-icon" src="' . get_template_directory_uri() . '/assets/images/play-icon.svg"></button>';
+			echo '<button type="button" class="no-style" aria-label="Play Video" data-open="' . sanitize_title('slide-' . $index . '-' . $modal_id) . '-video-modal"><img class="play-icon" src="' . get_template_directory_uri() . '/assets/images/play-icon.svg"></button>';
 		}
 		
 		echo '</div>';
 		
 		if( !empty($caption) ) {
-			echo '<p class="caption"><i>' . $caption . '</i></p>';
+			echo '<p>' . $caption . '</p>';
 		}
 		
 	}?>

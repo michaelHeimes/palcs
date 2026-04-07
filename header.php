@@ -15,6 +15,7 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="2sNPhNlx0Oimxc-nWYSOunrCjUkqkex_tylYT-qLYgc" />
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	
 	<link rel="apple-touch-icon" sizes="180x180" href="<?= get_template_directory_uri(); ?>/assets/images/apple-touch-icon.png">
@@ -32,6 +33,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+<?php get_template_part( 'alert-bar' ); ?>
 	<?php wp_body_open(); ?>
 			<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'trailhead' ); ?></a>
 
@@ -41,7 +43,7 @@
 			<?php get_template_part( 'template-parts/content', 'offcanvas' ); ?>
 			
 				<div class="off-canvas-content" data-off-canvas-content>
-					<header class="site-header">
+					<header class="site-header" role="banner">
 						<?php get_template_part( 'template-parts/nav', 'offcanvas-topbar' ); ?>
 					</header><!-- #masthead -->
 					

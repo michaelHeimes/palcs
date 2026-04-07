@@ -1,0 +1,56 @@
+.post-footer-nav {
+	@include breakpoint(large) {
+		.grid-x.grid-padding-x {
+			margin-right: -#{($mediumGutter * 1.5)};
+			margin-left: -#{($mediumGutter * 1.5)};
+			.cell {
+				padding-right: #{($mediumGutter * 1.5)};
+				padding-left: #{($mediumGutter * 1.5)};
+			}
+		}
+	}
+	h3 {
+		color: $color-blue;
+		font-size: rem-calc(24);
+		position: relative;
+		&:after {
+			content: '';
+			display: block;
+			height: 1px;
+			border-bottom: 1px solid $color-sky-blue;
+		}
+	}
+	ul {
+		padding-top: 1.6rem;
+	}
+	li {
+		&:not(:last-child) {
+			margin-bottom: 1.35rem;
+		}
+		a {
+			color: $color-sky-blue;
+			text-decoration: underline;
+			font-size: rem-calc(17);
+			line-height: 1.1276;
+		}
+	}
+	@include breakpoint(medium) {
+		.left {
+			h3:after {
+				width: calc(100% + #{($mediumGutter * 3)});
+			}
+			ul {
+				position: relative;
+				&:after {
+					content: '';
+					display: block;
+					position: absolute;
+					right: -#{($mediumGutter * 1.5)};
+					height: 100%;
+					width: 1px;
+					border-left: 1px solid $color-sky-blue;
+				}
+			}
+		}
+	}
+}

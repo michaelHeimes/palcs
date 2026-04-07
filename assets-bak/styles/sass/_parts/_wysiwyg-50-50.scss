@@ -1,0 +1,10 @@
+.wywiwygs-50-50 {
+	padding-top: 9.65rem;
+	padding-bottom: 5rem;
+	.left {
+		@include breakpoint( small down) {
+			margin-bottom: rem-calc(70);
+		}
+	}
+}
+

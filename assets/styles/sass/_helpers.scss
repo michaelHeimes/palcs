@@ -76,6 +76,15 @@
 		color: $color-orange;
 	}
 }
+.color-orange-ada {
+	color: $color-orange-ada;
+	a,
+	p,
+	.p,
+	&.h3 {
+		color: $color-orange-ada;
+	}
+}
 .color-purple {
 	color: $color-purple;
 	a,

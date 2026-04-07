@@ -49,7 +49,7 @@ $article_classes = 'enrichment-card load-more-filter-card cell small-12 hidden' 
 
 // Output or use the combined terms as needed
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class($article_classes); ?> data-terms="<?= esc_attr($combined_terms); ?>">
+<div id="post-<?php the_ID(); ?>" <?php post_class($article_classes); ?> data-terms="<?= esc_attr($combined_terms); ?>">
 	<?php if( !$no_single_post ):?>
 		<a class="grid-x color-white" href="<?= esc_url(get_permalink()); ?>" rel="bookmark">
 	<?php else:?>
@@ -82,4 +82,4 @@ $article_classes = 'enrichment-card load-more-filter-card cell small-12 hidden' 
 	<?php else:?>
 		</div>
 	<?php endif;?>
-</article>
+</div>

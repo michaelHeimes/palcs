@@ -68,8 +68,13 @@ footer#colophon {
 		}
 		a {
 			color: $color-blue;
-			&:hover {
+			text-decoration: none;
+			border-bottom: 2px solid transparent;
+			
+			&:hover,
+			&:focus {
 				color: $color-coral;
+				border-bottom: 2px solid $color-coral;
 			}
 		}	
 		.h6,
@@ -155,10 +160,8 @@ footer#colophon {
 			font-size: 1rem;
 			margin-bottom: 1.15rem;
 			a {
+				text-decoration: underline;
 				color: $white;
-				&:hover {
-					text-decoration: underline;
-				}
 			}
 		}
 	}	

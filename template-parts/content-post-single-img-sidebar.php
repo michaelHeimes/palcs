@@ -42,7 +42,7 @@ if( $post_type == 'teacher-staff' || $post_type == 'club' ) {
 $sidebar_width = $args['sidebar-width'] ?? ' small-12 tablet-4 xlarge-3';
 $content_width = $args['content-width'] ?? ' small-12 tablet-6 xlarge-5';
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class('single-img-sidebar'); ?>>
+<div id="post-<?php the_ID(); ?>" <?php post_class('single-img-sidebar'); ?>>
 	<div class="grid-container">
 		<div class="inner grid-x grid-padding-x">
 			<div class="left cell<?=$sidebar_width;?>">
@@ -214,4 +214,4 @@ $content_width = $args['content-width'] ?? ' small-12 tablet-6 xlarge-5';
 			</div>
 		</div>
 	</div>
-</article><!-- #post-<?php the_ID(); ?> -->
+</div><!-- #post-<?php the_ID(); ?> -->

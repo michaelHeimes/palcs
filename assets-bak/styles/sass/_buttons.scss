@@ -1,0 +1,194 @@
+body .alm-btn-wrap button.alm-load-more-btn {
+	padding: 1.125em 1.68em;
+	background-color: $color-blue;
+	&:before {
+		top: 50%;
+		transform: translate(calc(-100% - 10px), -50%);
+	}
+	&:hover,
+	&.loading {
+		background-color: $color-blue;
+	}
+	&.done {
+		display: none;
+	}
+}
+
+body .gform-theme.gform-theme--framework.gform_wrapper .button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)),
+body .gform-theme.gform-theme--framework.gform_wrapper input:is([type=submit],[type=button],[type=reset]).button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)), .gform-theme.gform-theme--framework.gform_wrapper input:is([type=submit],[type=button],[type=reset]):where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)), .gform-theme.gform-theme--framework.gform_wrapper input[type=submit].button.gform_button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *))
+.alm-btn-wrap button,
+button,
+.button:not(.input-wrap) {
+	cursor: pointer;
+	&:not(.no-style) {
+		height: auto;
+		text-transform: uppercase;
+		@extend .font-size-20;
+		font-family: $font-header;
+		padding: 1.125em 1.68em;
+		color: $white;
+		line-height: 1.35;
+		font-weight: 800;
+		cursor: pointer;
+		border-radius: 4px;
+		min-width: rem-calc(226);
+		position: relative;
+		transition: color .3s ease, background-color .3s ease, box-shadow .3s ease;
+		&:not(.white-bg) {
+			background-color: $color-blue !important;
+		}
+		&.white-bg {
+			color: $color-sky-blue;
+		}
+	}
+}
+
+.button-group {
+	box-sizing: border-box;
+	button,
+	.button {
+		width: 100%;
+		margin-bottom: $smallGutter;
+		min-width: 0;
+		@include breakpoint(medium) {
+			margin-bottom: $mediumGutter;
+		}
+	}
+}
+
+.tax-menu,
+.alm-filtered .alm-filter-nav {
+	button,
+	.button:not(.input-wrap),
+	.button.input-wrap label {
+		background-color: transparent;
+		color: $color-purple;
+		border-style: solid;
+		border-width: 1px;
+		border-color: $color-purple;
+		border-radius: 26px;
+		font-weight: 800;
+		font-family: $font-header;
+		padding: 0.525em 1.04885em;
+		line-height: 1.25;
+		transition: color .2s ease, background-color .2s ease;
+		&:is(span),
+		&.active,
+		&:hover {
+			color: $white;
+			background-color: $color-purple;
+		}
+	}
+	span.button {
+		cursor: default;
+	}
+}
+
+.content.posts-page.all a.button.all {
+	color: $white;
+	background-color: $color-purple;
+}
+
+.tax-menu li:not(.top-level) a.button,
+.alm-filtered .alm-filter-nav .other-terms button,
+#options.tax-menu-wrap .button [type=checkbox] + label {
+	font-family: $font-body;
+	font-size: rem-calc(12);
+	font-weight: 500;
+	color: $color-sky-blue;
+	border-color: $color-sky-blue;
+	padding: 0.542em 1.5655em;
+	&.active,
+	&:hover {
+		color: $white;
+		background-color: $color-sky-blue;
+	}
+}
+
+.button.input-wrap {
+	background: transparent;
+	padding: 0;
+	margin: 0;
+	input:focus {
+		+ label {
+			outline: 1px dotted #212121;
+			outline: 5px auto -webkit-focus-ring-color;
+		}
+	}
+}
+
+.tax-menu-wrap {
+	padding-left: 1rem;
+	padding-right: 1rem;
+	.tax-menu.grid-x {
+		padding-bottom: 0.5rem;
+		margin-left: -1.65rem;
+		margin-right: -1.65rem;
+		> .cell {
+			padding-left: .625rem;
+			padding-right: .625rem;
+		}
+	}
+	button,
+	.button {
+		display: inline-block;
+		min-width: 0;
+		margin: .35rem 0;
+		font-size: 100%;
+		&:focus {
+		  outline: 1px dotted #212121;
+		  outline: 5px auto -webkit-focus-ring-color;
+		}
+	}
+}
+
+#options.tax-menu-wrap {
+	.option-set.tax-menu.grid-x {
+		margin-left: -1.45rem;
+		margin-right: -1.45rem;
+		> .cell {
+			opacity: 1;
+			padding-left: .35rem;
+			padding-right: .35rem;
+			transition: all .2s ease;
+			&.hide-btn {
+				opacity: 0;
+				padding: 0;
+				width: 0;
+				height: 0;
+				pointer-events: none;
+				cursor: auto;
+				overflow: hidden;
+			}
+		}
+	}
+	.button {
+		display: inline-block;
+		min-width: 0;
+		font-size: 100%;
+		margin: .35rem 0;
+		label {
+			margin: 0;
+			line-height: 1;
+			display: block;
+			background-color: $white;
+			cursor: pointer;
+		}
+		[type=checkbox] {
+			opacity: 0;
+			pointer-events: all;
+			position: absolute;
+			margin: 0;
+			cursor: pointer;
+			&:checked + label,
+			&:hover + label {
+				color: $white;
+				background-color: $color-sky-blue;
+			}
+		}
+	}
+}
+
+.shortcode-btn-wrap {
+	margin: 1rem 0 2rem;
+}

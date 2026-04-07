@@ -18,7 +18,7 @@ $stat_images = get_field('stat_images') ?? get_sub_field('stat_images') ?? null;
 							<h2 class="color-blue"><?=$heading;?></h2>
 						<?php endif;?>
 						<?php if( !empty($subheading) ):?>
-							<h1 class="h3 color-orange"><?=$subheading;?></h1>
+							<h1 class="h3 color-orange-ada"><?=$subheading;?></h1>
 						<?php endif;?>
 						<?php if( !empty($copy) ):?>
 							<div class="copy-wrap"><?=$copy;?></div>
@@ -30,13 +30,13 @@ $stat_images = get_field('stat_images') ?? get_sub_field('stat_images') ?? null;
 				<div class="right cell small-12 medium-8 tablet-6 large-6 xlarge-5 grid-x align-center">
 					<div class="inner text-center">
 						<?php if( !empty($dropdown_title) ):?>
-							<h3 class="color-dark-gray"><?=$dropdown_title;?></h3>
+							<h3 class="color-dark-gray h3-ada"><?=$dropdown_title;?></h3>
 						<?php endif;?>
 						<div class="dropdown-wrap relative">
 							<?php if( !empty($dropdown_button_text) ):?>
 								<button class="button grid-x align-middle align-justify weight-black color-white" type="button" data-toggle="csdl-dropdown-<?=sanitize_title($dropdown_button_text);?>">
 									<span class="h3"><?=$dropdown_button_text;?></span>
-									<svg xmlns="http://www.w3.org/2000/svg" width="28.795" height="17.781" viewBox="0 0 28.795 17.781"><path id="ic_keyboard_arrow_up_24px" d="M9.383,8,20.4,18.99,31.412,8l3.383,3.383-14.4,14.4L6,11.383Z" transform="translate(-6 -8)" fill="#fff"/></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="28.795" height="17.781" viewBox="0 0 28.795 17.781"><path id="ic_keyboard_arrow_up_24px" d="M9.383,8,20.4,18.99,31.412,8l3.383,3.383-14.4,14.4L6,11.383Z" transform="translate(-6 -8)" fill="#fff"/></svg>
 								</button>
 							<?php endif;?>
 							<?php if(!empty($dropdown_links) ):?>

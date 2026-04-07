@@ -42,4 +42,4 @@ if( $show_content_on_hover == true ) {
 			</div>
 		<?php endif;?>		
 	</div>
-</article>
+		</article>

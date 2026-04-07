@@ -13,7 +13,7 @@ get_header();
 	 <div class="content">
 		 <div class="inner-content">
  
-			 <main id="primary" class="site-main">
+			<main id="primary" class="site-main">
 		 
 				 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				 
@@ -29,9 +29,9 @@ get_header();
 						 
 						 <?php get_template_part('template-parts/section', 'latest-posts');?>
 							 
-					 <footer class="article-footer">
-						  <?php wp_link_pages(); ?>
-					 </footer> <!-- end article footer -->
+					<div class="article-footer">
+						 <?php wp_link_pages(); ?>
+					</div> <!-- end article footer -->
 						 
 				 </article><!-- #post-<?php the_ID(); ?> -->
 		 

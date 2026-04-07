@@ -139,9 +139,9 @@ $fields = get_fields();
 					?>
 
 							
-					<footer class="article-footer">
+					<div class="article-footer">
 						 <?php wp_link_pages(); ?>
-					</footer> <!-- end article footer -->
+					</div> <!-- end article footer -->
 						
 				</article><!-- #post-<?php the_ID(); ?> -->
 		

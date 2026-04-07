@@ -24,7 +24,7 @@ $classes = 'no-banner';
  
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
+<div id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
 	<?php 
 		if( get_field('full_width_banner_image') ) {
 			get_template_part('template-parts/banner', 'full-width-image');
@@ -160,5 +160,5 @@ $classes = 'no-banner';
 			</div>
 		</div>
 	</div>
-</article><!-- #post-<?php the_ID(); ?> -->
+</div><!-- #post-<?php the_ID(); ?> -->
 

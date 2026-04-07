@@ -12,7 +12,7 @@ if( get_field('full_width_banner_image') ) {
 }
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
+<div id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
     <?php 
         if( get_field('full_width_banner_image') ) {
             get_template_part('template-parts/banner', 'full-width-image');
@@ -28,6 +28,6 @@ if( get_field('full_width_banner_image') ) {
         </div>
 	</div><!-- .entry-content -->
 
-</article><!-- #post-<?php the_ID(); ?> -->
+</div><!-- #post-<?php the_ID(); ?> -->
 <div class="gradient-border"></div>
 

@@ -49,7 +49,7 @@ $ctahb_button_link = get_field('ctahb_button_link') ?? get_sub_field('ctahb_butt
 										$quote_citation = $slide['quote_citation'] ?? null;
 									?>
 										<?php if( !empty($quote_text) ):?>
-											<p class="weight-medium quote-text"><i><?=$quote_text;?></i></p>
+											<p class="weight-medium quote-text"><?=$quote_text;?></p>
 										<?php endif;?>
 										<?php if( !empty($quote_citation) ):?>
 											<cite class="color-blue weight-medium"><?=$quote_citation;?></cite>

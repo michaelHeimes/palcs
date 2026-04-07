@@ -11718,7 +11718,7 @@ __webpack_require__.r(__webpack_exports__);
 var Nest = {
   Feather: function Feather(menu) {
     var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'zf';
-    menu.attr('role', 'menubar');
+  //  menu.attr('role', 'menubar');
     menu.find('a').attr({
       'role': 'menuitem'
     });

@@ -12,7 +12,7 @@ $email = get_field('contact_email_address', 'option');
 $hours = get_field('hours', 'option');
 ?>
 				<?php get_template_part('template-parts/section', 'cta-centered-heading-two-buttons');?>
-				<footer id="colophon" class="site-footer">
+				<footer id="colophon" class="site-footer" aria-label="Main site footer">
 					<div class="grid-container">
 						<div class="top grid-x grid-padding-x align-center align-bottom">
 						<?php 
@@ -81,7 +81,9 @@ $hours = get_field('hours', 'option');
 									<div class="email-hours">
 										<?php if( !empty($email) ):?>
 											<div>
-												Email: <a href="mailto:<?=$email;?>"><?=$email;?></a>
+												Email: <a href="mailto:info@palcs.org" aria-label="Email info@palcs.org (opens email application)">
+												  info@palcs.org
+												</a>
 											</div>
 										<?php endif;?>
 										<?php if( !empty($hours) ):?>
@@ -93,8 +95,8 @@ $hours = get_field('hours', 'option');
 								<?php endif;?>
 								
 								<div style="margin-top:24px;">
-									<a href="https://login.palcschool.org/" target="_blank">
-										<img src="<?=get_template_directory_uri();?>/assets/images/palcs-footer-login.png" width="200">
+									<a class="login" href="https://palcschool.org/" target="_blank">
+										<img src="<?=get_template_directory_uri();?>/assets/images/palcs-footer-login.png" width="200" alt="PALCS Logo">
 									</a>
 								</div>
 								
@@ -148,4 +150,12 @@ $hours = get_field('hours', 'option');
 }?>
 
 </body>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const menu = document.getElementById('header-nav');
+  if (menu) {
+	menu.removeAttribute('role');
+  }
+});
+</script>
 </html>

@@ -1,0 +1,181 @@
+.info-stats {
+	.icon-text-columns {
+		padding: 3rem 1rem 1rem;
+		@include breakpoint(medium) {
+			padding: 4rem 2rem 1rem;
+		}
+		> .grid-x {
+			> .cell {
+				margin-bottom: 3rem;
+			}
+		}
+	}
+	.icon-wrap {
+		max-height: 140px;
+		margin-bottom: 1rem;
+		img {
+			max-height: inherit;
+		}
+	}
+	.multi-column-lists {
+		padding: 2rem 2rem 2rem;
+		@include breakpoint(medium) {
+			padding: 4rem 4rem 3rem;
+		}
+		&.text-color-white {
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			p,
+			ul,
+			ol,
+			p a,
+			a {
+				color: $white;
+			}
+		}
+		&.text-color-charcoal-gray {
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			p,
+			ul,
+			ol,
+			p a,
+			a {
+				color: $black;
+			}
+		}
+		p,
+		ul,
+		ol {
+			font-size: rem-calc(18);
+		}
+		ul {
+			list-style: none;
+			padding-left: 0 !important;
+			margin: 0;
+			margin-left: -1rem;
+			margin-right: -1rem;
+			li:not(.accordion-item):not(.tabs-title):not(.menu-item) {
+				line-height: 1.2;
+				padding: 0 1rem; 
+				margin-bottom: 1rem !important;
+			}
+		}
+		&.list-cols-2 {
+			ul,
+			ol {
+				@include breakpoint(medium) {
+					columns: 2;
+				}
+			}
+		}
+		&.list-cols-3 {
+			ul,
+			ol {
+				@include breakpoint(medium) {
+					columns: 2;
+				}
+				@include breakpoint(tablet) {
+					columns: 3;
+				}
+			}
+		}
+		&.list-cols-4 {
+			ul,
+			ol {
+				@include breakpoint(medium) {
+					columns: 2;
+				}
+				@include breakpoint(tablet) {
+					columns: 3;
+				}
+				@include breakpoint(large) {
+					columns: 4;
+				}
+			}
+		}
+		&.list-cols-5 {
+			ul,
+			ol {
+				@include breakpoint(medium) {
+					columns: 2;
+				}
+				@include breakpoint(tablet) {
+					columns: 3;
+				}
+				@include breakpoint(large) {
+					columns: 4;
+				}
+				@include breakpoint(xlarge) {
+					columns: 5;
+				}
+			}
+		}
+		&.list-cols-6 {
+			ul,
+			ol {
+				@include breakpoint(medium) {
+					columns: 2;
+				}
+				@include breakpoint(tablet) {
+					columns: 3;
+				}
+				@include breakpoint(large) {
+					columns: 4;
+				}
+				@include breakpoint(xlarge) {
+					columns: 5;
+				}
+				@include breakpoint(xxlarge) {
+					columns: 6;
+				}
+			}
+		}
+	}
+	.footer {
+		background-color: #f7f7f7;
+		padding: 0 1rem 0;
+		@include breakpoint(medium) {
+			padding: 0 2rem 0;
+		}
+		.cell {
+			margin-bottom: 2rem;
+			@include breakpoint(medium) {
+				margin-bottom: 0;
+			}
+		}
+		.footer-logo {
+			margin-top: -1rem;
+			@include breakpoint(medium) {
+				margin-top: -2rem;
+				padding-bottom: 2rem;
+			}
+		}
+		.footer-text {
+			@include breakpoint(medium) {
+				padding: 2rem 0 1rem;
+			}
+		}
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		p,
+		ul,
+		ol,
+		p a,
+		a {
+			color: $color-blue;
+		}
+	}
+}

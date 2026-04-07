@@ -12,7 +12,7 @@
 	<div class="grid-container">
 		<div class="grid-x grid-margin-x">
 			<div class="cell small-12 large-10 large-offset-1">
-				<nav class="page-nav">
+				<nav class="page-nav" role="navigation" aria-label="Banner navigation">
 					<img class="show-for-medium" src="<?php echo get_template_directory_uri(); ?>/assets/images/page-nav-bg.svg">
 					<button class="hide-for-medium black-bg" type="button" id="page-nav-toggle"></button>
 					<div class="page-nav-wrap">

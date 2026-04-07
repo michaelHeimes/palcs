@@ -1,0 +1,42 @@
+.accordion {
+	li.accordion-item {
+		.accordion-title:before {
+			margin-top: -.85rem;
+			right: 1.4rem;
+			font-size: 1.566rem;
+		}
+	&:first-child {
+		a.accordion-title {
+			border-radius: 6px 6px 0 0;
+		}
+	}
+	&:last-child {
+		a.accordion-title {
+			border-radius: 0 0 6px 6px;
+		}
+		.accordion-content:last-child {
+			border-radius: 0 0 6px 6px;
+		}
+	&.is-active {
+		a.accordion-title {
+			border-radius: 0 0 0 0;
+		}
+	}
+	}
+		a.accordion-title {
+			&:hover,
+			&:focus {
+				color: $white;
+			}
+		}
+	&.is-active {
+		color: $white;
+		a {
+			&:before {
+				margin-top: -0.25rem;
+				line-height: 0;
+			}
+		}
+	}
+	}
+}

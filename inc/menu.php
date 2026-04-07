@@ -42,7 +42,7 @@ function trailhead_header_nav() {
 		'container'			=> true,						// Remove nav container
 		'menu_id'			=> 'header-nav',					// Adding custom nav id
 		'menu_class'		=> 'horizontal menu dropdown',	// Adding custom nav class
-		'items_wrap'		=> '<ul id="%1$s" class="%2$s" data-dropdown-menu data-submenu-toggle="true" data-hover-delay="0" data-closing-time="0">%3$s</ul>',
+		'items_wrap'		=> '<ul id="%1$s" class="%2$s" data-dropdown-menu   data-hover-delay="0" data-closing-time="0">%3$s</ul>',
 		'theme_location'	=> 'header-nav',					// Where it's located in the theme
 		'depth'				=> 5,							// Limit the depth of the nav
 		'fallback_cb'		=> false,						// Fallback function (see below)
@@ -165,7 +165,7 @@ add_filter( 'nav_menu_css_class', 'required_active_nav_class', 10, 2 );
 					$footer_img = $icon_footer ? '<img class="footer" style="dislay: none;" src="' . esc_url($icon_footer['url']) . '" alt="' . esc_attr($icon_footer['alt']) . '">' : '';
 					
 					// build the title with icons and screen reader text
-					$item->title = '<span class="icon" aria-hidden="true">' . $header_img . $footer_img . '</span><span class="show-for-sr">' . esc_html($item->title) . '</span>';
+					$item->title = '<span class="icon">' . $header_img . $footer_img . '</span><span class="show-for-sr">' . esc_html($item->title) . '</span>';
 					
 				}
 				

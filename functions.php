@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.13' );
+	define( '_S_VERSION', '1.0.12' );
 }
 
 /**
@@ -257,6 +257,9 @@ require_once(get_template_directory().'/inc/acf-options.php');
 // ACF Block
 require_once(get_template_directory().'/inc/acf-blocks.php');
 
+// ADA Menu Overrides
+require_once(get_template_directory().'/inc/menu-role-overrides.php');
+
 // Add Page Slug to Body Class
 // require_once(get_template_directory().'/inc/page-slug-body-class.php');
 
@@ -298,3 +301,96 @@ require_once(get_template_directory().'/inc/ajax-search.php');
 
 // Redirects
 require_once(get_template_directory().'/inc/redirects.php');
+
+
+
+
+/** Add ADA to swiper slider **/
+
+function swiper_accessibility_fix() { ?>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  function fixSwiperAccessibility() {
+
+
+// Add aria-labels to swiper navigation buttons
+	document.querySelectorAll('.swiper-button-next').forEach(function(btn) {
+	  if (!btn.getAttribute('aria-label')) {
+		btn.setAttribute('aria-label', 'Next slide');
+	  }
+	});
+
+	document.querySelectorAll('.swiper-button-prev').forEach(function(btn) {
+	  if (!btn.getAttribute('aria-label')) {
+		btn.setAttribute('aria-label', 'Previous slide');
+	  }
+	});
+
+	// Fix play icons acting as buttons
+	document.querySelectorAll('.play-icon').forEach(function(icon) {
+
+	  if (!icon.getAttribute('role')) {
+		icon.setAttribute('role', 'button');
+	  }
+
+	  if (!icon.getAttribute('tabindex')) {
+		icon.setAttribute('tabindex', '0');
+	  }
+
+	  if (!icon.getAttribute('aria-label')) {
+		icon.setAttribute('aria-label', 'Play video');
+	  }
+
+	  // Add alt text if image exists inside
+	  const img = icon.querySelector('img');
+	  if (img && !img.getAttribute('alt')) {
+		img.setAttribute('alt', 'Play video');
+	  }
+
+	});
+  }
+  fixSwiperAccessibility();
+});
+</script>
+<?php
+}
+add_action('wp_footer', 'swiper_accessibility_fix');
+
+// Remove role='menubar' from foundation menus - ADA Edit
+
+function remove_menubar_role_from_nav($atts, $item, $args) {
+	// Check if the current menu item has the 'role' attribute set to 'menubar' and remove it.
+	if (isset($atts['role']) && 'menubar' === $atts['role']) {
+		unset($atts['role']);
+	}
+	// Check if the menu items are using the 'data-once' attribute from Foundation, and remove 'role' if needed
+	if (isset($atts['data-once']) && 'menu-item' === $atts['data-once'] && isset($atts['role'])) {
+		 unset($atts['role']);
+	}
+
+	return $atts;
+}
+add_filter('nav_menu_link_attributes', 'remove_menubar_role_from_nav', 10, 3);
+
+
+// Add ADA title to iframe embeds 
+
+function add_iframe_titles($content) {
+	libxml_use_internal_errors(true);
+
+	$dom = new DOMDocument();
+	$dom->loadHTML('<?xml encoding="utf-8" ?>' . $content);
+
+	$iframes = $dom->getElementsByTagName('iframe');
+
+	foreach ($iframes as $iframe) {
+		if (!$iframe->hasAttribute('title')) {
+			// Set a default title (you can customize this logic)
+			$iframe->setAttribute('title', 'Embedded content');
+		}
+	}
+
+	return $dom->saveHTML();
+}
+add_filter('the_content', 'add_iframe_titles');

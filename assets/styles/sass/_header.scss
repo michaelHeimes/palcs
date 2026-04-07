@@ -102,7 +102,7 @@ header.site-header {
 		a.button:not(.menu-toggle) {
 			@include breakpoint(small down) {
 				min-width: 0;
-				padding: .8em;
+				padding: .9em;
 			}
 			@include breakpoint(medium down) {
 				min-width: 0;

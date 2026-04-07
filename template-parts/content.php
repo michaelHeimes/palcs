@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('cell small-12 medium-6 tablet-4'); ?>>
+<div id="post-<?php the_ID(); ?>" <?php post_class('cell small-12 medium-6 tablet-4'); ?>>
 	<?php get_template_part('template-parts/banner', 'full-width-image');?>
 	<header class="entry-header">
 		<div class="grid-container">
@@ -58,5 +58,5 @@
 
 	<footer class="entry-footer">
 	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+</div><!-- #post-<?php the_ID(); ?> -->
 

@@ -208,15 +208,15 @@ article.post-card {
 			top: -10px;
 			right: -10px;
 			min-width: calc(50% + 10px);
-			background-color: $color-orange;
+			background-color: $color-orange-ada;
 			color: $white;
 			text-transform: uppercase;
-			font-weight: 600;
-			font-size: 1rem;	
+			font-weight: 700;
+			font-size: 1.2rem;	
 			padding: 0.75rem;
 			transition: background-color .25s ease;
 			&:hover {
-				background-color: scale-color($color-orange, $lightness: -20%);
+				background-color: scale-color($color-orange-ada, $lightness: -20%);
 			}
 		}			
 	}

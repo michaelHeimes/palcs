@@ -20,9 +20,9 @@
 		    <p><?php get_search_form(); ?></p>
 		</section> <!-- end search section -->
 		
-		<footer class="article-footer">
+		<div class="article-footer">
 			<p><?php _e( 'This is the error message in the parts/content-missing.php template.', 'trailhead' ); ?></p>
-		</footer>
+		</div>
 		
 	<?php else: ?>
 	
@@ -38,9 +38,9 @@
 		    <p><?php get_search_form(); ?></p>
 		</section> <!-- end search section -->
 		
-		<footer class="article-footer">
+		<div class="article-footer">
 		  <p><?php _e( 'This is the error message in the parts/content-missing.php template.', 'trailhead' ); ?></p>
-		</footer>
+		</div>
 			
 	<?php endif; ?>
 	

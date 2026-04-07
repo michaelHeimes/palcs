@@ -11,7 +11,7 @@
 		object-position: center;
 	}
 	.mask {
-		background-color: #0151D4;
+		background-color: /*#0151D4*/ $color-blue-ada;
 		mix-blend-mode: multiply;
 	}
 	h2 {

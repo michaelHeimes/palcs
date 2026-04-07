@@ -1,0 +1,34 @@
+.page-template-page-teachers-staff,
+.page-template-page-administration {
+	.ctas-video-slider {
+		position: relative;
+		margin-bottom: 3.885rem;
+		@include breakpoint(medium) {
+			margin-bottom: 5.55rem;
+		}
+		.inner-height-control {
+			min-height: rem-calc(548);
+			min-height: clamp(23.975rem, 21.481rem + 10.641vw, 34.25rem);
+		}
+		.swiper-slide .grid-container .right .inner {
+			@include breakpoint(medium down) {
+				min-height: 40vw
+			}
+		}
+	}
+	.no-banner .isotope-filter-loadmore {
+		margin-top: 3.885rem;
+		@include breakpoint(medium) {
+			margin-top: 5.55rem;
+		}
+	}
+	.filter-grid-container {
+		max-width: 514px;
+		@include breakpoint(tablet) {
+			max-width: 818px;
+		}
+		@include breakpoint(large) {
+			max-width: 1096px;
+		}
+	}
+}
