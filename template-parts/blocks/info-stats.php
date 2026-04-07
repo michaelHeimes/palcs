@@ -64,11 +64,15 @@ if( $icon_text_columns || $multi_column_list_text_and_list ):
                                 <?=wp_get_attachment_image( $icon['id'], 'full' );?>
                             </div>
                         <?php endif;?>
-                        <?php if($heading):?>
-                            <h2 style="color: <?=$itt_text_color;?>"><?=wp_kses_post( $heading  );?></h2>
-                        <?php endif;?>
-                        <?php if($subheading):?>
-                            <h3 class="h5" style="color: <?=$itt_text_color;?>"><?=wp_kses_post( $subheading  );?></h3>
+                        <?php if($heading || $subheading):?>
+                            <div class="text-wrap">
+                                <?php if($heading):?>
+                                    <h2 style="color: <?=$itt_text_color;?>"><?=wp_kses_post( $heading  );?></h2>
+                                <?php endif;?>
+                                <?php if($subheading):?>
+                                    <h3 class="h5" style="color: <?=$itt_text_color;?>"><?=wp_kses_post( $subheading  );?></h3>
+                                <?php endif;?>
+                            </div>
                         <?php endif;?>
                     </div>
                 <?php endforeach;?>
