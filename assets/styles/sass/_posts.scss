@@ -48,7 +48,7 @@
 	// 		padding-bottom: 18rem;
 	// 	}
 	// }
-	article.load-more-filter-card {
+	.load-more-filter-card {
 		transition: opacity .25s ease .35s;
 		&.hidden {
 			visibility: hidden;
@@ -59,7 +59,7 @@
 			opacity: 0;
 		}
 	}
-	article.teacher-card {
+	.teacher-card {
 		margin-bottom: 3.42rem;
 		margin-bottom: $smallGutter; 
 		@include breakpoint(medium) {
@@ -79,7 +79,7 @@
 		}
 
 	}
-	article.enrichment-card {
+	.enrichment-card {
 		margin-bottom: 26px;
 		.grid-x {
 			width: 100%;
@@ -246,7 +246,7 @@ article.post-card {
 	}
 }
 
-article.event-card {
+.event-card {
 	margin-bottom: rem-calc(82);
 	.thumbnail-wrap {
 		@include breakpoint(small down) {
@@ -293,7 +293,7 @@ article.event-card {
 }
 
 
-article.teacher-card {
+.teacher-card {
 	a {
 		&:hover {
 			.circle-thumb-wrap {
@@ -303,7 +303,7 @@ article.teacher-card {
 	}
 }
 
-article.single-img-sidebar,
+.single-img-sidebar,
 .single-post {
 	h1 {
 		margin-bottom: .7em;
@@ -376,7 +376,7 @@ article.single-img-sidebar,
 	}
 }
 
-article.single-img-sidebar,
+.single-img-sidebar,
  {
 	padding-top: 7.125rem;
 	padding-bottom: 7.5rem;

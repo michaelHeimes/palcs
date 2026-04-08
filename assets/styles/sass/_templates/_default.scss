@@ -110,7 +110,7 @@ body.single-post {
 }
 
 body.page-template-default {
-	article {
+	.page {
 		&.no-banner {
 			.entry-content:not(.accordion-content):not(.accordion-content) {
 				padding-top: 5.55rem;
@@ -120,7 +120,7 @@ body.page-template-default {
 }
 
 body.single-post {
-	article {
+	.post {
 		&.no-banner {
 				padding-top: 5.55rem;
 		}
