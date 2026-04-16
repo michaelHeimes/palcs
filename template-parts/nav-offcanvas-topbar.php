@@ -67,55 +67,53 @@
 					</ul>
 				</div>
 				<?php endif;?>
-				<?php if( !empty($global_cta_button_link_1) || !empty($global_cta_button_link_2) ):?>
-					<div class="right cell small-12 tablet-6 large-auto xlarge-shrink">
-						<div class="grid-x grid-padding-x">
-							<?php if( !empty($global_cta_button_link_1) ):?>
-								<?php
-									$link = $global_cta_button_link_1;
-									$link_url = $link['url'];
-									$link_title = $link['title'];
-									$link_target = $link['target'] ? $link['target'] : '_self';
-								?>
-								<div class="cell auto tablet-6 large-6">
-									<a class="button purple-ds" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-								</div>
-							<?php endif;?>
-							<?php if( !empty($global_cta_button_link_2) ):?>
-								<?php
-									$link = $global_cta_button_link_2;
-									$link_url = $link['url'];
-									$link_title = $link['title'];
-									$link_target = $link['target'] ? $link['target'] : '_self';
-								?>
-								<div class="cell auto tablet-6 large-6">
-									<a class="button purple-ds" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-								</div>
-							<?php endif;?>
-							<?php if( wp_get_nav_menu_items(get_nav_menu_locations()['offcanvas-nav']) ):?>
-							<div class="top-bar-right cell shrink tablet-auto hide-for-tablet">
-								<div class="grid-x align-right grid-x align-middle">
-									<ul class="menu">
-										<li class="menu-item">
-											
-											<button class="menu-toggle no-style grid-x align-middle" 
-											  data-toggle="off-canvas" 
-											  aria-expanded="false" 
-											  aria-controls="off-canvas"
-											  aria-label="Close navigation menu">
-												<span class="uppercase">Full Menu</span>
-												<svg xmlns="http://www.w3.org/2000/svg" width="17.334" height="16.788" viewBox="0 0 17.334 16.788">
-												  <path id="Path_457" data-name="Path 457" d="M-3997.248-7.817v-2.8h11.581v2.8Zm-2.285-7v-2.8h13.866v2.8Zm-3.467-7v-2.8h17.334v2.8Z" transform="translate(4003 24.605)" fill="#272727"/>
-												</svg>
-											</button>
-										</li>
-									</ul>
-								</div>
+				<div class="right cell small-12 tablet-6 large-auto xlarge-shrink">
+					<div class="grid-x grid-padding-x">
+						<?php if( !empty($global_cta_button_link_1) ):?>
+							<?php
+								$link = $global_cta_button_link_1;
+								$link_url = $link['url'];
+								$link_title = $link['title'];
+								$link_target = $link['target'] ? $link['target'] : '_self';
+							?>
+							<div class="cell shrink medium-auto tablet-6 large-6">
+								<a class="button purple-ds" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 							</div>
-							<?php endif;?>
+						<?php endif;?>
+						<?php if( !empty($global_cta_button_link_2) ):?>
+							<?php
+								$link = $global_cta_button_link_2;
+								$link_url = $link['url'];
+								$link_title = $link['title'];
+								$link_target = $link['target'] ? $link['target'] : '_self';
+							?>
+							<div class="cell shrink medium-auto tablet-6 large-6">
+								<a class="button purple-ds" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+							</div>
+						<?php endif;?>
+						<?php if( wp_get_nav_menu_items(get_nav_menu_locations()['offcanvas-nav']) ):?>
+						<div class="top-bar-right cell auto medium-shrink tablet-auto hide-for-tablet">
+							<div class="grid-x align-right grid-x align-middle">
+								<ul class="menu">
+									<li class="menu-item">
+										
+										<button class="menu-toggle no-style grid-x align-middle" 
+										  data-toggle="off-canvas" 
+										  aria-expanded="false" 
+										  aria-controls="off-canvas"
+										  aria-label="Close navigation menu">
+											<span class="uppercase">Full Menu</span>
+											<svg xmlns="http://www.w3.org/2000/svg" width="17.334" height="16.788" viewBox="0 0 17.334 16.788">
+											  <path id="Path_457" data-name="Path 457" d="M-3997.248-7.817v-2.8h11.581v2.8Zm-2.285-7v-2.8h13.866v2.8Zm-3.467-7v-2.8h17.334v2.8Z" transform="translate(4003 24.605)" fill="#272727"/>
+											</svg>
+										</button>
+									</li>
+								</ul>
+							</div>
 						</div>
+						<?php endif;?>
 					</div>
-				<?php endif;?>
+				</div>
 			</div>
 		</div>
 	</div>
