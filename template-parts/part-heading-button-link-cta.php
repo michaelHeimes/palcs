@@ -11,7 +11,7 @@ $link = $args['link'] ?? null;
 						<div class="cta-left cell small-12 tablet-6 large-8 color-white relative">
 							<div class="grid-x align-middle">
 								<div class="bg gradient-bg clip-path"></div>
-								<h3 class="relative"><?=$heading;?></h3>
+								<span class="relative h3 display-block"><?=$heading;?></span>
 							</div>
 						</div>
 					<?php endif;?>

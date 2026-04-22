@@ -15,7 +15,7 @@ $global_cta_button_link_2 = get_field('global_cta_button_link_2', 'option') ?? n
 	<div class="grid-container relative">
 		<div class="grid-x grid-padding-x align-center text-center">
 			<div class="cell small-12 medium-10 tablet-8 large-6 color-white">
-				<h2><?=$ctachwtb_heading;?></h2>
+				<span class="display-block h2"><?=$ctachwtb_heading;?></span>
 			</div>
 		</div>
 		<div class="grid-x grid-padding-x align-center text-center">

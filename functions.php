@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.14' );
+	define( '_S_VERSION', '1.0.15' );
 }
 
 /**
@@ -394,3 +394,37 @@ function add_iframe_titles($content) {
 	return $dom->saveHTML();
 }
 add_filter('the_content', 'add_iframe_titles');
+
+
+
+
+/**
+ * Register the 'Template' column in the Pages admin list.
+ */
+add_filter( 'manage_pages_columns', 'add_page_template_column' );
+function add_page_template_column( $columns ) {
+	$columns['page_template'] = __( 'Template' );
+	return $columns;
+}
+
+/**
+ * Display the template name for each page.
+ */
+add_action( 'manage_pages_custom_column', 'display_page_template_column_content', 10, 2 );
+function display_page_template_column_content( $column_name, $post_id ) {
+	if ( $column_name === 'page_template' ) {
+		// Get the current template slug (e.g., 'templates/contact-us.php')
+		$template_slug = get_page_template_slug( $post_id );
+
+		if ( empty( $template_slug ) || 'default' === $template_slug ) {
+			echo __( 'Default Template' );
+		} else {
+			// Get all available templates to find the nice name
+			$templates = get_page_templates();
+			$template_name = array_search( $template_slug, $templates );
+
+			// Display the nice name if found, otherwise the slug
+			echo $template_name ? esc_html( $template_name ) : esc_html( $template_slug );
+		}
+	}
+}

@@ -15,13 +15,13 @@ $stat_images = get_field('stat_images') ?? get_sub_field('stat_images') ?? null;
 					<dig class="bg"></dig>
 					<div class="relative">
 						<?php if( !empty($heading) ):?>
-							<h2 class="color-blue"><?=$heading;?></h2>
+							<h2 class="color-blue"><?=wp_kses_post( $heading );?></h2>
 						<?php endif;?>
 						<?php if( !empty($subheading) ):?>
-							<h1 class="h3 color-orange-ada"><?=$subheading;?></h1>
+							<h3 class="color-orange-ada"><?=wp_kses_post( $subheading );?></h3>
 						<?php endif;?>
 						<?php if( !empty($copy) ):?>
-							<div class="copy-wrap"><?=$copy;?></div>
+							<div class="copy-wrap"><?=wp_kses_post( $copy );?></div>
 						<?php endif;?>
 					</div>
 				</div>
@@ -30,7 +30,7 @@ $stat_images = get_field('stat_images') ?? get_sub_field('stat_images') ?? null;
 				<div class="right cell small-12 medium-8 tablet-6 large-6 xlarge-5 grid-x align-center">
 					<div class="inner text-center">
 						<?php if( !empty($dropdown_title) ):?>
-							<h3 class="color-dark-gray h3-ada"><?=$dropdown_title;?></h3>
+							<h2 class="h3 color-dark-gray h3-ada"><?=wp_kses_post( $dropdown_title );?></h2>
 						<?php endif;?>
 						<div class="dropdown-wrap relative">
 							<?php if( !empty($dropdown_button_text) ):?>
@@ -41,7 +41,7 @@ $stat_images = get_field('stat_images') ?? get_sub_field('stat_images') ?? null;
 							<?php endif;?>
 							<?php if(!empty($dropdown_links) ):?>
 								<div class="dropdown-pane" id="csdl-dropdown-<?=sanitize_title($dropdown_button_text);?>" data-dropdown data-auto-focus="true">
-									<nav>
+									<nav aria-label="My Student Is Navigation">
 										<ul class="ul menu vertical">
 										<?php foreach($dropdown_links as $dropdown_link):
 											$link = $dropdown_link['link'];

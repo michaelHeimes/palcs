@@ -5,7 +5,7 @@ $image = $args['image'] ?? null;
 $copy = $args['copy'] ?? null;
 $button_link = $args['button_link'] ?? null;
 ?>
-<div class="icr-row grid-container<?php if( $is_intro == true ):?> intro<?php endif;?>">
+<section class="icr-row grid-container<?php if( $is_intro == true ):?> intro<?php endif;?>">
 	<div class="grid-x grid-padding-x <?=$layout;?>">
 		<?php if( !empty( $image ) ):
 			$imgID = $image['ID'];
@@ -37,4 +37,4 @@ $button_link = $args['button_link'] ?? null;
 			</div>
 		<?php endif;?>
 	</div>
-</div>
+</section>

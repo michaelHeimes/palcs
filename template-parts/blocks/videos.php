@@ -30,15 +30,15 @@ $videos = get_field('videos') ?? null;
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="module block <?php echo esc_attr($className); ?>">
 	<?php if( !empty($overview_video_url) || !empty($overview_video_thumbnail) || !empty($videos) ):?>
-		<ul class="tabs" data-tabs id="<?=$block['id'];?>-tabs">
+		<ul class="tabs" data-tabs id="<?=$block['id'];?>-tabs" role="tablist" aria-label="Content Tabs">
 			<?php if( !empty($overview_video_url) || !empty($overview_video_thumbnail) ):?>
-				<li class="tabs-title is-active" aria-selected="true">
-					<a href="#overview-<?=$block['id'];?>">Overview</a>
+				<li class="tabs-title is-active">
+					<a href="#overview-<?=$block['id'];?>" aria-selected="true">Overview</a>
 				</li>
 			<?php endif;?>
 			<?php if( !empty($videos) ):?>
-				<li class="tabs-title more-vids-tab" aria-selected="false">
-					<a href="#more-videos-<?=$block['id'];?>">More Videos</a>
+				<li class="tabs-title more-vids-tab">
+					<a href="#more-videos-<?=$block['id'];?>" aria-selected="false">More Videos</a>
 				</li>
 			<?php endif;?>	
 		</ul>
