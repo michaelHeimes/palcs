@@ -52,20 +52,83 @@
                     "label": "Text",
                     "name": "text",
                     "aria-label": "",
-                    "type": "wysiwyg",
-                    "instructions": "",
+                    "type": "textarea",
+                    "instructions": "For underline wrap the word(s) in <code><u><\/u><\/code><br>\r\nFor italic wrap the word(s) in <code><i><\/i><\/code>",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "30",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 0,
-                    "delay": 0,
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "rows": 4,
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_65b982d701183"
+                },
+                {
+                    "key": "field_6a073ab1f5c4b",
+                    "label": "Text Style",
+                    "name": "text_style",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "h1": "H1",
+                        "h2": "H2",
+                        "h3": "H3",
+                        "p": "p"
+                    },
+                    "default_value": "h3",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "parent_repeater": "field_65b982d701183"
+                },
+                {
+                    "key": "field_6a07388c59638",
+                    "label": "Text Tag",
+                    "name": "text_tag",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "This is the html tag that wraps the slider text. Only choose H1 if the text is the heading for the page.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "span": "span",
+                        "h1": "H1"
+                    },
+                    "default_value": "span",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
                     "parent_repeater": "field_65b982d701183"
                 },
                 {
@@ -169,5 +232,6 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1710612791
+    "display_title": "",
+    "modified": 1778859658
 }

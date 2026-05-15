@@ -30,18 +30,20 @@ $videos = get_field('videos') ?? null;
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="module block <?php echo esc_attr($className); ?>">
 	<?php if( !empty($overview_video_url) || !empty($overview_video_thumbnail) || !empty($videos) ):?>
-		<ul class="tabs" data-tabs id="<?=$block['id'];?>-tabs" role="tablist" aria-label="Content Tabs">
-			<?php if( !empty($overview_video_url) || !empty($overview_video_thumbnail) ):?>
-				<li class="tabs-title is-active">
-					<a href="#overview-<?=$block['id'];?>" aria-selected="true">Overview</a>
+		<ul class="tabs" data-tabs id="<?=$block['id'];?>-tabs">
+			<?php if( !empty($overview_video_url) || !empty($overview_video_thumbnail) ): ?>
+				<li class="tabs-title is-active" role="presentation">
+					<a href="#overview-<?=$block['id'];?>" aria-current="page">Overview</a>
 				</li>
-			<?php endif;?>
-			<?php if( !empty($videos) ):?>
-				<li class="tabs-title more-vids-tab">
-					<a href="#more-videos-<?=$block['id'];?>" aria-selected="false">More Videos</a>
+			<?php endif; ?>
+			
+			<?php if( !empty($videos) ): ?>
+				<li class="tabs-title more-vids-tab" role="presentation">
+					<a href="#more-videos-<?=$block['id'];?>">More Videos</a>
 				</li>
-			<?php endif;?>	
+			<?php endif; ?>
 		</ul>
+
 		<?php if( !empty($overview_video_url) || !empty($overview_video_thumbnail) ):?>
 		<div class="tabs-content" data-tabs-content="<?=$block['id'];?>-tabs">
 			<div class="tabs-panel overview is-active" id="overview-<?=$block['id'];?>" aria-hidden="false">

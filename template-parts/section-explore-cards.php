@@ -2,6 +2,9 @@
 $bg_img = $args['bg_img'] ?? null;
 $heading = $args['heading'] ?? null;
 $cards = $args['cards'] ?? null;
+$card_tag = 
+$card_title_tag = empty($heading) ? 'h2' : 'h3';
+
 ?>
 <section class="explore-cards relative">
 	<?php if( !empty( $bg_img ) ) {
@@ -37,7 +40,7 @@ $cards = $args['cards'] ?? null;
 									$link_url = $link['url'];
 									$link_title = $link['title'];
 									$link_target = $link['target'] ? $link['target'] : '_self';
-									echo '<a class="color-sky-blue grid-x align-bottom" href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '"><h3 class="color-sky-blue uppercase p grid-x align-middle align-center">' . esc_html( $link_title ) . '<svg xmlns="http://www.w3.org/2000/svg" width="9.445" height="15.295" viewBox="0 0 9.445 15.295"><path id="ic_chevron_right_24px" d="M10.387,6,8.59,7.8l5.838,5.85L8.59,19.5l1.8,1.8,7.647-7.647Z" transform="translate(-8.59 -6)" fill="#379ff8"/></svg></h3></a>';
+									echo '<a class="color-sky-blue grid-x align-bottom" href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '"><' . $card_title_tag .  ' class="color-sky-blue uppercase p grid-x align-middle align-center">' . esc_html( $link_title ) . '<svg xmlns="http://www.w3.org/2000/svg" width="9.445" height="15.295" viewBox="0 0 9.445 15.295"><path id="ic_chevron_right_24px" d="M10.387,6,8.59,7.8l5.838,5.85L8.59,19.5l1.8,1.8,7.647-7.647Z" transform="translate(-8.59 -6)" fill="#379ff8"/></svg></' . $card_title_tag .  '></a>';
 								}
 								echo '</div>';
 							}?>

@@ -65,7 +65,7 @@
 		@include breakpoint(medium) {
 			margin-bottom: $mediumGutter;
 		}
-		h4 {
+		.h4 {
 			color: $dark-gray;
 			font-family: $font-header;
 			font-weight: 700;
@@ -137,7 +137,7 @@
 	}
 }
 
-article.post-card {
+.post-card {
 	margin: 0 0 calc($smallGutter); 
 	display: flex;
 	@include breakpoint(medium) {
@@ -170,7 +170,7 @@ article.post-card {
 				width: 100%;
 				background-color: rgba(255,255,255,.8);
 				padding: 0 1.25rem;
-				h3 {
+				.h3 {
 					font-weight: 800;
 					margin-bottom: 0;
 					margin: 0;

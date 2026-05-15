@@ -669,10 +669,10 @@
    
                if (response.data.results.length > 0) {
                    response.data.results.forEach(function(result) {
-                       html += '<li><h4 class="h3"><a href="' + result.url + '">' + result.title + '</a></h4></li>';
+                       html += '<li><h2 class="h3"><a href="' + result.url + '">' + result.title + '</a></h2></li>';
                    });
                } else {
-                   html += '<li><h5>No results found.</h5></li>';
+                   html += '<li><h2 class="h5">No results found.</h2></li>';
                }
       
                html += '</ul>';

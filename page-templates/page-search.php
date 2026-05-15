@@ -31,7 +31,7 @@ $index_page = substr( $current_url, strlen( home_url() ) );
 								<div class="search-filters cell small-12">
 									<div class="grid-x grid-padding-x">
 										<div class="cell small-12">
-											<h4>Search In</h4>
+											<label class="h4">Search In</label>
 										</div>
 										<div class="cell shrink">
 											<label class="h6">

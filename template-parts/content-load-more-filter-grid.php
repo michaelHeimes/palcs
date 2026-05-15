@@ -252,7 +252,7 @@ $filter_grid_classes_string = implode(' ', $filter_grid_classes);
 											'grade_terms' => $grade_terms, 
 											'enrichment_terms' => $enrichment_terms,
 											'department_1s' => $department_1s,
-											'department_2s' > $department_2s,
+											'department_2s' => $department_2s,
 										),
 									);
 								}
@@ -265,7 +265,11 @@ $filter_grid_classes_string = implode(' ', $filter_grid_classes);
 				<div class="filter-grid grid-x grid-padding-x<?=esc_attr( $filter_grid_classes_string );?>">
 					<?php foreach( $posts as $post ){
 						if( $cpt == 'administration' || $cpt == 'teacher-staff' ) {
-							get_template_part('template-parts/loop', 'teacher-staff');
+							get_template_part('template-parts/loop', 'teacher-staff',
+								array(
+									'title_tag' => 'h2',
+								),
+							);
 						}
 						if( $cpt == 'academic-course' || $cpt == 'enrichment-course' ) {
 							get_template_part('template-parts/loop', 'enrichment-course');
@@ -277,6 +281,7 @@ $filter_grid_classes_string = implode(' ', $filter_grid_classes);
 							get_template_part('template-parts/loop', 'post',
 								array(
 									'card-classes' => 'hidden',
+									'title_tag' => 'h2',
 								),
 							);
 						}

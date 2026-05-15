@@ -9,6 +9,8 @@ $cta_video_slider_slides = get_field('cta_video_slider_slides') ?? get_sub_field
 			<div class="swiper-wrapper">
 				<?php $i = 0; foreach($cta_video_slider_slides as $cta_video_slider_slide):
 					$text = $cta_video_slider_slide['text'] ?? null;
+					$text_tag = $cta_video_slider_slide['text_tag'] ?: 'span';
+					$text_style = $cta_video_slider_slide['text_style'] ?: 'h3';
 					$button_1 = $cta_video_slider_slide['button_1'] ?? null;
 					$button_2 = $cta_video_slider_slide['button_2'] ?? null;
 					$video_thumbnail_image = $cta_video_slider_slide['video_thumbnail_image'] ?? null;
@@ -29,7 +31,9 @@ $cta_video_slider_slides = get_field('cta_video_slider_slides') ?? get_sub_field
 										<div class="inner grid-x grid-padding-x">
 											<?php if( !empty($text) ):?>
 												<div class="cell text-wrap white-color">
-													<?=$text;?>
+													<?php echo '<' . esc_attr($text_tag) . ' class="' . $text_style . '" >';?>
+														<?=wp_kses_post( $text );?>
+													<?php echo '</' . esc_attr($text_tag) . '>';?>
 												</div>
 												<?php if( !empty($button_1) || !empty($button_2) ):?>
 													<div class="cell button-group grid-x grid-padding-x">

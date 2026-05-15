@@ -11,6 +11,8 @@ if( $card_classes != null ) {
 if( $show_content_on_hover == true ) {
 	$card_classes .= ' hover-card loading';
 }
+// Change item tags depending on use
+$title_tag = !empty($args['title_tag']) ? $args['title_tag'] : 'h3';
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class($card_classes); ?>>
 	<div class="inner relative">
@@ -25,7 +27,7 @@ if( $show_content_on_hover == true ) {
 		<?php if( !$show_content_on_hover ):?>
 			<a class="color-blue permalink grid-x align-bottom" href="<?= esc_url(get_the_permalink());?>">
 				<div class="text-wrap">
-				<h3 class="color-blue"><?php the_title();?></h3>
+				<<?=$title_tag;?> class="h3 color-blue"><?php the_title();?></<?=$title_tag;?>>
 				</div>
 			</a>
 			

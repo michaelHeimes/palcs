@@ -32,6 +32,7 @@
 		bottom: 0;
 		height: 100%;
 		width: 100%;
+		h2,
 		h3 {
 			line-height: 1.05;
 			flex-wrap: nowrap;
@@ -51,6 +52,7 @@
 			}
 		}
 		&:hover {
+			h2,
 			h3 {
 				color: $color-coral;
 				background-color: rgba($white, 1);

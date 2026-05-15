@@ -6,6 +6,9 @@ if( isset($args['post_id']) ) {
 	$post_id = $post->ID;
 }
 
+// Change item tags depending on use
+$title_tag = !empty($args['title_tag']) ? $args['title_tag'] : 'h3';
+
 $cpt = get_post_type();
 
 $term_slugs = [];
@@ -43,7 +46,7 @@ $article_classes = 'teacher-card load-more-filter-card cell small-6 medium-6 tab
 
 // Output or use the combined terms as needed
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class($article_classes); ?> data-terms="<?= esc_attr($combined_terms); ?>">
+<article id="post-<?php the_ID(); ?>" <?php post_class($article_classes); ?> data-terms="<?= esc_attr($combined_terms); ?>" typeof="Person" itemscope itemtype="https://schema.org">
 	<div>
 		<?php
 
@@ -70,12 +73,12 @@ $article_classes = 'teacher-card load-more-filter-card cell small-6 medium-6 tab
 				echo '<div class="circle-thumb-wrap fallback-img">' . $img . '</div>';
 			}
 		?>
-		<h3 class="h6 color-blue"><?=get_the_title($post_id); ?></h3>
+		<<?=esc_attr($title_tag);?> class="h6 color-blue" itemprop="name"><?=get_the_title($post_id); ?></<?=esc_attr($title_tag);?>>
 		<?php
 		$excerpt = get_the_excerpt($post_id);
 		
 		if ($excerpt) {
-			echo '<h4>' . esc_html($excerpt) . '</h4>';
+			echo '<p class="h4" itemprop="title">' . esc_html($excerpt) . '</p>';
 		}
 		?>
 	</div>
