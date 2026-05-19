@@ -228,7 +228,7 @@
                 };
                
                 $($container).isotope({
-                    itemSelector: '.filter-grid article',
+                    itemSelector: '.filter-grid > .load-more-filter-card',
                     layoutMode: 'fitRows',
                 });
                 let showVideos = false;

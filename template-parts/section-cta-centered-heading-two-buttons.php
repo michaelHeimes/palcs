@@ -4,7 +4,7 @@ $ctachwtb_heading = get_field('ctachwtb_heading', 'option') ?? get_field('ctachw
 $global_cta_button_link_1 = get_field('global_cta_button_link_1', 'option') ?? null;
 $global_cta_button_link_2 = get_field('global_cta_button_link_2', 'option') ?? null;
 ?>
-<section class="cta-centered-heading-two-buttons has-bg">
+<div class="cta-centered-heading-two-buttons has-bg">
 	<?php if( !empty( $ctachwtb_background_image ) ) {
 		$imgID = $ctachwtb_background_image['ID'];
 		$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
@@ -43,5 +43,5 @@ $global_cta_button_link_2 = get_field('global_cta_button_link_2', 'option') ?? n
 			<?php endif; ?>
 		</div>
 	</div>
-</section>
+</div>
 <div class="gradient-border"></div>

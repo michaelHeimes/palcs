@@ -42,29 +42,34 @@
  
  $posts = get_posts($args);?>
  
-<div class="content posts-page course-posts <?php if( !empty( $stage) ) { echo  $stage->slug; } else { echo 'all'; };?>">
-	<div class="inner-content">
-	 
-		<main id="primary" class="site-main">
-			
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			 
-				<?php get_template_part('template-parts/content', 'load-more-filter-grid', 
-					array(
-						'cpt'   => 'academic-course',
-						'posts' => $posts,
-						'posts-per-load' => 12,
-						'stage' => $stage,
-						'equal-height-cards' => true,
-						'sidebar-image' => $sidebar_image,
-					),
-				);?>
-
-			</article>
-	 
-		</main><!-- #main -->
-			 
+<div class="posts-page course-posts <?php if( !empty( $stage) ) { echo  $stage->slug; } else { echo 'all'; };?>">
+	<div class="content">
+		<div class="inner-content">
+		
+			<main id="primary" class="site-main">
+				
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				
+					<?php get_template_part('template-parts/content', 'load-more-filter-grid', 
+						array(
+							'cpt'   => 'academic-course',
+							'posts' => $posts,
+							'posts-per-load' => 12,
+							'stage' => $stage,
+							'equal-height-cards' => true,
+							'sidebar-image' => $sidebar_image,
+						),
+					);?>
+					
+				</article>
+						
+			</main><!-- #main -->
+				
+		</div>
 	</div>
+
+	<?php get_template_part('template-parts/section', 'cta-centered-heading-two-buttons');?>
+
 </div>
  <div class="gradient-border"></div>
 <?php

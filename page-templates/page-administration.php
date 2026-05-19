@@ -49,36 +49,39 @@ if( get_field('cta_video_slider_slides') ) {
 
 ?>
 
-<div class="content posts-page teachers-staff-posts <?php if( !empty($team) ) { echo $team->slug; } else { echo 'all'; };?>">
-	<div class="inner-content">
-	
-		<main id="primary" class="site-main">
-	
-			<article id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
-			
-				<header class="entry-header">
-					<?php get_template_part('template-parts/section', 'ctas-video-slider');?>
-				</header><!-- .entry-header -->
+<div class="posts-page teachers-staff-posts <?php if( !empty($team) ) { echo $team->slug; } else { echo 'all'; };?>">
+	<div class="content">
+		<div class="inner-content">
+		
+			<main id="primary" class="site-main">
+		
+				<article id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
 				
-				<?php get_template_part('template-parts/content', 'load-more-filter-grid', 
-					array(
-						'cpt'   => 'administration',
-						'posts' => $posts,
-						'posts-per-load' => 12,
-						'team' => $team,
-						'terms-to-hide' => $terms_to_hide,
-					),
-				);?>
-
-				<div class="article-footer">
-						 <?php wp_link_pages(); ?>
-					</div> <!-- end article footer -->
+					<header class="entry-header">
+						<?php get_template_part('template-parts/section', 'ctas-video-slider');?>
+					</header><!-- .entry-header -->
 					
-			</article><!-- #post-<?php the_ID(); ?> -->
+					<?php get_template_part('template-parts/content', 'load-more-filter-grid', 
+						array(
+							'cpt'   => 'administration',
+							'posts' => $posts,
+							'posts-per-load' => 12,
+							'team' => $team,
+							'terms-to-hide' => $terms_to_hide,
+						),
+					);?>
 	
-		</main><!-- #main -->
-			
+					<div class="article-footer">
+						<?php wp_link_pages(); ?>
+					</div> <!-- end article footer -->	
+					
+				</article><!-- #post-<?php the_ID(); ?> -->
+		
+			</main><!-- #main -->
+				
+		</div>
 	</div>
+	<?php get_template_part('template-parts/section', 'cta-centered-heading-two-buttons');?>
 </div>
 <div class="gradient-border"></div>
 <?php

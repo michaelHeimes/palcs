@@ -35,7 +35,6 @@
 <body <?php body_class(); ?>>
 <?php get_template_part( 'alert-bar' ); ?>
 	<?php wp_body_open(); ?>
-			<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'trailhead' ); ?></a>
 
 			<div class="off-canvas-wrapper">
 			
@@ -44,6 +43,7 @@
 			
 				<div class="off-canvas-content" data-off-canvas-content>
 					<header class="site-header" role="banner">
+						<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'trailhead' ); ?></a>
 						<?php get_template_part( 'template-parts/nav', 'offcanvas-topbar' ); ?>
 					</header><!-- #masthead -->
 					

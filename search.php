@@ -45,6 +45,8 @@ get_header();
 
 		endif;
 		?>
+		
+		<?php get_template_part('template-parts/section', 'cta-centered-heading-two-buttons');?>
 
 	</main><!-- #main -->
 

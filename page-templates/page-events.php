@@ -48,6 +48,9 @@ $index_page = substr( $current_url, strlen( home_url() ) );
 					'index_page' => $index_page,
 				),
 			);?>
+			
+			<?php get_template_part('template-parts/section', 'cta-centered-heading-two-buttons');?>
+
 	
 		</main><!-- #main -->
 	</div>

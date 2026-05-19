@@ -108,6 +108,8 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
+		
+		<?php get_template_part('template-parts/section', 'cta-centered-heading-two-buttons');?>
 
 	</main><!-- #main -->
 

@@ -21,38 +21,41 @@ $posts_per_load = 9;
 
 	<main id="primary" class="site-main">
 		<?php get_template_part('template-parts/banner', 'full-width-image');?>
-		<div class="content posts-page">
-			<?php
-			if ( have_posts() ) :
-				
-				$post_categories = get_categories(array(
-					'hide_empty' => 1,
-					'exclude' => get_cat_ID('Uncategorized')
-				));
-
-				$args = array(  
-					'post_type' => 'post',
-					'post_status' => 'publish',
-					'posts_per_page' => -1,
-				);	 
-				$posts = get_posts($args);
-				
-				get_template_part('template-parts/content', 'load-more-filter-grid', 
-					array(
-						'cpt'   => 'post',
-						'posts' => $posts,
-						'post_categories' => $post_categories,
-						'posts-per-load' => $posts_per_load,
-					),
-				);
-
-			else :
+		<div class="posts-page">
+			<div class="content">
+				<?php
+				if ( have_posts() ) :
+					
+					$post_categories = get_categories(array(
+						'hide_empty' => 1,
+						'exclude' => get_cat_ID('Uncategorized')
+					));
 	
-				get_template_part( 'template-parts/content', 'none' );
+					$args = array(  
+						'post_type' => 'post',
+						'post_status' => 'publish',
+						'posts_per_page' => -1,
+					);	 
+					$posts = get_posts($args);
+					
+					get_template_part('template-parts/content', 'load-more-filter-grid', 
+						array(
+							'cpt'   => 'post',
+							'posts' => $posts,
+							'post_categories' => $post_categories,
+							'posts-per-load' => $posts_per_load,
+						),
+					);
 	
-			endif;
-			?>
+				else :
+		
+					get_template_part( 'template-parts/content', 'none' );
+		
+				endif;
+				?>
+			</div>
 		</div>
+		<?php get_template_part('template-parts/section', 'cta-centered-heading-two-buttons');?>
 	</main><!-- #main -->
 	<div class="gradient-border"></div>
 

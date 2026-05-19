@@ -93,9 +93,8 @@ $fields = get_fields();
 						}
 					?>
 							
-					<div class="article-footer">
-						 <?php wp_link_pages(); ?>
-					</div> <!-- end article footer -->
+					<?php get_template_part('template-parts/section', 'cta-centered-heading-two-buttons');?>
+
 						
 				</article><!-- #post-<?php the_ID(); ?> -->
 		

@@ -25,6 +25,7 @@ get_header();
 						</div>
 					</div>
 				</div>
+				<?php get_template_part('template-parts/section', 'cta-centered-heading-two-buttons');?>
 			</article> <!-- end article -->
 	
 		</main><!-- #main -->

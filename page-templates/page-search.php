@@ -14,11 +14,11 @@ $current_url = home_url( add_query_arg( NULL, NULL ) );
 $index_page = substr( $current_url, strlen( home_url() ) );
 ?>
 
-<div class="content posts-page event-posts no-banner primary-only <?php if( !empty( $program) ) { echo  $program->slug; } else { echo 'all'; };?>">
+<div class="posts-page event-posts no-banner primary-only <?php if( !empty( $program) ) { echo  $program->slug; } else { echo 'all'; };?>">
 	<div class="inner-content">
  
 		<main id="primary" class="site-main">
-			<div class="grid-container">
+			<div class="grid-container content">
 				<div class="grid-x grid-padding-x align-center">
 					<div class="cell small-12 large-10">
 						<?php the_content();?>
@@ -66,6 +66,7 @@ $index_page = substr( $current_url, strlen( home_url() ) );
 					</div>
 				</div>
 			</div>
+			<?php get_template_part('template-parts/section', 'cta-centered-heading-two-buttons');?>
 		</main><!-- #main -->
 	</div>
 </div>

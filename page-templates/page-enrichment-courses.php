@@ -42,12 +42,12 @@
  
  $posts = get_posts($args);?>
  
-<div class="content posts-page course-posts <?php if( !empty( $program) ) { echo  $program->slug; } else { echo 'all'; };?>">
+<div class="posts-page course-posts <?php if( !empty( $program) ) { echo  $program->slug; } else { echo 'all'; };?>">
 	<div class="inner-content">
 	 
 		<main id="primary" class="site-main">
 			
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<article id="post-<?php the_ID(); ?>" <?php post_class('content'); ?>>
 			 
 				<?php get_template_part('template-parts/content', 'load-more-filter-grid', 
 					array(
@@ -59,9 +59,11 @@
 						'sidebar-image' => $sidebar_image,
 					),
 				);?>
-
+				
 			</article>
-	 
+
+	 	   <?php get_template_part('template-parts/section', 'cta-centered-heading-two-buttons');?>
+
 		</main><!-- #main -->
 			 
 	</div>

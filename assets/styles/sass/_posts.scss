@@ -3,6 +3,12 @@
 .posts-page,
 .teachers-cta,
 .teachers-staff-block {
+	&.no-banner {
+		padding-top: 4.1rem;
+		@include breakpoint(medium) {
+			padding-top: 6.6rem;
+		}
+	}
 	&.content,
 	.content {
 		padding-bottom: 6.6rem;
