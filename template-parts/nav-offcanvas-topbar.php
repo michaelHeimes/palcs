@@ -56,7 +56,7 @@
 				if( !empty( $image ) ): ?>
 				<div class="left cell small-12 tablet-6 large-auto">
 					<ul class="menu">
-						<li class="logo"><a href="<?= home_url(); ?>">
+						<li class="logo"><a href="<?= home_url(); ?>" aria-label="links to home page">
 							<?php if( !empty( get_field('header_logo', 'option') ) ) {
 								$imgID = get_field('header_logo', 'option')['ID'];
 								$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
@@ -104,7 +104,7 @@
 										  aria-label="Close navigation menu">
 											<span class="uppercase">Full Menu</span>
 											<svg xmlns="http://www.w3.org/2000/svg" width="17.334" height="16.788" viewBox="0 0 17.334 16.788">
-											  <path id="Path_457" data-name="Path 457" d="M-3997.248-7.817v-2.8h11.581v2.8Zm-2.285-7v-2.8h13.866v2.8Zm-3.467-7v-2.8h17.334v2.8Z" transform="translate(4003 24.605)" fill="#272727"/>
+											  <path d="M-3997.248-7.817v-2.8h11.581v2.8Zm-2.285-7v-2.8h13.866v2.8Zm-3.467-7v-2.8h17.334v2.8Z" transform="translate(4003 24.605)" fill="#272727"/>
 											</svg>
 										</button>
 									</li>
@@ -131,7 +131,7 @@
 									$imgID = get_field('header_logo_mobile_sticky_nav', 'option')['ID'];
 									$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
 									$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
-									echo '<div class="sticky-logo mobile hide-for-medium" style="visibility: hidden;"><a href="' . home_url() . '">';
+									echo '<div class="sticky-logo mobile hide-for-medium" style="visibility: hidden;"><a href="' . home_url() . '"  aria-label="links to home page">';
 									echo $img;
 									echo '</a></div>';
 								}?>
@@ -139,7 +139,7 @@
 									$imgID = get_field('header_logo', 'option')['ID'];
 									$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
 									$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
-									echo '<div class="sticky-logo show-for-medium" style="visibility: hidden;"><a href="' . home_url() . '">';
+									echo '<div class="sticky-logo show-for-medium" style="visibility: hidden;"><a href="' . home_url() . '" aria-label="links to home page">';
 									echo $img;
 									echo '</a></div>';
 								}?>
@@ -150,22 +150,42 @@
 								</div>
 							</div>
 							<?php endif;?>
-							<?php if( wp_get_nav_menu_items(get_nav_menu_locations()['offcanvas-nav']) ):?>
 							<div class="top-bar-right cell shrink">
 								<div class="grid-x align-right grid-x align-middle">
-									<ul class="menu">
+									<ul class="menu grid-x align-right align-middle">
+										<?php if( !empty($global_cta_button_link_1) ):?>
+											<?php
+												$link = $global_cta_button_link_1;
+												$link_url = $link['url'];
+												$link_title = $link['title'];
+												$link_target = $link['target'] ? $link['target'] : '_self';
+											?>
+											<li class="menu-item hide-on-desktop cell shrink overflow-hidden">
+												<a class="no-style sticky-cta-btn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+											</li>
+										<?php endif;?>
+										<?php if( !empty($global_cta_button_link_2) ):?>
+											<?php
+												$link = $global_cta_button_link_2;
+												$link_url = $link['url'];
+												$link_title = $link['title'];
+												$link_target = $link['target'] ? $link['target'] : '_self';
+											?>
+											<li class="menu-item hide-on-desktop cell shrink overflow-hidden">
+												<a class="no-style sticky-cta-btn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+											</li>
+										<?php endif;?>
 										<li class="menu-item">
 											<button class="menu-toggle no-style" data-toggle="off-canvas">
 												<span class="uppercase">Full Menu</span>
 												<svg xmlns="http://www.w3.org/2000/svg" width="17.334" height="16.788" viewBox="0 0 17.334 16.788">
-							  					<path id="Path_457" data-name="Path 457" d="M-3997.248-7.817v-2.8h11.581v2.8Zm-2.285-7v-2.8h13.866v2.8Zm-3.467-7v-2.8h17.334v2.8Z" transform="translate(4003 24.605)" fill="#272727"/>
+							  					<path d="M-3997.248-7.817v-2.8h11.581v2.8Zm-2.285-7v-2.8h13.866v2.8Zm-3.467-7v-2.8h17.334v2.8Z" transform="translate(4003 24.605)" fill="#272727"/>
 												</svg>
 											</button>
 										</li>
 									</ul>
 								</div>
 							</div>
-							<?php endif;?>
 						</div>
 					</div>
 				</div>

@@ -196,13 +196,15 @@ h6.wp-block-heading {
 	}
 	h2,
 	.h2 {
-		line-height: 1.08;
-		text-transform: uppercase;
-		font-size: 2.188rem;
-		font-size: clamp(2.188rem, 1.957rem + 0.984vw, 3.125rem);
-		@include breakpoint(medium) {
-			font-size: 3.125rem;
+		&:not(.ignore-page-style) {
+			line-height: 1.08;
+			text-transform: uppercase;
+			font-size: 2.188rem;
 			font-size: clamp(2.188rem, 1.957rem + 0.984vw, 3.125rem);
+			@include breakpoint(medium) {
+				font-size: 3.125rem;
+				font-size: clamp(2.188rem, 1.957rem + 0.984vw, 3.125rem);
+			}
 		}
 	}
 	h3,

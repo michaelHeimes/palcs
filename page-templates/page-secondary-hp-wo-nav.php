@@ -10,6 +10,8 @@
 
 get_header();
 $fields = get_fields();
+$stat_images = get_field('stat_images') ?? get_sub_field('stat_images') ?? null;
+
 ?>
 	<div class="content">
 		<div class="inner-content">
@@ -61,6 +63,14 @@ $fields = get_fields();
 							echo '<div class="gradient-border"></div>';
 						}
 					?>
+					
+					<?php if( !empty( $stat_images ) ) {
+						get_template_part('template-parts/section', 'stat-images',
+							array(
+								'stat-images' => $stat_images,
+							)
+						);	
+					};?>
 											
 					<?php
 						if( !empty( $fields['image_copy_repeater'] ) ) {

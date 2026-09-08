@@ -2,7 +2,8 @@ header.site-header {
 	position: relative;
 	z-index: 9;
 	border-bottom: 1px solid #E3E3E3;
-	.menu-toggle {
+	.menu-toggle,
+	.sticky-cta-btn {
 		text-transform: uppercase;
 		line-height: 1.35;
 		font-weight: bold;
@@ -16,6 +17,22 @@ header.site-header {
 			font-size: rem-calc(20);
 			font-size: clamp(rem-calc(17), 2vw, rem-calc(20));
 		}
+	}
+	.menu-item.hide-on-desktop {
+		width: 0;	
+	}
+	.sticky-cta-btn {
+		color: $color-blue;
+		font-weight: 600;
+		border-color: $color-blue;
+		padding-left: 2.75rem;
+		padding-right: 2.75rem;
+		&:hover {
+			color: $black;
+			border-color: $black;
+		}
+	}
+	.menu-toggle {
 		svg path {
 			transition: .25s ease;
 		}
@@ -151,11 +168,9 @@ header.site-header {
 	}
 	.sticky-logo {
 		opacity: 0;
-		transition: opacity .2s ease, visibility 0s linear .2s;
 	}
 	#header-nav {
 		opacity: 1;
-		transition: opacity .2s ease;
 		> li {
 			> a {
 				border-radius: 6px;
@@ -226,7 +241,9 @@ header.site-header {
 		#header-nav {
 			opacity: 0;
 			visibility: hidden;
-			transition: opacity .2s ease, visibility 0s linear .2s;
+		}
+		.menu-item.hide-on-desktop {
+			width: auto;	
 		}
 	}
 	.top-bar {
@@ -234,7 +251,7 @@ header.site-header {
 	}
 	#top-bar-menu {
 		.grid-x {
-			height: 114px;
+			min-height: 114px;
 		}
 		.top-bar-left {
 			.sticky-logo {
@@ -255,7 +272,14 @@ header.site-header {
 				}
 			}
 		}
-		
+		.top-bar-right {
+			.menu {
+				gap: 24px;
+				.menu-toggle {
+					margin-left: 24px;
+				}
+			}
+		}
 		.menu-toggle-wrap {
 		    width: auto;
 		    flex: 0 0 auto;

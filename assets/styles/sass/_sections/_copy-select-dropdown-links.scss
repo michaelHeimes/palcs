@@ -104,12 +104,4 @@
 			}
 		}
 	}
-	.stat-images {
-		.img-wrap {
-			margin-bottom: $smallGutter;
-			@include breakpoint(medium) {
-				margin-bottom: $mediumGutter;
-			}
-		}
-	}
 }

@@ -10,6 +10,7 @@
  */
 $email = get_field('contact_email_address', 'option');
 $hours = get_field('hours', 'option');
+$footer_subfooter_links = get_field('footer_subfooter_links', 'option') ?? null;
 ?>
 				<footer id="colophon" class="site-footer" aria-label="Main site footer">
 					<div class="grid-container">
@@ -19,7 +20,7 @@ $hours = get_field('hours', 'option');
 						if( !empty( $image ) ): ?>
 						<div class="left cell small-12 medium-shrink grid-x">
 							<ul class="menu">
-								<li class="logo"><a href="<?php echo home_url(); ?>">
+								<li class="logo"><a href="<?php echo home_url(); ?>" aria-label="links to home page">
 									<?php if( !empty( get_field('header_logo', 'option') ) ) {
 										$imgID = get_field('header_logo', 'option')['ID'];
 										$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
@@ -94,7 +95,7 @@ $hours = get_field('hours', 'option');
 								<?php endif;?>
 								
 								<div style="margin-top:24px;">
-									<a class="login" href="https://palcschool.org/" target="_blank">
+									<a class="login" href="https://palcschool.org/" target="_blank" aria-label="links to home page">
 										<img src="<?=get_template_directory_uri();?>/assets/images/palcs-footer-login.png" width="200" alt="PALCS Logo">
 									</a>
 								</div>
@@ -117,15 +118,33 @@ $hours = get_field('hours', 'option');
 											the_field('footer_copyright', 'option');	
 										};?>
 										
-										<?php 
-										$link = get_field('footer_privacy_policy_link', 'option');
-										if( $link ): 
-											$link_url = $link['url'];
-											$link_title = $link['title'];
-											$link_target = $link['target'] ? $link['target'] : '_self';
+										<?php if( !empty($footer_subfooter_links) && is_array($footer_subfooter_links) ): ?>
+											<?php 
+											$total_links = count($footer_subfooter_links);
+											$current_index = 0;
 											?>
-											 | <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+										
+											<?php foreach($footer_subfooter_links as $footer_subfooter_link): ?>
+												<?php 
+												$link        = $footer_subfooter_link['link'];
+												$link_url    = $link['url'];
+												$link_title  = $link['title'] ?? '';
+												$link_target = !empty($link['target']) ? $link['target'] : '_self'; 
+												
+												$current_index++;
+												?>
+												<span>
+													<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+														<?php echo esc_html( $link_title ); ?>
+													</a>
+												</span>
+												
+												<?php if ( $total_links > 1 && $current_index < $total_links ): ?>
+													<span class="separator">&nbsp;|</span>
+												<?php endif; ?>
+											<?php endforeach; ?>
 										<?php endif; ?>
+
 									</div>
 								</div>
 								<div class="cell small-12 large-shrink">
@@ -144,7 +163,7 @@ $hours = get_field('hours', 'option');
 					
 <?php wp_footer(); ?>
 
-<?php if( !empty( get_field('before_closing_body', 'option') ) ) {
+<?php if( !empty( get_field('before_closing_footer', 'option') ) ) {
 	echo get_field('before_closing_footer', 'option');
 }?>
 

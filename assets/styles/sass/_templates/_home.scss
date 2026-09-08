@@ -7,4 +7,43 @@
 			}
 		}
 	}
+	@include breakpoint(medium down) {
+		.page {
+			display: flex;
+			flex-direction: column;
+			.ctas-video-slider {
+				order: 3;
+				&+ .gradient-border {
+					order: 4;
+				}
+				.grid-x.grid-padding-x.inner-height-control {
+					flex-direction: column-reverse;
+				}
+			}
+			.copy-select-dropdown-links {
+				order: 1;
+				&+ .gradient-border {
+					order: 2;
+				}
+			}
+			.dual-sliders-quote-image-video-icon-text-rows {
+				order: 5;
+				&+ .gradient-border {
+					order: 6;
+				}
+			}
+			.latest-posts {
+				order: 7;
+				&+ .gradient-border {
+					order: 8;
+				}
+			}
+			.cta-centered-heading-two-buttons {
+				order: 9;
+				&+ .gradient-border {
+					order: 10;
+				}
+			}
+		}
+	}
 }

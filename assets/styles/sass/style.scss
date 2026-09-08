@@ -105,6 +105,7 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 @import "_sections/latest-posts-category";
 @import "_sections/cta-teachers";
 @import "_sections/on-page-nav";
+@import "_sections/stat-images";
 
 @import "_parts/banner-full-width-image";
 @import "_parts/image-copy-row";
@@ -116,6 +117,7 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 @import "_blocks/copy-left-cta-right";
 @import "_blocks/videos";
 @import "_blocks/info-stats";
+@import "_blocks/collapsed-form";
 
 @import "_templates/default";
 @import "_templates/home";

@@ -704,57 +704,102 @@
    }
    
    _app.drilldown_hack = function() {
-      
-      
-      
-      const setEqualRowHeights = function() {
-         const activeRow = document.querySelector('ul#offcanvas-nav > li .is-drilldown-submenu[aria-hidden="false"]');
-         const closingRow = document.querySelector('ul#offcanvas-nav > li .is-drilldown-submenu[aria-hidden="true"]');
-
-         if( activeRow ) {
-            const parent = activeRow.parentElement.parentElement.parentElement;
-            const rowHeight = activeRow.getBoundingClientRect().height;
+        const setEqualRowHeights = function() {
+            const activeRow = document.querySelector('ul#offcanvas-nav > li .is-drilldown-submenu[aria-hidden="false"]');
+            const closingRow = document.querySelector('ul#offcanvas-nav > li .is-drilldown-submenu[aria-hidden="true"]');
+    
+            if( activeRow ) {
+                const parent = activeRow.parentElement.parentElement.parentElement;
+                const rowHeight = activeRow.getBoundingClientRect().height;
+                
+                parent.style.height = rowHeight + 'px';
+                
+            } else if(closingRow) {
+                const menuHeight = document.getElementById('offcanvas-nav').getBoundingClientRect().height;
+                const parent =  closingRow.parentElement.parentElement.parentElement;
+                parent.style.height = menuHeight + 'px';
+            } else {
+    
+            const rows = document.querySelectorAll('ul#offcanvas-nav > li .is-drilldown-submenu');
+            let maxRowHeight = 0;
+        
+            rows.forEach(function(row) {
+                const rowHeight = row.getBoundingClientRect().height;
+                maxRowHeight = Math.max(maxRowHeight, rowHeight);
+            });
+        
+            rows.forEach(function(row) {
+                const parent = row.parentElement.parentElement.parentElement;
+                parent.style.height = maxRowHeight + 'px';
+            });
             
-            parent.style.height = rowHeight + 'px';
+            }
+        
+        };
+        window.addEventListener('resize', setEqualRowHeights);
+        
+        $(document).on('open.zf.drilldown', '[data-drilldown]', function() {
+            setEqualRowHeights();
+    
+        });
+        
+        $(document).on('hide.zf.drilldown', '[data-drilldown]', function() {
+            setEqualRowHeights();
+        });
+    }
+   
+    _app.collapsedFormBlock = function() {
+        // 1. Target each container block first
+        const formBlocks = document.querySelectorAll('.collapsed-form-block');
+        
+        formBlocks.forEach(block => {
+            // 2. Find the specific wrap and button internal to this block
+            const wrap = block.querySelector('.form-wrap');
+            const expandBtn = block.querySelector('.form-expand-btn');
+
+            if (!wrap) return;
             
-         } else if(closingRow) {
-            const menuHeight = document.getElementById('offcanvas-nav').getBoundingClientRect().height;
-            const parent =  closingRow.parentElement.parentElement.parentElement;
-            parent.style.height = menuHeight + 'px';
-         } else {
-
-           const rows = document.querySelectorAll('ul#offcanvas-nav > li .is-drilldown-submenu');
-           let maxRowHeight = 0;
-      
-           rows.forEach(function(row) {
-               const rowHeight = row.getBoundingClientRect().height;
-               maxRowHeight = Math.max(maxRowHeight, rowHeight);
-           });
-      
-           rows.forEach(function(row) {
-               const parent = row.parentElement.parentElement.parentElement;
-               parent.style.height = maxRowHeight + 'px';
-           });
-           
-         }
-      
-      };
-      window.addEventListener('resize', setEqualRowHeights);
-      
-      $(document).on('open.zf.drilldown', '[data-drilldown]', function() {
-         setEqualRowHeights();
-
-      });
-      
-      $(document).on('hide.zf.drilldown', '[data-drilldown]', function() {
-         setEqualRowHeights();
-      });
-      
-
-      
-      
-   }
+            const fields = wrap.querySelectorAll('.gfield');
             
+            if (fields.length <= 2) return;
+        
+            // Dynamically calculate the combined height of the first two fields
+            const firstField = fields[0];
+            const secondField = fields[1];
+            
+            const secondFieldBottom = secondField.offsetTop + secondField.offsetHeight;
+            const firstFieldTop = firstField.offsetTop;
+            const collapsedHeight = secondFieldBottom - firstFieldTop + 8;
+        
+            // Initialize initial visual styles for collapsing
+            wrap.style.maxHeight = `${collapsedHeight}px`;
+            wrap.dataset.collapsedHeight = `${collapsedHeight}px`;
+            
+            block.style.visibility = 'visible';
+            
+        
+            // 5. Attach the click event if an expand button exists in this block
+            if (expandBtn) {
+            expandBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+        
+                // Check current state against the stored initial height
+                const isCollapsed = wrap.style.maxHeight === wrap.dataset.collapsedHeight;
+        
+                if (isCollapsed) {
+                    // Open up to the full natural scroll height
+                    wrap.style.maxHeight = `${wrap.scrollHeight}px`;
+                    block.classList.add('is-expanded');
+                    expandBtn.remove();
+                    setTimeout(() => {
+                        wrap.style.maxHeight = 'none';    
+                    }, 400);
+                }
+            });
+            }
+        });
+    }
+                
     _app.init = function() {
         
         // Standard Functions
@@ -772,6 +817,7 @@
         _app.ajax_search();
         _app.video_lazyload();
         _app.drilldown_hack();
+        _app.collapsedFormBlock();
     }
     
     

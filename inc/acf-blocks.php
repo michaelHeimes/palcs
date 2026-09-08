@@ -36,6 +36,16 @@ function register_acf_block_types() {
         ));
         
         acf_register_block_type(array(
+            'name'              => 'collapsed-form',
+            'title'             => __('Block: Collapsed Form'),
+            'description'       => __('Block: Collapsed Form'),
+            'render_template'   => 'template-parts/blocks/collapsed-form.php',
+            'category'          => 'formatting',
+            'icon'              => 'block-default',
+            'keywords'          => array( 'custom', 'block', 'collapsed', 'form', 'group' ),
+        ));
+        
+        acf_register_block_type(array(
             'name'              => 'tabs',
             'title'             => __('Block: Tabbed Content'),
             'description'       => __('Block: Tabbed Content'),

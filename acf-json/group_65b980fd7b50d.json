@@ -132,6 +132,90 @@
                     "parent_repeater": "field_65b982d701183"
                 },
                 {
+                    "key": "field_6aa021908dc6a",
+                    "label": "Sub-text",
+                    "name": "sub-text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_65b982d701183"
+                },
+                {
+                    "key": "field_6aa021a48dc6b",
+                    "label": "Sub-text Style",
+                    "name": "sub-text_style",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "h1": "H1",
+                        "h2": "H2",
+                        "h3": "H3",
+                        "p": "p"
+                    },
+                    "default_value": "h2",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "parent_repeater": "field_65b982d701183"
+                },
+                {
+                    "key": "field_6aa021b68dc6c",
+                    "label": "Sub-text Tag",
+                    "name": "sub-text_tag",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "span": "span",
+                        "h1": "H1"
+                    },
+                    "default_value": "span",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "parent_repeater": "field_65b982d701183"
+                },
+                {
                     "key": "field_65b981bd3b895",
                     "label": "Button 1",
                     "name": "button_1",
@@ -233,5 +317,7 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1778859658
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1788879421
 }

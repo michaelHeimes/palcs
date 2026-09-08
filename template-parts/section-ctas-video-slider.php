@@ -11,6 +11,9 @@ $cta_video_slider_slides = get_field('cta_video_slider_slides') ?? get_sub_field
 					$text = $cta_video_slider_slide['text'] ?? null;
 					$text_tag = $cta_video_slider_slide['text_tag'] ?: 'span';
 					$text_style = $cta_video_slider_slide['text_style'] ?: 'h3';
+					$sub_text = $cta_video_slider_slide['sub-text'] ?? null;
+					$sub_text_tag = $cta_video_slider_slide['sub-text_tag'] ?: 'span';
+					$sub_text_style = $cta_video_slider_slide['sub-text_style'] ?: 'h2';
 					$button_1 = $cta_video_slider_slide['button_1'] ?? null;
 					$button_2 = $cta_video_slider_slide['button_2'] ?? null;
 					$video_thumbnail_image = $cta_video_slider_slide['video_thumbnail_image'] ?? null;
@@ -29,11 +32,24 @@ $cta_video_slider_slides = get_field('cta_video_slider_slides') ?? get_sub_field
 									<div class="left cell small-12 tablet-6 xxlarge-5 grid-x align-middle">
 										<div class="bg gradient-1 vw-flush-left"></div>
 										<div class="inner grid-x grid-padding-x">
-											<?php if( !empty($text) ):?>
+											<?php if( $text || $sub_text || !empty($button_1) || !empty($button_2) ):?>
 												<div class="cell text-wrap white-color">
-													<?php echo '<' . esc_attr($text_tag) . ' class="' . $text_style . '" >';?>
-														<?=wp_kses_post( $text );?>
-													<?php echo '</' . esc_attr($text_tag) . '>';?>
+													<?php if( $text ):?>
+														<div>
+															<?php echo '<' . esc_attr($text_tag) . ' class="ignore-page-style ' . $text_style . '" >';?>
+																<?=wp_kses_post( $text );?>
+															<?php echo '</' . esc_attr($text_tag) . '>';?>
+															
+														</div>
+													<?php endif;?>
+													<?php if( $sub_text ):?>
+														<div>
+															<?php echo '<' . esc_attr($sub_text_tag) . ' class="ignore-page-style ' . $sub_text_style . '" >';?>
+																<?=wp_kses_post( $sub_text );?>
+															<?php echo '</' . esc_attr($sub_text_tag) . '>';?>
+															
+														</div>
+													<?php endif;?>
 												</div>
 												<?php if( !empty($button_1) || !empty($button_2) ):?>
 													<div class="cell button-group grid-x grid-padding-x">

@@ -1,0 +1,15 @@
+.stat-images {
+	.img-wrap {
+		margin-bottom: $smallGutter;
+		img {
+			max-height: 200px;
+			width: auto;
+		}
+		@include breakpoint(large down) {
+
+		}
+		@include breakpoint(medium) {
+			margin-bottom: $mediumGutter;
+		}
+	}
+}

@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.18' );
+	define( '_S_VERSION', '1.0.23' );
 }
 
 /**
@@ -327,28 +327,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	  }
 	});
 
-	// Fix play icons acting as buttons
-	document.querySelectorAll('.play-icon').forEach(function(icon) {
-
-	  if (!icon.getAttribute('role')) {
-		icon.setAttribute('role', 'button');
-	  }
-
-	  if (!icon.getAttribute('tabindex')) {
-		icon.setAttribute('tabindex', '0');
-	  }
-
-	  if (!icon.getAttribute('aria-label')) {
-		icon.setAttribute('aria-label', 'Play video');
-	  }
-
-	  // Add alt text if image exists inside
-	  const img = icon.querySelector('img');
-	  if (img && !img.getAttribute('alt')) {
-		img.setAttribute('alt', 'Play video');
-	  }
-
-	});
   }
   fixSwiperAccessibility();
 });
