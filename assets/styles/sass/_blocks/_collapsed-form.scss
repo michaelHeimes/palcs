@@ -51,6 +51,7 @@
 			}
 		}	
 		.gform-footer {
+			--gf-form-footer-margin-y-start: 45px;
 			button {
 				@extend .button;
 				@extend .purple-ds;

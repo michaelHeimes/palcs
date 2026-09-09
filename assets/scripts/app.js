@@ -748,57 +748,79 @@
         });
     }
    
-    _app.collapsedFormBlock = function() {
-        // 1. Target each container block first
-        const formBlocks = document.querySelectorAll('.collapsed-form-block');
+    _app.collapsedFormBlock = function() { 
+        const formBlocks = document.querySelectorAll('.collapsed-form-block'); 
         
-        formBlocks.forEach(block => {
-            // 2. Find the specific wrap and button internal to this block
-            const wrap = block.querySelector('.form-wrap');
-            const expandBtn = block.querySelector('.form-expand-btn');
-
-            if (!wrap) return;
+        formBlocks.forEach((block, index) => { 
+            const wrap = block.querySelector('.form-wrap'); 
+            const expandBtn = block.querySelector('.form-expand-btn'); 
             
-            const fields = wrap.querySelectorAll('.gfield');
+            if (!wrap) return; 
             
-            if (fields.length <= 2) return;
-        
-            // Dynamically calculate the combined height of the first two fields
-            const firstField = fields[0];
-            const secondField = fields[1];
+            const fields = wrap.querySelectorAll('.gfield'); 
+            if (fields.length <= 2) return; 
             
-            const secondFieldBottom = secondField.offsetTop + secondField.offsetHeight;
-            const firstFieldTop = firstField.offsetTop;
-            const collapsedHeight = secondFieldBottom - firstFieldTop + 8;
-        
-            // Initialize initial visual styles for collapsing
-            wrap.style.maxHeight = `${collapsedHeight}px`;
-            wrap.dataset.collapsedHeight = `${collapsedHeight}px`;
-            
-            block.style.visibility = 'visible';
-            
-        
-            // 5. Attach the click event if an expand button exists in this block
             if (expandBtn) {
-            expandBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-        
-                // Check current state against the stored initial height
-                const isCollapsed = wrap.style.maxHeight === wrap.dataset.collapsedHeight;
-        
-                if (isCollapsed) {
-                    // Open up to the full natural scroll height
-                    wrap.style.maxHeight = `${wrap.scrollHeight}px`;
-                    block.classList.add('is-expanded');
-                    expandBtn.remove();
-                    setTimeout(() => {
-                        wrap.style.maxHeight = 'none';    
-                    }, 400);
-                }
-            });
+                expandBtn.setAttribute('aria-expanded', 'false');
             }
-        });
-    }
+        
+            // Dynamically calculate the combined height of the first two fields 
+            const firstField = fields[0]; 
+            const secondField = fields[1]; 
+            const secondFieldBottom = secondField.offsetTop + secondField.offsetHeight; 
+            const firstFieldTop = firstField.offsetTop; 
+            const collapsedHeight = secondFieldBottom - firstFieldTop + 8; 
+            
+            wrap.style.maxHeight = `${collapsedHeight}px`; 
+            wrap.dataset.collapsedHeight = `${collapsedHeight}px`; 
+            block.style.visibility = 'visible'; 
+        
+            // Reusable helper function to expand the form safely
+            const expandForm = (triggeredByClick = false) => {
+            const isCollapsed = wrap.style.maxHeight === wrap.dataset.collapsedHeight;
+            if (isCollapsed) { 
+                wrap.style.maxHeight = `${wrap.scrollHeight}px`; 
+                block.classList.add('is-expanded'); 
+                
+                if (expandBtn) {
+                    expandBtn.setAttribute('aria-expanded', 'true');                    
+                    expandBtn.classList.add('show-for-sr'); 
+                    expandBtn.setAttribute('tabindex', '-1'); 
+                }
+                
+                // If clicked, shift focus to the first newly revealed field
+                // so the keyboard user isn't stranded at the bottom of the page.
+                if (triggeredByClick && fields[2]) {
+                const inputs = fields[2].querySelectorAll('input, select, textarea, button');
+                if (inputs.length > 0) {
+                    inputs[0].focus();
+                } else {
+                    // Fallback: focus the field container itself
+                    fields[2].setAttribute('tabindex', '-1');
+                    fields[2].focus();
+                }
+                }
+                
+                setTimeout(() => { 
+                wrap.style.maxHeight = 'none'; 
+                }, 400); 
+            }
+            };
+            
+            if (expandBtn) { 
+            expandBtn.addEventListener('click', (e) => { 
+                e.preventDefault(); 
+                expandForm(true); // Pass true to shift focus
+            }); 
+            } 
+        
+            wrap.addEventListener('focusin', () => {
+            expandForm(false); // Focus shifted naturally via user tab, don't force it
+            });
+        }); 
+        };
+
+
                 
     _app.init = function() {
         

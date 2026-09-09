@@ -45,14 +45,14 @@ $gravity_form = get_field('gravity_form') ?? null;
 		</div>
 	<?php endif;?>
 	<?php if ($gravity_form && $gravity_form !== 'none') :?>
-		<div class="form-wrap overflow-hidden">
+		<div id="form-wrap-<?=$block['id'];?>" class="form-wrap overflow-hidden">
 			<?php
 			$escaped_gravity_form = acf_esc_html($gravity_form);
 			gravity_form( $escaped_gravity_form, false, false, false, '', true, 12 ); 
 			?>
 		</div>
 		<div class="btn-wrap text-center">
-			<button type="button" class="no-style form-expand-btn" aria-label="expands the above form">
+			<button type="button" class="no-style form-expand-btn" aria-expanded="false" aria-controls="form-wrap-<?=$block['id'];?>">
 				<svg xmlns="http://www.w3.org/2000/svg" width="53" height="53" viewBox="0 0 53 53"><g data-name="Group 366" transform="translate(-1160.308 -1506.122)"><circle data-name="Ellipse 10" cx="26.5" cy="26.5" r="26.5" transform="translate(1160.308 1506.122)" fill="#0151d4"/><path d="m1172.397 1523.597 13.91 13.88 13.911-13.88 4.273 4.273-18.183 18.187-18.184-18.187Z" fill="#fcfdff"/></g></svg>
 			</button>
 		</div>
