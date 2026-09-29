@@ -1,0 +1,62 @@
+.page-template-page-landing-page-1,
+.page-template-page-landing-page-2 {
+	.lp-form {
+		background-image: url('../images/eagle-bg-light-blue.svg');
+		background-repeat: no-repeat;
+		background-position: 96% calc(100% - 90px);
+		background-size: 80%;
+		padding-top: rem-calc(106);
+		padding-bottom: rem-calc(172);
+		@include breakpoint(medium) {
+			background-size: auto;
+			padding-top: rem-calc(152);
+			padding-bottom: rem-calc(246);
+		}
+		h2.h1 {
+			margin-bottom: 0.58em;
+			font-size: clamp(2.125rem, 1.857rem + 1.143vw, 3rem);
+			line-height: 1.02;
+		}
+		h3 {
+			margin-bottom: 0;
+			color: $black;
+		}
+		.text-wrap {
+			p {
+				font-weight: 600;
+			}
+		}
+	}
+	.image-copy-repeater {
+		.copy-wrap {
+			a {
+				color: $color-blue;
+				text-decoration: underline;
+				text-decoration-width: 1px;
+				strong {
+					font-weight: 600 !important;
+				}
+			}
+		}
+	}
+	.wywiwygs-50-50 {
+		.btn-wrap {
+			margin-top: 3rem;
+			@include breakpoint(medium) {
+				margin-top: 5rem;	
+			}
+		}
+	}
+	.form-wrap {
+		padding-top: rem-calc(76);
+		.gform-theme--framework {
+			.gform-footer {
+				--gf-form-footer-margin-y-start: 45px;
+				button.button {
+					@extend .button;
+					@extend .purple-ds;
+				}
+			}
+		}
+	}
+}

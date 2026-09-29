@@ -17,7 +17,7 @@ $icrs = get_field('image_copy_repeater') ?? get_sub_field('image_copy_repeater')
 		$slides = $icr['slides'] ?? null;
 	}
 ?>
-	<section class="image-copy-repeater type-<?=$row_type;?> layout-<?=$content_layout?> border-<?=$bottom_border_style;?>">
+	<section class="image-copy-repeater overflow-hidden type-<?=$row_type;?> layout-<?=$content_layout?> border-<?=$bottom_border_style;?>">
 		<?php if( $row_type == 'single' ) {
 			$image = $content['image'];
 			$copy = $content['copy'];
@@ -51,7 +51,7 @@ $icrs = get_field('image_copy_repeater') ?? get_sub_field('image_copy_repeater')
 					}
 					?>
 				</div>
-				<div class="grid-container">
+				<div class="grid-container slider-footer">
 					<div class="grid-x grid-padding-x align-middle<?=$layout;?>">
 						<div class=" cell small-12 tablet-5"></div>
 						<div class="cell small-12 tablet-7 large-6 xlarge-5">

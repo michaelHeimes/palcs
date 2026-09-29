@@ -18,6 +18,11 @@ header.site-header {
 			font-size: clamp(rem-calc(17), 2vw, rem-calc(20));
 		}
 	}
+	.top-bar-wrap {
+		@include breakpoint(small down) {
+			padding-bottom: rem-calc(32);
+		}
+	}
 	.menu-item.hide-on-desktop {
 		width: 0;	
 	}
@@ -229,6 +234,26 @@ header.site-header {
 			}
 		}
 	}
+	.sticky-mobile-ctas {
+		@include breakpoint(small down) {
+			> .grid-x {
+				margin-right: -0.5rem;
+				margin-left: -0.5rem;
+			}
+			.cell {
+				padding-right: 0.5rem;
+				padding-left: 0.5rem;
+				.button {
+					padding: 0.9em;
+				}
+			}
+		}
+		
+		.button {
+			min-width: 0;
+			width: 100%;
+		}
+	}
 	.sticky-nav.is-stuck {
 		border-bottom: 1px solid #E3E3E3;
 		width: 100% !important;
@@ -242,6 +267,10 @@ header.site-header {
 			opacity: 0;
 			visibility: hidden;
 		}
+		.sticky-mobile-ctas {
+			opacity: 0;
+			visibility: hidden;
+		}
 		.menu-item.hide-on-desktop {
 			width: auto;	
 		}
@@ -251,14 +280,17 @@ header.site-header {
 	}
 	#top-bar-menu {
 		.grid-x {
-			min-height: 114px;
+			min-height: 80px;
+			@include breakpoint(medium) {
+				min-height: 114px;
+			}
 		}
 		.top-bar-left {
 			.sticky-logo {
 				position: absolute;
-				top: 0;
-				height: 105px;
-				width: 80px;
+				top: 6px;
+				height: 68px;
+				width: 188px;
 				img {
 					position: absolute;
 					top: 0;
@@ -268,7 +300,9 @@ header.site-header {
 					object-fit: contain;
 				}
 				@include breakpoint(medium) {
-					width: 256.47px;
+					top: 10px;
+					height: 90px;
+					width: 245px;
 				}
 			}
 		}
@@ -277,6 +311,13 @@ header.site-header {
 				gap: 24px;
 				.menu-toggle {
 					margin-left: 24px;
+					@include breakpoint(small down) {
+						width: 46px;
+						height: 46px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
 				}
 			}
 		}

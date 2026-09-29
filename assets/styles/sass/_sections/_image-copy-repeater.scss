@@ -7,6 +7,9 @@
 		padding-bottom: rem-calc(72);
 	}
 	&.type-slider {
+		.icr-row {
+			width: 100%;
+		}
 		.ics-slider {
 			.grid-x {
 				box-sizing: border-box;
@@ -32,7 +35,7 @@
 			position: relative;
 			z-index: 1;
 			display: flex;
-			margin-left: -.75rem;
+			margin-left: -16px;
 			@include breakpoint(tablet) {
 				margin-top: -1.5rem;
 			}

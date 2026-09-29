@@ -1,6 +1,6 @@
 <?php
 /**
- * Template name: Secondary HP: w/ Nav
+ * Template name: Landing Page 2
 
 
  *
@@ -11,6 +11,11 @@
 
 get_header();
 $fields = get_fields();
+$gravity_form = $fields['gravity_form'] ?? null;
+$gravity_form_title = $fields['gravity_form_title'] ?? null;
+$gravity_form_subtitle = $fields['gravity_form_subtitle'] ?? null;
+$gravity_form_text = $fields['gravity_form_text'] ?? null;
+$wywiwygs_50_50 = $fields['wywiwygs_50_50'];
 ?>
 	<div class="content">
 		<div class="inner-content">
@@ -18,20 +23,7 @@ $fields = get_fields();
 			<main id="primary" class="site-main">
 		
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				
-					<?php
-						if( !empty( $fields['parent_page_link'] ) || !empty( $fields['onpage_links'] ) ) {
-							$parent_page_link = $fields['parent_page_link'] ?? null;
-							$onpage_links = $fields['onpage_links'] ?? null;
-							get_template_part('template-parts/section', 'onpage-nav',
-								array(
-									'parent_page_link' => $parent_page_link,
-									'onpage_links' => $onpage_links,
-								),
-							);
-						}
-					?>
-			
+
 					<?php 
 						if( !empty( $fields['cta_video_slider_slides'] ) ) {
 							get_template_part('template-parts/section', 'ctas-video-slider');
@@ -39,41 +31,24 @@ $fields = get_fields();
 					?>
 					
 					<?php 
-						if( !empty( $fields['page_intro_layout'] ) ) {
-							$layout = $fields['page_intro_layout'] ?? null;
-							$bottom_border_style = $fields['bottom_border_style'] ?? null;
-							if( $layout == 'copy-image' ) {
-								$copy_image = $fields['copy_image'] ?? null;
-								$image = $copy_image['image'] ?? null;
-								$copy = $copy_image['copy'] ?? null;
-								$button_link = $copy_image['button_link'] ?? null;
-								get_template_part('template-parts/part', 'image-copy-row',
+						if( !empty( $wywiwygs_50_50 ) ) {
+					
+							$wywiwygs_50_50 = $fields['wywiwygs_50_50'];
+							$intro_button_link = $fields['intro_cta_button'] ?? null;
+							if( !empty($wywiwygs_50_50 ) ) {
+								get_template_part('template-parts/part', 'wywiwygs-50-50', 
 									array(
 										'is_intro' => true,
-										'layout' => 'image-right intro-img',
-										'image' => $image,
-										'copy' => $copy,
-										'bottom_border_style' => $bottom_border_style,
-										'button_link' => $button_link,
-									),
+										'wywiwygs_50_50' => $wywiwygs_50_50,
+										'button_link' => $intro_button_link,
+									) 
 								);
-							}
-							if( $layout == '50-50' ) {
-								$wywiwygs_50_50 = $fields['wywiwygs_50_50'];
-								if( !empty($wywiwygs_50_50 ) ) {
-									get_template_part('template-parts/part', 'wywiwygs-50-50', 
-										array(
-											'is_intro' => true,
-											'wywiwygs_50_50' => $wywiwygs_50_50,
-										) 
-									);
-								}
 							}
 							
 						}
-						if( $bottom_border_style != 'none' ) {
-							echo '<div class="gradient-border"></div>';
-						}
+						
+						echo '<div class="gradient-border"></div>';
+						
 					?>
 					
 					<?php
@@ -113,8 +88,33 @@ $fields = get_fields();
 						}
 					?>
 							
-					<?php get_template_part('template-parts/section', 'cta-centered-heading-two-buttons');?>
-
+					<?php if($gravity_form || $gravity_form_title || $gravity_form_subtitle || $gravity_form_text ):?>
+						<section id="form" class="lp-form">
+							<div class="grid-container">
+								<div class="grid-x grid-padding-x align-center">
+									<div class="cell small-12 large-10 xlarge-8">
+										<?php if($gravity_form_title):?>
+											<h2 class="h1 text-center"><?=wp_kses_post( $gravity_form_title );?></h2>
+										<?php endif;?>
+										<?php if($gravity_form_subtitle):?>
+											<h3 class="text-center"><?=wp_kses_post( $gravity_form_subtitle );?></h3>
+										<?php endif;?>
+										<?php if($gravity_form_text):?>
+											<div class="text-wrap text-center font-size-20"><?=wp_kses_post( $gravity_form_text );?></div>
+										<?php endif;?>
+										<?php if ($gravity_form && $gravity_form !== 'none') :?>
+											<div class="form-wrap">
+												<?php
+												$escaped_gravity_form = acf_esc_html($gravity_form);
+												gravity_form( $escaped_gravity_form, false, false, false, '', true, 12 ); 
+												?>
+											</div>
+										<?php endif;?>
+									</div>
+								</div>
+							</div>
+						</section>
+					<?php endif;?>
 						
 				</article><!-- #post-<?php the_ID(); ?> -->
 		
@@ -122,6 +122,7 @@ $fields = get_fields();
 				
 		</div>
 	</div>
+	<div class="gradient-border"></div>
 
 <?php
 get_footer();

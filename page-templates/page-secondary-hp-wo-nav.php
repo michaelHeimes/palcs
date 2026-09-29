@@ -74,7 +74,11 @@ $stat_images = get_field('stat_images') ?? get_sub_field('stat_images') ?? null;
 											
 					<?php
 						if( !empty( $fields['image_copy_repeater'] ) ) {
-							get_template_part('template-parts/section', 'image-copy-repeater');
+							get_template_part('template-parts/section', 'image-copy-repeater', 
+								array(
+								'is_intro' => true,
+								)
+							);
 						}
 					?>
 					
