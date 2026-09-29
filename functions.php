@@ -302,6 +302,9 @@ require_once(get_template_directory().'/inc/ajax-search.php');
 // Redirects
 require_once(get_template_directory().'/inc/redirects.php');
 
+// Plugin Functions
+require_once(get_template_directory().'/inc/plugin-functions.php');
+
 
 
 
