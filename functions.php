@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.255' );
+	define( '_S_VERSION', '1.0.258' );
 }
 
 /**
@@ -180,22 +180,17 @@ add_action( 'wp_enqueue_scripts', 'trailhead_scripts' );
  * Enqueue Google Fonts.
  */
 function enqueue_google_fonts() {
-	 // Replace 'Open+Sans' and 'Roboto' with the fonts you want to use
 	 $font_families = 'Nunito+Sans:opsz,wght@6..12,600;6..12,700;6..12,800;6..12,900&family=Poppins:wght@400;600;700';
-	 
  
-	 // Enqueue Google Fonts with preload
-	 wp_enqueue_style('google-fonts', "https://fonts.googleapis.com/css?family=$font_families&display=swap", array(), null, 'all');
-	 // Add 'preload' attribute to the enqueued style
-	 wp_style_add_data('google-fonts', 'preload', true);
-	 wp_style_add_data('google-fonts', 'integrity', 'sha256-' . base64_encode(file_get_contents("https://fonts.googleapis.com/css?family=$font_families&display=swap")));
- 
-	 // Optional: Add a stylesheet for custom styles
-	 wp_enqueue_style('custom-style', get_template_directory_uri() . '/style.css', array('google-fonts'), null, 'all');
+	 wp_enqueue_style(
+		 'google-fonts',
+		 "https://fonts.googleapis.com/css?family={$font_families}&display=swap",
+		 array(),
+		 null
+	 );
  }
  
- // Hook the function to the 'wp_enqueue_scripts' action
- add_action('wp_enqueue_scripts', 'enqueue_google_fonts');
+ add_action( 'wp_enqueue_scripts', 'enqueue_google_fonts' );
 
 
 // Disable Tabelpress Stylesheet

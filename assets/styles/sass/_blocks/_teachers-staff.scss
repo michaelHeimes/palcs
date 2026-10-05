@@ -1,0 +1,29 @@
+.teachers-staff-block {
+	@include breakpoint(medium down) {
+		.content-width {
+			max-width: 600px;
+		}
+	}
+	&.five-col {
+		@include breakpoint(small down) {
+			.content-width {
+				max-width: 500px;
+			}
+		}
+		.teacher-card {
+			margin-bottom: 23px;
+			.circle-thumb-wrap {
+				border-width: 4px;
+			}
+		}
+		h3.h6 {
+			font-size: clamp(1rem, 0.945rem + 0.237vw, 1.125rem);
+			line-height: 1;
+		}
+		p.h4 {
+			font-size: clamp(0.938rem, 0.91rem + 0.118vw, 1rem) !important;
+			line-height: 1.125 !important;
+			margin-bottom: 0 !important;
+		}
+	}
+}

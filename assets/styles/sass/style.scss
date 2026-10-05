@@ -118,6 +118,8 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 @import "_blocks/videos";
 @import "_blocks/info-stats";
 @import "_blocks/collapsed-form";
+@import "_blocks/teachers-staff";
+
 
 @import "_templates/default";
 @import "_templates/home";

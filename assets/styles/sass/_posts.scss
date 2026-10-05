@@ -280,7 +280,8 @@
 	border: 6px solid $color-blue;
 	margin-bottom: 0.95rem;
 	position: relative;
-	padding-bottom: calc(100% - 12px);
+	padding-bottom: 100%;
+	aspect-ratio: 1/1;
 	transition: border-color .25s ease;
 	img {
 		position: absolute;
