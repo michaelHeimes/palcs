@@ -300,6 +300,9 @@ require_once(get_template_directory().'/inc/redirects.php');
 // Plugin Functions
 require_once(get_template_directory().'/inc/plugin-functions.php');
 
+// Vimeo Oembed
+require_once(get_template_directory().'/inc/vimeo-oembed.php');
+
 
 
 
