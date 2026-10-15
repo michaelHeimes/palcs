@@ -20,7 +20,10 @@ body .gform-theme.gform-theme--framework.gform_wrapper input:is([type=submit],[t
 button,
 .button:not(.input-wrap) {
 	cursor: pointer;
-	&:not(.no-style) {
+	// The privacy/accessibility pill (pmi-iubenda-widget) and iubenda's policy
+	// popup (#iubenda-pp) style their own buttons.
+	// :where() keeps this rule's specificity unchanged.
+	&:not(.no-style):not(:where(.pmi-iub-widget__btn, #iubenda-pp button)) {
 		height: auto;
 		text-transform: uppercase;
 		@extend .font-size-20;

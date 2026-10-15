@@ -178,3 +178,40 @@ footer#colophon {
 	}
 	
 }
+// Privacy/accessibility pill (pmi-iubenda-widget). .site-info is the last thing on
+// the page; its bottom padding clears the fixed pill and the reCAPTCHA badge so they
+// sit below the text at full scroll instead of on it. --pmi-iub-reserve is set on
+// <html> by the plugin while either is showing. Same selector as the bar's own
+// padding above, so this one wins.
+footer#colophon .site-info {
+	padding-bottom: var(--pmi-iub-reserve, 0px);
+}
+
+// iubenda's US widget ("Notice at collection" / "Your Privacy Choices") is hidden;
+// the pill's lock opens the same preferences. iubenda's script appends it to
+// <body> at runtime, so CSS is the only hook.
+.iub__us-widget {
+	display: none !important;
+}
+
+// Foundation's [type='button'] { border-radius: 0 } ties the pill's own button
+// rule and loads later, squaring the white buttons under the rounded outline. The
+// plugin's inner-corner rules are more specific still, so they keep the inner
+// corners square.
+.pmi-iub-widget .pmi-iub-widget__btn {
+	border-radius: var(--pmi-iub-radius);
+}
+
+// The pill follows the footer's content rail: half the 1870px fluid container's
+// spare width, plus the cell gutter (16px small, 25px medium up). From large up
+// that is the left edge of the ©; below, where the copyright is centered, it's the
+// gutter the footer content starts at. % resolves against the viewport for the
+// fixed pill. !important beats the AccessiYes offsets the plugin sets inline.
+.pmi-iub-widget {
+	--palcs-rail: calc(max(0px, (100% - #{rem-calc(1870)}) / 2) + 16px);
+	--pmi-iub-x: var(--palcs-rail) !important;
+	--pmi-iub-x-mobile: var(--palcs-rail) !important;
+	@include breakpoint(medium) {
+		--palcs-rail: calc(max(0px, (100% - #{rem-calc(1870)}) / 2) + 25px);
+	}
+}

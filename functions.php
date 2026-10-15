@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.258' );
+	define( '_S_VERSION', '1.0.259' );
 }
 
 /**
@@ -303,7 +303,8 @@ require_once(get_template_directory().'/inc/plugin-functions.php');
 // Vimeo Oembed
 require_once(get_template_directory().'/inc/vimeo-oembed.php');
 
-
+// iubenda Cookie Solution + privacy pill
+require_once(get_template_directory().'/inc/iubenda.php');
 
 
 /** Add ADA to swiper slider **/
