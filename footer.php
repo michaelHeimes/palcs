@@ -129,20 +129,35 @@ $footer_subfooter_links = get_field('footer_subfooter_links', 'option') ?? null;
 												$link        = $footer_subfooter_link['link'];
 												$link_url    = $link['url'];
 												$link_title  = $link['title'] ?? '';
-												$link_target = !empty($link['target']) ? $link['target'] : '_self'; 
-												
+												$link_target = !empty($link['target']) ? $link['target'] : '_self';
+
 												$current_index++;
+
+												// The site's Privacy Policy link opens iubenda's policy in its popup instead.
+												$is_iubenda_privacy = PALCS_IUBENDA_POLICY_ID && get_privacy_policy_url() && untrailingslashit( $link_url ) === untrailingslashit( get_privacy_policy_url() );
 												?>
 												<span>
-													<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+													<?php if ( $is_iubenda_privacy ) : ?>
+														<a href="<?php echo esc_url( 'https://www.iubenda.com/privacy-policy/' . PALCS_IUBENDA_POLICY_ID ); ?>" class="iubenda-nostyle iubenda-noiframe iubenda-embed" title="<?php echo esc_attr( $link_title ); ?>"><?php echo esc_html( $link_title ); ?></a>
+													<?php else : ?>
+														<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
 														<?php echo esc_html( $link_title ); ?>
 													</a>
+													<?php endif; ?>
 												</span>
 												
 												<?php if ( $total_links > 1 && $current_index < $total_links ): ?>
 													<span class="separator">&nbsp;|</span>
 												<?php endif; ?>
 											<?php endforeach; ?>
+										<?php endif; ?>
+
+										<?php // iubenda's Cookie Policy, opened in its popup (see palcs_iubenda_embed()). ?>
+										<?php if ( PALCS_IUBENDA_POLICY_ID ) : ?>
+											<?php if ( ! empty( $footer_subfooter_links ) ) : ?><span class="separator">&nbsp;|</span><?php endif; ?>
+											<span>
+												<a href="<?php echo esc_url( 'https://www.iubenda.com/privacy-policy/' . PALCS_IUBENDA_POLICY_ID . '/cookie-policy' ); ?>" class="iubenda-nostyle iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie Policy</a>
+											</span>
 										<?php endif; ?>
 
 									</div>

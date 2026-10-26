@@ -1,4 +1,5 @@
-.copy-select-dropdown-links {
+.copy-select-dropdown-links,
+.copy-collapsed-form {
 	padding-bottom: 2.3rem;
 	@include breakpoint(medium) {
 		padding-bottom: rem-calc(90);

@@ -10,6 +10,15 @@ ol {
 	color: $black;
 	font-weight: 400;
 	@extend .font-size-20;
+	&.has-small-font-size {
+		
+	}
+	&.mt-0 {
+		margin-top: 0 !important;
+	}
+	&.mb-0 {
+		margin-bottom: 0 !important;
+	}
 }
 
 .entry-content {
@@ -27,6 +36,9 @@ ol {
 		li:not(.accordion-item):not(.tabs-title):not(.menu-item) {
 			margin-bottom: 0.75rem;
 		}
+	}
+	em {
+		text-decoration: underline;
 	}
 }
 
@@ -55,6 +67,12 @@ h6,
 	color: $color-blue;
 	&.white-color {
 		color: $white;
+	}
+	&.mt-0 {
+		margin-top: 0 !important;
+	}
+	&.mb-0 {
+		margin-bottom: 0 !important;
 	}
 }
 

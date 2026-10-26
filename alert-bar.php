@@ -2,7 +2,7 @@
 $alert_bar_active = get_field('alert_bar_active', 'option');
 $alert_bar = get_field('alert_bar', 'option', false);
 if ($alert_bar_active) {
-	echo '<div class="alert-bar"><div class="alert-bar-text">' . $alert_bar . ' </div></div>';
+	echo '<div class="alert-bar" role="region" aria-label="Important announcement"><div class="alert-bar-text">' . $alert_bar . ' </div></div>';
 ?>
 <style>
 .alert-bar {

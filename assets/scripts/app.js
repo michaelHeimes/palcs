@@ -748,77 +748,109 @@
         });
     }
    
-    _app.collapsedFormBlock = function() { 
-        const formBlocks = document.querySelectorAll('.collapsed-form-block'); 
-        
-        formBlocks.forEach((block, index) => { 
-            const wrap = block.querySelector('.form-wrap'); 
-            const expandBtn = block.querySelector('.form-expand-btn'); 
-            
-            if (!wrap) return; 
-            
-            const fields = wrap.querySelectorAll('.gfield'); 
-            if (fields.length <= 2) return; 
-            
+   _app.collapsedFormBlock = function() {
+        const formBlocks = document.querySelectorAll('.collapsed-form');
+        const visibleFields = 3;
+    
+        formBlocks.forEach(block => {
+            const wrap = block.querySelector('.form-wrap');
+            const expandBtn = block.querySelector('.form-expand-btn');
+    
+            if (!wrap) return;
+    
+            const fields = [...wrap.querySelectorAll('.gfield')].filter(field => {
+                return !field.classList.contains('gfield--type-honeypot') &&
+                       !field.classList.contains('gfield--type-hidden') &&
+                       !field.classList.contains('gform_hidden') &&
+                       getComputedStyle(field).display !== 'none';
+            });
+    
+            if (fields.length <= visibleFields) {
+                block.style.visibility = 'visible';
+                return;
+            }
+    
+            let isExpanded = false;
+    
+            const getCollapsedHeight = () => {
+                const wrapRect = wrap.getBoundingClientRect();
+    
+                const visibleFieldRects = fields
+                    .slice(0, visibleFields)
+                    .map(field => field.getBoundingClientRect());
+    
+                const bottom = Math.max(
+                    ...visibleFieldRects.map(rect => rect.bottom)
+                );
+    
+                return Math.ceil(bottom - wrapRect.top + wrap.scrollTop + 2);
+            };
+    
+            const setCollapsedHeight = () => {
+                if (isExpanded) return;
+    
+                const height = getCollapsedHeight();
+    
+                wrap.style.maxHeight = `${height}px`;
+                wrap.dataset.collapsedHeight = `${height}px`;
+            };
+    
             if (expandBtn) {
                 expandBtn.setAttribute('aria-expanded', 'false');
             }
-        
-            // Dynamically calculate the combined height of the first two fields 
-            const firstField = fields[0]; 
-            const secondField = fields[1]; 
-            const secondFieldBottom = secondField.offsetTop + secondField.offsetHeight; 
-            const firstFieldTop = firstField.offsetTop; 
-            const collapsedHeight = secondFieldBottom - firstFieldTop + 8; 
-            
-            wrap.style.maxHeight = `${collapsedHeight}px`; 
-            wrap.dataset.collapsedHeight = `${collapsedHeight}px`; 
-            block.style.visibility = 'visible'; 
-        
-            // Reusable helper function to expand the form safely
+    
+            setCollapsedHeight();
+    
+            block.style.visibility = 'visible';
+    
             const expandForm = (triggeredByClick = false) => {
-            const isCollapsed = wrap.style.maxHeight === wrap.dataset.collapsedHeight;
-            if (isCollapsed) { 
-                wrap.style.maxHeight = `${wrap.scrollHeight}px`; 
-                block.classList.add('is-expanded'); 
-                
+                if (isExpanded) return;
+    
+                isExpanded = true;
+    
+                wrap.style.maxHeight = `${wrap.scrollHeight}px`;
+                block.classList.add('is-expanded');
+    
                 if (expandBtn) {
-                    expandBtn.setAttribute('aria-expanded', 'true');                    
-                    expandBtn.classList.add('show-for-sr'); 
-                    expandBtn.setAttribute('tabindex', '-1'); 
+                    expandBtn.setAttribute('aria-expanded', 'true');
+                    expandBtn.classList.add('show-for-sr');
+                    expandBtn.setAttribute('tabindex', '-1');
                 }
-                
-                // If clicked, shift focus to the first newly revealed field
-                // so the keyboard user isn't stranded at the bottom of the page.
-                if (triggeredByClick && fields[2]) {
-                const inputs = fields[2].querySelectorAll('input, select, textarea, button');
-                if (inputs.length > 0) {
-                    inputs[0].focus();
-                } else {
-                    // Fallback: focus the field container itself
-                    fields[2].setAttribute('tabindex', '-1');
-                    fields[2].focus();
+    
+                if (triggeredByClick && fields[visibleFields]) {
+                    const input = fields[visibleFields].querySelector(
+                        'input, select, textarea, button'
+                    );
+    
+                    if (input) {
+                        input.focus({ preventScroll: true });
+                    } else {
+                        fields[visibleFields].setAttribute('tabindex', '-1');
+                        fields[visibleFields].focus({ preventScroll: true });
+                    }
                 }
-                }
-                
-                setTimeout(() => { 
-                wrap.style.maxHeight = 'none'; 
-                }, 400); 
-            }
+    
+                setTimeout(() => {
+                    if (isExpanded) {
+                        wrap.style.maxHeight = 'none';
+                    }
+                }, 400);
             };
-            
-            if (expandBtn) { 
-            expandBtn.addEventListener('click', (e) => { 
-                e.preventDefault(); 
-                expandForm(true); // Pass true to shift focus
-            }); 
-            } 
-        
+    
+            if (expandBtn) {
+                expandBtn.addEventListener('click', e => {
+                    e.preventDefault();
+                    expandForm(true);
+                });
+            }
+    
             wrap.addEventListener('focusin', () => {
-            expandForm(false); // Focus shifted naturally via user tab, don't force it
+                expandForm(false);
             });
-        }); 
-        };
+    
+            window.addEventListener('resize', setCollapsedHeight);
+        });
+    };
 
 
                 

@@ -1,0 +1,11 @@
+.page-template-page-landing-page-3 {
+	.copy-collapsed-form {
+		padding-bottom: 2.3rem;
+		@include breakpoint(medium) {
+			padding-bottom: rem-calc(70);
+		}
+		>.grid-container>.grid-x.inner {
+			padding-bottom: 2rem;
+		}
+	}
+}
