@@ -5,7 +5,12 @@
 			padding-bottom: rem-calc(70);
 		}
 		>.grid-container>.grid-x.inner {
-			padding-bottom: 2rem;
+			@include breakpoint(tablet) {
+				padding-bottom: 2rem;
+			}
 		}
+	}
+	.entry-content {
+		background-color: #F7F7F7;
 	}
 }

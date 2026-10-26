@@ -32,7 +32,7 @@ $faq = get_field('faq') ?? null;
 					
 					
 					<?php if( !empty($faq) && is_array($faq) ):?>
-						<section class="faq-section module block accordion-block">
+						<section class="faq-section module block accordion-block ">
 							<div class="grid-container">
 								<div class="inner grid-x grid-padding-x align-middle align-center">
 									<div class="cell small-12 large-10 xlarge-8">
@@ -57,6 +57,7 @@ $faq = get_field('faq') ?? null;
 								</div>
 							</div>
 						</section>
+						<div class="gradient-border"></div>
 					<?php endif;?>
 					
 					<section class="entry-content">
