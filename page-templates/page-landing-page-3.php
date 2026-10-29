@@ -10,6 +10,7 @@
 get_header();
 $hidden_h1 = get_field('hidden_h1') ?? null;
 $faq = get_field('faq') ?? null;
+$faq_heading = get_field('faq_heading') ?? null;
 ?>
 <div class="content">
 	<div class="inner-content">
@@ -36,6 +37,11 @@ $faq = get_field('faq') ?? null;
 							<div class="grid-container">
 								<div class="inner grid-x grid-padding-x align-middle align-center">
 									<div class="cell small-12 large-10 xlarge-8">
+										<?php if($faq_heading):?>
+											<h2 class="text-center">
+												<?=wp_kses_post( $faq_heading );?>
+											</h2>
+										<?php endif;?>
 										<ul class="accordion" data-accordion="kzmhsl-accordion" data-allow-all-closed="true" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge-delay="500" data-deep-link-smudge-offset="50">
 											
 											<?php $i = 1; foreach( $faq as $accordion ):
